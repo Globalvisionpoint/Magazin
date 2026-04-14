@@ -80,7 +80,7 @@ predictive-search.search-modal__form {
 }
 @media only screen and (max-width: 991px) {
   .header__inner {
-    min-height: 6rem;
+    min-height: 7rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
@@ -93,10 +93,13 @@ predictive-search.search-modal__form {
   .header__inner > .header__logo {
     grid-column: 2;
     justify-self: center;
+    align-self: center;
     position: static;
     transform: none;
     text-align: center;
     margin: 0;
+    display: flex;
+    align-items: center;
     z-index: 1;
   }
   .header__inner > .header__actions {
@@ -126,7 +129,7 @@ predictive-search.search-modal__form {
   }
   .header__inner .header__logo .h2 {
     margin: 0;
-    line-height: 1.1;
+    line-height: 1;
   }
   .header__actions {
     display: flex;
