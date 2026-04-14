@@ -95,11 +95,11 @@ predictive-search.search-modal__form {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 2px;
+    gap: 0;
   }
   .header__inner > .header__actions .header__actions_btn {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
