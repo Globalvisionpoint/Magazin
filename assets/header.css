@@ -82,7 +82,7 @@ predictive-search.search-modal__form {
   .header__inner {
     min-height: 7rem;
     display: grid;
-    grid-template-columns: 120px minmax(0, 1fr) 120px;
+    grid-template-columns: 112px minmax(0, 1fr) 112px;
     align-items: center;
     column-gap: 6px;
     padding: 0 10px;
@@ -90,7 +90,7 @@ predictive-search.search-modal__form {
   .header__inner > .col-auto.d-none.d-md-only-block {
     grid-column: 1;
     justify-self: start;
-    width: 120px;
+    width: 112px;
   }
   .header__inner > .header__logo {
     grid-column: 2;
@@ -107,7 +107,7 @@ predictive-search.search-modal__form {
   .header__inner > .header__actions {
     grid-column: 3;
     justify-self: end;
-    width: 120px;
+    width: 112px;
   }
   .mobile__menu_actions {
     display: flex;
@@ -124,6 +124,16 @@ predictive-search.search-modal__form {
     align-items: center;
     justify-content: center;
     padding: 0;
+  }
+  .mobile__menu_actions .mobile__menu_bar .icon-hamburger,
+  .header__actions .header__actions_btn svg,
+  .mobile__menu_actions .header__actions_btn svg {
+    width: 22px;
+    height: 22px;
+  }
+  .mobile__menu_actions .header__actions_btn--compare svg {
+    width: 20px;
+    height: 20px;
   }
   .mobile__menu_actions .header__actions_btn--compare {
     margin-left: 0;
