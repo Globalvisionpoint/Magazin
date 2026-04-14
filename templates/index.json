@@ -21,7 +21,7 @@
         "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/4_ce7a54ec-3abd-4faa-bb87-9b78bd069035.png",
+            "image": "shopify://shop_images/4_ssssssssss.png",
             "image2": "shopify://shop_images/4_ce7a54ec-3abd-4faa-bb87-9b78bd069035.png",
             "heading": "Tablete Android",
             "heading_size": "h2",
@@ -43,7 +43,7 @@
         "535d5fb0-da91-4126-8767-efc8d3407eac": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/principala_albastru_si_roz_58262e13-cf55-42b9-99b4-4279972fbaad.jpg",
+            "image": "shopify://shop_images/principala_albastru_si_roz_asasa.jpg",
             "image2": "shopify://shop_images/principala_albastru_si_roz_58262e13-cf55-42b9-99b4-4279972fbaad.jpg",
             "heading": "Tablete Pentru Copii",
             "heading_size": "h2",
@@ -57,7 +57,7 @@
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "inverse",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
             "color_scheme_2": ""
           }
@@ -87,8 +87,8 @@
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/UpscaleImage_12_20240307_193d58ca-a5ee-4a6a-beeb-941595d9cb34.png",
-            "image2": "shopify://shop_images/UpscaleImage_12_20240307_193d58ca-a5ee-4a6a-beeb-941595d9cb34.png",
+            "image": "shopify://shop_images/cams22_3897603e-f963-46a8-8512-f7812936ccba.jpg",
+            "image2": "shopify://shop_images/cams22_3897603e-f963-46a8-8512-f7812936ccba.jpg",
             "heading": "Camere Auto",
             "heading_size": "h2",
             "subheading": "",
@@ -101,9 +101,9 @@
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "accent-1",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
-            "color_scheme_2": "background-2"
+            "color_scheme_2": "background-1"
           }
         }
       },
