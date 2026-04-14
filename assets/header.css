@@ -63,11 +63,6 @@ button.header__menu_item {
   transition: all 0.3s ease 0.3s;
   opacity: 1;
 }
-@media only screen and (max-width: 479px) {
-  .header__actions_btn--wishlist {
-    display: none;
-  }
-}
 predictive-search.search-modal__form {
   width: 100%;
 }
