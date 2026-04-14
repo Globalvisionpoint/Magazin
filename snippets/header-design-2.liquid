@@ -6,6 +6,15 @@
 </div>
 <!-- Mobile Menu Bar end -->
 
+{%- if compare_icon -%}
+  <div class="col-auto d-none d-md-only-block">
+    <a href="/pages/compare" class="header__actions_btn header__actions_btn--wishlist" aria-label="Compare">
+      {% render 'compare-icon' %}
+      <span class="header__actions_btn_cart_num compare__count"></span>
+    </a>
+  </div>
+{%- endif -%}
+
 <!-- Header Menu Start -->
 <nav class="header__menu justify-content-start  col-lg-5 d-md-none">
   {%- render 'menu-nav', container: container -%}
@@ -56,13 +65,6 @@
           endif
         -%}
       </span>
-    </a>
-  {%- endif -%}
-
-  {%- if compare_icon -%}
-    <a href="/pages/compare" class="header__actions_btn header__actions_btn--wishlist d-md-none">
-      {% render 'compare-icon' %}
-      <span class="header__actions_btn_cart_num compare__count"></span>
     </a>
   {%- endif -%}
 
