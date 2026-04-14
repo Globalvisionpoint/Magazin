@@ -18,7 +18,6 @@
           "type": "logo",
           "disabled": true,
           "settings": {
-            "logo": "shopify://shop_images/Screenshot_2025-04-01_111637.png",
             "url": ""
           }
         }
@@ -68,7 +67,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Suport clienți",
-            "menu": "informatii"
+            "menu": ""
           }
         },
         "6c12f5ad-1f2b-4d5d-a59e-5931a27ed7cc": {
@@ -82,7 +81,6 @@
           "type": "image",
           "settings": {
             "heading": "ANPC",
-            "image": "shopify://shop_images/anpc.jpg",
             "image_width": 550,
             "link": "https://anpc.ro/ce-este-sal/"
           }
@@ -91,7 +89,6 @@
           "type": "image",
           "settings": {
             "heading": "ANPC SOL",
-            "image": "shopify://shop_images/anpc.jpg",
             "image_width": 550,
             "link": "https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO"
           }
@@ -164,6 +161,7 @@
         "e2d2845d-c7e8-466a-a4d2-12c7d718d200",
         "42c37f7b-e2ef-4572-83af-fdd674fd9866"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "color_scheme": "background-1"
@@ -174,7 +172,6 @@
       "blocks": {
         "6bff7e32-a1c3-40e7-b7b0-b6f2828a5441": {
           "type": "heading",
-          "disabled": true,
           "settings": {
             "heading": "Anunț",
             "heading_size": "h4"
@@ -182,14 +179,12 @@
         },
         "f8c0bbcb-d708-4cc1-ab84-cd1caa700308": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "richtext": "<p>Luni, 24 iunie, este zi nelucrătoare. </p><p>Toate comenzile vor fi predate curierului în prima zi lucrătoare, marți, 25 iunie.</p>"
           }
         },
         "77395d1d-95ba-4bd1-af42-79086a37cfed": {
           "type": "email_form",
-          "disabled": true,
           "settings": {
             "richtext": "<p>*By submitting this form, you agree to receive our emails and may unsubscribe at any time.</p>",
             "button_full": false
