@@ -527,19 +527,29 @@
                       padding-left: 0;
                     }
                     .header__actions {
-                      gap: 1px !important;
+                      gap: 0 !important;
                     }
                     .header__actions .header__actions_btn {
-                      width: 32px !important;
-                      height: 32px !important;
+                      width: 28px !important;
+                      height: 28px !important;
                       padding: 0 !important;
                       margin: 0 !important;
                     }
+                    .header__actions .header__actions_btn + .header__actions_btn {
+                      margin-left: 0 !important;
+                    }
                     .header__actions .header__actions_btn svg {
-                      width: 20px !important;
+                      width: 17px !important;
                     }
                     .header__actions .header__actions_btn--cart > svg {
-                      width: 20px !important;
+                      width: 17px !important;
+                    }
+                    .header__actions .header__actions_btn_cart_num {
+                      width: 14px !important;
+                      height: 14px !important;
+                      font-size: 9px !important;
+                      top: 0 !important;
+                      right: 0 !important;
                     }
                   }
                   @media only screen and (max-width: 600px){
