@@ -77,6 +77,20 @@ predictive-search.search-modal__form {
   .header__inner {
     min-height: 6rem;
   }
+  .header__inner > .col-auto.d-none.d-md-only-block {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar,
+  .header__inner > .col-auto.d-none.d-md-only-block .header__actions_btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
 }
 
 .suport__contact > svg {

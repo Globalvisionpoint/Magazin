@@ -25,6 +25,10 @@
   <div class="mobile__menu_bar header__actions_btn--menu">
     {% render 'icon-hamburger' %}
   </div>
+  <a href="/pages/compare" class="header__actions_btn header__actions_btn--compare mobile__menu_bar">
+    {% render 'compare-icon' %}
+    <span class="header__actions_btn_cart_num compare__count"></span>
+  </a>
 </div>
 <!-- Mobile Menu Bar end -->
 <div class="col-md-4 d-md-none">
@@ -206,11 +210,6 @@
       </span>
     </a>
   {%- endif -%}
-
-  <a href="/pages/compare" class="header__actions_btn header__actions_btn--compare">
-    {% render 'compare-icon' %}
-    <span class="header__actions_btn_cart_num compare__count"></span>
-  </a>
 
   <a href="/pages/wishlist" class="header__actions_btn header__actions_btn--favorite">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
