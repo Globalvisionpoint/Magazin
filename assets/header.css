@@ -81,6 +81,38 @@ predictive-search.search-modal__form {
 @media only screen and (max-width: 991px) {
   .header__inner {
     min-height: 6rem;
+    position: relative;
+  }
+  .mobile__menu_actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .mobile__menu_actions .header__actions_btn {
+    padding: 8px 4px;
+  }
+  .mobile__menu_actions .header__actions_btn--compare {
+    margin-left: -2px;
+  }
+  .header__inner .header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+    margin: 0;
+  }
+  .header__inner .header__heading {
+    margin: 0;
+  }
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .header__actions .header__actions_btn--favorite,
+  .header__actions .header__actions_btn--compare {
+    display: flex;
   }
 }
 
