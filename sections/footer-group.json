@@ -161,6 +161,7 @@
         "e2d2845d-c7e8-466a-a4d2-12c7d718d200",
         "42c37f7b-e2ef-4572-83af-fdd674fd9866"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "color_scheme": "background-1"
