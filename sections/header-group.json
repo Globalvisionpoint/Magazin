@@ -205,7 +205,6 @@
         },
         "da0cec0b-826f-4fa4-9272-ea031635cf20": {
           "type": "category_menu",
-          "disabled": true,
           "settings": {
             "cat_menu_name": "Smartwatch",
             "cat_menu_url": "shopify://collections/all",
@@ -303,7 +302,7 @@
         "wishlist_button": true,
         "compare_button": false,
         "search_type": "search_box",
-        "vertical_menu": false,
+        "vertical_menu": true,
         "vertical_button_label": "",
         "menu_toggle_button_label": "",
         "menu_toggle_button_label_2": "",
