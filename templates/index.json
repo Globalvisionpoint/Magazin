@@ -43,6 +43,8 @@
         "535d5fb0-da91-4126-8767-efc8d3407eac": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
+            "image2": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
             "heading": "Auto-Moto",
             "heading_size": "h2",
             "subheading": "",
@@ -55,7 +57,7 @@
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "inverse",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
             "color_scheme_2": ""
           }
