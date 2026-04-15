@@ -117,6 +117,26 @@
             "color_scheme_enable": true,
             "color_scheme_2": "background-2"
           }
+        },
+        "slide_mCcgVT": {
+          "type": "slide",
+          "settings": {
+            "heading": "Jucarii",
+            "heading_size": "h2",
+            "subheading": "",
+            "subheading_color": "color-foreground-accent-1",
+            "text": "<p>Siguranță și înregistrare de încredere pentru fiecare drum.</p>",
+            "content_alignment": "start",
+            "button_label": "Cumpără Acum!",
+            "button_icon": true,
+            "button_link": "shopify://collections/camere-auto",
+            "enble_entire_link": false,
+            "button_type": "primary",
+            "button_size": "small",
+            "color_scheme": "accent-1",
+            "color_scheme_enable": true,
+            "color_scheme_2": "background-2"
+          }
         }
       },
       "block_order": [
@@ -124,7 +144,8 @@
         "535d5fb0-da91-4126-8767-efc8d3407eac",
         "slide_Ekkikg",
         "9f55674d-a34d-4e43-beaa-bafce50d02e0",
-        "slide_TdwFd8"
+        "slide_TdwFd8",
+        "slide_mCcgVT"
       ],
       "settings": {
         "container": "container-fluid",
