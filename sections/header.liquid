@@ -527,7 +527,7 @@
                       padding-left: 0;
                     }
                     .header__actions {
-                      gap: 0 !important;
+                      gap: 1px !important;
                     }
                     .header__actions .header__actions_btn {
                       width: 30px !important;
@@ -538,20 +538,15 @@
                     .header__actions .header__actions_btn + .header__actions_btn {
                       margin-left: 0 !important;
                     }
-                    .header__actions .header__actions_btn--favorite {
-                      transform: translateX(-2px);
-                    }
                     .header__actions .header__actions_btn svg {
                       width: 22px !important;
                     }
                     .header__actions .header__actions_btn--cart > svg {
-                      width: 27px !important;
-                      height: 27px !important;
-                      transform: none !important;
+                      width: 22px !important;
+                      height: 22px !important;
                     }
                     .header__actions .header__actions_btn--cart {
-                      margin-top: 0 !important;
-                      transform: translateY(2px) !important;
+                      transform: none !important;
                     }
                     .header__actions .header__actions_btn_cart_num {
                       width: 16px !important;
@@ -823,26 +818,6 @@
 <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'mega-menu-slider.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'header-category-menu.js' | asset_url }}" defer="defer"></script>
-<script>
-  (function () {
-    function placeCompareNextToMenu() {
-      document.querySelectorAll('.header__inner').forEach(function (headerInner) {
-        var leftGroup = headerInner.querySelector('.col-auto.d-none.d-md-only-block');
-        var menuButton = leftGroup && leftGroup.querySelector('.header__actions_btn--menu');
-        var compareButton = headerInner.querySelector('.header__actions_btn--compare');
-
-        if (!leftGroup || !menuButton || !compareButton || leftGroup.contains(compareButton)) {
-          return;
-        }
-
-        leftGroup.appendChild(compareButton);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', placeCompareNextToMenu);
-    document.addEventListener('shopify:section:load', placeCompareNextToMenu);
-  })();
-</script>
 
 {%- unless template contains 'cart' -%}
   <script src="{{ 'cart_drawer_action.js' | asset_url }}" defer></script>
