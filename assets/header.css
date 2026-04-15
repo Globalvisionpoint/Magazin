@@ -78,9 +78,9 @@ predictive-search.search-modal__form {
     min-height: 6rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
-    padding: 0 6px;
+    padding: 0;
   }
   .header__inner > .header__logo {
     position: absolute;
@@ -96,12 +96,20 @@ predictive-search.search-modal__form {
     justify-content: center;
     max-width: calc(100vw - 250px);
   }
+  .header__inner > .header__logo .header__heading,
+  .header__inner > .header__logo .h2 {
+    margin: 0;
+    line-height: 1;
+  }
   .header__inner > .col-auto.d-none.d-md-only-block {
     display: flex;
     align-items: center;
     gap: 0;
-    min-width: 58px;
-    margin-left: 0;
+    min-width: 64px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
   }
   .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar,
@@ -114,8 +122,8 @@ predictive-search.search-modal__form {
     padding: 0;
   }
   .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar.header__actions_btn--menu {
-    width: 58px;
-    height: 46px;
+    width: 64px;
+    height: 52px;
     border-radius: 0;
     background: rgba(var(--color-base-accent-1));
     color: rgba(var(--color-base-solid-button-labels));
@@ -123,15 +131,16 @@ predictive-search.search-modal__form {
     gap: 1px;
   }
   .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar.header__actions_btn--menu .icon-hamburger {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     color: rgba(var(--color-base-solid-button-labels));
   }
   .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar_label {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
+    margin-top: 2px;
     color: rgba(var(--color-base-solid-button-labels));
   }
   .header__inner > .header__actions {
@@ -140,7 +149,11 @@ predictive-search.search-modal__form {
     justify-content: flex-end;
     gap: 1px;
     min-width: 124px;
-    margin-left: auto;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
     z-index: 2;
   }
   .header__inner > .header__actions .header__actions_btn {
