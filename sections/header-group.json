@@ -303,7 +303,7 @@
         "wishlist_button": false,
         "compare_button": false,
         "search_type": "search_box",
-        "vertical_menu": true,
+        "vertical_menu": false,
         "vertical_button_label": "",
         "menu_toggle_button_label": "",
         "menu_toggle_button_label_2": "",
