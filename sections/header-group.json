@@ -299,7 +299,7 @@
         "transparent_text_color": "#121212",
         "account_button": true,
         "cart_drawer_button": true,
-        "cart_icon_type": "cart",
+        "cart_icon_type": "bag",
         "wishlist_button": true,
         "compare_button": false,
         "search_type": "search_box",
