@@ -91,6 +91,25 @@ predictive-search.search-modal__form {
     justify-content: center;
     padding: 0;
   }
+  .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar.header__actions_btn--menu {
+    width: 58px;
+    height: 46px;
+    border-radius: 6px;
+    background: rgba(var(--color-base-accent-1));
+    color: rgba(var(--color-base-solid-button-labels));
+    flex-direction: column;
+    gap: 1px;
+  }
+  .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar.header__actions_btn--menu .icon-hamburger {
+    width: 16px;
+    height: 16px;
+  }
+  .header__inner > .col-auto.d-none.d-md-only-block .mobile__menu_bar_label {
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
   .header__inner > .header__actions {
     display: flex;
     align-items: center;
