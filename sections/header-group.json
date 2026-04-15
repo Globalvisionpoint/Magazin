@@ -299,7 +299,7 @@
         "account_button": true,
         "cart_drawer_button": true,
         "cart_icon_type": "bag",
-        "wishlist_button": true,
+        "wishlist_button": false,
         "compare_button": false,
         "search_type": "search_box",
         "vertical_menu": true,
