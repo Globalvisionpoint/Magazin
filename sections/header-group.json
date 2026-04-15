@@ -297,6 +297,7 @@
         "transparent_color_foreground": "#121212",
         "transparent_color_background": "#ffffff",
         "transparent_text_color": "#121212",
+        "logo_3": "shopify://shop_images/Produse-chinadepot-144x144.webp",
         "account_button": true,
         "cart_drawer_button": true,
         "cart_icon_type": "bag",
