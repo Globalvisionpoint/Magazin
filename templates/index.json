@@ -86,6 +86,7 @@
         },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "heading": "Decoratiuni",
             "heading_size": "h2",
@@ -106,6 +107,7 @@
         },
         "slide_TdwFd8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "heading": "Gradina",
             "heading_size": "h2",
@@ -126,6 +128,7 @@
         },
         "slide_mCcgVT": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "heading": "Jucarii",
             "heading_size": "h2",
