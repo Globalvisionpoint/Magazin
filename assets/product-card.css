@@ -36,20 +36,24 @@
 
 .product-recommendations .product__card__badges .badge {
   position: absolute;
-  top: 0.9rem;
-  left: -2.2rem;
-  min-width: 8.2rem;
+  top: 1rem;
+  left: -1.9rem;
+  width: 7.8rem;
+  min-width: 7.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 0;
-  padding: 0.45rem 1.3rem 0.45rem;
-  font-size: 1.2rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 1.1rem;
   font-weight: 800;
   line-height: 1;
+  letter-spacing: 0;
   box-shadow: 0 8px 18px rgba(226, 28, 35, 0.22);
   transform: rotate(-45deg);
+  transform-origin: center;
   clip-path: none;
+  white-space: nowrap;
 }
 
 .product-recommendations .product__card__badges .badge::after {
@@ -110,9 +114,13 @@
   overflow: hidden;
 }
 
+.product-recommendations .swiper-slide {
+  height: auto;
+}
+
 .product-recommendations .product__card__thumbnail {
-  min-height: 24rem;
-  padding: 1.4rem 1rem 1rem;
+  min-height: 22rem;
+  padding: 1.2rem 0.8rem 0.8rem;
   border-radius: 1.2rem;
   background: #f4f4f4;
   display: flex;
@@ -135,7 +143,7 @@
 .product-recommendations .product__card__image img {
   width: auto;
   max-width: 100%;
-  max-height: 15rem;
+  max-height: 14rem;
   object-fit: contain;
   margin: 0 auto;
 }
@@ -147,15 +155,15 @@
 }
 
 .product-recommendations .product__card__title {
-  min-height: 6rem;
+  min-height: 5.4rem;
   margin: 0.2rem 0 0;
 }
 
 .product-recommendations .product__card__title a {
   text-align: center;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.25;
   -webkit-line-clamp: 3;
 }
 
@@ -174,12 +182,12 @@
 }
 
 .product-recommendations .product__card__price .price-item--regular {
-  font-size: 1.45rem;
+  font-size: 1.15rem;
   line-height: 1;
 }
 
 .product-recommendations .product__card__price .price-item--sale {
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.1;
 }
 .product__card__title {
@@ -461,7 +469,9 @@ button.product__card__actions__btn.loading {
 }
 
 .product-recommendations .product__card--cart-btn {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
   min-height: 5rem;
   border: 0;
   border-radius: 0 0 1.5rem 1.5rem;
@@ -610,6 +620,21 @@ button.product__card__actions__btn.loading {
     max-width: 4rem;
     min-height: 4rem;
   }
+
+  .product-recommendations .product__card .product__card--action-btn.product__card--cart-btn {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    min-height: 5rem !important;
+  }
+
+  .product-recommendations .product__card .product__card--action-btn.product__card--cart-btn .cart__buton--label {
+    display: inline-flex !important;
+  }
+
+  .product-recommendations .product__card .product__card--action-btn.product__card--cart-btn .action__btn--svg {
+    display: inline-flex !important;
+  }
+
   .product__card--action-btn svg {
     width: 1.9rem;
   }
