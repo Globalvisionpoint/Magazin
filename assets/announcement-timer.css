@@ -269,18 +269,22 @@
   }
 
   .announcement__bar--timer-wrapper {
-    gap: 0.45rem;
-    padding: 0.15rem 3.3rem 0.15rem 0.05rem;
+    gap: 0.35rem;
+    padding: 0.15rem 2.75rem 0.15rem 0.05rem;
+    justify-content: space-between;
   }
 
   .announcement__bar--timer-column.text__with--timer {
-    gap: 0.08rem;
+    gap: 0.04rem;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
-    font-size: 1.16rem;
+    font-size: 1.08rem;
     position: relative;
     top: -0.08rem;
+    white-space: nowrap;
   }
 
   .announcement__bar--timer .countdown__item {
@@ -290,23 +294,28 @@
     border-radius: 0.7rem;
   }
 
+  .announcement__button {
+    margin-left: auto;
+    padding-left: 0.4rem;
+  }
+
   .announcement__button .button {
     min-height: 2.9rem;
     padding: 0 !important;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 
   .announcement__button .announcement__cta-icon {
-    flex-basis: 3rem;
+    flex-basis: 2.75rem;
   }
 
   .announcement__button .announcement__cta-icon svg {
-    width: 1.45rem;
-    height: 1.45rem;
+    width: 1.35rem;
+    height: 1.35rem;
   }
 
   .announcement__button .button .button--label-with-icon {
-    padding: 0 1rem;
+    padding: 0 0.85rem;
   }
 
   .announcement--timer-close-btn {
@@ -328,11 +337,13 @@
 @media only screen and (max-width: 749px) {
   .announcement__bar--timer-wrapper {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .announcement__bar--timer-column.text__with--timer {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .announcement__bar--timer.d-flex {
