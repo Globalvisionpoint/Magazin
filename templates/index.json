@@ -231,22 +231,22 @@
         "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "tablete-android-pentru-copii",
-            "image": "shopify://shop_images/Untitled-1ssadasdsa_999b962a-6b15-4538-9c02-1346f9722106.jpg"
+            "collection": "decoratiuni",
+            "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png"
           }
         },
         "f13f12bf-4279-4bfa-a627-9399b14440ba": {
           "type": "featured_collection",
           "settings": {
-            "collection": "aerografe",
-            "image": "shopify://shop_images/aerografnegrusimplux.jpg"
+            "collection": "gradina",
+            "image": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png"
           }
         },
         "f13d088a-3e0a-4f8c-8ad2-dd1602b646e9": {
           "type": "featured_collection",
           "settings": {
-            "collection": "diagnoze-auto",
-            "image": "shopify://shop_images/4_b50887f9-9389-4f20-9330-1c3f21149f12.jpg"
+            "collection": "jucarii",
+            "image": "shopify://shop_images/elimina-textele.png"
           }
         }
       },
