@@ -793,6 +793,26 @@ span.product__media-icon.motion-reduce > a {
 }
 .product-form__quantity .quantity {
   height: 48px;
+  border: 1px solid rgba(18, 18, 18, 0.12);
+  border-radius: 1.3rem;
+  background: #ffffff;
+  box-shadow: none;
+  overflow: hidden;
+}
+.product-form__quantity .quantity__button {
+  width: 3rem;
+  color: #222222;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.product-form__quantity .quantity__button:hover {
+  background: rgba(217, 45, 47, 0.08);
+  color: #c91f39;
+}
+.product-form__quantity .quantity__input {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222222;
 }
 .product-form__cart--box.d-flex {
   gap: 20px;
