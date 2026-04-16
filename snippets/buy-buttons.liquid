@@ -103,12 +103,12 @@
                     and block.settings.preorder_button
                   -%}
                     {% if block.settings.cart_icon_type != 'none' %}
-                      {% render 'icon-cart', icon: block.settings.cart_icon_type %}
+                      <span class="action__btn--svg">{% render 'icon-cart', icon: block.settings.cart_icon_type %}</span>
                     {% endif %}
                     <span class="cart--button-text">{{ 'products.product.pre_order' | t }}</span>
                   {%- else -%}
                     {% if block.settings.cart_icon_type != 'none' %}
-                      {% render 'icon-cart', icon: block.settings.cart_icon_type %}
+                      <span class="action__btn--svg">{% render 'icon-cart', icon: block.settings.cart_icon_type %}</span>
                     {% endif %}
                     <span class="cart--button-text">{{ 'products.product.add_to_cart' | t }}</span>
                   {%- endif -%}
