@@ -1401,8 +1401,8 @@ button.product-form__submit.loading:after {
   width: 100%;
   min-height: 4.8rem;
   border: 0;
-  border-radius: 1.2rem;
-  background: #d92d2f;
+  border-radius: 1.3rem;
+  background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%);
   color: #fff !important;
   font-family: var(--font-heading-family);
   font-size: 1.04rem;
@@ -1413,12 +1413,16 @@ button.product-form__submit.loading:after {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 0.01em;
+  box-shadow: 0 10px 20px rgba(217, 45, 47, 0.16);
+  transition: transform var(--duration-short) ease, box-shadow var(--duration-short) ease, filter var(--duration-short) ease;
 }
 
 .product_buy_button_form .product-form__submit.button:hover,
 .product_buy_button_form .product-form__submit.button:focus {
-  background: #d92d2f;
+  background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%);
   color: #fff !important;
+  box-shadow: 0 12px 24px rgba(217, 45, 47, 0.2);
+  filter: brightness(1.02);
 }
 
 .product_buy_button_form .product-form__submit.button .action__btn--svg {

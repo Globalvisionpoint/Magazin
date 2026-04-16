@@ -2352,12 +2352,14 @@ input:-moz-placeholder {
 .section[data-section-type="product-slider"] .button--wrapper .button,
 .section[data-section-type="product-slider"] a.button.button--large,
 .section[data-section-type="product-slider"] .button.button--secondary {
-  background: #d92d2f !important;
+  background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%) !important;
   color: #ffffff !important;
   border: 1px solid #d92d2f !important;
   border-color: #d92d2f !important;
-  border-radius: 1.2rem;
-  box-shadow: none;
+  border-radius: 1.4rem;
+  box-shadow: 0 10px 22px rgba(217, 45, 47, 0.18);
+  font-weight: 700;
+  transition: transform var(--duration-short) ease, box-shadow var(--duration-short) ease, filter var(--duration-short) ease;
 }
 
 .collection--button .button:hover,
@@ -2374,9 +2376,12 @@ input:-moz-placeholder {
 .section[data-section-type="product-slider"] a.button.button--large:focus,
 .section[data-section-type="product-slider"] .button.button--secondary:hover,
 .section[data-section-type="product-slider"] .button.button--secondary:focus {
-  background: #d92d2f !important;
+  background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%) !important;
   color: #ffffff !important;
   border-color: #d92d2f !important;
+  box-shadow: 0 12px 24px rgba(217, 45, 47, 0.22);
+  filter: brightness(1.02);
+  transform: translateY(-1px);
 }
 
 @media only screen and (max-width: 360px) {
