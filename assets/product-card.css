@@ -31,16 +31,35 @@
   top: 0;
   left: 0;
   gap: 0;
+  overflow: visible;
 }
 
 .product-recommendations .product__card__badges .badge {
-  border-radius: 0 0 14px 0;
-  padding: 0.65rem 1rem 0.65rem 0.85rem;
+  position: absolute;
+  top: 0.9rem;
+  left: -2.2rem;
+  min-width: 8.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  padding: 0.45rem 1.3rem 0.45rem;
   font-size: 1.2rem;
   font-weight: 800;
   line-height: 1;
   box-shadow: 0 8px 18px rgba(226, 28, 35, 0.22);
-  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  transform: rotate(-45deg);
+  clip-path: none;
+}
+
+.product-recommendations .product__card__badges .badge::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -0.45rem;
+  border-style: solid;
+  border-width: 0.45rem 0 0 0.45rem;
+  border-color: transparent transparent transparent #a41319;
 }
 
 .product__card__badges .sale__save--percent {
@@ -79,6 +98,89 @@
   flex-direction: column;
   flex: 1 1 auto;
   gap: 0.2rem;
+}
+
+.product-recommendations .product__card {
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid #dfe3e8;
+  border-radius: 1.6rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.product-recommendations .product__card__thumbnail {
+  min-height: 24rem;
+  padding: 1.4rem 1rem 1rem;
+  border-radius: 1.2rem;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.product-recommendations .product__card--link,
+.product-recommendations .product__card__image,
+.product-recommendations .product__card .media {
+  width: 100%;
+  min-height: 17rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-recommendations .product__card .media > img,
+.product-recommendations .product__card__image img {
+  width: auto;
+  max-width: 100%;
+  max-height: 15rem;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.product-recommendations .product__card__content {
+  padding-top: 0;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.product-recommendations .product__card__title {
+  min-height: 6rem;
+  margin: 0.2rem 0 0;
+}
+
+.product-recommendations .product__card__title a {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  -webkit-line-clamp: 3;
+}
+
+.product-recommendations .product-card--rating {
+  display: flex;
+  justify-content: center;
+}
+
+.product-recommendations .product__card__price {
+  margin-top: 0.2rem;
+}
+
+.product-recommendations .product__card__price.price--on-sale .price__sale {
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.product-recommendations .product__card__price .price-item--regular {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.product-recommendations .product__card__price .price-item--sale {
+  font-size: 2rem;
+  line-height: 1.1;
 }
 .product__card__title {
   margin-bottom: 0;
@@ -349,6 +451,9 @@ button.product__card__actions__btn.loading {
   display: block !important;
   min-height: auto;
   padding-top: 1.2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: -1rem;
 }
 
 .product-recommendations .product__cart--wrapper {
@@ -357,27 +462,47 @@ button.product__card__actions__btn.loading {
 
 .product-recommendations .product__card--cart-btn {
   width: 100%;
-  min-height: 4.8rem;
+  min-height: 5rem;
   border: 0;
-  border-radius: 999px;
-  background: #e21c23;
-  color: #fff;
-  font-size: 1.45rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-size: 1.4rem;
   font-weight: 700;
-  box-shadow: 0 10px 22px rgba(226, 28, 35, 0.18);
+  box-shadow: none;
+  gap: 0;
+  padding: 0;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 .product-recommendations .product__card--cart-btn:hover {
-  background: #c8171d;
-  color: #fff;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
 }
 
 .product-recommendations .product__card--cart-btn .action__btn--svg {
-  display: none;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex: 0 0 4.6rem;
+  margin: 0;
+  background: #bf1835;
+  color: #fff;
+}
+
+.product-recommendations .product__card--cart-btn .action__btn--svg svg {
+  width: 2rem;
 }
 
 .product-recommendations .product__card--cart-btn .cart__buton--label {
   display: inline-flex !important;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
 }
 @media only screen and (min-width: 1200px) {
   .product-card-action-buttons {
