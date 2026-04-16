@@ -2346,14 +2346,16 @@ input:-moz-placeholder {
 }
 
 .collection--button .button,
-.collection--button .button.button--secondary {
-  --color-button: var(--color-base-accent-1);
-  --color-button-text: var(--color-base-solid-button-labels);
-  --alpha-button-background: 1;
-  --alpha-button-border: 1;
-  background: rgba(var(--color-button), var(--alpha-button-background)) !important;
-  color: rgb(var(--color-button-text)) !important;
-  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
+.collection--button .button.button--secondary,
+.section[data-section-type="product-slider"] #loadMoreBtn.button,
+.section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button,
+.section[data-section-type="product-slider"] .button--wrapper .button,
+.section[data-section-type="product-slider"] a.button.button--large,
+.section[data-section-type="product-slider"] .button.button--secondary {
+  background: #d92d2f !important;
+  color: #ffffff !important;
+  border: 1px solid #d92d2f !important;
+  border-color: #d92d2f !important;
   border-radius: 1.2rem;
   box-shadow: none;
 }
@@ -2361,33 +2363,20 @@ input:-moz-placeholder {
 .collection--button .button:hover,
 .collection--button .button:focus,
 .collection--button .button.button--secondary:hover,
-.collection--button .button.button--secondary:focus {
-  background: rgba(var(--color-button), var(--alpha-button-background)) !important;
-  color: rgb(var(--color-button-text)) !important;
-  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
-}
-
-.section[data-section-type="product-slider"] #loadMoreBtn.button,
-.section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button,
-.section[data-section-type="product-slider"] .button.button--secondary {
-  --color-button: var(--color-base-accent-1);
-  --color-button-text: var(--color-base-solid-button-labels);
-  --alpha-button-background: 1;
-  --alpha-button-border: 1;
-  background-color: rgba(var(--color-button), var(--alpha-button-background)) !important;
-  color: rgb(var(--color-button-text)) !important;
-  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
-}
-
+.collection--button .button.button--secondary:focus,
 .section[data-section-type="product-slider"] #loadMoreBtn.button:hover,
 .section[data-section-type="product-slider"] #loadMoreBtn.button:focus,
 .section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button:hover,
 .section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button:focus,
+.section[data-section-type="product-slider"] .button--wrapper .button:hover,
+.section[data-section-type="product-slider"] .button--wrapper .button:focus,
+.section[data-section-type="product-slider"] a.button.button--large:hover,
+.section[data-section-type="product-slider"] a.button.button--large:focus,
 .section[data-section-type="product-slider"] .button.button--secondary:hover,
 .section[data-section-type="product-slider"] .button.button--secondary:focus {
-  background-color: rgba(var(--color-button), var(--alpha-button-background)) !important;
-  color: rgb(var(--color-button-text)) !important;
-  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
+  background: #d92d2f !important;
+  color: #ffffff !important;
+  border-color: #d92d2f !important;
 }
 
 @media only screen and (max-width: 360px) {
