@@ -52,7 +52,7 @@
   display: flex;
 }
 .announcement--timer-close-btn > svg {
-  width: 1.5rem;
+  width: 1.8rem;
   pointer-events: none;
 }
 .announcement__bar--timer-column {
@@ -122,7 +122,7 @@
   width: 100%;
   justify-content: center;
   gap: 1rem;
-  padding: 0.4rem 4rem 0.4rem 0.6rem;
+  padding: 0.4rem 4.4rem 0.4rem 0.6rem;
 }
 
 .announcement__bar--timer-column,
@@ -136,7 +136,7 @@
 }
 
 .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
-  font-size: 1.28rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.01em;
 }
@@ -162,17 +162,17 @@
 }
 
 .announcement__bar--timer .countdown__item .countdown__number {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .announcement__bar--timer .countdown__item > span.countdown__text {
-  margin-top: 0.2rem;
-  font-size: 0.78rem;
+  margin-top: 0.15rem;
+  font-size: 0.66rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   opacity: 0.88;
 }
 
@@ -204,7 +204,7 @@
 }
 
 .announcement--timer-close-btn {
-  right: 0.35rem;
+  right: 0.65rem;
   width: 2.8rem;
   height: 2.8rem;
   border-radius: 50%;
@@ -227,7 +227,7 @@
 
   .announcement__bar--timer-wrapper {
     gap: 0.45rem;
-    padding: 0.15rem 2.9rem 0.15rem 0.05rem;
+    padding: 0.15rem 3.15rem 0.15rem 0.05rem;
   }
 
   .announcement__bar--timer-column.text__with--timer {
@@ -235,7 +235,7 @@
   }
 
   .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
-    font-size: 1rem;
+    font-size: 1.08rem;
   }
 
   .announcement__bar--timer .countdown__item {
@@ -251,6 +251,7 @@
   }
 
   .announcement--timer-close-btn {
+    right: 0.5rem;
     width: 2.45rem;
     height: 2.45rem;
   }
@@ -276,11 +277,11 @@
   }
 
   .announcement__bar--timer .countdown__item .countdown__number {
-    font-size: 1.02rem;
+    font-size: 1.12rem;
   }
 
   .announcement__bar--timer .countdown__item > span.countdown__text {
-    font-size: 0.6rem;
-    margin-top: 0.12rem;
+    font-size: 0.52rem;
+    margin-top: 0.1rem;
   }
 }
