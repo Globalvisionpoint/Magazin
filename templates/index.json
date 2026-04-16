@@ -89,8 +89,10 @@
         },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
+            "image2": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
             "heading": "Decoratiuni",
             "heading_size": "h2",
             "subheading": "",
@@ -112,11 +114,13 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png",
+            "image2": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png",
             "heading": "Gradina",
             "heading_size": "h2",
             "subheading": "",
             "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Siguranță și înregistrare de încredere pentru fiecare drum.</p>",
+            "text": "<p>Transformă-ți grădina într-un paradis verde. Plante, flori și accesorii de grădină pentru fiecare sezon.</p>",
             "content_alignment": "start",
             "button_label": "Cumpără Acum!",
             "button_icon": true,
@@ -124,20 +128,20 @@
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "accent-1",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
-            "color_scheme_2": "background-2"
+            "color_scheme_2": "background-1"
           }
         },
         "slide_mCcgVT": {
           "type": "slide",
-          "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/elimina-textele.png",
             "heading": "Jucarii",
             "heading_size": "h2",
             "subheading": "",
             "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Siguranță și înregistrare de încredere pentru fiecare drum.</p>",
+            "text": "<p>Descoperă lumea jucăriilor care inspiră și divertisează. </p>",
             "content_alignment": "start",
             "button_label": "Cumpără Acum!",
             "button_icon": true,
@@ -145,9 +149,9 @@
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "accent-1",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
-            "color_scheme_2": "background-2"
+            "color_scheme_2": "background-1"
           }
         }
       },
