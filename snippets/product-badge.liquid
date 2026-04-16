@@ -27,7 +27,7 @@
   {%- elsif product.compare_at_price > product.price and product.available -%}
     {% liquid
       assign percentage_badge = false
-      if settings.sale_percentage_show and product.selected_or_first_available_variant.compare_at_price != null
+      if product.selected_or_first_available_variant.compare_at_price != null
         assign percentage_badge = true
       endif
     %}

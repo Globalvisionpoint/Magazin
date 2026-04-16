@@ -40,36 +40,40 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
-  min-width: 0;
+  width: 6.8rem;
+  height: 6.8rem;
+  min-width: 6.8rem;
   padding: 0;
-  border-top: 7.2rem solid #e21c23;
-  border-right: 7.2rem solid transparent;
-  background: transparent;
+  background: #e21c23;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
   box-shadow: none;
   transform: none;
   border-radius: 0;
+  overflow: visible;
 }
 
 .product-recommendations .product__card__badges .sale-corner-badge::after {
   content: '';
   position: absolute;
-  top: -7.2rem;
+  top: 0;
   left: 0;
-  border-top: 1.1rem solid #b5151b;
-  border-right: 1.1rem solid transparent;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.14), transparent 45%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
   position: absolute;
-  top: -5.9rem;
-  left: 0.7rem;
-  z-index: 1;
-  color: #fff;
-  font-size: 1.05rem;
+  top: 1.45rem;
+  left: 0.35rem;
+  z-index: 2;
+  display: block;
+  color: #fff !important;
+  font-size: 1.3rem;
   font-weight: 800;
   line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
   transform: rotate(-45deg);
   transform-origin: left center;
   white-space: nowrap;
@@ -170,9 +174,11 @@
 
 .product-recommendations .product__card__title a {
   text-align: center;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.28;
   -webkit-line-clamp: 3;
 }
 
@@ -486,7 +492,8 @@ button.product__card__actions__btn.loading {
   border-radius: 0 0 1.5rem 1.5rem;
   background: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
-  font-size: 1.4rem;
+  font-family: var(--font-heading-family);
+  font-size: 1.12rem;
   font-weight: 700;
   box-shadow: none;
   gap: 0;
@@ -494,6 +501,7 @@ button.product__card__actions__btn.loading {
   justify-content: flex-start;
   overflow: hidden;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .product-recommendations .product__card--cart-btn:hover {
