@@ -522,7 +522,8 @@ variant-selects {
 
 .product .price__box_wrapper .price-item--regular {
   color: #8b8b8b;
-  font-size: 1.5rem;
+  font-size: clamp(2.6rem, 4vw, 3.2rem);
+  font-weight: 700;
   text-decoration: line-through;
 }
 
