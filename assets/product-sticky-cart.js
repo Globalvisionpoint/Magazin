@@ -22,10 +22,26 @@ if (!customElements.get("sticky-variant-select")) {
 document.addEventListener("DOMContentLoaded", () => {
   const stickySelectedVariant = document.querySelector("#sticky__variant");
   const stickyVariantInput = document.querySelector("#sticky__selected_variant_id");
+  const stickyPriceValue = document.querySelector(".product__sticky_price-value");
   const buyButtonForm = document.querySelector(".product_buy_button_form");
   const productStickyWrapper = document.querySelector(".product__sticky");
   const mainVariantInput = buyButtonForm?.querySelector('input[name="id"]');
   const mobileQuery = window.matchMedia("(max-width: 991px)");
+
+  const syncStickyPrice = () => {
+    if (!stickyPriceValue) {
+      return;
+    }
+
+    const salePrice = document.querySelector(".product__info-container .price__sale .price-item--sale");
+    const regularPrice = document.querySelector(".product__info-container .price__regular .price-item--regular");
+    const fallbackPrice = document.querySelector(".product__info-container .price .price-item");
+    const activePrice = salePrice || regularPrice || fallbackPrice;
+
+    if (activePrice?.textContent) {
+      stickyPriceValue.textContent = activePrice.textContent.trim();
+    }
+  };
 
   const syncStickyVariant = () => {
     if (mainVariantInput && stickyVariantInput) {
@@ -35,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (stickySelectedVariant && mainVariantInput) {
       stickySelectedVariant.value = mainVariantInput.value;
     }
+
+    syncStickyPrice();
   };
 
   syncStickyVariant();

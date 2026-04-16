@@ -45,17 +45,31 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 1.4rem;
+    gap: 0;
   }
 
   .product__sticky_head {
     display: none;
   }
 
-  .product__sticky_add__form,
+  .product__sticky_add__form {
+    width: 100%;
+    gap: 0.9rem;
+  }
+
   .product__sticky_add__form .product-form,
   .product__sticky_add__form .form {
     width: 100%;
+  }
+
+  .product__sticky_price {
+    flex: 0 0 auto;
+    min-width: max-content;
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #c91f39;
+    white-space: nowrap;
   }
 
   sticky-variant-select.product__sticky_variant {
@@ -79,8 +93,8 @@
   }
 
   .product__sticky_add__form quantity-input.quantity {
-    flex: 0 0 10.8rem;
-    min-width: 10.8rem;
+    flex: 0 0 9.6rem;
+    min-width: 9.6rem;
     height: 4.8rem;
     margin-right: 0;
     border: 1px solid rgba(18, 18, 18, 0.12);
@@ -108,9 +122,15 @@
     color: #222222;
   }
 
+  .product__sticky_add__form .product-form {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
   .product__sticky_add__form .product__add__cart__button,
   .product__sticky_add__form .product__add__cart__button.mr-20 {
-    flex: 0 1 calc(100% - 12.2rem);
+    flex: 1 1 auto;
+    max-width: 12.8rem;
     width: auto;
     margin-right: 0;
     margin-left: auto;
@@ -186,17 +206,39 @@
     }
 
     .product-form__buttons.sticky__form_button {
-      gap: 1rem;
+      gap: 0;
+    }
+
+    .product__sticky_add__form {
+      gap: 0.7rem;
     }
 
     .product__sticky_add__form quantity-input.quantity {
-      flex-basis: 9.8rem;
-      min-width: 9.8rem;
+      flex-basis: 7.8rem;
+      min-width: 7.8rem;
+    }
+
+    .product__sticky_price {
+      font-size: 0.94rem;
     }
 
     .product__sticky_add__form .product__add__cart__button,
     .product__sticky_add__form .product__add__cart__button.mr-20 {
-      flex-basis: calc(100% - 10.8rem);
+      flex: 1 1 auto;
+      max-width: none;
+    }
+
+    .product__sticky_add__form .product__add__cart__button .button {
+      min-height: 4.5rem;
+    }
+
+    .product__sticky_add__form .product__add__cart__button .action__btn--svg {
+      flex-basis: 3.5rem;
+    }
+
+    .product__sticky_add__form .product__add__cart__button .cart--button-text {
+      font-size: 0.88rem;
+      padding: 0 0.6rem;
     }
 
     .product__sticky_add__form .product__add__cart__button .button {
@@ -288,6 +330,9 @@
         {% render 'icon-plus' %}
       </button>
     </quantity-input>
+    <div class="product__sticky_price">
+      <span class="product__sticky_price-value">{{ current_variant.price | money }}</span>
+    </div>
     <product-form class="product-form">
       {%- form 'product',
         product,
