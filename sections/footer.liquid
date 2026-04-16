@@ -151,14 +151,14 @@
               </div>
             {%- when 'newsletter' -%}
               <div class="col mb-30 footer__newsletter-column" {{ block.shopify_attributes }}>
-                <div class="footer__widget footer__widget--newsletter">
+                <div class="footer__widget footer__widget--newsletter footer__widget--locked-open active">
                   <h2 class="footer__widget_title h5">
                     {{ block.settings.heading }}
                     <button class="footer__widget_toggle" aria-label="{{ block.settings.heading }}">
                       <span aria-hidden="true"> {{ block.settings.heading }} </span>
                     </button>
                   </h2>
-                  <div class="footer__widget_inner">
+                  <div class="footer__widget_inner" style="display: block;">
                     <p class="newsletter__content">{{ block.settings.text }}</p>
                     {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                       <input type="hidden" name="contact[tags]" value="newsletter">

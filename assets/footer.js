@@ -30,7 +30,7 @@ theme.footerSection = (function () {
         if (isMobileFooterViewport()) {
           item.classList.add("active");
           if (inner) {
-            inner.style.display = "";
+            inner.style.display = "block";
           }
           if (toggle) {
             toggle.setAttribute("aria-expanded", "true");
@@ -48,13 +48,13 @@ theme.footerSection = (function () {
           // Special handling for newsletter section on mobile/tablet
           const footerWidget = item.closest('.footer__widget');
           const isNewsletter = footerWidget && footerWidget.classList.contains('footer__widget--newsletter');
-          if (isNewsletter && isMobileFooterViewport()) {
+          const isLockedOpen = footerWidget && footerWidget.classList.contains('footer__widget--locked-open');
+          if ((isNewsletter || isLockedOpen) && isMobileFooterViewport()) {
             // Always open, never closable
             footerWidget.classList.add('active');
             const footerWidgetInner = footerWidget.querySelector('.footer__widget_inner');
             if (footerWidgetInner) {
-              footerWidgetInner.style.display = '';
-              slideDown(footerWidgetInner);
+              footerWidgetInner.style.display = 'block';
             }
             // Hide or disable the toggle button
             item.style.display = 'none';
@@ -80,12 +80,13 @@ theme.footerSection = (function () {
 
                 if (
                   footerWidget &&
-                  footerWidget.classList.contains("footer__widget--newsletter") &&
+                  (footerWidget.classList.contains("footer__widget--newsletter") ||
+                    footerWidget.classList.contains("footer__widget--locked-open")) &&
                   isMobileFooterViewport()
                 ) {
                   footerWidget.classList.add("active");
                   if (footerWidgetInner) {
-                    footerWidgetInner.style.display = "";
+                    footerWidgetInner.style.display = "block";
                   }
                   return;
                 }
@@ -101,6 +102,7 @@ theme.footerSection = (function () {
     if (accordion) {
       footerWidgetAccordion();
     }
+    keepNewsletterOpen();
     // On resize, re-apply always-open for newsletter on mobile/tablet
     window.addEventListener("resize", function () {
       document.querySelectorAll('.footer__widget--newsletter').forEach(function (item) {
@@ -108,8 +110,7 @@ theme.footerSection = (function () {
           item.classList.add('active');
           const inner = item.querySelector('.footer__widget_inner');
           if (inner) {
-            inner.style.display = '';
-            slideDown(inner);
+            inner.style.display = 'block';
           }
           const toggle = item.querySelector('.footer__widget_toggle');
           if (toggle) toggle.style.display = 'none';

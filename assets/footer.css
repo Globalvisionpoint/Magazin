@@ -67,9 +67,21 @@
   }
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 989px) {
   .footer__widget_inner {
     display: none;
+  }
+  .footer__widget--locked-open .footer__widget_inner {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .footer__widget--locked-open .footer__widget_title::after {
+    transform: rotate(0deg) !important;
+  }
+  .footer__widget--locked-open .footer__widget_toggle {
+    display: none !important;
+    visibility: hidden !important;
   }
   .footer__bottom .row > div + div {
     margin-top: 2rem;
