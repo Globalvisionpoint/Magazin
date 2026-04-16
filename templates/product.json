@@ -224,18 +224,6 @@
         "mobile_margin_bottom": 0
       }
     },
-    "1746369549fbda3cb9": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1746360209b34c19b2": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -295,22 +283,13 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 60
       }
-    },
-    "17463656121bb0001c": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "breadcrumbs",
     "main",
     "product-tab-section",
-    "1746369549fbda3cb9",
-    "1746360209b34c19b2",
     "product-recommendations",
-    "recent-viewed-products",
-    "17463656121bb0001c"
+    "recent-viewed-products"
   ]
 }
