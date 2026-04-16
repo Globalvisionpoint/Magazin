@@ -1,7 +1,8 @@
 <div class="product__grid--items d-flex">
   <div class="product__grid--items--thumbnail">
     <a class="product__items--link" href="{{ product_card_product.url | default: '#' }}">
-      <div class="media">
+      <div class="media" style="position:relative;">
+        {%- render 'product-badge', product: product_card_product -%}
         {%- liquid
           assign second_img_position = product_card_product.featured_media.position
           assign second_img_position = second_img_position | plus: 1
