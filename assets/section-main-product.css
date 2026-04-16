@@ -1405,14 +1405,14 @@ button.product-form__submit.loading:after {
   background: #d92d2f;
   color: #fff !important;
   font-family: var(--font-heading-family);
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-size: 1.04rem;
+  font-weight: 600;
   gap: 0;
   padding: 0;
   justify-content: flex-start;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .product_buy_button_form .product-form__submit.button:hover,

@@ -883,15 +883,15 @@ button.product__card__actions__btn.loading {
   background: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
   font-family: var(--font-heading-family);
-  font-size: 1.12rem;
-  font-weight: 700;
+  font-size: 1.08rem;
+  font-weight: 600;
   box-shadow: none;
   gap: 0;
   padding: 0;
   justify-content: flex-start;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .product__card .product__card--cart-btn:hover {
