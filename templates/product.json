@@ -46,6 +46,15 @@
           "disabled": true,
           "settings": {}
         },
+        "0e3f7ebe-d784-4350-a83b-af960997d3d5": {
+          "type": "inventory",
+          "settings": {
+            "progress_bar": false,
+            "progress_bg_color": "#f5f5f5",
+            "colors_accent_1": "#ee2761",
+            "gradient_accent_1": ""
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -61,15 +70,6 @@
             "icon_enable": true,
             "timer_background": "#ee2761",
             "timer_foreground": "#ffffff"
-          }
-        },
-        "0e3f7ebe-d784-4350-a83b-af960997d3d5": {
-          "type": "inventory",
-          "settings": {
-            "progress_bar": false,
-            "progress_bg_color": "#f5f5f5",
-            "colors_accent_1": "#ee2761",
-            "gradient_accent_1": ""
           }
         },
         "variant_picker_gYNLwq": {
@@ -90,8 +90,8 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
             "cart_icon_type": "cart",
-            "wishlist_btn": true,
-            "compare_btn": true,
+            "wishlist_btn": false,
+            "compare_btn": false,
             "guarantee_safe_checkout": false,
             "safe_checkout_text": "PLATA ONLINE CU CARDUL SAU ÎN NUMERAR LA LIVRARE"
           }
