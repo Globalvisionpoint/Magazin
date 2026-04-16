@@ -2345,6 +2345,21 @@ input:-moz-placeholder {
   width:100%
 }
 
+.collection--button .button {
+  background: rgb(var(--color-button)) !important;
+  color: rgb(var(--color-button-text)) !important;
+  border-color: rgb(var(--color-button)) !important;
+  border-radius: 1.2rem;
+  box-shadow: none;
+}
+
+.collection--button .button:hover,
+.collection--button .button:focus {
+  background: rgb(var(--color-button)) !important;
+  color: rgb(var(--color-button-text)) !important;
+  border-color: rgb(var(--color-button)) !important;
+}
+
 @media only screen and (max-width: 360px) {
 .button, .customer button, .shopify-challenge__button {
     font-size: calc(var(--button-font-size) * 1.2rem);
