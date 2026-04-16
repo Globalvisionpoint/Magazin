@@ -542,13 +542,13 @@ variant-selects {
 
 .product .price__box_wrapper .price-item--sale {
   color: #e21c23;
-  font-size: clamp(2.5rem, 4.4vw, 3.2rem);
+  font-size: clamp(2.7rem, 4.7vw, 3.4rem);
   font-weight: 700;
 }
 
 .product .price__box_wrapper .price-item--regular {
   color: #8b8b8b;
-  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  font-size: clamp(2.15rem, 3.8vw, 2.85rem);
   font-weight: 700;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
@@ -579,11 +579,11 @@ variant-selects {
   }
 
   .product .price__box_wrapper .price-item--sale {
-    font-size: 2.2rem;
+    font-size: 2.35rem;
   }
 
   .product .price__box_wrapper .price-item--regular {
-    font-size: 1.7rem;
+    font-size: 1.85rem;
   }
 }
 
