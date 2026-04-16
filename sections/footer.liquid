@@ -218,16 +218,22 @@
                     <div class="footer__trust-badges">
                       {%- for badge_block in section.blocks -%}
                         {%- if badge_block.type == 'image' -%}
-                          <div class="footer__trust-badge" {{ badge_block.shopify_attributes }}>
+                          {%- assign badge_width = badge_block.settings.image_width | default: 180 -%}
+                          {%- assign badge_width_2x = badge_width | times: 2 -%}
+                          <div
+                            class="footer__trust-badge"
+                            style="--trust-badge-width: {{ badge_width }}px;"
+                            {{ badge_block.shopify_attributes }}
+                          >
                             {%- if badge_block.settings.image != blank -%}
                               <a href="{{ badge_block.settings.link }}" target="_blank" rel="noopener noreferrer">
                                 <img
-                                  srcset="{{ badge_block.settings.image | image_url: width: 360 }} 2x, {{ badge_block.settings.image | image_url: width: 180 }} 1x"
-                                  src="{{ badge_block.settings.image | image_url: width: 180 }}"
+                                  srcset="{{ badge_block.settings.image | image_url: width: badge_width_2x }} 2x, {{ badge_block.settings.image | image_url: width: badge_width }} 1x"
+                                  src="{{ badge_block.settings.image | image_url: width: badge_width }}"
                                   alt="{{ badge_block.settings.image.alt | escape }}"
                                   loading="lazy"
-                                  width="180"
-                                  height="35"
+                                  width="{{ badge_width }}"
+                                  height="{{ badge_width | divided_by: badge_block.settings.image.aspect_ratio | round }}"
                                 >
                               </a>
                             {%- endif -%}

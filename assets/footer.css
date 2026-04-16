@@ -229,13 +229,18 @@ button.footer_localization_label {
     display: none !important;
   }
 }
+.footer__trust-badge {
+  width: min(100%, var(--trust-badge-width, 180px));
+}
 .footer__trust-badge a {
   display: inline-flex;
+  width: 100%;
   line-height: 0;
 }
 .footer__trust-badge img {
   display: block;
-  max-width: 180px;
+  width: 100%;
+  max-width: none;
   height: auto;
 }
 @media only screen and (max-width: 749px) {
