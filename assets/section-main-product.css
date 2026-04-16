@@ -542,17 +542,17 @@ variant-selects {
 
 .product .price__box_wrapper .price-item--sale {
   color: #e21c23;
-  font-size: clamp(3.15rem, 5.5vw, 4rem);
+  font-size: clamp(3.3rem, 5.8vw, 4.15rem);
   font-weight: 700;
 }
 
 .product .price__box_wrapper .price-item--regular {
-  color: #8b8b8b;
-  font-size: clamp(2.25rem, 3.95vw, 2.95rem);
-  font-weight: 700;
+  color: #909090;
+  font-size: clamp(2.15rem, 3.75vw, 2.8rem);
+  font-weight: 500;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
 }
 
 @media screen and (max-width: 575px) {
