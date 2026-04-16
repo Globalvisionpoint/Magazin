@@ -765,8 +765,8 @@
         "704679d4-73b9-4cb2-a3a5-8eceeb5a65bd": {
           "type": "product_tab",
           "settings": {
-            "title": "Camere auto",
-            "collection": "camere-auto",
+            "title": "Animale",
+            "collection": "animale",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
@@ -778,8 +778,8 @@
         "template--21082621673752__daf860e7-6857-48c6-aef9-42d67a6668ac-product_tab-2": {
           "type": "product_tab",
           "settings": {
-            "title": "Smartwatch-uri",
-            "collection": "smartwatch-uri",
+            "title": "Auto-Moto",
+            "collection": "auto-moto",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
@@ -791,8 +791,8 @@
         "template--21082621673752__daf860e7-6857-48c6-aef9-42d67a6668ac-product_tab-1": {
           "type": "product_tab",
           "settings": {
-            "title": "Tablete bussines",
-            "collection": "tablete-android-bussines",
+            "title": "Casa",
+            "collection": "frontpage",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
@@ -804,8 +804,8 @@
         "product_tab_FLM6Mx": {
           "type": "product_tab",
           "settings": {
-            "title": "Tablete pentru copii",
-            "collection": "tablete-android-pentru-copii",
+            "title": "Decoratiuni",
+            "collection": "decoratiuni",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
@@ -817,8 +817,8 @@
         "4ef04084-42a1-4360-80e6-f0b4adf3367c": {
           "type": "product_tab",
           "settings": {
-            "title": "Diagnoza auto",
-            "collection": "diagnoze-auto",
+            "title": "Gradina",
+            "collection": "gradina",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
@@ -830,8 +830,8 @@
         "7d5dcbee-5676-4558-84f8-489d3c60b38a": {
           "type": "product_tab",
           "settings": {
-            "title": "Aerografe",
-            "collection": "aerografe",
+            "title": "Jucarii",
+            "collection": "jucarii",
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
