@@ -32,7 +32,9 @@
 .product__card__content {
   padding-top: 20px;
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
   gap: 0.2rem;
 }
 .product__card__title {
@@ -249,7 +251,8 @@ button.product__card__actions__btn.loading {
   margin-top: 1.5rem;
 }
 .product-card-action-buttons {
-  margin-top: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 @media only screen and (min-width: 1200px) {
   .product-card-action-buttons {
