@@ -12,14 +12,14 @@
       {% if settings.p_card_cart_icon_type != 'none' %}
         <span class="action__btn--svg"> {% render 'icon-cart', icon: settings.p_card_cart_icon_type %}</span>
       {% endif %}
-      <span class="cart__buton--label">{{ 'products.product.select_options' | t }}</span>
+      <span class="cart__buton--label">{{ 'products.product.add_to_cart' | t }}</span>
     {%- endif -%}
     {% if tooltip %}
       <div class="product--tooltip-label-quick {{ tooltip_position }} {% unless type == 'quick_view' %} {% if tooltip_desktop != true %} desktop--tooltip-disable{% endif %}{% endunless %}">
         {%- if type == 'quick_view' -%}
           {{ 'products.product.quick_view' | t }}
         {%- elsif type == 'quick_add' -%}
-          {{ 'products.product.select_options' | t }}
+          {{ 'products.product.add_to_cart' | t }}
         {% endif %}
       </div>
     {% endif %}

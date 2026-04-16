@@ -7,8 +7,8 @@
 }
 .product__card__badges {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 12px;
+  left: 12px;
   z-index: 8;
   pointer-events: none;
   display: flex;
@@ -27,6 +27,22 @@
   font-weight: 700;
 }
 
+.product-recommendations .product__card__badges {
+  top: 0;
+  left: 0;
+  gap: 0;
+}
+
+.product-recommendations .product__card__badges .badge {
+  border-radius: 0 0 14px 0;
+  padding: 0.65rem 1rem 0.65rem 0.85rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(226, 28, 35, 0.22);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+}
+
 .product__card__badges .sale__save--percent {
   font-weight: 800;
 }
@@ -42,6 +58,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.3rem;
+  }
+
+  .product-recommendations .product__card__badges {
+    top: 0;
+    left: 0;
   }
 }
 .product__card__image {
@@ -316,6 +337,48 @@ button.product__card__actions__btn.loading {
   min-height: 5.2rem;
   align-items: end;
 }
+
+.product-recommendations .product__card--wishlist-btn,
+.product-recommendations .product-card-action-buttons-style2,
+.product-recommendations .product__card--action-btn-icon,
+.product-recommendations .product__cart--wrapper.product__card--style2 {
+  display: none !important;
+}
+
+.product-recommendations .product-card-action-buttons {
+  display: block !important;
+  min-height: auto;
+  padding-top: 1.2rem;
+}
+
+.product-recommendations .product__cart--wrapper {
+  width: 100%;
+}
+
+.product-recommendations .product__card--cart-btn {
+  width: 100%;
+  min-height: 4.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: #e21c23;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(226, 28, 35, 0.18);
+}
+
+.product-recommendations .product__card--cart-btn:hover {
+  background: #c8171d;
+  color: #fff;
+}
+
+.product-recommendations .product__card--cart-btn .action__btn--svg {
+  display: none;
+}
+
+.product-recommendations .product__card--cart-btn .cart__buton--label {
+  display: inline-flex !important;
+}
 @media only screen and (min-width: 1200px) {
   .product-card-action-buttons {
     display: grid;
@@ -345,6 +408,10 @@ button.product__card__actions__btn.loading {
     align-content: stretch;
     justify-content: center;
 }
+
+  .product-recommendations .product-card-action-buttons {
+    display: block !important;
+  }
   }
   .product__card-style2--action-btn {
     width: 3.2rem;
