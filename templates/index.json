@@ -423,12 +423,75 @@
             "button_background": "#c93131",
             "button_foreground": "#ffffff"
           }
+        },
+        "banner_pjEwqJ": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
+            "title": "",
+            "text": "",
+            "link_label": "Decoratiuni",
+            "link": "shopify://collections/decoratiuni",
+            "enble_entire_link": true,
+            "button_type": "primary",
+            "button_size": "small",
+            "image_overlay_opacity": 10,
+            "override_general": true,
+            "content_position": "bottom",
+            "content_alignment": "left",
+            "foreground": "#ffffff",
+            "button_background": "#c93131",
+            "button_foreground": "#ffffff"
+          }
+        },
+        "banner_JD83qN": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png",
+            "title": "",
+            "text": "",
+            "link_label": "Gradina",
+            "link": "shopify://collections/gradina",
+            "enble_entire_link": true,
+            "button_type": "primary",
+            "button_size": "small",
+            "image_overlay_opacity": 10,
+            "override_general": true,
+            "content_position": "bottom",
+            "content_alignment": "left",
+            "foreground": "#ffffff",
+            "button_background": "#c93131",
+            "button_foreground": "#ffffff"
+          }
+        },
+        "banner_9YNNg9": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
+            "title": "",
+            "text": "",
+            "link_label": "Auto-Moto",
+            "link": "shopify://collections/auto-moto",
+            "enble_entire_link": true,
+            "button_type": "primary",
+            "button_size": "small",
+            "image_overlay_opacity": 10,
+            "override_general": true,
+            "content_position": "bottom",
+            "content_alignment": "left",
+            "foreground": "#ffffff",
+            "button_background": "#c93131",
+            "button_foreground": "#ffffff"
+          }
         }
       },
       "block_order": [
         "a048a751-edfd-47f8-835b-d2615def8f8b",
         "template--15080390885449__72416aba-6750-4ffa-bfdb-a596243bc782-168295750178ae8ecd-1",
-        "template--15080390885449__72416aba-6750-4ffa-bfdb-a596243bc782-168295750178ae8ecd-0"
+        "template--15080390885449__72416aba-6750-4ffa-bfdb-a596243bc782-168295750178ae8ecd-0",
+        "banner_pjEwqJ",
+        "banner_JD83qN",
+        "banner_9YNNg9"
       ],
       "settings": {
         "container": "container",
@@ -553,6 +616,7 @@
         "template--21086911725848__f3e2e88d-5f15-4991-8a35-a6362a460113-banner-2",
         "banner_RiLqNe"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "show_offset": false,
