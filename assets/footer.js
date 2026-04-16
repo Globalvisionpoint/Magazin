@@ -56,6 +56,19 @@ theme.footerSection = (function () {
                   footerWidgetInner = item.querySelector(
                     ".footer__widget_inner"
                   );
+
+                if (
+                  footerWidget &&
+                  footerWidget.classList.contains("footer__widget--newsletter") &&
+                  window.outerWidth < 990
+                ) {
+                  footerWidget.classList.add("active");
+                  if (footerWidgetInner) {
+                    footerWidgetInner.style.display = "";
+                  }
+                  return;
+                }
+
                 footerWidget.classList.remove("active");
                 slideUp(footerWidgetInner);
               });
@@ -86,7 +99,7 @@ theme.footerSection = (function () {
     });
     window.addEventListener("resize", function () {
       document.querySelectorAll(".footer__widget").forEach(function (item) {
-        if (window.outerWidth >= 750) {
+        if (window.outerWidth >= 990) {
           item.classList.remove("active");
           item.querySelector(".footer__widget_inner").style.display = "";
         }
