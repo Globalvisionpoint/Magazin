@@ -202,56 +202,56 @@
     "17a17a4f-546e-45d1-a0ef-66ae411bd989": {
       "type": "collection-list",
       "blocks": {
-        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "animale",
-            "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png"
-          }
-        },
         "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-2": {
           "type": "featured_collection",
           "settings": {
             "collection": "auto-moto",
-            "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png"
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-3-produse-din-categoria-auto-moto-fara-decor-pentru-magazinul-meu-online-sa-pun-ca-iconita-la-categorie.png"
           }
         },
         "eea2dda5-ab2a-4274-ab2a-630bb6578f27": {
           "type": "featured_collection",
           "settings": {
             "collection": "frontpage",
-            "image": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png"
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-3-produse-din-categoria-casa-fara-decor-pentru-magazinul-meu-online-sa-pun-ca-iconita-la-categorie.png"
           }
         },
-        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-3": {
+        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "decoratiuni",
-            "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png"
+            "collection": "animale",
+            "image": "shopify://shop_images/genereaza-o-imagine-fara-decor-cu-2-sau-3-produse-din-categoria-pet-animale-pentru-a-o-folosii-ca-iconita-la-categerie-in-magazinul-meu-online.png"
           }
         },
         "f13f12bf-4279-4bfa-a627-9399b14440ba": {
           "type": "featured_collection",
           "settings": {
             "collection": "gradina",
-            "image": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png"
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-3-produse-din-categoria-gradina-fara-decor-pentru-magazinul-meu-online-sa-pun-ca-iconita-la-categorie.png"
           }
         },
         "f13d088a-3e0a-4f8c-8ad2-dd1602b646e9": {
           "type": "featured_collection",
           "settings": {
             "collection": "jucarii",
-            "image": "shopify://shop_images/elimina-textele.png"
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-3-produse-din-categoria-jucarii-pentru-copii-fara-decor-pentru-magazinul-meu-online-sa-pun-ca-iconita-la-categorie.png"
+          }
+        },
+        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "decoratiuni",
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-3-produse-din-categoria-decoratiuni-fara-decor-pentru-magazinul-meu-online-sa-pun-ca-iconita-la-categorie.png"
           }
         }
       },
       "block_order": [
-        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-1",
         "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-2",
         "eea2dda5-ab2a-4274-ab2a-630bb6578f27",
-        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-3",
+        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-1",
         "f13f12bf-4279-4bfa-a627-9399b14440ba",
-        "f13d088a-3e0a-4f8c-8ad2-dd1602b646e9"
+        "f13d088a-3e0a-4f8c-8ad2-dd1602b646e9",
+        "template--14647252844657__17a17a4f-546e-45d1-a0ef-66ae411bd989-featured_collection-3"
       ],
       "custom_css": [],
       "settings": {
