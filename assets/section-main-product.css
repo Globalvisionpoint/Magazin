@@ -470,16 +470,43 @@ variant-selects {
   cursor: zoom-in;
 }
 .discount__sale__text {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: #e21c23;
+  gap: 0.45rem;
+  background: #ff1f12;
   color: rgba(var(--color-background));
-  padding: 0.35rem 0.7rem;
-  border-radius: 0.4rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.3rem 0.8rem 1.9rem;
+  border-radius: 0 999px 999px 0;
   font-weight: 700;
   line-height: 1;
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 14% 100%, 0 50%);
+}
+
+.discount__sale__text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2.2rem;
+  background: rgba(0, 0, 0, 0.18);
+  clip-path: polygon(65% 0, 100% 0, 100% 100%, 65% 100%, 0 50%);
+}
+
+.sale__save--percent {
+  position: relative;
+  z-index: 1;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.discount__sale__off {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 .price__box_wrapper {
   display: flex;

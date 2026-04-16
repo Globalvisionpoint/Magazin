@@ -220,7 +220,7 @@
                   {%- if percentage_badge -%}
                     <div class="save__disoucnt">
                       <span class="discount__sale__text {% if on_sale == false %} no-js-inline {% endif %}">
-                        -<span class="sale__save--percent">
+                        <span class="sale__save--percent">
                           {{-
                             product.selected_or_first_available_variant.compare_at_price
                             | minus: product.selected_or_first_available_variant.price
@@ -228,9 +228,10 @@
                             | divided_by: product.selected_or_first_available_variant.compare_at_price
                             | replace: ',', '.'
                             | round
-                          -}}</span
-                        >%</span
-                      >
+                          -}}%
+                        </span>
+                        <span class="discount__sale__off">OFF</span>
+                      </span>
                     </div>
                   {%- endif -%}
                 {%- endif -%}
