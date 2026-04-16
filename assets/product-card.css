@@ -66,7 +66,7 @@
 .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
   position: absolute;
   top: 1.28rem;
-  left: 0.3rem;
+  left: 0.05rem;
   width: 5rem;
   z-index: 2;
   display: flex;
@@ -113,7 +113,7 @@
 
   .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
     top: 1.15rem;
-    left: 0.3rem;
+    left: 0.05rem;
     width: 4.7rem;
     font-size: 1.45rem;
   }
