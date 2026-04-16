@@ -217,7 +217,7 @@
 
                     <div class="footer__trust-badges">
                       {%- for badge_block in section.blocks -%}
-                        {%- if badge_block.type == 'image' and badge_block.settings.heading contains 'ANPC' -%}
+                        {%- if badge_block.type == 'image' -%}
                           <div class="footer__trust-badge" {{ badge_block.shopify_attributes }}>
                             {%- if badge_block.settings.image != blank -%}
                               <a href="{{ badge_block.settings.link }}" target="_blank" rel="noopener noreferrer">
@@ -239,39 +239,6 @@
                 </div>
               </div>
             {%- when 'image' -%}
-                <div
-                  class="col mb-30{% if block.settings.heading contains 'ANPC' %} footer__trust-source{% endif %}"
-                  {% if block.settings.heading contains 'ANPC' %}style="display:none !important;"{% endif %}
-                >
-                  <div class="footer__widget" {{ block.shopify_attributes }}>
-                    <h2 class="footer__widget_title h5">
-                      {{ block.settings.heading }}
-                      <button class="footer__widget_toggle" aria-label="{{ block.settings.heading }}">
-                        <span aria-hidden="true"> {{ block.settings.heading }} </span>
-                      </button>
-                    </h2>
-                    <div class="footer__widget_inner">
-                      <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                        {%- if block.settings.image != blank -%}
-                          <a href="{{ block.settings.link }}">
-<img
-    srcset="{{ block.settings.image | image_url: width: 360 }} 2x, {{ block.settings.image | image_url: width: 180 }} 1x"
-    src="{{ block.settings.image | image_url: width: 180 }}"
-    alt="{{ block.settings.image.alt | escape }}"
-    loading="lazy"
-    width="180"
-    height="35"
->
-</a>
-
-
-                        {%- else -%}
-                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                        {%- endif -%}
-                      </div>
-                    </div>
-                  </div>
-                </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
