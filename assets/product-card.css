@@ -40,9 +40,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 6.8rem;
-  height: 6.8rem;
-  min-width: 6.8rem;
+  width: 7.2rem;
+  height: 7.2rem;
+  min-width: 7.2rem;
   padding: 0;
   background: #e21c23;
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -65,17 +65,21 @@
 
 .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
   position: absolute;
-  top: 1.45rem;
-  left: 0.35rem;
+  top: 1.5rem;
+  left: 0.55rem;
+  width: 4.4rem;
   z-index: 2;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff !important;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 800;
   line-height: 1;
+  text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
   transform: rotate(-45deg);
-  transform-origin: left center;
+  transform-origin: center;
   white-space: nowrap;
 }
 
@@ -99,6 +103,19 @@
   .product-recommendations .product__card__badges {
     top: 0;
     left: 0;
+  }
+
+  .product-recommendations .product__card__badges .sale-corner-badge {
+    width: 6.7rem;
+    height: 6.7rem;
+    min-width: 6.7rem;
+  }
+
+  .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
+    top: 1.35rem;
+    left: 0.45rem;
+    width: 4.15rem;
+    font-size: 1.2rem;
   }
 }
 .product__card__image {
@@ -132,10 +149,11 @@
 }
 
 .product-recommendations .product__card__thumbnail {
-  min-height: 22rem;
-  padding: 1.2rem 0.8rem 0.8rem;
+  aspect-ratio: 1 / 1;
+  min-height: unset;
+  padding: 1rem;
   border-radius: 1.2rem;
-  background: #f4f4f4;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,17 +164,19 @@
 .product-recommendations .product__card__image,
 .product-recommendations .product__card .media {
   width: 100%;
-  min-height: 17rem;
+  height: 100%;
+  min-height: unset;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
 }
 
 .product-recommendations .product__card .media > img,
 .product-recommendations .product__card__image img {
   width: auto;
   max-width: 100%;
-  max-height: 14rem;
+  max-height: 100%;
   object-fit: contain;
   margin: 0 auto;
 }
