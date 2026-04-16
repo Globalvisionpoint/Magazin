@@ -150,8 +150,8 @@
                 </div>
               </div>
             {%- when 'newsletter' -%}
-              <div class="col mb-30" {{ block.shopify_attributes }}>
-                <div class="footer__widget">
+              <div class="col mb-30 footer__newsletter-column" {{ block.shopify_attributes }}>
+                <div class="footer__widget footer__widget--newsletter">
                   <h2 class="footer__widget_title h5">
                     {{ block.settings.heading }}
                     <button class="footer__widget_toggle" aria-label="{{ block.settings.heading }}">
@@ -239,8 +239,10 @@
                 </div>
               </div>
             {%- when 'image' -%}
-              {%- unless block.settings.heading contains 'ANPC' -%}
-                <div class="col mb-30">
+                <div
+                  class="col mb-30{% if block.settings.heading contains 'ANPC' %} footer__trust-source{% endif %}"
+                  {% if block.settings.heading contains 'ANPC' %}style="display:none !important;"{% endif %}
+                >
                   <div class="footer__widget" {{ block.shopify_attributes }}>
                     <h2 class="footer__widget_title h5">
                       {{ block.settings.heading }}
@@ -270,7 +272,6 @@
                     </div>
                   </div>
                 </div>
-              {%- endunless -%}
           {%- endcase -%}
         {%- endfor -%}
       </div>

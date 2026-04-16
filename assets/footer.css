@@ -214,8 +214,20 @@ button.footer_localization_label {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.6rem;
+}
+@media only screen and (min-width: 750px) {
+  .footer__newsletter-column .footer__widget_inner {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__trust-source {
+    display: none !important;
+  }
 }
 .footer__trust-badge a {
   display: inline-flex;
