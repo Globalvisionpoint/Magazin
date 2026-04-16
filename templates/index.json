@@ -367,11 +367,11 @@
         "a048a751-edfd-47f8-835b-d2615def8f8b": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/res_1088cf9d40ccb2b23b288ddf5b863f16.jpg",
+            "image": "shopify://shop_images/elimina-textele.png",
             "title": "",
             "text": "",
-            "link_label": "Camera auto",
-            "link": "shopify://products/camera-auto-de-bord-4k-rezolutie-3840x2160-ultra-hd-conectivitate-wi-fi-camera-spate-1080p",
+            "link_label": "Jucarii",
+            "link": "shopify://collections/jucarii",
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
@@ -380,18 +380,18 @@
             "content_position": "bottom",
             "content_alignment": "left",
             "foreground": "#ffffff",
-            "button_background": "#161880",
+            "button_background": "#c93131",
             "button_foreground": "#ffffff"
           }
         },
         "template--15080390885449__72416aba-6750-4ffa-bfdb-a596243bc782-168295750178ae8ecd-1": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/5tradus_c0527793-ace2-445d-86ce-67fff4106f09.jpg",
+            "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png",
             "title": "",
             "text": "",
-            "link_label": "Diagnoza Profesionala",
-            "link": "shopify://products/diagnoza-profesionala-tester-auto-launch-thinkdiag-1-an-update-inclus-licenta-utilizare-soft",
+            "link_label": "Animale",
+            "link": "shopify://collections/animale",
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
@@ -400,18 +400,18 @@
             "content_position": "bottom",
             "content_alignment": "left",
             "foreground": "#ffffff",
-            "button_background": "#161880",
+            "button_background": "#c93131",
             "button_foreground": "#ffffff"
           }
         },
         "template--15080390885449__72416aba-6750-4ffa-bfdb-a596243bc782-168295750178ae8ecd-0": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/17_c1c71478-6234-462a-a724-9de0a6e36e95.jpg",
+            "image": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png",
             "title": "",
             "text": "",
-            "link_label": "Aerograf Poprtabil",
-            "link": "shopify://products/aerograf-airbrush-cu-compresor-pulverizator-de-mana-pentru-vopsit-orice-manichiura-pictura-corp-tatuaj-semipermanent-ornare-torturi",
+            "link_label": "Casa",
+            "link": "shopify://collections/frontpage",
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
@@ -420,7 +420,7 @@
             "content_position": "bottom",
             "content_alignment": "left",
             "foreground": "#ffffff",
-            "button_background": "#161880",
+            "button_background": "#c93131",
             "button_foreground": "#ffffff"
           }
         }
