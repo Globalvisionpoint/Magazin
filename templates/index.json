@@ -770,9 +770,9 @@
             "products_to_show": 10,
             "show_view_all": true,
             "button_label": "Vezi tot",
-            "button_icon": true,
-            "button_style": "primary",
-            "button_size": "medium"
+            "button_icon": false,
+            "button_style": "secondary",
+            "button_size": "large"
           }
         },
         "template--21082621673752__daf860e7-6857-48c6-aef9-42d67a6668ac-product_tab-2": {
