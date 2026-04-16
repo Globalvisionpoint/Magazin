@@ -472,20 +472,86 @@ variant-selects {
   cursor: zoom-in;
 }
 .discount__sale__text {
-    background: rgb(255 0 0);
-    color: rgba(var(--color-background));
-    padding: 2px 4px;
-    border-radius: 5px;
-    font-size: 2.0rem;
-    line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e21c23;
+  color: rgba(var(--color-background));
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
 }
 .price__box_wrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .save__disoucnt {
-  margin-left: 5px;
+  margin-left: 0;
+}
+
+.product .price__box_wrapper .price {
+  align-items: flex-end;
+}
+
+.product .price__box_wrapper .price dl {
+  gap: 0.2rem;
+}
+
+.product .price__box_wrapper .price dd {
+  margin: 0;
+}
+
+.product .price--on-sale .price__sale {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  line-height: 1.2;
+}
+
+.product .price__box_wrapper .price-item--sale {
+  color: #e21c23;
+  font-size: clamp(2.6rem, 4vw, 3.2rem);
+  font-weight: 700;
+}
+
+.product .price__box_wrapper .price-item--regular {
+  color: #8b8b8b;
+  font-size: 1.5rem;
+  text-decoration: line-through;
+}
+
+.product-variant-inventory {
+  margin: 0 0 0.8rem;
+}
+
+.product-variant-inventory .inventory-title,
+.product-variant-inventory .variant__stock__amount,
+.product-variant-inventory .stock_countdown_progress {
+  display: none;
+}
+
+.product-variant-inventory .variant__inventory {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.product-variant-inventory .in_stock__title {
+  color: #2e9d45;
+}
+
+.product-variant-inventory .out__of_stock {
+  color: #e21c23;
 }
 .product-popup-modal__content {
   top: 50%;
