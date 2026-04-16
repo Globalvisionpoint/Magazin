@@ -81,17 +81,28 @@
     flex: 0 0 9.8rem;
     min-width: 9.8rem;
     margin-right: 0;
-    border: 1px solid rgba(18, 18, 18, 0.12);
+    border: 1px solid rgba(217, 45, 47, 0.12);
     border-radius: 999px;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf8f9 100%);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
   }
 
   .product__sticky_add__form .quantity__button {
     width: 3rem;
+    color: #6c6f76;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .product__sticky_add__form .quantity__button:hover {
+    background: rgba(217, 45, 47, 0.08);
+    color: #c91f39;
   }
 
   .product__sticky_add__form .quantity__input {
     font-size: 1.5rem;
+    font-weight: 700;
+    color: #222222;
   }
 
   .product__sticky_add__form .product__add__cart__button,
