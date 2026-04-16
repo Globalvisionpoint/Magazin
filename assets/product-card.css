@@ -66,8 +66,33 @@
   align-items: center;
   color: rgba(var(--color-foreground));
 }
+
+.product__card__price.price--on-sale .price__sale {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  line-height: 1.1;
+}
+
+.product__card__price .price-item--sale {
+  color: #e21c23;
+  font-size: 2.05rem;
+  font-weight: 700;
+}
+
+.product__card__price .price-item--regular {
+  color: #8f8f8f;
+  font-size: 1.35rem;
+  font-weight: 400;
+  text-decoration-line: line-through;
+  text-decoration-color: #e21c23;
+  text-decoration-thickness: 1.5px;
+}
+
 .product__card__price .price__compare {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 /* Product card style 2 */
 .product__cart--wrapper.product__card--style2 {
