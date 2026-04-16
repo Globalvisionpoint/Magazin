@@ -1402,8 +1402,8 @@ button.product-form__submit.loading:after {
   min-height: 4.8rem;
   border: 0;
   border-radius: 1.2rem;
-  background: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
+  background: #d92d2f;
+  color: #fff !important;
   font-family: var(--font-heading-family);
   font-size: 1.08rem;
   font-weight: 700;
@@ -1417,8 +1417,8 @@ button.product-form__submit.loading:after {
 
 .product_buy_button_form .product-form__submit.button:hover,
 .product_buy_button_form .product-form__submit.button:focus {
-  background: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
+  background: #d92d2f;
+  color: #fff !important;
 }
 
 .product_buy_button_form .product-form__submit.button .action__btn--svg {
@@ -1442,4 +1442,6 @@ button.product-form__submit.loading:after {
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
+  color: #fff !important;
+  background: #d92d2f;
 }
