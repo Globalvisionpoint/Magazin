@@ -2367,6 +2367,29 @@ input:-moz-placeholder {
   border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
 }
 
+.section[data-section-type="product-slider"] #loadMoreBtn.button,
+.section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button,
+.section[data-section-type="product-slider"] .button.button--secondary {
+  --color-button: var(--color-base-accent-1);
+  --color-button-text: var(--color-base-solid-button-labels);
+  --alpha-button-background: 1;
+  --alpha-button-border: 1;
+  background-color: rgba(var(--color-button), var(--alpha-button-background)) !important;
+  color: rgb(var(--color-button-text)) !important;
+  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
+}
+
+.section[data-section-type="product-slider"] #loadMoreBtn.button:hover,
+.section[data-section-type="product-slider"] #loadMoreBtn.button:focus,
+.section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button:hover,
+.section[data-section-type="product-slider"] .loadMoreWrapper .loadMoreBtn.button:focus,
+.section[data-section-type="product-slider"] .button.button--secondary:hover,
+.section[data-section-type="product-slider"] .button.button--secondary:focus {
+  background-color: rgba(var(--color-button), var(--alpha-button-background)) !important;
+  color: rgb(var(--color-button-text)) !important;
+  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
+}
+
 @media only screen and (max-width: 360px) {
 .button, .customer button, .shopify-challenge__button {
     font-size: calc(var(--button-font-size) * 1.2rem);
