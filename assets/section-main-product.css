@@ -542,7 +542,7 @@ variant-selects {
 
 .product .price__box_wrapper .price-item--sale {
   color: #e21c23;
-  font-size: clamp(3rem, 5.2vw, 3.8rem);
+  font-size: clamp(3.15rem, 5.5vw, 4rem);
   font-weight: 700;
 }
 
@@ -579,7 +579,7 @@ variant-selects {
   }
 
   .product .price__box_wrapper .price-item--sale {
-    font-size: 2.6rem;
+    font-size: 2.75rem;
   }
 
   .product .price__box_wrapper .price-item--regular {
