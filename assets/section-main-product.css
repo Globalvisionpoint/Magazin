@@ -160,6 +160,10 @@ variant-selects {
   opacity: 1;
 }
 
+.product__media-icon {
+  display: none !important;
+}
+
 .product__modal-opener--image .product__media-toggle:hover {
   cursor: zoom-in;
 }
