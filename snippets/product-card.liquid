@@ -51,7 +51,7 @@
 
 <div class="product__card {{ className }} product__card--{{ card_style }} {% if box_shadow %} product__shadow {% endif %} {% if corner_radius %} product--corner-radius-true{% endif %} color-{{ color_scheme }}">
   <div class="product__card__thumbnail card--client-height {{ second_image_class }}">
-    {%- if show_badge -%}
+    {%- if show_badge or product_card_product.compare_at_price > product_card_product.price or product_card_product.available == false -%}
       {%- render 'product-badge', product: product_card_product -%}
     {%- endif -%}
 

@@ -19,7 +19,7 @@
 
 <div class="product__card--list  {% if corner_radius %} product--corner-radius-true{% endif %} color-{{ color_scheme }}">
   <div class="product__card-list__thumbnail {{ second_image_class }}">
-    {%- if show_badge -%}
+    {%- if show_badge or product_card_product.compare_at_price > product_card_product.price or product_card_product.available == false -%}
       {%- render 'product-badge', product: product_card_product -%}
     {%- endif -%}
 
