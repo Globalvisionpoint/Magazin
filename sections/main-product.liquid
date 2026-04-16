@@ -210,7 +210,7 @@
                   -%}
                 </div>
 
-                {%- if product.compare_at_price > product.price and product.available -%}
+                {%- if product.compare_at_price > product.price -%}
                   {% liquid
                     assign percentage_badge = false
                     if block.settings.save_percentage and product.selected_or_first_available_variant.compare_at_price != null
