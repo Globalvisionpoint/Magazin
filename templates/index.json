@@ -137,6 +137,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/elimina-textele.png",
+            "image2": "shopify://shop_images/elimina-textele.png",
             "heading": "Jucarii",
             "heading_size": "h2",
             "subheading": "",
