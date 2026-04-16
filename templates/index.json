@@ -20,7 +20,6 @@
       "blocks": {
         "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png",
             "image2": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png",
@@ -43,7 +42,6 @@
         },
         "535d5fb0-da91-4126-8767-efc8d3407eac": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
             "image2": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
@@ -66,7 +64,6 @@
         },
         "slide_Ekkikg": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png",
             "image2": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png",
@@ -89,7 +86,6 @@
         },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
             "image2": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
@@ -112,7 +108,6 @@
         },
         "slide_TdwFd8": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png",
             "image2": "shopify://shop_images/mai-incearca-alta-varianta-si-nu-pune-texte.png",
@@ -311,17 +306,17 @@
         "countdown_month": "05",
         "countdown_days": "31",
         "collection_card": true,
-        "collection_image": "shopify://shop_images/1x_1c607601-a117-4c24-b06d-4ee22a500bc7.jpg",
-        "image_place": "text_first",
+        "collection_image": "shopify://shop_images/e-bine-dar-sa-fie-pe-lung-gen-rezolutie-de-telefon.png",
+        "image_place": "image_first",
         "card_heading": "Oferte Speciale",
-        "card_text": "",
+        "card_text": "<p>Oferte care nu se refuză. Reduceri de până la 70% la produsele tale preferate. Profită acum, stocuri limitate!</p>",
         "card_button_label": "Achiziționează acum",
         "card_button_type": "primary",
         "card_button_icon": true,
         "desktop_content_position": "top",
         "collection_card_radius": true,
         "card_color_scheme": "background-2",
-        "collection": "produse-cu-reduceri",
+        "collection": "animale",
         "products_to_show": 8,
         "product_column": "4",
         "product_column_laptop": "4",
