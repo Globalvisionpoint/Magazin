@@ -20,6 +20,7 @@
       "blocks": {
         "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png",
             "image2": "shopify://shop_images/genereaza-o-imagine-pentur-magazinul-meu-online-fara-scrisuri-si-esene-doar-cu-produse-pet-shop-care-sa-exprime-categoria-de-animale-produse-pentru-animale-magazin-online.png",
@@ -42,6 +43,7 @@
         },
         "535d5fb0-da91-4126-8767-efc8d3407eac": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
             "image2": "shopify://shop_images/genereaza-o-imagine-pentur-magazin-online-sectiunea-accesorii-auto-moto-cu-tot-felul-de-accesorii-auto-moto.png",
@@ -64,6 +66,7 @@
         },
         "slide_Ekkikg": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png",
             "image2": "shopify://shop_images/genereaz-ao-imagine-cu-produse-si-accesorii-pentur-casa-electrocasnice-produse-de-curatenie-etc.png",
@@ -86,13 +89,13 @@
         },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
-          "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/pastreaza-elementele-da-scoate-scrisurile.png",
             "heading": "Decoratiuni",
             "heading_size": "h2",
             "subheading": "",
             "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Siguranță și înregistrare de încredere pentru fiecare drum.</p>",
+            "text": "<p>Transformă-ți spațiul într-o oază de stil și eleganță cu colecția noastră de decorațiuni premium. </p>",
             "content_alignment": "start",
             "button_label": "Cumpără Acum!",
             "button_icon": true,
@@ -100,9 +103,9 @@
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
-            "color_scheme": "accent-1",
+            "color_scheme": "background-1",
             "color_scheme_enable": true,
-            "color_scheme_2": "background-2"
+            "color_scheme_2": "background-1"
           }
         },
         "slide_TdwFd8": {
