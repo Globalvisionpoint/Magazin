@@ -258,6 +258,8 @@
 
   .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
     font-size: 1.16rem;
+    position: relative;
+    top: -0.08rem;
   }
 
   .announcement__bar--timer .countdown__item {
