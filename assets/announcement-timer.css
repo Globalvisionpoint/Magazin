@@ -139,7 +139,7 @@
 }
 
 .announcement__bar--timer-column.text__with--timer {
-  gap: 0.9rem;
+  gap: 0.5rem;
 }
 
 .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
@@ -152,6 +152,8 @@
   gap: 0.5rem;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
+  top: -0.18rem;
 }
 
 .announcement__bar--timer .countdown__item {
@@ -251,7 +253,7 @@
   }
 
   .announcement__bar--timer-column.text__with--timer {
-    gap: 0.45rem;
+    gap: 0.08rem;
   }
 
   .announcement__bar--timer-column.text__with--timer > .announcement__bar--timer:not(.d-flex) {
@@ -299,6 +301,7 @@
 
   .announcement__bar--timer.d-flex {
     gap: 0.25rem;
+    top: -0.32rem;
   }
 
   .announcement__bar--timer .countdown__item {
