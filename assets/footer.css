@@ -210,6 +210,22 @@ button.footer_localization_label {
 .footer__widget--text + .footer__list-social {
   margin-top: 2rem;
 }
+.footer__trust-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.footer__trust-badge a {
+  display: inline-flex;
+  line-height: 0;
+}
+.footer__trust-badge img {
+  display: block;
+  max-width: 180px;
+  height: auto;
+}
 @media only screen and (max-width: 749px) {
   .footer__payment .footer--list__payment {
     padding-top: 0;
