@@ -187,29 +187,50 @@
 
 .announcement__button .button {
   min-height: 3.5rem;
-  padding: 0.65rem 1.15rem !important;
+  padding: 0 !important;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  background: #ffffff;
-  color: #b9112d;
+  border: 0;
+  background: linear-gradient(135deg, #d92d2f 0%, #c91f39 100%);
+  color: #ffffff;
   font-size: 1.08rem;
   font-weight: 800;
   letter-spacing: 0.01em;
-  box-shadow: 0 8px 18px rgba(95, 6, 20, 0.14);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  box-shadow: 0 8px 18px rgba(95, 6, 20, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: stretch;
 }
 
 .announcement__button .button:hover {
   transform: translateY(-2px);
-  background: #fff4f6;
-  color: #990d25;
-  box-shadow: 0 16px 28px rgba(95, 6, 20, 0.2);
+  color: #ffffff;
+  box-shadow: 0 16px 28px rgba(95, 6, 20, 0.24);
+  filter: brightness(1.03);
+}
+
+.announcement__button .announcement__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3.8rem;
+  align-self: stretch;
+  background: #b81532;
+  color: #ffffff;
+}
+
+.announcement__button .announcement__cta-icon svg {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .announcement__button .button .button--label-with-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
+  padding: 0 1.35rem;
+  color: #ffffff;
 }
 
 .announcement--timer-close-btn {
@@ -271,8 +292,21 @@
 
   .announcement__button .button {
     min-height: 2.9rem;
-    padding: 0.45rem 0.8rem !important;
+    padding: 0 !important;
     font-size: 0.92rem;
+  }
+
+  .announcement__button .announcement__cta-icon {
+    flex-basis: 3rem;
+  }
+
+  .announcement__button .announcement__cta-icon svg {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .announcement__button .button .button--label-with-icon {
+    padding: 0 1rem;
   }
 
   .announcement--timer-close-btn {

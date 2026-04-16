@@ -363,14 +363,12 @@
                         {% else %}
                           href="{{ block.settings.link }}"
                         {% endif %}
-                        class="button button--{{ block.settings.button_size }} {{ button_class }}  {% if block.settings.button_icon %}button--with-icon{% endif %}"
+                        class="button button--{{ block.settings.button_size }} {{ button_class }} announcement__cta-button"
                       >
-                        <span class="button--label-with-icon"> {{ block.settings.link_label | escape }}</span>
-                        {% if block.settings.button_icon %}
-                          <span class="button--icon button--icon-right {% unless block.settings.button_icon_mobile %}d-sm-none{% endunless %}">
-                            {% render 'icon-arrow-right' %}
-                          </span>
-                        {% endif %}
+                        <span class="announcement__cta-icon" aria-hidden="true">
+                          {% render 'icon-cart' %}
+                        </span>
+                        <span class="button--label-with-icon">{{ block.settings.link_label | escape }}</span>
                       </a>
                     </div>
                   {%- endif -%}
