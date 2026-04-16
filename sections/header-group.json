@@ -59,7 +59,7 @@
             "link": "shopify://collections/all",
             "button_type": "primary",
             "button_size": "extra--small",
-            "text": "Ofertele de reducere expira in...",
+            "text": "Ofertele de reducere expiră în...",
             "enable_close_btn": true,
             "color_scheme": "accent-1",
             "custom_colors": false,
