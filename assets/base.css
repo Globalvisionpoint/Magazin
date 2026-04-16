@@ -2345,19 +2345,26 @@ input:-moz-placeholder {
   width:100%
 }
 
-.collection--button .button {
-  background: rgb(var(--color-button)) !important;
+.collection--button .button,
+.collection--button .button.button--secondary {
+  --color-button: var(--color-base-accent-1);
+  --color-button-text: var(--color-base-solid-button-labels);
+  --alpha-button-background: 1;
+  --alpha-button-border: 1;
+  background: rgba(var(--color-button), var(--alpha-button-background)) !important;
   color: rgb(var(--color-button-text)) !important;
-  border-color: rgb(var(--color-button)) !important;
+  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
   border-radius: 1.2rem;
   box-shadow: none;
 }
 
 .collection--button .button:hover,
-.collection--button .button:focus {
-  background: rgb(var(--color-button)) !important;
+.collection--button .button:focus,
+.collection--button .button.button--secondary:hover,
+.collection--button .button.button--secondary:focus {
+  background: rgba(var(--color-button), var(--alpha-button-background)) !important;
   color: rgb(var(--color-button-text)) !important;
-  border-color: rgb(var(--color-button)) !important;
+  border-color: rgba(var(--color-button), var(--alpha-button-border)) !important;
 }
 
 @media only screen and (max-width: 360px) {
