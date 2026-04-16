@@ -234,8 +234,8 @@
 
 .announcement--timer-close-btn > svg,
 .announcement--timer-close-btn .icon-close {
-  width: 1.95rem;
-  height: 1.95rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 @media only screen and (max-width: 991px) {
@@ -281,8 +281,8 @@
 
   .announcement--timer-close-btn > svg,
   .announcement--timer-close-btn .icon-close {
-    width: 1.65rem;
-    height: 1.65rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
