@@ -18,6 +18,27 @@ theme.footerSection = (function () {
       });
     }
     // Footer widget column collapsible
+    const isMobileFooterViewport = function () {
+      return window.matchMedia("(max-width: 989px)").matches;
+    };
+
+    const keepNewsletterOpen = function () {
+      document.querySelectorAll(".footer__widget--newsletter").forEach(function (item) {
+        const inner = item.querySelector(".footer__widget_inner");
+        const toggle = item.querySelector(".footer__widget_toggle");
+
+        if (isMobileFooterViewport()) {
+          item.classList.add("active");
+          if (inner) {
+            inner.style.display = "";
+          }
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        }
+      });
+    };
+
     let accordion = true;
     const footerWidgetAccordion = function () {
       accordion = false;
@@ -27,7 +48,7 @@ theme.footerSection = (function () {
           // Special handling for newsletter section on mobile/tablet
           const footerWidget = item.closest('.footer__widget');
           const isNewsletter = footerWidget && footerWidget.classList.contains('footer__widget--newsletter');
-          if (isNewsletter && window.outerWidth < 990) {
+          if (isNewsletter && isMobileFooterViewport()) {
             // Always open, never closable
             footerWidget.classList.add('active');
             const footerWidgetInner = footerWidget.querySelector('.footer__widget_inner');
@@ -60,7 +81,7 @@ theme.footerSection = (function () {
                 if (
                   footerWidget &&
                   footerWidget.classList.contains("footer__widget--newsletter") &&
-                  window.outerWidth < 990
+                  isMobileFooterViewport()
                 ) {
                   footerWidget.classList.add("active");
                   if (footerWidgetInner) {
@@ -73,6 +94,7 @@ theme.footerSection = (function () {
                 slideUp(footerWidgetInner);
               });
             }
+            keepNewsletterOpen();
           });
         });
     };
@@ -82,7 +104,7 @@ theme.footerSection = (function () {
     // On resize, re-apply always-open for newsletter on mobile/tablet
     window.addEventListener("resize", function () {
       document.querySelectorAll('.footer__widget--newsletter').forEach(function (item) {
-        if (window.outerWidth < 990) {
+        if (isMobileFooterViewport()) {
           item.classList.add('active');
           const inner = item.querySelector('.footer__widget_inner');
           if (inner) {
@@ -99,7 +121,7 @@ theme.footerSection = (function () {
     });
     window.addEventListener("resize", function () {
       document.querySelectorAll(".footer__widget").forEach(function (item) {
-        if (window.outerWidth >= 990) {
+        if (!isMobileFooterViewport()) {
           item.classList.remove("active");
           item.querySelector(".footer__widget_inner").style.display = "";
         }
