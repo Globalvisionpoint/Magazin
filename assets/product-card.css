@@ -86,15 +86,22 @@
   line-height: 2.4rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: rgba(var(--color-foreground));
+}
+
+.product__card__price dl,
+.product__card__price dd {
+  margin: 0;
 }
 
 .product__card__price.price--on-sale .price__sale {
   display: inline-flex;
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   line-height: 1.1;
 }
 
