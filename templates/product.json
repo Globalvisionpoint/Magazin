@@ -152,7 +152,7 @@
         "hide_variants": false,
         "enable_sticky_info": true,
         "enable_video_looping": true,
-        "sticky_enable": false,
+        "sticky_enable": true,
         "padding_top": 35,
         "padding_bottom": 0,
         "mobile_padding_top": 0,

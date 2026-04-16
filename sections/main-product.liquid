@@ -1114,7 +1114,7 @@
   </modal-dialog>
 
   {%- if section.settings.sticky_enable -%}
-    {%- render 'product-sticky-add-cart', current_variant: current_variant -%}
+    {%- render 'product-sticky-add-cart', product: product, section: section, current_variant: current_variant -%}
   {%- endif -%}
 </div>
 
