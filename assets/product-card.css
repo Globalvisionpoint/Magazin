@@ -950,22 +950,23 @@ button.product__card__actions__btn.loading {
 
 /* Color swatches css  */
 .product--color-swatch {
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 3.4rem;
+  height: 3.4rem;
   display: inline-flex;
   cursor: pointer;
   border: 0.2rem solid transparent;
-  padding: 0.2rem;
-  border-radius: 100%;
+  padding: 0.25rem;
+  border-radius: 0.6rem;
 }
 .product--color-swatch.checked-color {
   border-color: rgba(var(--color-foreground), 0.7);
 }
 .product--color-swatch-wrapper {
   display: flex;
-  gap: 0.2rem;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
   align-items: center;
+  justify-content: center;
 }
 .product--color-swatch .swatch--variant-tooltip {
   position: absolute;
@@ -988,8 +989,9 @@ button.product__card__actions__btn.loading {
 .product--color-swatch .variant--swatch-color {
   position: relative;
   width: 100%;
+  height: 100%;
   box-shadow: inset 0 0 0 0.1rem rgb(var(--color-foreground), 0.1);
-  border-radius: 50%;
+  border-radius: 0.45rem;
   background-color: var(
     --color-swatch-background,
     var(--swatch-background-color)
