@@ -32,7 +32,7 @@
       endif
     %}
     {%- if percentage_badge or sale_text != blank -%}
-      <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">
+      <span class="badge badge--bottom-left sale-corner-badge color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">
         {% if percentage_badge %}
           <span class="sale__save--percent"
             >-

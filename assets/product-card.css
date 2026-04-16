@@ -32,38 +32,47 @@
   left: 0;
   gap: 0;
   overflow: visible;
+  width: 0;
+  height: 0;
 }
 
-.product-recommendations .product__card__badges .badge {
+.product-recommendations .product__card__badges .sale-corner-badge {
   position: absolute;
-  top: 1rem;
-  left: -1.9rem;
-  width: 7.8rem;
-  min-width: 7.8rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  min-width: 0;
+  padding: 0;
+  border-top: 7.2rem solid #e21c23;
+  border-right: 7.2rem solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
   border-radius: 0;
-  padding: 0.35rem 0.9rem;
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0;
-  box-shadow: 0 8px 18px rgba(226, 28, 35, 0.22);
-  transform: rotate(-45deg);
-  transform-origin: center;
-  clip-path: none;
-  white-space: nowrap;
 }
 
-.product-recommendations .product__card__badges .badge::after {
+.product-recommendations .product__card__badges .sale-corner-badge::after {
   content: '';
   position: absolute;
-  right: 0;
-  bottom: -0.45rem;
-  border-style: solid;
-  border-width: 0.45rem 0 0 0.45rem;
-  border-color: transparent transparent transparent #a41319;
+  top: -7.2rem;
+  left: 0;
+  border-top: 1.1rem solid #b5151b;
+  border-right: 1.1rem solid transparent;
+}
+
+.product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
+  position: absolute;
+  top: -5.9rem;
+  left: 0.7rem;
+  z-index: 1;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1;
+  transform: rotate(-45deg);
+  transform-origin: left center;
+  white-space: nowrap;
 }
 
 .product__card__badges .sale__save--percent {
