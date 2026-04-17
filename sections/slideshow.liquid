@@ -190,6 +190,12 @@
             -%}
 
             <div class="swiper-slide" {{ block.shopify_attributes }}>
+              {%- liquid
+                assign priority_slide = false
+                if forloop.first
+                  assign priority_slide = true
+                endif
+              -%}
               {% if block.settings.enble_entire_link and block.settings.button_link %}
                 <a
                   {% if block.settings.button_link %}
@@ -219,7 +225,9 @@
                     "
                     sizes="100vw"
                     src="{{ block.settings.image | image_url: width: 1500 }}"
-                    loading="lazy"
+                    loading="{% if priority_slide %}eager{% else %}lazy{% endif %}"
+                    fetchpriority="{% if priority_slide %}high{% else %}auto{% endif %}"
+                    decoding="async"
                     alt="{{ block.settings.image.alt | escape }}"
                     width="{{ block.settings.image.width }}"
                     height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
@@ -242,7 +250,9 @@
                     "
                     sizes="100vw"
                     src="{{ block.settings.image2 | image_url: width: 1500 }}"
-                    loading="lazy"
+                    loading="{% if priority_slide %}eager{% else %}lazy{% endif %}"
+                    fetchpriority="{% if priority_slide %}high{% else %}auto{% endif %}"
+                    decoding="async"
                     alt="{{ block.settings.image2.alt | escape }}"
                     width="{{ block.settings.image2.width }}"
                     height="{{ block.settings.image2.width | divided_by: block.settings.image2.aspect_ratio | round }}"

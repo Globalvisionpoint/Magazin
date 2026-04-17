@@ -141,6 +141,33 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
   },
 });
 
+theme.runWhenVisible = function (element, callback, rootMargin) {
+  if (!element || typeof callback !== "function") {
+    return;
+  }
+
+  if ((window.Shopify && window.Shopify.designMode) || !("IntersectionObserver" in window)) {
+    callback();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    function (entries, currentObserver) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          currentObserver.unobserve(entry.target);
+          callback();
+        }
+      });
+    },
+    {
+      rootMargin: rootMargin || "250px 0px",
+    }
+  );
+
+  observer.observe(element);
+};
+
 theme.collectionSlider = (function () {
   function sliderProduct(e) {
     let sliderContainer = "",
@@ -170,52 +197,67 @@ theme.collectionSlider = (function () {
       mobileShow = parseInt(e.dataset.showMobile);
     }
 
-    var swiper = new Swiper(sliderContainer, {
-      loop: sliderLoop,
-      slidesPerView: mobileShow,
-      spaceBetween: 20,
-      grid: {
-        rows: sliderRows,
-        fill: sliderGrid,
-      },
-      pagination: {
-        el: e.querySelector(".swiper-pagination"),
-        clickable: true,
-      },
-      navigation: {
-        nextEl: e.querySelector(".product_slider_wrapper .swiper-button-next"),
-        prevEl: e.querySelector(".product_slider_wrapper .swiper-button-prev"),
-      },
-      breakpoints: {
-        640: {
+    if (!sliderContainer) {
+      return;
+    }
+
+    theme.runWhenVisible(
+      e,
+      function () {
+        if (sliderContainer.dataset.sliderInitialized === "true" || typeof Swiper === "undefined") {
+          return;
+        }
+
+        sliderContainer.dataset.sliderInitialized = "true";
+
+        new Swiper(sliderContainer, {
+          loop: sliderLoop,
           slidesPerView: mobileShow,
-        },
-        750: {
-          slidesPerView: tabletShow,
-        },
-        992: {
-          slidesPerView: largeDesktopShow,
-        },
-        1200: {
-          slidesPerView: extraLargeDesktopShow,
-        },
+          spaceBetween: 20,
+          grid: {
+            rows: sliderRows,
+            fill: sliderGrid,
+          },
+          pagination: {
+            el: e.querySelector(".swiper-pagination"),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: e.querySelector(".product_slider_wrapper .swiper-button-next"),
+            prevEl: e.querySelector(".product_slider_wrapper .swiper-button-prev"),
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: mobileShow,
+            },
+            750: {
+              slidesPerView: tabletShow,
+            },
+            992: {
+              slidesPerView: largeDesktopShow,
+            },
+            1200: {
+              slidesPerView: extraLargeDesktopShow,
+            },
+          },
+        });
+
+        const slideThumbHeight = () => {
+          const proudctThumbnails = e.querySelectorAll(".card--client-height");
+          if (proudctThumbnails.length > 0) {
+            const productThumbnailHeight = proudctThumbnails[0];
+            e.style.setProperty(
+              "--slider-navigation-top-offset",
+              `${productThumbnailHeight.clientHeight / 2}px`
+            );
+          }
+        };
+
+        slideThumbHeight();
+        window.addEventListener("resize", slideThumbHeight, { passive: true });
       },
-    });
-    // Slide thumbnail height
-    const slideThumbHeight = () => {
-      const proudctThumbnails = e.querySelectorAll(".card--client-height");
-      if (proudctThumbnails.length > 0) {
-        const productThumbnailHeight = proudctThumbnails[0];
-        e.style.setProperty(
-          "--slider-navigation-top-offset",
-          `${productThumbnailHeight.clientHeight / 2}px`
-        );
-      }
-    };
-    slideThumbHeight();
-    window.addEventListener("resize", () => {
-      slideThumbHeight();
-    });
+      "300px 0px"
+    );
   }
   return sliderProduct;
 })();
