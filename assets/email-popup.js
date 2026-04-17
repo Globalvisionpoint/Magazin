@@ -44,30 +44,7 @@ if (!customElements.get('email-popup')) {
       }
 
       const configuredDelay = parseInt(this.dataset.delay, 10) || 0;
-      const openDelay = this.isTestMode ? configuredDelay * 1000 : Math.max(configuredDelay * 1000, this.isMobileViewport ? 12000 : 4000);
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const saveDataEnabled = Boolean(navigator.connection && navigator.connection.saveData);
-
-      if (this.isTestMode) {
-        this.queueOpen(openDelay);
-        return;
-      }
-
-      if (this.isMobileViewport || prefersReducedMotion || saveDataEnabled) {
-        this.interactionHandler = () => {
-          this.removeInteractionListeners();
-          window.clearTimeout(this.fallbackTimeout);
-          this.queueOpen(openDelay);
-        };
-
-        this.interactionEvents = ["pointerdown", "touchstart", "keydown", "scroll"];
-        this.interactionEvents.forEach((eventName) => {
-          window.addEventListener(eventName, this.interactionHandler, { passive: true, once: true });
-        });
-
-        this.fallbackTimeout = window.setTimeout(this.interactionHandler, openDelay + 8000);
-        return;
-      }
+      const openDelay = this.isTestMode ? configuredDelay * 1000 : (configuredDelay > 0 ? configuredDelay * 1000 : 1500);
 
       this.queueOpen(openDelay);
     }

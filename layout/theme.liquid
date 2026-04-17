@@ -62,9 +62,13 @@
       assign needs_lookbook_assets = false
       assign needs_timeline_assets = false
       assign needs_counter_assets = false
+      assign needs_product_variant_assets = false
 
       if content_for_layout contains 'swiper' or content_for_layout contains 'hero__slider--activation' or content_for_layout contains 'productSlider'
         assign needs_swiper_assets = true
+      endif
+      if template.name == 'product' or content_for_layout contains '<variant-selects' or content_for_layout contains '<variant-radios' or content_for_layout contains 'product-form__input--dropdown'
+        assign needs_product_variant_assets = true
       endif
       if content_for_layout contains 'load-more-product' or content_for_layout contains 'loadMoreBtn'
         assign needs_load_more = true
@@ -93,9 +97,9 @@
 
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
-    {%- unless template.name == 'product' -%}
+    {%- if needs_product_variant_assets -%}
       <script src="{{ 'product-variant.js' | asset_url }}" defer="defer"></script>
-    {%- endunless -%}
+    {%- endif -%}
 
     {{ content_for_header }}
 
@@ -427,20 +431,51 @@
       <script src="{{ 'faq-collapse.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.show_wishlist_button -%}
-      <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if settings.show_compare_view_button -%}
-      <script src="{{ 'compare.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.show_quick_view_button -%}
-      <script src="{{ 'quick_view_modal.js' | asset_url }}" defer="defer"></script>
+    {%- if settings.show_wishlist_button or settings.show_compare_view_button or settings.show_quick_view_button -%}
+      <script>
+        window.addEventListener('load', function () {
+          var optionalToolsLoaded = false;
+          var toolSources = [];
+
+          {% if settings.show_wishlist_button %}
+            toolSources.push("{{ 'wishlist.js' | asset_url }}");
+          {% endif %}
+          {% if settings.show_compare_view_button %}
+            toolSources.push("{{ 'compare.js' | asset_url }}");
+          {% endif %}
+          {% if settings.show_quick_view_button %}
+            toolSources.push("{{ 'quick_view_modal.js' | asset_url }}");
+          {% endif %}
+
+          if (!toolSources.length) return;
+
+          var loadOptionalTools = function () {
+            if (optionalToolsLoaded) return;
+            optionalToolsLoaded = true;
+
+            toolSources.forEach(function (src) {
+              var script = document.createElement('script');
+              script.src = src;
+              script.defer = true;
+              document.body.appendChild(script);
+            });
+          };
+
+          ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (eventName) {
+            window.addEventListener(eventName, loadOptionalTools, { passive: true, once: true });
+          });
+
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadOptionalTools, { timeout: 2500 });
+          } else {
+            setTimeout(loadOptionalTools, 2500);
+          }
+        }, { once: true });
+      </script>
     {%- endif -%}
 
     {%- if needs_glightbox_assets -%}
