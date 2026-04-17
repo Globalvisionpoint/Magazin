@@ -73,6 +73,7 @@
           aria-modal="true"
           class="email__popup--mdoal__content email__popup--position-{{ section.settings.popup_position }}"
           tabindex="-1"
+          open
         >
           {%- if section.settings.popup_position == 'center' -%}
             <div class="email-popup-overlay"></div>
@@ -91,19 +92,20 @@
                   <div class="email__popup--media  media">
                     <img
                       srcset="
-                        {%- if section.settings.image.width >= 320 -%}{{ section.settings.image | image_url: width: 320 }} 320w,{%- endif -%}
-                        {%- if section.settings.image.width >= 480 -%}{{ section.settings.image | image_url: width: 480 }} 480w,{%- endif -%}
-                        {%- if section.settings.image.width >= 640 -%}{{ section.settings.image | image_url: width: 640 }} 640w,{%- endif -%}
-                        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
-                        {%- if section.settings.image.width >= 960 -%}{{ section.settings.image | image_url: width: 960 }} 960w,{%- endif -%}
-                        {{ section.settings.image | image_url: width: 1200 }} 1200w
+                        {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
+                        {%- if settings.settings.image.width >= 550 -%}{{ settings.settings.image | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
+                        {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
+                        {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
+                        {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
+                        {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w
                       "
-                      src="{{ section.settings.image | image_url: width: 640 }}"
-                      sizes="(min-width: 990px) min(36vw, 420px), calc(100vw - 50px)"
+                      sizes="(min-width: 990px) 50vw, 100vw"
                       alt="{{ section.settings.image.alt | escape }}"
                       loading="lazy"
-                      fetchpriority="low"
-                      decoding="async"
                       width="{{ section.settings.image.width }}"
                       height="{{ section.settings.image.height }}"
                     >

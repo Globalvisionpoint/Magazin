@@ -95,7 +95,7 @@
   assign current_variant = product.selected_or_first_available_variant
 
   assign on_sale = false
-  if current_variant.compare_at_price != nil
+  if current_variant.compare_at_price != nill
     assign on_sale = true
   endif
 
@@ -947,12 +947,7 @@
             </div>
             <div class="product-popup-modal__content-info pt-25">
               {%- if product.metafields.meta.product_size_guide.type == 'file_reference' -%}
-                <img
-                  src="{{ productSizeGuideHandler | image_url }}"
-                  alt="Product Size Guide"
-                  width="{{ productSizeGuideHandler.width }}"
-                  height="{{ productSizeGuideHandler.height }}"
-                >
+                <img src="{{ productSizeGuideHandler | img_url: "master" }}" alt="{{ "Product Size Guide" }}">
               {%- else -%}
                 {{ productSizeGuideHandler }}
               {%- endif -%}
@@ -1023,12 +1018,7 @@
             </div>
             <div class="product-popup-modal__content-info pt-25">
               {%- if product.metafields.meta.product_shipping_policy.type == 'file_reference' -%}
-                <img
-                  src="{{ productShippingPolicy | image_url }}"
-                  alt="Product Shipping Policy"
-                  width="{{ productShippingPolicy.width }}"
-                  height="{{ productShippingPolicy.height }}"
-                >
+                <img src="{{ productShippingPolicy | img_url: "master" }}" alt="{{ "Product Shipping Policy" }}">
               {%- else -%}
                 {{ productShippingPolicy }}
               {%- endif -%}
@@ -1286,7 +1276,7 @@
     {%- if product.selected_or_first_available_variant.featured_media -%}
       {%- assign media_size = product.selected_or_first_available_variant.featured_media.preview_image.width | append: 'x' -%}
       "image": [
-        {{ product.selected_or_first_available_variant.featured_media | image_url: width: 1200 | prepend: "https:" | json }}
+        {{ product.selected_or_first_available_variant.featured_media | img_url: media_size | prepend: "https:" | json }}
       ],
     {%- endif -%}
     "description": {{ product.description | strip_html | json }},

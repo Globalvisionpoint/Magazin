@@ -140,8 +140,8 @@ class CartNotification extends HTMLElement {
           this.updateLiveRegions(line, parsedState.item_count);
         }
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        console.error(e);
       })
       .finally(() => {
         document
@@ -154,7 +154,7 @@ class CartNotification extends HTMLElement {
     if (this.currentItemCount === itemCount) {
       document
         .getElementById(`Line-item-error-${line}`)
-        .querySelector(".cart-item__error-text").textContent =
+        .querySelector(".cart-item__error-text").innerHTML =
         window.cartStrings.quantityError.replace(
           "[quantity]",
           document.getElementById(`Quantity-${line}`).value
@@ -185,8 +185,8 @@ class CartNotification extends HTMLElement {
         let parsedState = JSON.parse(state);
         this.renderContents(parsedState);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        console.error(e);
       })
       .finally(() => {
         document

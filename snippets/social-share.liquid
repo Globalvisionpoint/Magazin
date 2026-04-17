@@ -40,7 +40,6 @@
         href="//www.facebook.com/sharer.php?u={{ permalinkURL }}"
         title="{{ 'general.share.facebook_follow' | t }}"
         target="_blank"
-        rel="noopener noreferrer"
       >
         {%- render 'icon-facebook' -%}
         <span class="social__share--text"> {{ 'general.share.facebook' | t }} </span>
@@ -53,7 +52,6 @@
         href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }};source=webclient"
         title="{{ 'general.share.twitter_follow' | t }}"
         target="_blank"
-        rel="noopener noreferrer"
       >
         {%- render 'icon-twitter' -%}
         <span class="social__share--text">{{ 'general.share.twitter' | t }}</span>
@@ -64,10 +62,9 @@
       {% if product.featured_image or article.image %}
         <a
           class="pinterest"
-          href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=https:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}"
+          href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}"
           title="{{ 'general.share.pinterest_follow' | t }}"
           target="_blank"
-          rel="noopener noreferrer"
         >
           {%- render 'icon-pinterest' -%}
           <span class="social__share--text">{{ 'general.share.pinterest' | t }}</span>

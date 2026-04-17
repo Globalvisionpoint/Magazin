@@ -63,13 +63,9 @@
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
-  assign page_width = settings.page_width
-  assign gallery_layout = section.settings.gallery_layout
-  assign hide_variants = section.settings.hide_variants
-  assign jm_style = ''
 
   assign on_sale = false
-  if current_variant.compare_at_price != nil
+  if current_variant.compare_at_price != nill
     assign on_sale = true
   endif
 
@@ -682,7 +678,7 @@
                   data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.product_list_limit }}&intent=complementary"
                 >
                   <aside
-                    aria-label="Complementary products"
+                    aria-label="{{ 'accessibility.complementary_products' | t }}"
                     {{ block.shopify_attributes -}}
                     {% if block.settings.make_collapsible_row %}
                       class="product__accordion"
@@ -713,7 +709,7 @@
                       <div
                         class="complementary-products--slider  {% if block.settings.make_collapsible_row %} complementary--prouduct-accordion {% endif %}"
                         role="list"
-                        aria-label="Product recommendations slider"
+                        aria-label="{{ 'general.slider.name' | t }}"
                       >
                         <div class="complementory--slider swiper" role="list">
                           <div class="swiper-wrapper" grid-recommendation>
@@ -846,12 +842,7 @@
 
           <div class="product-popup-modal__content-info pt-25">
             {%- if product.metafields.meta.product_size_guide.type == 'file_reference' -%}
-              <img
-                src="{{ productSizeGuideHandler | image_url }}"
-                alt="Product Size Guide"
-                width="{{ productSizeGuideHandler.width }}"
-                height="{{ productSizeGuideHandler.height }}"
-              >
+              <img src="{{ productSizeGuideHandler | img_url: "master" }}" alt="{{ "Product Size Guide" }}">
             {%- else -%}
               {{ productSizeGuideHandler.content }}
             {%- endif -%}
@@ -920,12 +911,7 @@
           </div>
           <div class="product-popup-modal__content-info pt-25">
             {%- if product.metafields.meta.product_shipping_policy.type == 'file_reference' -%}
-              <img
-                src="{{ productShippingPolicy | image_url }}"
-                alt="Product Shipping Policy"
-                width="{{ productShippingPolicy.width }}"
-                height="{{ productShippingPolicy.height }}"
-              >
+              <img src="{{ productShippingPolicy | img_url: "master" }}" alt="{{ "Product Shipping Policy" }}">
             {%- else -%}
               {{ productShippingPolicy }}
             {%- endif -%}
@@ -1058,10 +1044,10 @@
     </modal-dialog>
   {%- endfor -%}
 
-  <modal-dialog id="PopupModal-4" class="product-popup-modal back__in--stock-popup">
+  <modal-dialog id="PopupModal-4" class="product-popup-modal back__in--stock-popup" {{ block.shopify_attributes }}>
     <div
       role="dialog"
-      aria-label="{{ 'products.product.back_in_stock_notify.Popup_heading' | t }}"
+      aria-label="{{ block.settings.text }}"
       aria-modal="true"
       class="product-popup-modal__content modal-sm"
       tabindex="-1"
@@ -1179,7 +1165,7 @@
     {%- if product.selected_or_first_available_variant.featured_media -%}
       {%- assign media_size = product.selected_or_first_available_variant.featured_media.preview_image.width | append: 'x' -%}
       "image": [
-        {{ product.selected_or_first_available_variant.featured_media | image_url: width: 1200 | prepend: "https:" | json }}
+        {{ product.selected_or_first_available_variant.featured_media | img_url: media_size | prepend: "https:" | json }}
       ],
     {%- endif -%}
     "description": {{ product.description | strip_html | json }},

@@ -53,53 +53,22 @@
 
     {% render 'meta-tags' %}
 
-    {%- liquid
-      assign needs_swiper_assets = false
-      assign needs_load_more = false
-      assign needs_faq_assets = false
-      assign needs_glightbox_assets = false
-      assign needs_color_swatch_assets = false
-      assign needs_lookbook_assets = false
-      assign needs_timeline_assets = false
-      assign needs_counter_assets = false
-      assign needs_product_variant_assets = false
-
-      if content_for_layout contains 'swiper' or content_for_layout contains 'hero__slider--activation' or content_for_layout contains 'productSlider'
-        assign needs_swiper_assets = true
-      endif
-      if template.name == 'product' or content_for_layout contains '<variant-selects' or content_for_layout contains '<variant-radios' or content_for_layout contains 'product-form__input--dropdown'
-        assign needs_product_variant_assets = true
-      endif
-      if content_for_layout contains 'load-more-product' or content_for_layout contains 'loadMoreBtn'
-        assign needs_load_more = true
-      endif
-      if content_for_layout contains 'data-section-type="faq-collapse"'
-        assign needs_faq_assets = true
-      endif
-      if content_for_layout contains 'glightbox'
-        assign needs_glightbox_assets = true
-      endif
-      if content_for_layout contains 'color-swatch-variant'
-        assign needs_color_swatch_assets = true
-      endif
-      if content_for_layout contains 'data-section-type="lookbook"'
-        assign needs_lookbook_assets = true
-      endif
-      if content_for_layout contains 'data-section-type="timeline"'
-        assign needs_timeline_assets = true
-      endif
-      if content_for_layout contains 'data-section-type="counter_up"'
-        assign needs_counter_assets = true
-      endif
-    -%}
-
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'loadMore.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
 
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
-    {%- if needs_product_variant_assets -%}
+    <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'tab-active.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'counter-up.js' | asset_url }}" defer="defer"></script>
+
+    {%- unless template.name == 'product' -%}
       <script src="{{ 'product-variant.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    {%- endunless -%}
 
     {{ content_for_header }}
 
@@ -279,13 +248,8 @@
       }
     {% endstyle %}
 
-    {%- if needs_swiper_assets -%}
-      {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-    {%- endif -%}
-    {%- if needs_glightbox_assets -%}
-      <link rel="stylesheet" href="{{ 'glightbox.min.css' | asset_url }}" media="print" onload="this.media='all'">
-      <noscript>{{ 'glightbox.min.css' | asset_url | stylesheet_tag }}</noscript>
-    {%- endif -%}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'glightbox.min.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {%- if theme_rtl -%}
       {{ 'rtl.css' | asset_url | stylesheet_tag }}
@@ -308,40 +272,16 @@
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
-    <script>
-      window.addEventListener('load', function () {
-        var merchantWidgetLoaded = false;
-        var fallbackDelay = window.matchMedia('(max-width: 749px)').matches ? 15000 : 8000;
-
-        var loadMerchantWidget = function () {
-          if (merchantWidgetLoaded) return;
-          merchantWidgetLoaded = true;
-
-          var startWidget = function () {
-            var script = document.createElement('script');
-            script.src = 'https://www.gstatic.com/shopping/merchant/merchantwidget.js';
-            script.async = true;
-            script.onload = function () {
-              if (window.merchantwidget && typeof window.merchantwidget.start === 'function') {
-                window.merchantwidget.start({ position: 'RIGHT_BOTTOM' });
-              }
-            };
-            document.head.appendChild(script);
-          };
-
-          if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(startWidget, { timeout: 4000 });
-          } else {
-            setTimeout(startWidget, 0);
-          }
-        };
-
-        ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (eventName) {
-          window.addEventListener(eventName, loadMerchantWidget, { passive: true, once: true });
-        });
-
-        setTimeout(loadMerchantWidget, fallbackDelay);
-      }, { once: true });
+    <script id='merchantWidgetScript'
+            src="https://www.gstatic.com/shopping/merchant/merchantwidget.js"
+            defer>
+    </script>
+    <script type="text/javascript">
+      merchantWidgetScript.addEventListener('load', function () {
+        merchantwidget.start({
+         position: 'RIGHT_BOTTOM'
+       });
+      });
     </script>
 </head>
 
@@ -414,86 +354,37 @@
       <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if needs_load_more -%}
-      <script src="{{ 'loadMore.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'faq-collapse.js' | asset_url }}" defer="defer"></script>
+
+    {%- if settings.show_wishlist_button -%}
+      <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if needs_swiper_assets -%}
-      <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-      <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if needs_counter_assets -%}
-      <script src="{{ 'counter-up.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if needs_faq_assets -%}
-      <script src="{{ 'faq-collapse.js' | asset_url }}" defer="defer"></script>
+    {%- if settings.show_compare_view_button -%}
+      <script src="{{ 'compare.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.show_wishlist_button or settings.show_compare_view_button or settings.show_quick_view_button -%}
-      <script>
-        window.addEventListener('load', function () {
-          var optionalToolsLoaded = false;
-          var toolSources = [];
-
-          {% if settings.show_wishlist_button %}
-            toolSources.push("{{ 'wishlist.js' | asset_url }}");
-          {% endif %}
-          {% if settings.show_compare_view_button %}
-            toolSources.push("{{ 'compare.js' | asset_url }}");
-          {% endif %}
-          {% if settings.show_quick_view_button %}
-            toolSources.push("{{ 'quick_view_modal.js' | asset_url }}");
-          {% endif %}
-
-          if (!toolSources.length) return;
-
-          var loadOptionalTools = function () {
-            if (optionalToolsLoaded) return;
-            optionalToolsLoaded = true;
-
-            toolSources.forEach(function (src) {
-              var script = document.createElement('script');
-              script.src = src;
-              script.defer = true;
-              document.body.appendChild(script);
-            });
-          };
-
-          ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (eventName) {
-            window.addEventListener(eventName, loadOptionalTools, { passive: true, once: true });
-          });
-
-          if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadOptionalTools, { timeout: 2500 });
-          } else {
-            setTimeout(loadOptionalTools, 2500);
-          }
-        }, { once: true });
-      </script>
+    {%- if settings.show_quick_view_button -%}
+      <script src="{{ 'quick_view_modal.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if needs_glightbox_assets -%}
+    {%- if content_for_layout contains 'glightbox' -%}
       <script src="{{ 'glightbox.min.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if content_for_layout contains 'glightbox' -%}
       <script src="{{ 'welcome-video.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if needs_color_swatch_assets -%}
-      <script src="{{ 'color-swatch-variant.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    <script src="{{ 'color-swatch-variant.js' | asset_url }}" defer="defer"></script>
 
-    {%- if needs_lookbook_assets -%}
-      <script src="{{ 'lookbook-slider.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    <script src="{{ 'lookbook-slider.js' | asset_url }}" defer="defer"></script>
 
-    {%- if needs_timeline_assets -%}
-      <script src="{{ 'timeline-slider.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    <script src="{{ 'timeline-slider.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.back_top_enable -%}
       {%- render 'back-to-top' -%}

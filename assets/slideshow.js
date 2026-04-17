@@ -35,66 +35,51 @@ theme.SlideShow = (function () {
       autoplay = { delay: autoplayDuration, disableOnInteraction: false };
     }
 
-    if (!sliderWrapper) {
-      return;
-    }
-
-    theme.runWhenVisible(
-      e,
-      function () {
-        if (sliderWrapper.dataset.sliderInitialized === "true" || typeof Swiper === "undefined") {
-          return;
-        }
-
-        sliderWrapper.dataset.sliderInitialized = "true";
-
-        new Swiper(sliderWrapper, {
-          slidesPerView: mobileShow,
-          autoplay: autoplay,
-          loop: slideLoopValue,
-          clickable: true,
-          speed: 1000,
-          spaceBetween: slideShowSpace,
-          pagination: {
-            el: sliderPagination,
-            clickable: true,
-          },
-          navigation: {
-            nextEl: slideNavNext,
-            prevEl: slideNavPrev,
-          },
-          breakpoints: {
-            0: {
-              slidesPerView: mobileShow,
-            },
-            750: {
-              slidesPerView: tabletShow,
-            },
-            992: {
-              slidesPerView: smallDesktop,
-            },
-            1200: {
-              slidesPerView: sliderPerView,
-            },
-          },
-        });
-
-        const slideThumbHeight = () => {
-          const proudctThumbnails = e.querySelectorAll(".card--client-height");
-          if (proudctThumbnails.length > 0) {
-            const productThumbnailHeight = proudctThumbnails[0];
-            e.style.setProperty(
-              "--slider-navigation-top-offset",
-              `${productThumbnailHeight.clientHeight / 2}px`
-            );
-          }
-        };
-
-        slideThumbHeight();
-        window.addEventListener("resize", slideThumbHeight, { passive: true });
+    var swiper = new Swiper(sliderWrapper, {
+      slidesPerView: mobileShow,
+      autoplay: autoplay,
+      loop: slideLoopValue,
+      clickable: true,
+      speed: 1000,
+      spaceBetween: slideShowSpace,
+      pagination: {
+        el: sliderPagination,
+        clickable: true,
       },
-      "150px 0px"
-    );
+      navigation: {
+        nextEl: slideNavNext,
+        prevEl: slideNavPrev,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: mobileShow,
+        },
+        750: {
+          slidesPerView: tabletShow,
+        },
+        992: {
+          slidesPerView: smallDesktop,
+        },
+        1200: {
+          slidesPerView: sliderPerView,
+        },
+      },
+    });
+    // Slide thumbnail height
+    const slideThumbHeight = () => {
+      const proudctThumbnails = e.querySelectorAll(".card--client-height");
+      if (proudctThumbnails.length > 0) {
+        const productThumbnailHeight = proudctThumbnails[0];
+        e.style.setProperty(
+          "--slider-navigation-top-offset",
+          `${productThumbnailHeight.clientHeight / 2}px`
+        );
+      }
+    };
+    slideThumbHeight();
+    window.addEventListener("resize", () => {
+      slideThumbHeight();
+    });
   }
   return Slider;
 })();

@@ -86,11 +86,8 @@ if (!customElements.get("shipping-calculator")) {
         this.shippingRatePackage.innerHTML = "";
         if (this.shippingCountry.value !== "---") {
           this.button.classList.add("loading");
-          const zip = encodeURIComponent(this.shippingCountryZip.value || "");
-          const country = encodeURIComponent(this.shippingCountry.value || "");
-          const province = encodeURIComponent(this.countryState.value || "");
           fetch(
-            `/cart/shipping_rates.json?shipping_address%5Bzip%5D=${zip}&shipping_address%5Bcountry%5D=${country}&shipping_address%5Bprovince%5D=${province}`
+            `/cart/shipping_rates.json?shipping_address%5Bzip%5D=${this.shippingCountryZip.value}&shipping_address%5Bcountry%5D=${this.shippingCountry.value}&shipping_address%5Bprovince%5D=${this.countryState.value}`
           )
             .then((response) => {
               if (response.ok) {
@@ -114,13 +111,11 @@ if (!customElements.get("shipping-calculator")) {
             .catch((e) => {
               this.button.classList.remove("loading");
               this.shippingAddressWrapper.classList.add("no-js-inline");
-              this.shippingRatePackage.textContent = e;
-              this.shippingRatePackage.classList.add("error", "mt-15");
+              this.shippingRatePackage.innerHTML = `<p class="error mt-15">${e}</p>`;
             });
         } else {
           this.shippingAddressWrapper.classList.add("no-js-inline");
-          this.shippingRatePackage.textContent = window.shipping.country_label;
-          this.shippingRatePackage.classList.add("error", "mt-15");
+          this.shippingRatePackage.innerHTML = `<p class="error mt-15">${window.shipping.country_label}</p>`;
         }
       }
     }

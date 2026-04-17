@@ -2,7 +2,7 @@
   assign current_variant = product.selected_or_first_available_variant
 
   assign on_sale = false
-  if current_variant.compare_at_price != nil
+  if current_variant.compare_at_price != nill
     assign on_sale = true
   endif
 
