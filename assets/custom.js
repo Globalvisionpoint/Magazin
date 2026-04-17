@@ -241,18 +241,22 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.register("popup-video", theme.video);
   sections.register("lookbook", theme.lookbookSlider);
   sections.register("timeline", theme.timelineSlider);
-      setTimeout(function() {
-        var compare = document.getElementsByClassName("product__card--add-wishlist");
-for (var i = 0; i < compare.length; i++) {
-  compare[i].innerHTML = "Compară Produse";
-}
-    }, 1000);
-        setTimeout(function() {
-        var compare = document.getElementsByClassName("product__card--remove-wishlist");
-for (var i = 0; i < compare.length; i++) {
-  compare[i].innerHTML = "Elimină din comparare";
-}
-    }, 1000);
+
+  const updateCompareLabels = function () {
+    document.querySelectorAll(".product__card--add-wishlist").forEach(function (item) {
+      item.textContent = "Compară Produse";
+    });
+
+    document.querySelectorAll(".product__card--remove-wishlist").forEach(function (item) {
+      item.textContent = "Elimină din comparare";
+    });
+  };
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(updateCompareLabels, { timeout: 1200 });
+  } else {
+    setTimeout(updateCompareLabels, 600);
+  }
 });
 
 

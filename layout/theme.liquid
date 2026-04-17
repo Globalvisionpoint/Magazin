@@ -53,18 +53,45 @@
 
     {% render 'meta-tags' %}
 
+    {%- liquid
+      assign needs_swiper_assets = false
+      assign needs_load_more = false
+      assign needs_faq_assets = false
+      assign needs_glightbox_assets = false
+      assign needs_color_swatch_assets = false
+      assign needs_lookbook_assets = false
+      assign needs_timeline_assets = false
+      assign needs_counter_assets = false
+
+      if content_for_layout contains 'swiper' or content_for_layout contains 'hero__slider--activation' or content_for_layout contains 'productSlider'
+        assign needs_swiper_assets = true
+      endif
+      if content_for_layout contains 'load-more-product' or content_for_layout contains 'loadMoreBtn'
+        assign needs_load_more = true
+      endif
+      if content_for_layout contains 'data-section-type="faq-collapse"'
+        assign needs_faq_assets = true
+      endif
+      if content_for_layout contains 'glightbox'
+        assign needs_glightbox_assets = true
+      endif
+      if content_for_layout contains 'color-swatch-variant'
+        assign needs_color_swatch_assets = true
+      endif
+      if content_for_layout contains 'data-section-type="lookbook"'
+        assign needs_lookbook_assets = true
+      endif
+      if content_for_layout contains 'data-section-type="timeline"'
+        assign needs_timeline_assets = true
+      endif
+      if content_for_layout contains 'data-section-type="counter_up"'
+        assign needs_counter_assets = true
+      endif
+    -%}
+
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
-    <script src="{{ 'loadMore.js' | asset_url }}" defer="defer"></script>
-
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
-
-    <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
-
-    <script src="{{ 'tab-active.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'counter-up.js' | asset_url }}" defer="defer"></script>
 
     {%- unless template.name == 'product' -%}
       <script src="{{ 'product-variant.js' | asset_url }}" defer="defer"></script>
@@ -248,8 +275,13 @@
       }
     {% endstyle %}
 
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-    {{ 'glightbox.min.css' | asset_url | stylesheet_tag }}
+    {%- if needs_swiper_assets -%}
+      {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+    {%- if needs_glightbox_assets -%}
+      <link rel="stylesheet" href="{{ 'glightbox.min.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'glightbox.min.css' | asset_url | stylesheet_tag }}</noscript>
+    {%- endif -%}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {%- if theme_rtl -%}
       {{ 'rtl.css' | asset_url | stylesheet_tag }}
@@ -272,15 +304,25 @@
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
-    <script id='merchantWidgetScript'
-            src="https://www.gstatic.com/shopping/merchant/merchantwidget.js"
-            defer>
-    </script>
-    <script type="text/javascript">
-      merchantWidgetScript.addEventListener('load', function () {
-        merchantwidget.start({
-         position: 'RIGHT_BOTTOM'
-       });
+    <script>
+      window.addEventListener('load', function () {
+        var loadMerchantWidget = function () {
+          var script = document.createElement('script');
+          script.src = 'https://www.gstatic.com/shopping/merchant/merchantwidget.js';
+          script.async = true;
+          script.onload = function () {
+            if (window.merchantwidget && typeof window.merchantwidget.start === 'function') {
+              window.merchantwidget.start({ position: 'RIGHT_BOTTOM' });
+            }
+          };
+          document.head.appendChild(script);
+        };
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadMerchantWidget, { timeout: 2500 });
+        } else {
+          setTimeout(loadMerchantWidget, 1500);
+        }
       });
     </script>
 </head>
@@ -354,7 +396,22 @@
       <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script src="{{ 'faq-collapse.js' | asset_url }}" defer="defer"></script>
+    {%- if needs_load_more -%}
+      <script src="{{ 'loadMore.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if needs_swiper_assets -%}
+      <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if needs_counter_assets -%}
+      <script src="{{ 'counter-up.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if needs_faq_assets -%}
+      <script src="{{ 'faq-collapse.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
     {%- if settings.show_wishlist_button -%}
       <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
@@ -372,19 +429,22 @@
       <script src="{{ 'quick_view_modal.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if content_for_layout contains 'glightbox' -%}
+    {%- if needs_glightbox_assets -%}
       <script src="{{ 'glightbox.min.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if content_for_layout contains 'glightbox' -%}
       <script src="{{ 'welcome-video.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script src="{{ 'color-swatch-variant.js' | asset_url }}" defer="defer"></script>
+    {%- if needs_color_swatch_assets -%}
+      <script src="{{ 'color-swatch-variant.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
-    <script src="{{ 'lookbook-slider.js' | asset_url }}" defer="defer"></script>
+    {%- if needs_lookbook_assets -%}
+      <script src="{{ 'lookbook-slider.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
-    <script src="{{ 'timeline-slider.js' | asset_url }}" defer="defer"></script>
+    {%- if needs_timeline_assets -%}
+      <script src="{{ 'timeline-slider.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
     {%- if settings.back_top_enable -%}
       {%- render 'back-to-top' -%}
