@@ -307,27 +307,36 @@
     <script>
       window.addEventListener('load', function () {
         var merchantWidgetLoaded = false;
+        var fallbackDelay = window.matchMedia('(max-width: 749px)').matches ? 15000 : 8000;
 
         var loadMerchantWidget = function () {
           if (merchantWidgetLoaded) return;
           merchantWidgetLoaded = true;
 
-          var script = document.createElement('script');
-          script.src = 'https://www.gstatic.com/shopping/merchant/merchantwidget.js';
-          script.async = true;
-          script.onload = function () {
-            if (window.merchantwidget && typeof window.merchantwidget.start === 'function') {
-              window.merchantwidget.start({ position: 'RIGHT_BOTTOM' });
-            }
+          var startWidget = function () {
+            var script = document.createElement('script');
+            script.src = 'https://www.gstatic.com/shopping/merchant/merchantwidget.js';
+            script.async = true;
+            script.onload = function () {
+              if (window.merchantwidget && typeof window.merchantwidget.start === 'function') {
+                window.merchantwidget.start({ position: 'RIGHT_BOTTOM' });
+              }
+            };
+            document.head.appendChild(script);
           };
-          document.head.appendChild(script);
+
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(startWidget, { timeout: 4000 });
+          } else {
+            setTimeout(startWidget, 0);
+          }
         };
 
         ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (eventName) {
           window.addEventListener(eventName, loadMerchantWidget, { passive: true, once: true });
         });
 
-        setTimeout(loadMerchantWidget, 6000);
+        setTimeout(loadMerchantWidget, fallbackDelay);
       }, { once: true });
     </script>
 </head>
