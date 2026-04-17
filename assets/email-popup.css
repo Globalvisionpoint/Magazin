@@ -345,9 +345,11 @@ button.email__popup--hide {
 }
 
 .email__popup__field-wrapper .input__field {
-  min-height: 2rem;
-  padding: 0 0.65rem;
-  font-size: 1.1rem;
+  height: 3.2rem !important;
+  min-height: 3.2rem !important;
+  padding: 0 0.65rem !important;
+  font-size: 1.1rem !important;
+  line-height: 3.2rem !important;
   border-radius: 0.7rem;
   border: 1px solid rgba(var(--color-foreground), 0.12);
   background: rgba(255, 255, 255, 0.96);
@@ -365,14 +367,20 @@ button.email__popup--hide {
 }
 
 .email__popup--form .button {
-  min-height: 2.1rem;
+  height: 3.2rem !important;
+  min-height: 3.2rem !important;
+  padding: 0 1rem !important;
   border: none;
   border-radius: 0.65rem;
   background: linear-gradient(135deg, #d61f32 0%, #ef4444 100%);
   box-shadow: 0 0.25rem 0.6rem rgba(214, 31, 50, 0.12);
-  font-size: 1.05rem;
+  font-size: 1.05rem !important;
   font-weight: 700;
   letter-spacing: 0.01em;
+  line-height: 1 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button.email__popup--toggle {
