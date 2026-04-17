@@ -220,7 +220,7 @@
       ],
       "settings": {
         "display": "enable",
-        "show_home_page": false,
+        "show_home_page": true,
         "show_visitors": false,
         "delay": 2,
         "dont_show": false,
