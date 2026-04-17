@@ -161,20 +161,16 @@ a.collection__card {
 .collection__list--slider.hero__slider--activation.swiper:not(
     .show__contents--container
   ) {
-  --offset-fluid: 1.5rem;
-  margin-left: var(--offset-fluid);
+  --offset-fluid: 0;
+  margin-left: 0;
 }
 
 @media only screen and (min-width: 992px) {
   .collection__list--slider.hero__slider--activation.swiper:not(
       .show__contents--container
     ) {
-    --offset-fluid: 3rem;
-  }
-  .collection__list--slider.hero__slider--activation.swiper:not(
-      .show__contents--container
-    ) {
-    padding-right: 20rem;
+    --offset-fluid: 0;
+    padding-right: clamp(6rem, 8vw, 10rem);
   }
 }
 
