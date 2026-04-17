@@ -20,9 +20,11 @@
     {%- if section.settings.logo != blank -%}
       {%- assign image_size = section.settings.logo_width | append: 'x' -%}
       <img
-        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-        src="{{ section.settings.logo | img_url: image_size }}"
-        loading="lazy"
+        srcset="{{ section.settings.logo | image_url: width: section.settings.logo_width }} 1x, {{ section.settings.logo | image_url: width: section.settings.logo_width, scale: 2 }} 2x"
+        src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
         class="header__heading-logo"
         width="{{ section.settings.logo.width }}"
         height="{{ section.settings.logo.height }}"
