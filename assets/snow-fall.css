@@ -1,0 +1,4 @@
+/* Fallback stylesheet kept intentionally minimal to avoid missing asset requests. */
+.snow--fall {
+  position: relative;
+}

@@ -42,9 +42,7 @@
     }
   }
 </style>
-{% if section.settings.snow_fall %}
-  {{ 'snow-fall.css' | asset_url | stylesheet_tag }}
-{% endif %}
+{% comment %} Removed missing snow-fall asset reference to prevent theme errors. {% endcomment %}
 {% if theme_rtl %}
   {{ 'footer-rtl.css' | asset_url | stylesheet_tag }}
 {% endif %}
