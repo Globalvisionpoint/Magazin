@@ -194,7 +194,6 @@
       "blocks": {
         "6bff7e32-a1c3-40e7-b7b0-b6f2828a5441": {
           "type": "heading",
-          "disabled": true,
           "settings": {
             "heading": "Anunț",
             "heading_size": "h4"
@@ -202,16 +201,14 @@
         },
         "f8c0bbcb-d708-4cc1-ab84-cd1caa700308": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "richtext": "<p>Luni, 24 iunie, este zi nelucrătoare. </p><p>Toate comenzile vor fi predate curierului în prima zi lucrătoare, marți, 25 iunie.</p>"
+            "richtext": "<p>Aboneaza-te la newsletter si primeste o reducere de 25 lei la urmatoarea comanda!<br/><br/>Nu rata ofertele exclusive, noile colectii si promotiile speciale destinate abonatilor nostri.</p>"
           }
         },
         "77395d1d-95ba-4bd1-af42-79086a37cfed": {
           "type": "email_form",
-          "disabled": true,
           "settings": {
-            "richtext": "<p>*By submitting this form, you agree to receive our emails and may unsubscribe at any time.</p>",
+            "richtext": "<p>Prin introducerea adresei de email, sunteți de acord să primiți emailurile noastre și puteți să vă dezabonați oricând.</p>",
             "button_full": false
           }
         }
@@ -221,19 +218,18 @@
         "f8c0bbcb-d708-4cc1-ab84-cd1caa700308",
         "77395d1d-95ba-4bd1-af42-79086a37cfed"
       ],
-      "disabled": true,
       "settings": {
         "display": "enable",
         "show_home_page": false,
         "show_visitors": true,
         "delay": 2,
-        "dont_show": true,
+        "dont_show": false,
         "dont_show_button_label": "No Thanks!",
         "expire": 7,
         "popup_position": "center",
         "popup_width": "medium",
         "alignment": "left",
-        "corner_radius": false,
+        "corner_radius": true,
         "image_position": "left",
         "full--bg-image": false,
         "image_overlay_opacity": 0,
