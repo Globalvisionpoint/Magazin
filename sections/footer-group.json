@@ -232,7 +232,7 @@
         "corner_radius": true,
         "image_position": "left",
         "full--bg-image": false,
-        "image_overlay_opacity": 100,
+        "image_overlay_opacity": 0,
         "color_scheme": ""
       }
     }
