@@ -277,8 +277,8 @@ button.email__popup--hide {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 248, 0.98) 100%);
   border: 1px solid rgba(var(--color-foreground), 0.08);
   box-shadow: 0 1.2rem 2.8rem rgba(var(--color-foreground), 0.12);
-  max-height: min(66vh, 44rem);
-  max-width: 30rem;
+  max-height: min(64vh, 42rem);
+  max-width: 28.5rem;
 }
 
 .email__popup---wrapper.popup-corner-radius-true {
@@ -343,8 +343,8 @@ button.email__popup--hide {
 }
 
 .email__popup__field-wrapper .input__field {
-  min-height: 3.9rem;
-  padding: 0 1rem;
+  min-height: 3.4rem;
+  padding: 0 0.9rem;
   font-size: 1.3rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(var(--color-foreground), 0.12);
@@ -363,12 +363,12 @@ button.email__popup--hide {
 }
 
 .email__popup--form .button {
-  min-height: 3.9rem;
+  min-height: 3.5rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.9rem;
   background: linear-gradient(135deg, #d61f32 0%, #ef4444 100%);
-  box-shadow: 0 0.8rem 1.8rem rgba(214, 31, 50, 0.22);
-  font-size: 1.5rem;
+  box-shadow: 0 0.6rem 1.4rem rgba(214, 31, 50, 0.18);
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.01em;
 }
@@ -392,7 +392,7 @@ button.email__popup--toggle {
 
 @media only screen and (max-width: 749px) {
   .email__popup--position-center .email__popup---wrapper {
-    max-width: 26.5rem;
+    max-width: 25.5rem;
   }
 
   .email__popup---wrapper.popup-corner-radius-true {
@@ -400,7 +400,7 @@ button.email__popup--toggle {
   }
 
   .email__popup--content {
-    padding: 1.5rem 1rem 0.9rem;
+    padding: 1.35rem 0.9rem 0.8rem;
   }
 
   .email__popup--content h2 {
