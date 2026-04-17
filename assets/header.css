@@ -113,6 +113,22 @@ predictive-search.search-modal__form {
 .welcome--text-icon > svg {
   fill: currentColor;
 }
+
+@media only screen and (min-width: 1200px) {
+  .header__right--info .suport__contact,
+  .header__right--info .welcome--text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+  .header__right--info .suport__contact img {
+    margin-left: -0.4rem;
+    margin-right: 0.4rem;
+    flex: 0 0 auto;
+  }
+}
+
 @media only screen and (max-width: 749px) {
   .header__sticky.logo__menu--two-lines.sticky {
     padding: 0;
