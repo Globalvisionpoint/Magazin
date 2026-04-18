@@ -1102,36 +1102,17 @@ span.product__media-icon.motion-reduce > a {
 
 @media screen and (max-width: 749px) {
   .product__media-item {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
-  .product--thumbnail_slider .product__media-list,
-  .product--stacked .product__media-list,
-  .product--thumbnail .product__media-list {
-    align-items: flex-start;
-    margin-bottom: 1rem;
-  }
-
-  .product__modal-opener,
-  .product__modal-opener--image {
+  .product__modal-opener {
     width: 100%;
-  }
-
-  .product__modal-opener--image .product__media {
-    width: 100%;
-    height: min(82vw, 42rem);
-    max-height: 42rem;
-    padding-top: 0 !important;
-  }
-
-  .product__modal-opener--image .product__media > img {
-    object-fit: contain;
   }
 
   .thumbnail-slider {
     display: flex;
     align-items: center;
-    margin-top: 0.5rem;
   }
 
   .thumbnail-slider .thumbnail-list.slider {
