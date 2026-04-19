@@ -89,24 +89,15 @@
       <div class="newsletter__image--container color-{{ section.settings.color_scheme }} {% if section.settings.custom_colors  %} custom-colors-{{ section.id }} {% endif %} {% if section.settings.image_round_corner %}rounded--3rem{% endif %}">
         {%- if section.settings.image != blank -%}
           <div class="media newsletter__media--wrapper {% if section.settings.image_round_corner %}rounded--3rem{% endif %}">
-            <img
-              srcset="
-                {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
-                {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
-                {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
-                {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
-                {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
-                {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
-                {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
-                {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
-              "
-              src="{{ section.settings.image | img_url: '1920x' }}"
-              sizes="100vw"
-              alt="{{  section.settings.image.alt | escape }}"
-              loading="lazy"
-              width="{{ section.settings.image.width }}"
-              height="{{ section.settings.image.height }}"
-            >
+            {{
+              section.settings.image
+              | image_url: width: 1920
+              | image_tag:
+                loading: 'lazy',
+                sizes: '100vw',
+                widths: '375, 750, 1100, 1500, 1920, 2400',
+                alt: section.settings.image.alt | escape
+            }}
           </div>
         {%- endif -%}
         {% if page_offset %}
@@ -152,7 +143,7 @@
             {%- endfor -%}
           </div>
 
-          <div class="newsletter--signup__form {% unless ection.settings.form_position == "top" and section.settings.form_position == "bottom" %} form__width {% endunless %}">
+          <div class="newsletter--signup__form {% unless section.settings.form_position == "top" and section.settings.form_position == "bottom" %} form__width {% endunless %}">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'email_form' -%}

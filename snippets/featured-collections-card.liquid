@@ -30,27 +30,15 @@
                 widths: '165, 360, 750, 1000, 1500, 1780, 2000, 3000, 3840'
             }}
           {% else %}
-            <img
-              srcset="
-                {%- if first_collection.featured_image.width >= 165 -%}{{ first_collection.featured_image | img_url: '165x' }} 165w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 360 -%}{{ first_collection.featured_image | img_url: '360x' }} 360w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 535 -%}{{ first_collection.featured_image | img_url: '535x' }} 535w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 750 -%}{{ first_collection.featured_image | img_url: '750x' }} 750w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 1000 -%}{{ first_collection.featured_image | img_url: '1000x' }} 1000w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 1500 -%}{{ first_collection.featured_image | img_url: '1500x' }} 1500w,{%- endif -%}
-                {%- if first_collection.featured_image.width >= 1780 -%}{{ first_collection.featured_image | img_url: '1780x' }} 1780w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 2000 -%}{{ first_collection.featured_image | img_url: '2000x' }} 2000w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 3000 -%}{{ first_collection.featured_image | img_url: '3000x' }} 3000w,{%- endif -%}
-                   {%- if first_collection.featured_image.width >= 3840 -%}{{ first_collection.featured_image | img_url: '3840x' }} 3840w,{%- endif -%}
-                   {{ first_collection.featured_image | img_url: 'master' }} {{ first_collection.featured_image.width }}w
-              "
-              src="{{ first_collection.featured_image | img_url: '1500x' }}"
-              sizes="(min-width: {{ settings.container_lg_width }}px) {{ settings.container_lg_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
-              alt="{{ collection.title | escape }}"
-              height="{{ first_collection.featured_image.height | divided_by: first_collection.featured_image.aspect_ratio }}"
-              width="{{ first_collection.featured_image.width  }}"
-              loading="lazy"
-            >
+            {{
+              first_collection.featured_image
+              | image_url: width: 1500
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '165, 360, 535, 750, 1000, 1500, 1780, 2000',
+                alt: collection.title | escape
+            }}
           {% endif %}
         </div>
       </a>
