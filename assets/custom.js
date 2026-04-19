@@ -369,8 +369,8 @@ for (var i = 0; i < compare.length; i++) {
 
         .shopify-pc__banner__btns,
         [class*="shopify-pc__banner__btns"] {
-          gap: 0.22rem !important;
-          margin-top: 0.25rem !important;
+          gap: 0.32rem !important;
+          margin-top: 0.08rem !important;
           margin-bottom: 0.1rem !important;
         }
 
