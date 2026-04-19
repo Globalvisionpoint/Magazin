@@ -340,9 +340,9 @@ for (var i = 0; i < compare.length; i++) {
       @media screen and (max-width: 989px) {
         .shopify-pc__banner__dialog,
         [class*="shopify-pc__banner__dialog"] {
-          width: calc(100vw - 2rem) !important;
-          max-width: 34rem !important;
-          padding: 1rem 1.15rem !important;
+          width: calc(100vw - 2.2rem) !important;
+          max-width: 33rem !important;
+          padding: 0.95rem 1.05rem !important;
           border-radius: 1rem !important;
           margin-left: auto !important;
           margin-right: auto !important;
@@ -355,30 +355,30 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog h3,
         [class*="shopify-pc__banner__dialog"] h2,
         [class*="shopify-pc__banner__dialog"] h3 {
-          font-size: 1.02rem !important;
-          line-height: 1.28 !important;
-          margin-bottom: 0.55rem !important;
+          font-size: 1.14rem !important;
+          line-height: 1.32 !important;
+          margin-bottom: 0.4rem !important;
         }
 
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
-          font-size: 0.9rem !important;
-          line-height: 1.38 !important;
+          font-size: 1.02rem !important;
+          line-height: 1.4 !important;
         }
 
         .shopify-pc__banner__btns,
         [class*="shopify-pc__banner__btns"] {
-          gap: 0.35rem !important;
-          margin-top: 0.8rem !important;
+          gap: 0.15rem !important;
+          margin-top: 0.7rem !important;
         }
 
         .shopify-pc__banner__btns button,
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.45rem !important;
-          padding: 0.5rem 0.9rem !important;
-          font-size: 0.9rem !important;
+          min-height: 2.05rem !important;
+          padding: 0.38rem 0.78rem !important;
+          font-size: 0.8rem !important;
         }
 
         .shopify-pc__banner__btns > *,
