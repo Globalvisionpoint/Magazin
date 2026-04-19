@@ -122,6 +122,47 @@
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+
+          <div class="product-trust-badges" aria-label="Beneficiile comenzii">
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 8.5 12 4l9 4.5v7L12 20l-9-4.5v-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M3.5 8 12 12.3 20.5 8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="product-trust-badge__text">Expediere rapidă</span>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M20 4v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="product-trust-badge__text">Retur în 14 zile</span>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3 6 5.5V11c0 4.2 2.5 8 6 10 3.5-2 6-5.8 6-10V5.5L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="m9.5 12 1.7 1.7L14.8 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="product-trust-badge__text">Garanție 24 luni</span>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 7h12v8H4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M16 10h2.5l1.5 2v3H16v-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <circle cx="8" cy="17" r="1.5" stroke="currentColor" stroke-width="1.7"/>
+                  <circle cx="17" cy="17" r="1.5" stroke="currentColor" stroke-width="1.7"/>
+                </svg>
+              </span>
+              <span class="product-trust-badge__text">Livrare în easybox</span>
+            </div>
+          </div>
         </div>
       {%- endform -%}
       {%- liquid

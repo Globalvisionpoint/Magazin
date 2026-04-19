@@ -1469,3 +1469,53 @@ button.product-form__submit.loading:after {
   color: #fff !important;
   background: #d92d2f;
 }
+
+.product-trust-badges {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.08);
+}
+
+.product-trust-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  text-align: center;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.product-trust-badge__icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a7a7a;
+}
+
+.product-trust-badge__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.product-trust-badge__text {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 749px) {
+  .product-trust-badges {
+    gap: 0.8rem 0.4rem;
+    margin-top: 1.2rem;
+  }
+
+  .product-trust-badge__text {
+    font-size: 0.78rem;
+  }
+}
