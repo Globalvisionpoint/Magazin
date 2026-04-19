@@ -467,6 +467,32 @@ variant-selects {
   max-width: 100%;
   width: 100%;
 }
+
+.product__media_container .product__media,
+.product__media_container .deferred-media {
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  min-height: 0;
+}
+
+.product__media_container .product__media.main--product__media--adapt,
+.product__media_container .deferred-media.media {
+  padding-top: 100% !important;
+}
+
+.product__media_container .product__media > img,
+.product__media_container .product__media > svg,
+.product__media_container .product__media > iframe,
+.product__media_container .product__media > video,
+.product__media_container .product__media model-viewer,
+.product__media_container .deferred-media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: rgb(var(--color-background));
+}
+
 .media > a > img {
   object-fit: cover;
   object-position: center center;
