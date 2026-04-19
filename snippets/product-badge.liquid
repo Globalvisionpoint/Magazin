@@ -10,6 +10,10 @@
     assign compare_at_price_base = product.compare_at_price_max
   endif
 
+  if product.handle == 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila' and compare_at_price_base <= price_base
+    assign compare_at_price_base = 39900
+  endif
+
   if compare_at_price_base > price_base
     assign sale_product = true
   endif
