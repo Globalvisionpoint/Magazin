@@ -355,29 +355,30 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog h3,
         [class*="shopify-pc__banner__dialog"] h2,
         [class*="shopify-pc__banner__dialog"] h3 {
-          font-size: 0.95rem !important;
-          line-height: 1.25 !important;
+          font-size: 1.02rem !important;
+          line-height: 1.28 !important;
           margin-bottom: 0.55rem !important;
         }
 
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
-          font-size: 0.82rem !important;
-          line-height: 1.32 !important;
+          font-size: 0.9rem !important;
+          line-height: 1.38 !important;
         }
 
         .shopify-pc__banner__btns,
         [class*="shopify-pc__banner__btns"] {
-          gap: 0.55rem !important;
+          gap: 0.35rem !important;
+          margin-top: 0.8rem !important;
         }
 
         .shopify-pc__banner__btns button,
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.6rem !important;
-          padding: 0.55rem 0.9rem !important;
-          font-size: 0.88rem !important;
+          min-height: 2.45rem !important;
+          padding: 0.5rem 0.9rem !important;
+          font-size: 0.9rem !important;
         }
 
         .shopify-pc__banner__btns > *,
