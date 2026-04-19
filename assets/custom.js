@@ -255,4 +255,69 @@ for (var i = 0; i < compare.length; i++) {
     }, 1000);
 });
 
+(function () {
+  function injectDesktopCookieBannerStyles() {
+    if (document.getElementById("desktop-cookie-banner-style")) return;
+
+    var style = document.createElement("style");
+    style.id = "desktop-cookie-banner-style";
+    style.textContent = `
+      @media screen and (min-width: 990px) {
+        .shopify-pc__banner__dialog,
+        [class*="shopify-pc__banner__dialog"] {
+          width: min(88rem, calc(100vw - 6rem)) !important;
+          max-width: 88rem !important;
+          padding: 1.4rem 1.8rem !important;
+          border-radius: 1.6rem !important;
+          display: grid !important;
+          grid-template-columns: minmax(0, 1.7fr) minmax(28rem, 1fr) !important;
+          align-items: center !important;
+          gap: 1rem 1.8rem !important;
+        }
+
+        .shopify-pc__banner__body,
+        [class*="shopify-pc__banner__body"],
+        .shopify-pc__banner__content,
+        [class*="shopify-pc__banner__content"] {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        .shopify-pc__banner__dialog p,
+        [class*="shopify-pc__banner__dialog"] p {
+          margin: 0.4rem 0 0 !important;
+          line-height: 1.4 !important;
+        }
+
+        .shopify-pc__banner__btns,
+        [class*="shopify-pc__banner__btns"] {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          justify-content: flex-end !important;
+          align-items: center !important;
+          gap: 0.8rem !important;
+          margin: 0 !important;
+        }
+
+        .shopify-pc__banner__btns button,
+        .shopify-pc__banner__btns a,
+        [class*="shopify-pc__banner__btns"] button,
+        [class*="shopify-pc__banner__btns"] a {
+          min-height: 4rem !important;
+          padding: 0.8rem 1.5rem !important;
+          line-height: 1.2 !important;
+        }
+      }
+    `;
+
+    document.head.appendChild(style);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", injectDesktopCookieBannerStyles);
+  } else {
+    injectDesktopCookieBannerStyles();
+  }
+})();
+
 
