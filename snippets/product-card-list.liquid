@@ -80,9 +80,7 @@
     {%- endif -%}
 
     <div class="product-card-list--price-cart">
-      {%- if show_price -%}
-        {% render 'price', product: product_card_product, price_class: price_class %}
-      {%- endif -%}
+      {% render 'price', product: product_card_product, price_class: price_class %}
 
       {%- if show_cart_button -%}
         <div class="product-card-list-action-buttons ">

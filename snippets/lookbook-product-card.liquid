@@ -203,9 +203,7 @@
       <h3 class="product__card__title h5">Example product title {{ index }}</h3>
     {%- endif -%}
 
-    {%- if show_price -%}
-      {% render 'price', product: product_card_product, price_class: price_class %}
-    {%- endif -%}
+    {% render 'price', product: product_card_product, price_class: price_class %}
 
     {%- if show_rating and product_card_product.metafields.reviews.rating.value != blank -%}
       <div class="product-card--rating">

@@ -255,6 +255,20 @@
   align-items: center;
   justify-content: center;
   color: rgba(var(--color-foreground));
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.product__card__badges {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.product__card__badges .badge {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .product__card__price dl,

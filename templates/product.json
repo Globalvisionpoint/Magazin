@@ -58,7 +58,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "sale_badge": false,
+            "sale_badge": true,
             "save_percentage": true
           }
         },

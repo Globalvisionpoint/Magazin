@@ -1,6 +1,7 @@
 {%- liquid
   assign nweBadgeDate = product.metafields.meta.product_new_badge.value | date: '%s'
   assign today_date = 'now' | date: '%s'
+  assign current_variant = product.selected_or_first_available_variant
 
   assign sale_text = 'products.product.on_sale' | t
 -%}
@@ -24,7 +25,7 @@
     <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
       {{- 'products.product.sold_out' | t -}}
     </span>
-  {%- elsif product.compare_at_price > product.price and product.available -%}
+  {%- elsif current_variant.compare_at_price > current_variant.price and product.available -%}
     {% liquid
       assign percentage_badge = false
       if product.selected_or_first_available_variant.compare_at_price != null
