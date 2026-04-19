@@ -63,9 +63,15 @@
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
+  assign price_base = current_variant.price | default: product.price | default: 0
+  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price | default: 0
+
+  if compare_at_price_base <= price_base and product.compare_at_price_max > price_base
+    assign compare_at_price_base = product.compare_at_price_max
+  endif
 
   assign on_sale = false
-  if current_variant.compare_at_price != nill
+  if compare_at_price_base > price_base
     assign on_sale = true
   endif
 
@@ -211,16 +217,15 @@
                 </div>
 
                 {%- liquid
-                  assign current_variant = product.selected_or_first_available_variant
                   assign show_discount_bubble = false
-                  if current_variant.compare_at_price > current_variant.price or product.compare_at_price > product.price
+                  if compare_at_price_base > price_base
                     assign show_discount_bubble = true
                   endif
                 -%}
                 {%- if show_discount_bubble -%}
                   {% liquid
                     assign percentage_badge = false
-                    if block.settings.save_percentage and current_variant.compare_at_price != null
+                    if block.settings.save_percentage and compare_at_price_base > price_base
                       assign percentage_badge = true
                     endif
                   %}
@@ -229,10 +234,10 @@
                       <span class="discount__sale__text {% if on_sale == false %} no-js-inline {% endif %}">
                         <span class="sale__save--percent">
                           {{-
-                            current_variant.compare_at_price
-                            | minus: current_variant.price
+                            compare_at_price_base
+                            | minus: price_base
                             | times: 100.0
-                            | divided_by: current_variant.compare_at_price
+                            | divided_by: compare_at_price_base
                             | replace: ',', '.'
                             | round
                           -}}%

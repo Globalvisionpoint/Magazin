@@ -2,11 +2,15 @@
   assign nweBadgeDate = product.metafields.meta.product_new_badge.value | date: '%s'
   assign today_date = 'now' | date: '%s'
   assign current_variant = product.selected_or_first_available_variant
+  assign price_base = current_variant.price | default: product.price | default: 0
+  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price | default: 0
   assign sale_product = false
 
-  if current_variant.compare_at_price > current_variant.price
-    assign sale_product = true
-  elsif product.compare_at_price > product.price
+  if compare_at_price_base <= price_base and product.compare_at_price_max > price_base
+    assign compare_at_price_base = product.compare_at_price_max
+  endif
+
+  if compare_at_price_base > price_base
     assign sale_product = true
   endif
 
@@ -45,10 +49,10 @@
           <span class="sale__save--percent"
             >-
             {{-
-              product.selected_or_first_available_variant.compare_at_price
-              | minus: product.selected_or_first_available_variant.price
+              compare_at_price_base
+              | minus: price_base
               | times: 100.0
-              | divided_by: product.selected_or_first_available_variant.compare_at_price
+              | divided_by: compare_at_price_base
               | replace: ',', '.'
               | round
             -}}
