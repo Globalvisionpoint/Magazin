@@ -20,13 +20,10 @@
 
   assign price = target.price | default: product.price | default: 1999
   assign compare_at_price = target.compare_at_price | default: product.compare_at_price | default: 0
-  if compare_at_price <= price and product.compare_at_price_max > price
-    assign compare_at_price = product.compare_at_price_max
-  endif
-
-  if product.handle == 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila' and compare_at_price <= price
-    assign compare_at_price = 39900
-  endif
+  capture compare_at_price_output
+    render 'sale-compare-at-price', product: product, input_price: price, input_compare_at_price: compare_at_price
+  endcapture
+  assign compare_at_price = compare_at_price_output | strip | plus: 0
 
   assign on_sale = false
   if compare_at_price > price

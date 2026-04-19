@@ -1,0 +1,42 @@
+{%- liquid
+  assign sale_price = input_price | default: product.price | default: 0
+  assign sale_compare_at_price = input_compare_at_price | default: 0
+
+  if sale_compare_at_price <= sale_price and product.compare_at_price_max > sale_price
+    assign sale_compare_at_price = product.compare_at_price_max
+  endif
+
+  assign has_sale_collection = false
+  for sale_collection in product.collections
+    if sale_collection.handle == 'produse-cu-reduceri'
+      assign has_sale_collection = true
+      break
+    endif
+  endfor
+
+  if sale_compare_at_price <= sale_price and has_sale_collection
+    case product.handle
+      when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
+        assign sale_compare_at_price = 39900
+      when 'tableta-android-10-1-inch-20gb-ram-128gb-rom-wifi-procesor-8-nuclee-cu-tastatura-mouse-stilou-carcasa-de-protectie'
+        assign sale_compare_at_price = 72900
+      when 'tableta-android-10-1-inch-18gb-ram-128gb-rom-wifi-cu-tastatura-mouse-carcasa-de-protectie-si-stilou'
+        assign sale_compare_at_price = 59900
+      when 'tableta-android-10-inch-12gb-ram-128gb-rom-wifi-bluetooth-husa-protectie-anti-shock-pentru-copii'
+        assign sale_compare_at_price = 59900
+      else
+        if sale_price <= 29900
+          assign sale_compare_at_price = 39900
+        elsif sale_price <= 49900
+          assign sale_compare_at_price = 59900
+        elsif sale_price <= 59900
+          assign sale_compare_at_price = 72900
+        elsif sale_price <= 79900
+          assign sale_compare_at_price = 99900
+        else
+          assign sale_compare_at_price = sale_price | times: 125 | divided_by: 100
+          assign sale_compare_at_price = sale_compare_at_price | plus: 99 | divided_by: 100 | times: 100
+        endif
+    endcase
+  endif
+-%}{{- sale_compare_at_price -}}
