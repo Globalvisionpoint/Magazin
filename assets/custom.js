@@ -268,12 +268,12 @@ for (var i = 0; i < compare.length; i++) {
           width: min(110rem, calc(100vw - 2.4rem)) !important;
           max-width: 110rem !important;
           min-height: auto !important;
-          padding: 0.8rem 1.2rem !important;
+          padding: 0.95rem 1.4rem !important;
           border-radius: 1.2rem !important;
           display: grid !important;
           grid-template-columns: minmax(0, 1fr) auto !important;
           align-items: center !important;
-          gap: 0.5rem 1rem !important;
+          gap: 0.6rem 1.2rem !important;
           box-sizing: border-box !important;
         }
 
@@ -289,16 +289,16 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog h3,
         [class*="shopify-pc__banner__dialog"] h2,
         [class*="shopify-pc__banner__dialog"] h3 {
-          margin: 0 0 0.35rem !important;
-          font-size: 1rem !important;
-          line-height: 1.2 !important;
+          margin: 0 0 0.4rem !important;
+          font-size: 1.08rem !important;
+          line-height: 1.25 !important;
         }
 
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
           margin: 0 !important;
-          font-size: 0.78rem !important;
-          line-height: 1.2 !important;
+          font-size: 0.84rem !important;
+          line-height: 1.25 !important;
           white-space: nowrap !important;
         }
 
@@ -308,7 +308,7 @@ for (var i = 0; i < compare.length; i++) {
           flex-wrap: nowrap !important;
           justify-content: end !important;
           align-items: center !important;
-          gap: 0.45rem !important;
+          gap: 0.55rem !important;
           margin: 0 !important;
           width: auto !important;
         }
@@ -324,10 +324,10 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.2rem !important;
-          padding: 0.45rem 0.9rem !important;
-          font-size: 0.8rem !important;
-          line-height: 1.1 !important;
+          min-height: 2.5rem !important;
+          padding: 0.55rem 1rem !important;
+          font-size: 0.86rem !important;
+          line-height: 1.15 !important;
           border-radius: 0.7rem !important;
         }
       }
