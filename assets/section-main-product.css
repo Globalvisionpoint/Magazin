@@ -1565,21 +1565,29 @@ button.product-form__submit.loading:after {
 
 @media screen and (max-width: 749px) {
   .product-trust-badges {
-    gap: 1rem 0.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0.7rem;
     margin-top: 1.2rem;
   }
 
+  .product-trust-badge {
+    padding: 1rem 0.7rem;
+    border-radius: 1.2rem;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+
   .product-trust-badge__icon {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 3.8rem;
+    height: 3.8rem;
   }
 
   .product-trust-badge__icon svg {
-    width: 1.85rem;
-    height: 1.85rem;
+    width: 1.95rem;
+    height: 1.95rem;
   }
 
   .product-trust-badge__text {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
   }
 }
