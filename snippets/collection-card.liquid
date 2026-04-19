@@ -14,14 +14,14 @@
       >
         <img
           srcset="
-            {%- if image.width >= 165 -%}{{ image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if image.width >= 535 -%}{{ image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if image.width >= 1000 -%}{{ image | image_url: width: 1000 }} 1000w,{%- endif -%}
-            {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if image.width >= 165 -%}{{ image | image_url: width: 165, format: 'webp' }} 165w,{%- endif -%}
+            {%- if image.width >= 280 -%}{{ image | image_url: width: 280, format: 'webp' }} 280w,{%- endif -%}
+            {%- if image.width >= 400 -%}{{ image | image_url: width: 400, format: 'webp' }} 400w,{%- endif -%}
+            {%- if image.width >= 550 -%}{{ image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+            {%- if image.width >= 750 -%}{{ image | image_url: width: 750, format: 'webp' }} 750w,{%- endif -%}
+            {%- if image.width >= 900 -%}{{ image | image_url: width: 900, format: 'webp' }} 900w,{%- endif -%}
           "
-          src="{{ image | image_url: width: 1500 }}"
+          src="{{ image | image_url: width: 400, format: 'webp' }}"
           sizes="(min-width: {{ settings.container_lg_width }}px) {{ settings.container_lg_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
           alt="{{ collection.title | escape }}"
           height="{{ image.height }}"

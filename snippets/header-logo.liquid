@@ -4,8 +4,8 @@
       {%- assign image_width = section.settings.logo_width -%}
       {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo_2 | image_url: width: image_width }} 1x, {{ section.settings.logo_2 | image_url: width: image_width_2x }} 2x"
-        src="{{ section.settings.logo_2 | image_url: width: image_width }}"
+        srcset="{{ section.settings.logo_2 | image_url: width: image_width, format: 'webp' }} 1x, {{ section.settings.logo_2 | image_url: width: image_width_2x, format: 'webp' }} 2x"
+        src="{{ section.settings.logo_2 | image_url: width: image_width, format: 'webp' }}"
         loading="eager"
         fetchpriority="high"
         class="header__heading-logo"
@@ -23,8 +23,8 @@
       {%- assign image_width = section.settings.logo_width -%}
       {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo | image_url: width: image_width }} 1x, {{ section.settings.logo | image_url: width: image_width_2x }} 2x"
-        src="{{ section.settings.logo | image_url: width: image_width }}"
+        srcset="{{ section.settings.logo | image_url: width: image_width, format: 'webp' }} 1x, {{ section.settings.logo | image_url: width: image_width_2x, format: 'webp' }} 2x"
+        src="{{ section.settings.logo | image_url: width: image_width, format: 'webp' }}"
         loading="eager"
         fetchpriority="high"
         class="header__heading-logo"
@@ -44,8 +44,8 @@
       {%- assign image_width = section.settings.logo_width -%}
       {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo_3 | image_url: width: image_width }} 1x, {{ section.settings.logo_3 | image_url: width: image_width_2x }} 2x"
-        src="{{ section.settings.logo_3 | image_url: width: image_width }}"
+        srcset="{{ section.settings.logo_3 | image_url: width: image_width, format: 'webp' }} 1x, {{ section.settings.logo_3 | image_url: width: image_width_2x, format: 'webp' }} 2x"
+        src="{{ section.settings.logo_3 | image_url: width: image_width, format: 'webp' }}"
         loading="lazy"
         class="header__heading-logo"
         width="{{ section.settings.logo_3.width }}"

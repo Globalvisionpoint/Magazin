@@ -17,19 +17,22 @@
 {%- if media.media_type == 'image' -%}
   <img
     class="global-media-settings global-media-settings--no-shadow"
-    srcset="{%- if media.preview_image.width >= 550 -%}{{ media.preview_image | image_url: width: 550 }} 550w,{%- endif -%}
-            {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | image_url: width: 1100 }} 1100w,{%- endif -%}
-            {%- if media.preview_image.width >= 1445 -%}{{ media.preview_image | image_url: width: 1445 }} 1445w,{%- endif -%}
-            {%- if media.preview_image.width >= 1680 -%}{{ media.preview_image | image_url: width: 1680 }} 1680w,{%- endif -%}
-            {%- if media.preview_image.width >= 2048 -%}{{ media.preview_image | image_url: width: 2048 }} 2048w,{%- endif -%}
-            {%- if media.preview_image.width >= 2200 -%}{{ media.preview_image | image_url: width: 2200 }} 2200w,{%- endif -%}
-            {%- if media.preview_image.width >= 2890 -%}{{ media.preview_image | image_url: width: 2890 }} 2890w,{%- endif -%}
-            {%- if media.preview_image.width >= 4096 -%}{{ media.preview_image | image_url: width: 4096 }} 4096w,{%- endif -%}
-            {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
+    srcset="{%- if media.preview_image.width >= 400 -%}{{ media.preview_image | image_url: width: 400, format: 'webp' }} 400w,{%- endif -%}
+            {%- if media.preview_image.width >= 550 -%}{{ media.preview_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+            {%- if media.preview_image.width >= 750 -%}{{ media.preview_image | image_url: width: 750, format: 'webp' }} 750w,{%- endif -%}
+            {%- if media.preview_image.width >= 900 -%}{{ media.preview_image | image_url: width: 900, format: 'webp' }} 900w,{%- endif -%}
+            {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+            {%- if media.preview_image.width >= 1445 -%}{{ media.preview_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+            {{ media.preview_image | image_url: format: 'webp' }} {{ media.preview_image.width }}w"
     sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-    src="{{ media.preview_image | image_url: width: 1445 }}"
+    src="{{ media.preview_image | image_url: width: 1100, format: 'webp' }}"
     alt="{{ media.alt | escape }}"
-    loading="lazy"
+    {% if media.position == 1 %}
+      loading="eager"
+      fetchpriority="high"
+    {% else %}
+      loading="lazy"
+    {% endif %}
     width="1100"
     height="{{ 1100 | divided_by: media.preview_image.aspect_ratio | ceil }}"
     data-media-id="{{ media.id }}"
@@ -52,12 +55,12 @@
         {%- endif -%}
       </span>
       <img
-        srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | image_url: width: 288 }} 288w,{% endif %}
-                {% if media.preview_image.width >= 576 %}{{ media.preview_image | image_url: width: 576 }} 576w,{% endif %}
-                {% if media.preview_image.width >= 550 %}{{ media.preview_image | image_url: width: 550 }} 550w,{% endif %}
-                {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
-                {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
-        src="{{ media | image_url: width: 550, height: 550 }}"
+        srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | image_url: width: 288, format: 'webp' }} 288w,{% endif %}
+                {% if media.preview_image.width >= 400 %}{{ media.preview_image | image_url: width: 400, format: 'webp' }} 400w,{% endif %}
+                {% if media.preview_image.width >= 576 %}{{ media.preview_image | image_url: width: 576, format: 'webp' }} 576w,{% endif %}
+                {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100, format: 'webp' }} 1100w,{% endif %}
+                {{ media.preview_image | image_url: format: 'webp' }} {{ media.preview_image.width }}w"
+        src="{{ media | image_url: width: 400, height: 400, format: 'webp' }}"
         sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
         loading="lazy"
         width="576"
