@@ -87,10 +87,11 @@ grid grid--{{ productShowXl }}-col-desktop grid--{{ productShowSm }}-col-tablet-
               <div class="brand__logo--items">
                 <a href="{{ block.settings.url }}" class="header__logo_link">
                   {%- if block.settings.logo != blank -%}
-                    {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+                    {%- assign image_width = section.settings.logo_width -%}
+                    {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
                     <img
-                      srcset="{{ block.settings.logo | img_url: image_size }} 1x, {{ block.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                      src="{{ block.settings.logo | img_url: image_size }}"
+                      srcset="{{ block.settings.logo | image_url: width: image_width }} 1x, {{ block.settings.logo | image_url: width: image_width_2x }} 2x"
+                      src="{{ block.settings.logo | image_url: width: image_width }}"
                       loading="lazy"
                       class="brand__logo--items__thumbnail--img"
                       width="{{ block.settings.logo.width }}"

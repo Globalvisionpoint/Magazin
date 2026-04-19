@@ -1,11 +1,13 @@
 {% if section.settings.transparent_header and section.settings.logo_2 != blank and request.page_type == 'index' %}
   <a href="{{ routes.root_url }}" class="{{ className }}">
     {%- if section.settings.logo_2 != blank -%}
-      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      {%- assign image_width = section.settings.logo_width -%}
+      {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo_2 | img_url: image_size }} 1x, {{ section.settings.logo_2 | img_url: image_size, scale: 2 }} 2x"
-        src="{{ section.settings.logo_2 | img_url: image_size }}"
-        loading="lazy"
+        srcset="{{ section.settings.logo_2 | image_url: width: image_width }} 1x, {{ section.settings.logo_2 | image_url: width: image_width_2x }} 2x"
+        src="{{ section.settings.logo_2 | image_url: width: image_width }}"
+        loading="eager"
+        fetchpriority="high"
         class="header__heading-logo"
         width="{{ section.settings.logo_2.width }}"
         height="{{ section.settings.logo_2.height }}"
@@ -18,11 +20,13 @@
 {% else %}
   <a href="{{ routes.root_url }}" class="{{ className }}">
     {%- if section.settings.logo != blank -%}
-      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      {%- assign image_width = section.settings.logo_width -%}
+      {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-        src="{{ section.settings.logo | img_url: image_size }}"
-        loading="lazy"
+        srcset="{{ section.settings.logo | image_url: width: image_width }} 1x, {{ section.settings.logo | image_url: width: image_width_2x }} 2x"
+        src="{{ section.settings.logo | image_url: width: image_width }}"
+        loading="eager"
+        fetchpriority="high"
         class="header__heading-logo"
         width="{{ section.settings.logo.width }}"
         height="{{ section.settings.logo.height }}"
@@ -37,10 +41,11 @@
 {% if section.settings.transparent_header and section.settings.logo_3 != blank and request.page_type == 'index' %}
   <a href="{{ routes.root_url }}" class="{{ className }} transparent__header--hover-logo">
     {%- if section.settings.logo_3 != blank -%}
-      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      {%- assign image_width = section.settings.logo_width -%}
+      {%- assign image_width_2x = section.settings.logo_width | times: 2 -%}
       <img
-        srcset="{{ section.settings.logo_3 | img_url: image_size }} 1x, {{ section.settings.logo_3 | img_url: image_size, scale: 2 }} 2x"
-        src="{{ section.settings.logo_3 | img_url: image_size }}"
+        srcset="{{ section.settings.logo_3 | image_url: width: image_width }} 1x, {{ section.settings.logo_3 | image_url: width: image_width_2x }} 2x"
+        src="{{ section.settings.logo_3 | image_url: width: image_width }}"
         loading="lazy"
         class="header__heading-logo"
         width="{{ section.settings.logo_3.width }}"
