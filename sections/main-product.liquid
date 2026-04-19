@@ -207,45 +207,57 @@
             {%- when 'price' -%}
               <div class="price__box_wrapper d-flex" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="no-js-hidden">
-                  {%- render 'price',
-                    sale_badge: block.settings.sale_badge,
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
+                  <div class="price price--large{% if on_sale %} price--on-sale{% endif %}{% unless current_variant.available %} price--sold-out{% endunless %}">
+                    <dl>
+                      <div class="price__regular"{% if on_sale %} style="display:none;"{% endif %}>
+                        <dt>
+                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                        </dt>
+                        <dd class="price__last">
+                          <span class="price-item price-item--regular">
+                            {{ price_base | money }}
+                          </span>
+                        </dd>
+                      </div>
+
+                      <div class="price__sale"{% unless on_sale %} style="display:none;"{% endunless %}>
+                        <dt class="price__compare">
+                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+                        </dt>
+                        <dd class="price__compare">
+                          <s class="price-item price-item--regular">
+                            {{ compare_at_price_base | money }}
+                          </s>
+                        </dd>
+                        <dt>
+                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+                        </dt>
+                        <dd class="price__last">
+                          <span class="price-item price-item--sale">
+                            {{ price_base | money }}
+                          </span>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
 
-                {%- liquid
-                  assign show_discount_bubble = false
-                  if compare_at_price_base > price_base
-                    assign show_discount_bubble = true
-                  endif
-                -%}
-                {%- if show_discount_bubble -%}
-                  {% liquid
-                    assign percentage_badge = false
-                    if block.settings.save_percentage and compare_at_price_base > price_base
-                      assign percentage_badge = true
-                    endif
-                  %}
-                  {%- if percentage_badge -%}
-                    <div class="save__disoucnt">
-                      <span class="discount__sale__text {% if on_sale == false %} no-js-inline {% endif %}">
-                        <span class="sale__save--percent">
-                          {{-
-                            compare_at_price_base
-                            | minus: price_base
-                            | times: 100.0
-                            | divided_by: compare_at_price_base
-                            | replace: ',', '.'
-                            | round
-                          -}}%
-                        </span>
-                        <span class="discount__sale__off">mai ieftin</span>
+                {%- if on_sale and block.settings.save_percentage -%}
+                  <div class="save__disoucnt">
+                    <span class="discount__sale__text">
+                      <span class="sale__save--percent">
+                        {{-
+                          compare_at_price_base
+                          | minus: price_base
+                          | times: 100.0
+                          | divided_by: compare_at_price_base
+                          | replace: ',', '.'
+                          | round
+                        -}}%
                       </span>
-                    </div>
-                  {%- endif -%}
+                      <span class="discount__sale__off">mai ieftin</span>
+                    </span>
+                  </div>
                 {%- endif -%}
               </div>
 
