@@ -210,10 +210,17 @@
                   -%}
                 </div>
 
-                {%- if product.compare_at_price > product.price -%}
+                {%- liquid
+                  assign current_variant = product.selected_or_first_available_variant
+                  assign show_discount_bubble = false
+                  if current_variant.compare_at_price > current_variant.price or product.compare_at_price > product.price
+                    assign show_discount_bubble = true
+                  endif
+                -%}
+                {%- if show_discount_bubble -%}
                   {% liquid
                     assign percentage_badge = false
-                    if block.settings.save_percentage and product.selected_or_first_available_variant.compare_at_price != null
+                    if block.settings.save_percentage and current_variant.compare_at_price != null
                       assign percentage_badge = true
                     endif
                   %}
@@ -222,10 +229,10 @@
                       <span class="discount__sale__text {% if on_sale == false %} no-js-inline {% endif %}">
                         <span class="sale__save--percent">
                           {{-
-                            product.selected_or_first_available_variant.compare_at_price
-                            | minus: product.selected_or_first_available_variant.price
+                            current_variant.compare_at_price
+                            | minus: current_variant.price
                             | times: 100.0
-                            | divided_by: product.selected_or_first_available_variant.compare_at_price
+                            | divided_by: current_variant.compare_at_price
                             | replace: ',', '.'
                             | round
                           -}}%

@@ -553,9 +553,14 @@ variant-selects {
 }
 
 .product .price__box_wrapper .price-item--regular {
-  color: #909090;
+  color: rgba(var(--color-foreground));
   font-size: clamp(2.15rem, 3.75vw, 2.8rem);
   font-weight: 500;
+  text-decoration: none;
+}
+
+.product .price__box_wrapper .price--on-sale .price-item--regular {
+  color: #909090;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
   text-decoration-thickness: 1.5px;

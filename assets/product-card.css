@@ -293,8 +293,14 @@
 }
 
 .product__card__price .price-item--regular {
-  color: #8f8f8f;
+  color: rgba(var(--color-foreground));
   font-size: 1.35rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.product__card__price.price--on-sale .price-item--regular {
+  color: #8f8f8f;
   font-weight: 400;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
