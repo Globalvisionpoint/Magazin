@@ -342,7 +342,7 @@ for (var i = 0; i < compare.length; i++) {
         [class*="shopify-pc__banner__dialog"] {
           width: calc(100vw - 2.2rem) !important;
           max-width: 33rem !important;
-          padding: 0.95rem 1.05rem !important;
+          padding: 0.8rem 1rem !important;
           border-radius: 1rem !important;
           margin-left: auto !important;
           margin-right: auto !important;
@@ -363,27 +363,37 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
           font-size: 1.02rem !important;
-          line-height: 1.4 !important;
+          line-height: 1.32 !important;
+          margin-bottom: 0.2rem !important;
         }
 
         .shopify-pc__banner__btns,
         [class*="shopify-pc__banner__btns"] {
-          gap: 0.15rem !important;
-          margin-top: 0.7rem !important;
+          gap: 0.08rem !important;
+          margin-top: 0.25rem !important;
+          margin-bottom: 0.1rem !important;
         }
 
         .shopify-pc__banner__btns button,
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.05rem !important;
-          padding: 0.38rem 0.78rem !important;
+          min-height: 1.95rem !important;
+          padding: 0.32rem 0.78rem !important;
           font-size: 0.8rem !important;
+          margin: 0 !important;
         }
 
         .shopify-pc__banner__btns > *,
         [class*="shopify-pc__banner__btns"] > * {
           white-space: nowrap !important;
+          margin: 0 !important;
+        }
+
+        .shopify-pc__banner__dialog a,
+        [class*="shopify-pc__banner__dialog"] a {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
         }
       }
     `;
