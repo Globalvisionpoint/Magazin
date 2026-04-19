@@ -6,15 +6,7 @@
     assign sale_compare_at_price = product.compare_at_price_max
   endif
 
-  assign has_sale_collection = false
-  for sale_collection in product.collections
-    if sale_collection.handle == 'produse-cu-reduceri'
-      assign has_sale_collection = true
-      break
-    endif
-  endfor
-
-  if sale_compare_at_price <= sale_price and has_sale_collection
+  if sale_compare_at_price <= sale_price
     case product.handle
       when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
         assign sale_compare_at_price = 39900
