@@ -34,11 +34,6 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    {%- if settings.use_custom_body_font == false or settings.use_custom_heading_font == false -%}
-      {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-        <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-      {%- endunless -%}
-    {%- endif -%}
 
     <title>
       {{ page_title }}
@@ -73,9 +68,6 @@
     {{ content_for_header }}
 
     {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
       assign body_fonts = settings.custom_body_font | split: '&'
       assign heading_fonts = settings.custom_heading_font | split: '&'
     %}
@@ -109,17 +101,10 @@
     {% style %}
          {%- if settings.use_custom_body_font and settings.custom_body_font != blank -%}
         {{ body_font_face }}
-        {%- else  -%}
-        {{ settings.type_body_font | font_face: font_display: 'swap' }}
-        {{ body_font_bold | font_face: font_display: 'swap' }}
-        {{ body_font_italic | font_face: font_display: 'swap' }}
-        {{ body_font_bold_italic | font_face: font_display: 'swap' }}
         {%- endif -%}
 
         {%- if settings.use_custom_heading_font and settings.custom_heading_font != blank -%}
          {{ heading_font_face }}
-        {%- else  -%}
-         {{ settings.type_header_font | font_face: font_display: 'swap' }}
         {%- endif -%}
 
 
@@ -166,18 +151,18 @@
            --font-body-family: Body-Font;
            --font-body-weight: {{ settings.body_font_weight | default: 400 }};
           {%- else -%}
-          --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-          --font-body-style: {{ settings.type_body_font.style }};
-          --font-body-weight: {{ settings.type_body_font.weight }};
+          --font-body-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          --font-body-style: normal;
+          --font-body-weight: 400;
          {%- endif -%}
 
          {%- if settings.use_custom_heading_font and settings.custom_heading_font != blank -%}
           --font-heading-family: Heading-Font;
           --font-heading-weight: {{ settings.heading_font_weight | default: 600 }};
           {%- else -%}
-          --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-          --font-heading-style: {{ settings.type_header_font.style }};
-          --font-heading-weight: {{ settings.type_header_font.weight }};
+          --font-heading-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          --font-heading-style: normal;
+          --font-heading-weight: 700;
           {%- endif -%}
 
           --placeholder-background: {{ settings.placeholder_background.red }}, {{ settings.placeholder_background.green }}, {{ settings.placeholder_background.blue }};
@@ -212,6 +197,31 @@
 
        :root {
         --white-color: #FFFFFF;
+      }
+
+      body,
+      button,
+      input,
+      select,
+      textarea,
+      .ecom-builder,
+      .ecom-builder * {
+        font-family: var(--font-body-family) !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .h0,
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5 {
+        font-family: var(--font-heading-family) !important;
       }
 
         *,
@@ -255,12 +265,6 @@
       {{ 'rtl.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
-    {%- unless settings.type_body_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
-    {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
-    {%- endunless -%}
 
     <link
       rel="stylesheet"
