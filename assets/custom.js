@@ -265,16 +265,20 @@ for (var i = 0; i < compare.length; i++) {
       @media screen and (min-width: 990px) {
         .shopify-pc__banner__dialog,
         [class*="shopify-pc__banner__dialog"] {
-          width: min(126rem, calc(100vw - 1.6rem)) !important;
-          max-width: 126rem !important;
+          width: min(132rem, calc(100vw - 2.4rem)) !important;
+          max-width: 132rem !important;
           min-height: auto !important;
-          padding: 1.1rem 1.7rem !important;
+          padding: 1.15rem 1.8rem !important;
           border-radius: 1.2rem !important;
           display: grid !important;
           grid-template-columns: minmax(0, 1fr) auto !important;
           align-items: center !important;
-          gap: 0.8rem 1.5rem !important;
+          gap: 0.8rem 1.6rem !important;
           box-sizing: border-box !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          left: 0 !important;
+          right: 0 !important;
         }
 
         .shopify-pc__banner__body,
@@ -289,16 +293,16 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog h3,
         [class*="shopify-pc__banner__dialog"] h2,
         [class*="shopify-pc__banner__dialog"] h3 {
-          margin: 0 0 0.5rem !important;
-          font-size: 1.24rem !important;
-          line-height: 1.32 !important;
+          margin: 0 0 0.55rem !important;
+          font-size: 1.28rem !important;
+          line-height: 1.34 !important;
         }
 
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
           margin: 0 !important;
-          font-size: 0.96rem !important;
-          line-height: 1.32 !important;
+          font-size: 1rem !important;
+          line-height: 1.34 !important;
           white-space: nowrap !important;
         }
 
@@ -318,15 +322,16 @@ for (var i = 0; i < compare.length; i++) {
           width: auto !important;
           max-width: none !important;
           margin: 0 !important;
+          white-space: nowrap !important;
         }
 
         .shopify-pc__banner__btns button,
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.9rem !important;
-          padding: 0.65rem 1.2rem !important;
-          font-size: 0.98rem !important;
+          min-height: 3rem !important;
+          padding: 0.68rem 1.25rem !important;
+          font-size: 1rem !important;
           line-height: 1.2 !important;
           border-radius: 0.7rem !important;
         }
