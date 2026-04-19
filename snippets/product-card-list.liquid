@@ -1,6 +1,14 @@
 {%- liquid
   assign variant = product_card_product.selected_or_first_available_variant
 
+  if show_badge == nil
+    assign show_badge = true
+  endif
+
+  if show_price == nil
+    assign show_price = true
+  endif
+
   assign first_variant_featured_media_check = false
   if variant.featured_media == null
     assign first_variant_featured_media_check = true

@@ -20,6 +20,14 @@
 {%- liquid
   assign variant = product_card_product.selected_or_first_available_variant
 
+  if show_badge == nil
+    assign show_badge = true
+  endif
+
+  if show_price == nil
+    assign show_price = true
+  endif
+
   assign productCountdown = product_card_product.metafields.metaname.countdown_timer.value
   assign todayDate = 'now' | date: '%s'
   assign countDownDate = productCountdown | date: '%s'
