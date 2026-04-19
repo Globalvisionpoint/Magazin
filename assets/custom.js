@@ -265,15 +265,15 @@ for (var i = 0; i < compare.length; i++) {
       @media screen and (min-width: 990px) {
         .shopify-pc__banner__dialog,
         [class*="shopify-pc__banner__dialog"] {
-          width: min(110rem, calc(100vw - 2.4rem)) !important;
-          max-width: 110rem !important;
+          width: min(126rem, calc(100vw - 1.6rem)) !important;
+          max-width: 126rem !important;
           min-height: auto !important;
-          padding: 1.05rem 1.5rem !important;
+          padding: 1.1rem 1.7rem !important;
           border-radius: 1.2rem !important;
           display: grid !important;
           grid-template-columns: minmax(0, 1fr) auto !important;
           align-items: center !important;
-          gap: 0.7rem 1.3rem !important;
+          gap: 0.8rem 1.5rem !important;
           box-sizing: border-box !important;
         }
 
@@ -289,16 +289,16 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__dialog h3,
         [class*="shopify-pc__banner__dialog"] h2,
         [class*="shopify-pc__banner__dialog"] h3 {
-          margin: 0 0 0.45rem !important;
-          font-size: 1.18rem !important;
-          line-height: 1.3 !important;
+          margin: 0 0 0.5rem !important;
+          font-size: 1.24rem !important;
+          line-height: 1.32 !important;
         }
 
         .shopify-pc__banner__dialog p,
         [class*="shopify-pc__banner__dialog"] p {
           margin: 0 !important;
-          font-size: 0.9rem !important;
-          line-height: 1.3 !important;
+          font-size: 0.96rem !important;
+          line-height: 1.32 !important;
           white-space: nowrap !important;
         }
 
@@ -308,7 +308,7 @@ for (var i = 0; i < compare.length; i++) {
           flex-wrap: nowrap !important;
           justify-content: end !important;
           align-items: center !important;
-          gap: 0.65rem !important;
+          gap: 0.7rem !important;
           margin: 0 !important;
           width: auto !important;
         }
@@ -324,9 +324,9 @@ for (var i = 0; i < compare.length; i++) {
         .shopify-pc__banner__btns a,
         [class*="shopify-pc__banner__btns"] button,
         [class*="shopify-pc__banner__btns"] a {
-          min-height: 2.7rem !important;
-          padding: 0.6rem 1.1rem !important;
-          font-size: 0.92rem !important;
+          min-height: 2.9rem !important;
+          padding: 0.65rem 1.2rem !important;
+          font-size: 0.98rem !important;
           line-height: 1.2 !important;
           border-radius: 0.7rem !important;
         }
