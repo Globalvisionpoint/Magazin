@@ -1506,9 +1506,9 @@ button.product-form__submit.loading:after {
 .product-trust-badges {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.4rem;
-  padding-top: 1rem;
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
   border-top: 1px solid rgba(var(--color-foreground), 0.08);
 }
 
@@ -1517,38 +1517,69 @@ button.product-form__submit.loading:after {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: 0.7rem;
   text-align: center;
-  color: rgba(var(--color-foreground), 0.72);
+  color: rgba(var(--color-foreground), 0.85);
 }
 
 .product-trust-badge__icon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 4.2rem;
+  height: 4.2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #7a7a7a;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff5f5, #ffe3e3);
+  box-shadow: 0 6px 16px rgba(217, 45, 47, 0.14);
+  color: #d92d2f;
+}
+
+.product-trust-badge:nth-child(2) .product-trust-badge__icon {
+  background: linear-gradient(135deg, #eefaf0, #dff7e3);
+  color: #1f9d55;
+  box-shadow: 0 6px 16px rgba(31, 157, 85, 0.14);
+}
+
+.product-trust-badge:nth-child(3) .product-trust-badge__icon {
+  background: linear-gradient(135deg, #eef4ff, #dfeaff);
+  color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.14);
+}
+
+.product-trust-badge:nth-child(4) .product-trust-badge__icon {
+  background: linear-gradient(135deg, #fff7ed, #ffe7cc);
+  color: #ea580c;
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.14);
 }
 
 .product-trust-badge__icon svg {
-  width: 100%;
-  height: 100%;
+  width: 2.15rem;
+  height: 2.15rem;
 }
 
 .product-trust-badge__text {
-  font-size: 0.9rem;
-  line-height: 1.3;
-  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 749px) {
   .product-trust-badges {
-    gap: 0.8rem 0.4rem;
+    gap: 1rem 0.5rem;
     margin-top: 1.2rem;
   }
 
+  .product-trust-badge__icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .product-trust-badge__icon svg {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
   .product-trust-badge__text {
-    font-size: 0.78rem;
+    font-size: 0.88rem;
   }
 }
