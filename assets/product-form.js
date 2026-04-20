@@ -7,10 +7,10 @@ if (!customElements.get("product-form")) {
 
         this.form = this.querySelector("form");
         this.form.addEventListener("submit", this.onSubmitHandler.bind(this));
-        this.form.querySelectorAll('button[type="submit"]').forEach((button) => {
-          button.addEventListener("click", () => {
-            this.lastClickedSubmitButton = button;
-          });
+        this.buyNowButton = this.form.querySelector('[data-buy-now="true"]');
+        this.buyNowButton?.addEventListener("click", (evt) => {
+          evt.preventDefault();
+          this.processProductAction(this.buyNowButton, true);
         });
         this.cartNotification = document.querySelector("cart-notification");
         this.cartItems = document.querySelector("cart-items");
@@ -19,46 +19,23 @@ if (!customElements.get("product-form")) {
 
       onSubmitHandler(evt) {
         evt.preventDefault();
+        const submitButton = evt.submitter || this.form.querySelector('[name="add"]');
+        this.processProductAction(submitButton, false);
+      }
 
-        if (this.form.dataset.loading === "true") return;
-
-        const submitButton =
-          evt.submitter ||
-          this.lastClickedSubmitButton ||
-          document.activeElement ||
-          this.querySelector('[type="submit"]');
-        const redirectToCheckout =
-          submitButton?.dataset.redirectToCheckout === "true";
-        let returnToInput = this.form.querySelector('input[name="return_to"]');
-
-        if (redirectToCheckout) {
-          this.form.dataset.loading = "true";
-          submitButton.setAttribute("aria-disabled", "true");
-          submitButton.classList.add("loading-visible");
-
-          if (!returnToInput) {
-            returnToInput = document.createElement("input");
-            returnToInput.type = "hidden";
-            returnToInput.name = "return_to";
-            this.form.appendChild(returnToInput);
-          }
-
-          returnToInput.value = "/checkout";
-
-          window.requestAnimationFrame(() => {
-            this.form.submit();
-          });
-          return;
-        }
-
-        if (returnToInput) {
-          returnToInput.value = "";
-        }
+      processProductAction(submitButton, redirectToCheckout = false) {
+        if (!submitButton || this.form.dataset.loading === "true") return;
 
         this.form.dataset.loading = "true";
-        submitButton.setAttribute("disabled", true);
-        submitButton.classList.add("loading");
-        // Get Cart API
+        submitButton.setAttribute("aria-disabled", "true");
+
+        if (redirectToCheckout) {
+          submitButton.classList.add("loading-visible");
+        } else {
+          submitButton.setAttribute("disabled", true);
+          submitButton.classList.add("loading");
+        }
+
         let config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
         delete config.headers["Content-Type"];
@@ -91,6 +68,11 @@ if (!customElements.get("product-form")) {
           .then((parsedState) => {
             if (parsedState.status) {
               this.handleErrorMessage(parsedState.description);
+              return;
+            }
+
+            if (redirectToCheckout) {
+              window.location.href = "/checkout";
               return;
             }
 
