@@ -16,7 +16,10 @@ if (!customElements.get("product-form")) {
       onSubmitHandler(evt) {
         evt.preventDefault();
 
-        const submitButton = this.querySelector('[type="submit"]');
+        const submitButton =
+          evt.submitter || document.activeElement || this.querySelector('[type="submit"]');
+        const redirectToCheckout =
+          submitButton?.dataset.redirectToCheckout === "true";
 
         submitButton.setAttribute("disabled", true);
         submitButton.classList.add("loading");
@@ -55,6 +58,12 @@ if (!customElements.get("product-form")) {
               this.handleErrorMessage(parsedState.description);
               return;
             }
+
+            if (redirectToCheckout) {
+              window.location.href = "/checkout";
+              return;
+            }
+
             if (this.cartNotification) {
               this.cartNotification.renderContents(parsedState);
             }
