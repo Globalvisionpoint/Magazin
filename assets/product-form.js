@@ -29,20 +29,35 @@ if (!customElements.get("product-form")) {
           this.querySelector('[type="submit"]');
         const redirectToCheckout =
           submitButton?.dataset.redirectToCheckout === "true";
+        let returnToInput = this.form.querySelector('input[name="return_to"]');
 
-        const isBuyNowButton = submitButton?.classList.contains(
-          "product-form__submit--buy-now"
-        );
+        if (redirectToCheckout) {
+          this.form.dataset.loading = "true";
+          submitButton.setAttribute("aria-disabled", "true");
+          submitButton.classList.add("loading-visible");
+
+          if (!returnToInput) {
+            returnToInput = document.createElement("input");
+            returnToInput.type = "hidden";
+            returnToInput.name = "return_to";
+            this.form.appendChild(returnToInput);
+          }
+
+          returnToInput.value = "/checkout";
+
+          window.requestAnimationFrame(() => {
+            this.form.submit();
+          });
+          return;
+        }
+
+        if (returnToInput) {
+          returnToInput.value = "";
+        }
 
         this.form.dataset.loading = "true";
-        submitButton.setAttribute("aria-disabled", "true");
-
-        if (isBuyNowButton) {
-          submitButton.classList.add("loading-visible");
-        } else {
-          submitButton.setAttribute("disabled", true);
-          submitButton.classList.add("loading");
-        }
+        submitButton.setAttribute("disabled", true);
+        submitButton.classList.add("loading");
         // Get Cart API
         let config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -76,11 +91,6 @@ if (!customElements.get("product-form")) {
           .then((parsedState) => {
             if (parsedState.status) {
               this.handleErrorMessage(parsedState.description);
-              return;
-            }
-
-            if (redirectToCheckout) {
-              window.location.href = "/checkout";
               return;
             }
 
