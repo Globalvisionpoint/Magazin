@@ -1428,13 +1428,35 @@ button.product-form__submit.loading:after {
   color: #fff !important;
 }
 
-.product_buy_button_form .product-form__submit.button.loading {
+.product_buy_button_form .product-form__submit.button.loading,
+.product_buy_button_form .product-form__submit.button.is-pending {
   position: relative;
+}
+
+.product_buy_button_form .product-form__submit.button.loading {
   pointer-events: none;
 }
 
+.product_buy_button_form .product__buy_now_button {
+  display: block !important;
+  width: 100%;
+  min-height: 4.8rem;
+}
+
+.product_buy_button_form .product__buy_now_button .product-form__submit {
+  width: 100%;
+}
+
+.product_buy_button_form .product-form__submit.button.is-pending,
+.product_buy_button_form .product-form__submit.button[aria-disabled="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
 .product_buy_button_form .product-form__submit.button.loading .action__btn--svg,
-.product_buy_button_form .product-form__submit.button.loading .cart--button-text {
+.product_buy_button_form .product-form__submit.button.loading .cart--button-text,
+.product_buy_button_form .product-form__submit.button.is-pending .action__btn--svg,
+.product_buy_button_form .product-form__submit.button.is-pending .cart--button-text {
   color: #fff !important;
   visibility: visible;
   opacity: 1;

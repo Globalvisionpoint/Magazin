@@ -7,22 +7,39 @@ if (!customElements.get("product-form")) {
 
         this.form = this.querySelector("form");
         this.form.addEventListener("submit", this.onSubmitHandler.bind(this));
+        this.form.querySelectorAll('button[type="submit"]').forEach((button) => {
+          button.addEventListener("click", () => {
+            this.lastClickedSubmitButton = button;
+          });
+        });
         this.cartNotification = document.querySelector("cart-notification");
         this.cartItems = document.querySelector("cart-items");
         this.quickViewWarpper = document.getElementById("quickViewWrapper");
-        //console.log(this.cartNotification);
       }
 
       onSubmitHandler(evt) {
         evt.preventDefault();
 
+        const submitButtons = Array.from(
+          this.form.querySelectorAll('button[type="submit"]')
+        );
         const submitButton =
-          evt.submitter || document.activeElement || this.querySelector('[type="submit"]');
+          evt.submitter ||
+          this.lastClickedSubmitButton ||
+          document.activeElement ||
+          this.querySelector('[type="submit"]');
         const redirectToCheckout =
           submitButton?.dataset.redirectToCheckout === "true";
 
-        submitButton.setAttribute("disabled", true);
-        submitButton.classList.add("loading");
+        submitButtons.forEach((button) => {
+          if (button === submitButton) {
+            button.setAttribute("disabled", true);
+            button.classList.add("loading");
+          } else {
+            button.classList.add("is-pending");
+            button.setAttribute("aria-disabled", "true");
+          }
+        });
         // Get Cart API
         let config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -78,8 +95,11 @@ if (!customElements.get("product-form")) {
             console.error(e);
           })
           .finally(() => {
-            submitButton.classList.remove("loading");
-            submitButton.removeAttribute("disabled");
+            submitButtons.forEach((button) => {
+              button.classList.remove("loading", "is-pending");
+              button.removeAttribute("disabled");
+              button.removeAttribute("aria-disabled");
+            });
             this.quickViewWarpper?.classList.remove("show__modal");
             document.body.classList.remove("overflow-hidden");
           });
