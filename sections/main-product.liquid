@@ -64,21 +64,50 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign price_base = current_variant.price | default: product.price | default: 0
-  assign compare_at_price_base = current_variant.compare_at_price | default: 0
+  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price | default: 0
+
+  if compare_at_price_base <= price_base and product.compare_at_price_max > price_base
+    assign compare_at_price_base = product.compare_at_price_max
+  endif
+
+  if compare_at_price_base <= price_base
+    case product.handle
+      when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
+        assign compare_at_price_base = 39900
+      when 'tableta-android-10-1-inch-20gb-ram-128gb-rom-wifi-procesor-8-nuclee-cu-tastatura-mouse-stilou-carcasa-de-protectie'
+        assign compare_at_price_base = 72900
+      when 'tableta-android-10-1-inch-18gb-ram-128gb-rom-wifi-cu-tastatura-mouse-carcasa-de-protectie-si-stilou'
+        assign compare_at_price_base = 59900
+      when 'tableta-android-10-inch-12gb-ram-128gb-rom-wifi-bluetooth-husa-protectie-anti-shock-pentru-copii'
+        assign compare_at_price_base = 59900
+      else
+        if price_base <= 29900
+          assign compare_at_price_base = 39900
+        elsif price_base <= 49900
+          assign compare_at_price_base = 59900
+        elsif price_base <= 59900
+          assign compare_at_price_base = 72900
+        elsif price_base <= 79900
+          assign compare_at_price_base = 99900
+        else
+          assign compare_at_price_base = price_base | times: 125 | divided_by: 100
+          assign compare_at_price_base = compare_at_price_base | plus: 99 | divided_by: 100 | times: 100
+        endif
+    endcase
+  endif
 
   assign on_sale = false
   if compare_at_price_base > price_base
     assign on_sale = true
   endif
 
-  assign product_short_description = product.metafields.metaname.product_excerpt.value
-  assign product_size_guide_handler = product.metafields.metaname.product_size_guide.value
-  assign product_shipping_policy = product.metafields.metaname.product_shipping_policy.value
-  assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+  assign productShortDescription = product.metafields.metaname.product_excerpt.value
+  assign productSizeGuideHandler = product.metafields.metaname.product_size_guide.value
+  assign productShippingPolicy = product.metafields.metaname.product_shipping_policy.value
 
-  assign product_countdown = product.metafields.metaname.countdown_timer.value
-  assign today_date = 'now' | date: '%s'
-  assign countdown_date = product_countdown | date: '%s'
+  assign productCountdown = product.metafields.metaname.countdown_timer.value
+  assign todayDate = 'now' | date: '%s'
+  assign countDownDate = productCountdown | date: '%s'
 
   if section.settings.media_size == 'large'
     assign media_column = 'col-lg-7'
@@ -141,10 +170,10 @@
         {%- render 'product-page-layout-1',
           product: product,
           media_width: media_width,
-          page_width: settings.page_width,
+          page_width: page_width,
           media_height: section.settings.media_height,
-          gallery_layout: section.settings.gallery_layout,
-          hide_variants: section.settings.hide_variants,
+          gallery_layout: gallery_layout,
+          hide_variants: hide_variants,
           first_3d_model: first_3d_model
         -%}
       </div>
@@ -284,7 +313,7 @@
                   </modal-opener>
                 </div>
               {% else %}
-                {%- if product_size_guide_handler != blank -%}
+                {%- if productSizeGuideHandler != blank -%}
                   <div class="product_additional_information" {{ block.shopify_attributes }}>
                     <modal-opener
                       class="product-popup-modal__opener no-js-hidden"
@@ -366,9 +395,9 @@
                       {% render 'icon-caret' %}
                     </summary>
                     <div class="accordion__content rte">
-                      {%- if block.settings.productdesc == 'shortdesc' and product_short_description != blank -%}
+                      {%- if block.settings.productdesc == 'shortdesc' and productShortDescription != blank -%}
                         <div class="product__description rte">
-                          {{ product_short_description }}
+                          {{ productShortDescription }}
                         </div>
                       {%- elsif block.settings.productdesc == 'fulldesc' and product.description != blank -%}
                         {%- assign truncatewords_count = block.settings.truncatewords_count_handle -%}
@@ -389,9 +418,9 @@
                   {% endif %}
 
                   <div class="accordion__content rte">
-                    {%- if block.settings.productdesc == 'shortdesc' and product_short_description != blank -%}
+                    {%- if block.settings.productdesc == 'shortdesc' and productShortDescription != blank -%}
                       <div class="product__description rte">
-                        {{ product_short_description }}
+                        {{ productShortDescription }}
                       </div>
                     {%- elsif block.settings.productdesc == 'fulldesc' and product.description != blank -%}
                       {%- assign truncatewords_count = block.settings.truncatewords_count_handle -%}
@@ -445,7 +474,7 @@
               </div>
 
             {%- when 'countdown' -%}
-              {%- if today_date < countdown_date -%}
+              {%- if todayDate < countDownDate -%}
                 <div class="product__details_countdown">
                   <countdown-timer
                     style="--countdown-foreground: {{ block.settings.timer_foreground }} ; --countdown-background: {{ block.settings.timer_background }}"
@@ -459,7 +488,7 @@
                     </span>
                     <div
                       class="d-flex product__countdown color-{{ block.settings.color_scheme }}"
-                      data-countdown="{{ product_countdown }}"
+                      data-countdown="{{ productCountdown }}"
                     ></div>
                   </countdown-timer>
                 </div>
@@ -573,13 +602,13 @@
                       {{ product.variants | json }}
                     </script>
                     <script type="application/json" data-preorder>
-                      {%- assign first_brackets = '{'  -%}
-                      {%- assign second_brackets = '}'  -%}
-                      {{ first_brackets }}
+                      {%- assign firstBrackets = '{'  -%}
+                      {%- assign seconrdBrackets = '}'  -%}
+                      {{ firstBrackets }}
                       {%- for variant in product.variants -%}
                       "{{variant.id}}": {"qty": {{variant.inventory_quantity}}, "inventory_policy": "{{variant.inventory_policy}}"}{% unless forloop.last == true %},{% endunless %}
                         {%- endfor -%}
-                        {{ second_brackets }}
+                        {{ seconrdBrackets }}
                     </script>
                   </variant-selects>
                 {%- endif -%}
@@ -683,6 +712,7 @@
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 <div
+                  style="{{ jm_style }}"
                   class="jdgm-widget jdgm-preview-badge"
                   data-id="{{ product.id }}"
                   aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
@@ -839,7 +869,7 @@
     {% liquid
       assign sizepagehandle = pages[block.settings.sizeguidhandle].content
     %}
-    {%- if product_size_guide_handler != blank -%}
+    {%- if productSizeGuideHandler != blank -%}
       <modal-dialog id="PopupModal-1" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
@@ -862,15 +892,9 @@
 
           <div class="product-popup-modal__content-info pt-25">
             {%- if product.metafields.meta.product_size_guide.type == 'file_reference' -%}
-              <img
-                src="{{ product_size_guide_handler | image_url }}"
-                alt="Product Size Guide"
-                width="{{ product_size_guide_handler.width | default: 800 }}"
-                height="{{ product_size_guide_handler.height | default: 1000 }}"
-                loading="lazy"
-              >
+              <img src="{{ productSizeGuideHandler | img_url: "master" }}" alt="{{ "Product Size Guide" }}">
             {%- else -%}
-              {{ product_size_guide_handler.content }}
+              {{ productSizeGuideHandler.content }}
             {%- endif -%}
           </div>
         </div>
@@ -915,7 +939,7 @@
     {% liquid
       assign shippinghandle = pages[block.settings.shipping_page_handle].content
     %}
-    {%- if product_shipping_policy != blank -%}
+    {%- if productShippingPolicy != blank -%}
       <modal-dialog id="PopupModal-2" class="product-popup-modal modal-md" {{ block.shopify_attributes }}>
         <div
           role="dialog"
@@ -937,15 +961,9 @@
           </div>
           <div class="product-popup-modal__content-info pt-25">
             {%- if product.metafields.meta.product_shipping_policy.type == 'file_reference' -%}
-              <img
-                src="{{ product_shipping_policy | image_url }}"
-                alt="Product Shipping Policy"
-                width="{{ product_shipping_policy.width | default: 800 }}"
-                height="{{ product_shipping_policy.height | default: 1000 }}"
-                loading="lazy"
-              >
+              <img src="{{ productShippingPolicy | img_url: "master" }}" alt="{{ "Product Shipping Policy" }}">
             {%- else -%}
-              {{ product_shipping_policy }}
+              {{ productShippingPolicy }}
             {%- endif -%}
           </div>
         </div>
@@ -1076,10 +1094,10 @@
     </modal-dialog>
   {%- endfor -%}
 
-  <modal-dialog id="PopupModal-4" class="product-popup-modal back__in--stock-popup">
+  <modal-dialog id="PopupModal-4" class="product-popup-modal back__in--stock-popup" {{ block.shopify_attributes }}>
     <div
       role="dialog"
-      aria-label="{{ 'products.product.back_in_stock_notify.Popup_heading' | t }}"
+      aria-label="{{ block.settings.text }}"
       aria-modal="true"
       class="product-popup-modal__content modal-sm"
       tabindex="-1"
@@ -1195,8 +1213,9 @@
     "name": {{ product.title | json }},
     "url": {{ shop.url | append: product.url | json }},
     {%- if product.selected_or_first_available_variant.featured_media -%}
+      {%- assign media_size = product.selected_or_first_available_variant.featured_media.preview_image.width | append: 'x' -%}
       "image": [
-        {{ product.selected_or_first_available_variant.featured_media | image_url: width: 1200 | prepend: "https:" | json }}
+        {{ product.selected_or_first_available_variant.featured_media | img_url: media_size | prepend: "https:" | json }}
       ],
     {%- endif -%}
     "description": {{ product.description | strip_html | json }},
