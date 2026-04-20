@@ -35,7 +35,7 @@ variant-selects {
   --alpha-button-background: 1;
 }
 
-.product-form__submit[disabled] + .shopify-payment-button {
+.product-form__submit[disabled]:not(.loading) + .shopify-payment-button {
   display: none;
 }
 
