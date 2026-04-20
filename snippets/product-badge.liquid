@@ -1,19 +1,24 @@
 {%- liquid
   assign nweBadgeDate = product.metafields.meta.product_new_badge.value | date: '%s'
   assign today_date = 'now' | date: '%s'
-  assign current_variant = product.selected_or_first_available_variant
+  if product.selected_variant
+    assign current_variant = product.selected_variant
+  else
+    assign current_variant = product.selected_or_first_available_variant
+  endif
+
   assign price_base = current_variant.price | default: product.price | default: 0
   assign compare_at_price_base = 0
   assign sale_product = false
 
-  if current_variant.compare_at_price > price_base
+  if current_variant.compare_at_price and current_variant.compare_at_price > price_base
     assign compare_at_price_base = current_variant.compare_at_price
     assign sale_product = true
-  elsif product.compare_at_price > price_base
-    assign compare_at_price_base = product.compare_at_price
-    assign sale_product = true
-  elsif product.compare_at_price_max > price_base
+  elsif product.compare_at_price_max and product.compare_at_price_max > price_base
     assign compare_at_price_base = product.compare_at_price_max
+    assign sale_product = true
+  elsif product.compare_at_price and product.compare_at_price > price_base
+    assign compare_at_price_base = product.compare_at_price
     assign sale_product = true
   endif
 

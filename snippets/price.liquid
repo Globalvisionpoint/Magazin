@@ -14,7 +14,11 @@
 
 {%- liquid
   if use_variant
-    assign target = product.selected_or_first_available_variant
+    if product.selected_variant
+      assign target = product.selected_variant
+    else
+      assign target = product.selected_or_first_available_variant
+    endif
   else
     assign target = product
   endif
@@ -23,14 +27,14 @@
   assign compare_at_price = 0
   assign on_sale = false
 
-  if target.compare_at_price > price
+  if target.compare_at_price and target.compare_at_price > price
     assign compare_at_price = target.compare_at_price
     assign on_sale = true
-  elsif product.compare_at_price > price
-    assign compare_at_price = product.compare_at_price
-    assign on_sale = true
-  elsif product.compare_at_price_max > price
+  elsif product.compare_at_price_max and product.compare_at_price_max > price
     assign compare_at_price = product.compare_at_price_max
+    assign on_sale = true
+  elsif product.compare_at_price and product.compare_at_price > price
+    assign compare_at_price = product.compare_at_price
     assign on_sale = true
   endif
 

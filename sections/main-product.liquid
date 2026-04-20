@@ -62,7 +62,11 @@
 </style>
 
 {%- liquid
-  assign current_variant = product.selected_or_first_available_variant
+  if product.selected_variant
+    assign current_variant = product.selected_variant
+  else
+    assign current_variant = product.selected_or_first_available_variant
+  endif
 
   assign productShortDescription = product.metafields.metaname.product_excerpt.value
   assign productSizeGuideHandler = product.metafields.metaname.product_size_guide.value
@@ -208,7 +212,7 @@
 
               <div>
                 {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <input type="hidden" name="id" value="{{ current_variant.id }}">
                   {{ form | payment_terms }}
                 {%- endform -%}
               </div>
