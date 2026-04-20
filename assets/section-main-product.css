@@ -1421,6 +1421,37 @@ button.product-form__submit.loading:after {
   top: 10px;
   left: 62px;
 }
+
+.product_buy_button_form .product-form__submit.button:disabled,
+.product_buy_button_form .product-form__submit.button.loading {
+  opacity: 1;
+  color: #fff !important;
+}
+
+.product_buy_button_form .product-form__submit.button.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.product_buy_button_form .product-form__submit.button.loading .action__btn--svg,
+.product_buy_button_form .product-form__submit.button.loading .cart--button-text {
+  color: #fff !important;
+  visibility: visible;
+  opacity: 1;
+}
+
+.product_buy_button_form .product-form__submit.button.loading .cart--button-text {
+  padding-right: 3rem;
+}
+
+.product_buy_button_form .product-form__submit.button.loading:after {
+  top: 50%;
+  left: auto;
+  right: 1.4rem;
+  margin-top: -10px;
+  border-color: rgba(255, 255, 255, 0.9);
+  border-left-color: transparent;
+}
 .main-product__description {
   padding-top: 1.5rem;
 }
