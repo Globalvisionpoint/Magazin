@@ -20,9 +20,8 @@ if (!customElements.get("product-form")) {
       onSubmitHandler(evt) {
         evt.preventDefault();
 
-        const submitButtons = Array.from(
-          this.form.querySelectorAll('button[type="submit"]')
-        );
+        if (this.form.dataset.loading === "true") return;
+
         const submitButton =
           evt.submitter ||
           this.lastClickedSubmitButton ||
@@ -31,15 +30,9 @@ if (!customElements.get("product-form")) {
         const redirectToCheckout =
           submitButton?.dataset.redirectToCheckout === "true";
 
-        submitButtons.forEach((button) => {
-          if (button === submitButton) {
-            button.setAttribute("disabled", true);
-            button.classList.add("loading");
-          } else {
-            button.classList.add("is-pending");
-            button.setAttribute("aria-disabled", "true");
-          }
-        });
+        this.form.dataset.loading = "true";
+        submitButton.setAttribute("disabled", true);
+        submitButton.classList.add("loading");
         // Get Cart API
         let config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -95,11 +88,9 @@ if (!customElements.get("product-form")) {
             console.error(e);
           })
           .finally(() => {
-            submitButtons.forEach((button) => {
-              button.classList.remove("loading", "is-pending");
-              button.removeAttribute("disabled");
-              button.removeAttribute("aria-disabled");
-            });
+            delete this.form.dataset.loading;
+            submitButton.classList.remove("loading");
+            submitButton.removeAttribute("disabled");
             this.quickViewWarpper?.classList.remove("show__modal");
             document.body.classList.remove("overflow-hidden");
           });

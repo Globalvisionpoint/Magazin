@@ -1428,12 +1428,8 @@ button.product-form__submit.loading:after {
   color: #fff !important;
 }
 
-.product_buy_button_form .product-form__submit.button.loading,
-.product_buy_button_form .product-form__submit.button.is-pending {
-  position: relative;
-}
-
 .product_buy_button_form .product-form__submit.button.loading {
+  position: relative;
   pointer-events: none;
 }
 
@@ -1447,16 +1443,8 @@ button.product-form__submit.loading:after {
   width: 100%;
 }
 
-.product_buy_button_form .product-form__submit.button.is-pending,
-.product_buy_button_form .product-form__submit.button[aria-disabled="true"] {
-  opacity: 1;
-  visibility: visible;
-}
-
 .product_buy_button_form .product-form__submit.button.loading .action__btn--svg,
-.product_buy_button_form .product-form__submit.button.loading .cart--button-text,
-.product_buy_button_form .product-form__submit.button.is-pending .action__btn--svg,
-.product_buy_button_form .product-form__submit.button.is-pending .cart--button-text {
+.product_buy_button_form .product-form__submit.button.loading .cart--button-text {
   color: #fff !important;
   visibility: visible;
   opacity: 1;
