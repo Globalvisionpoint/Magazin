@@ -198,6 +198,11 @@
                 {{ product.title | escape }}
               </h1>
             {%- when 'price' -%}
+              {%- if product.has_only_default_variant -%}
+                <script type="application/json" id="SU-variant-prices-{{ section.id }}">
+                  {{- product.variants | json -}}
+                </script>
+              {%- endif -%}
               <div class="price__box_wrapper d-flex" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="no-js-hidden">
                   {%- render 'price',
@@ -1116,6 +1121,14 @@
 </script>
 
 <script src="{{ 'product-variant.js' | asset_url }}" defer></script>
+<script>
+  window.__SU_MONEY = {
+    mf: {{ shop.money_format | json }},
+    mfc: {{ shop.money_with_currency_format | json }},
+    cc: {{ settings.currency_code_enabled | json }}
+  };
+</script>
+<script src="{{ 'product-sale-sync.js' | asset_url }}" defer></script>
 <script src="{{ 'component-slider.js' | asset_url }}" defer></script>
 {%- if product.media.size > 0 -%}
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
