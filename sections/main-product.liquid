@@ -64,20 +64,17 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign price_base = current_variant.price | default: product.price | default: 0
-  assign compare_at_price_base = current_variant.compare_at_price
-  if compare_at_price_base == blank
-    assign compare_at_price_base = product.compare_at_price
-  endif
-  if compare_at_price_base == blank
-    assign compare_at_price_base = 0
-  endif
-
-  if compare_at_price_base <= price_base and product.compare_at_price_max > price_base
-    assign compare_at_price_base = product.compare_at_price_max
-  endif
-
+  assign compare_at_price_base = 0
   assign on_sale = false
-  if compare_at_price_base > price_base
+
+  if current_variant.compare_at_price != blank and current_variant.compare_at_price > price_base
+    assign compare_at_price_base = current_variant.compare_at_price
+    assign on_sale = true
+  elsif product.compare_at_price != blank and product.compare_at_price > price_base
+    assign compare_at_price_base = product.compare_at_price
+    assign on_sale = true
+  elsif product.compare_at_price_max != blank and product.compare_at_price_max > price_base
+    assign compare_at_price_base = product.compare_at_price_max
     assign on_sale = true
   endif
 
@@ -248,7 +245,7 @@
                   </div>
                 </div>
 
-                {%- if on_sale and block.settings.save_percentage -%}
+                {%- if on_sale -%}
                   <div class="save__disoucnt">
                     <span class="discount__sale__text">
                       <span class="sale__save--percent">

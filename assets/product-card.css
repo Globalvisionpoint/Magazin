@@ -300,11 +300,11 @@
 }
 
 .product__card__price.price--on-sale .price-item--regular {
-  color: #8f8f8f;
-  font-weight: 400;
+  color: #121212;
+  font-weight: 500;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 2px;
 }
 
 .product__card__price:not(.price--on-sale) .price-item--regular {

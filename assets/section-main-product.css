@@ -592,10 +592,10 @@ variant-selects {
 }
 
 .product .price__box_wrapper .price--on-sale .price-item--regular {
-  color: #909090;
+  color: #121212;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 2px;
 }
 
 @media screen and (max-width: 575px) {
