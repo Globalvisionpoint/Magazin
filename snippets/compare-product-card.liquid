@@ -80,7 +80,7 @@
     </td>
       
       <td class="cp_prd-price" data-pid="{{ product_card_product.id }}">
-        {% render 'price', product: product_card_product, price_class: 'product-grid-item__price' %}
+        {% render 'price', product: product_card_product, price_class: 'product-grid-item__price', use_variant: true %}
       </td> 
       
        <td class="cp_prd-availability" data-pid="{{ product_card_product.id }}">

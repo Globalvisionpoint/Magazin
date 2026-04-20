@@ -55,6 +55,6 @@
       <a href="{{ product.url | default: '#' }}?variant={{ variant.id }}">{{ product.title }}</a>
     </h3>
 
-    {% render 'price', product: product, price_class: price_class %}
+    {% render 'price', product: product, price_class: price_class, use_variant: true %}
   </div>
 </div>

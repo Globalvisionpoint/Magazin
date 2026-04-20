@@ -19,7 +19,13 @@
   endif
 
   assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = target.compare_at_price | default: product.compare_at_price | default: 0
+  assign compare_at_price = target.compare_at_price
+  if compare_at_price == blank
+    assign compare_at_price = product.compare_at_price
+  endif
+  if compare_at_price == blank
+    assign compare_at_price = 0
+  endif
   if compare_at_price <= price and product.compare_at_price_max > price
     assign compare_at_price = product.compare_at_price_max
   endif
@@ -46,7 +52,7 @@
      {{ price_class }}
     {%- if available == false %} price--sold-out {% endif -%}
     {%- if on_sale %} price--on-sale {% endif -%}
-    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if use_variant != true and product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
   "
 >
   <dl>

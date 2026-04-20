@@ -107,7 +107,7 @@
       </h3>
     {%- endif -%}
 
-    {% render 'price', product: product_card_product, price_class: price_class %}
+    {% render 'price', product: product_card_product, price_class: price_class, use_variant: true %}
 
     {%- if show_rating and product_card_product.metafields.reviews.rating.value != blank -%}
       <div class="product-card--rating">

@@ -146,7 +146,7 @@
                         {{ product.title }}
                         {% if block.settings.quick_shop == false %}</a>{% endif %}
                       </div>
-                      {% render 'price', product: product, price_class: 'lookbook__shop--product__price' %}
+                      {% render 'price', product: product, price_class: 'lookbook__shop--product__price', use_variant: true %}
                     </div>
                   {% else %}
                     <div class="lookbook__shop--product {% if block.settings.hotspot_y > 70 %} lookbook__shop--product-bottom {% endif %} {% if block.settings.hotspot_x > 85 %} lookbook__shop--product-right {% endif %} {% if block.settings.hotspot_x < 15 %} lookbook__shop--product-left{% endif %}">

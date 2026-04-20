@@ -23,7 +23,7 @@
           {{ product.title }}
          {% if quick_shop == false %}</a>{% endif %}
       </div>
-      {% render 'price', product: product, price_class: "lookbook__shop--product__price" %}
+      {% render 'price', product: product, price_class: "lookbook__shop--product__price", use_variant: true %}
    </div>
   {% else %}
     <div class="lookbook__shop--product {% if hotspot_y > 70 %} lookbook__shop--product-bottom {% endif %} {% if hotspot_x > 70 %} lookbook__shop--product-right {% endif %} {% if hotspot_x < 30 %} lookbook__shop--product-left{% endif %}">
