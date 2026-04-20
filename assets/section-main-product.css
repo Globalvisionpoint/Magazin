@@ -554,22 +554,39 @@ variant-selects {
   opacity: 1 !important;
 }
 
-.product .price__box_wrapper .price dl {
-  gap: 0.2rem;
+.product .price__box_wrapper .price.price--on-sale {
+  display: inline-flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-.product .price__box_wrapper .price dd {
-  margin: 0;
+.product .price__box_wrapper .price--on-sale .price__regular {
+  display: none !important;
 }
 
-.product .price--on-sale .price__sale {
-  display: inline-flex;
+.product .price__box_wrapper .price--on-sale .price__sale {
+  display: inline-flex !important;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
   gap: 0.8rem;
   line-height: 1.2;
+}
+
+.product .price__box_wrapper .price > .save__disoucnt {
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+.product .price__box_wrapper .price dl {
+  gap: 0.2rem;
+}
+
+.product .price__box_wrapper .price dd {
+  margin: 0;
 }
 
 .product .price__box_wrapper .price-item--sale {

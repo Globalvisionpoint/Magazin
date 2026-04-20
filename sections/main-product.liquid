@@ -63,20 +63,6 @@
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
-  assign price_base = current_variant.price | default: product.price | default: 0
-  assign compare_at_price_base = 0
-  assign on_sale = false
-
-  if current_variant.compare_at_price != blank and current_variant.compare_at_price > price_base
-    assign compare_at_price_base = current_variant.compare_at_price
-    assign on_sale = true
-  elsif product.compare_at_price != blank and product.compare_at_price > price_base
-    assign compare_at_price_base = product.compare_at_price
-    assign on_sale = true
-  elsif product.compare_at_price_max != blank and product.compare_at_price_max > price_base
-    assign compare_at_price_base = product.compare_at_price_max
-    assign on_sale = true
-  endif
 
   assign productShortDescription = product.metafields.metaname.product_excerpt.value
   assign productSizeGuideHandler = product.metafields.metaname.product_size_guide.value
@@ -210,58 +196,14 @@
             {%- when 'price' -%}
               <div class="price__box_wrapper d-flex" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="no-js-hidden">
-                  <div class="price price--large{% if on_sale %} price--on-sale{% endif %}{% unless current_variant.available %} price--sold-out{% endunless %}">
-                    <dl>
-                      <div class="price__regular"{% if on_sale %} style="display:none;"{% endif %}>
-                        <dt>
-                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-                        </dt>
-                        <dd class="price__last">
-                          <span class="price-item price-item--regular">
-                            {{ price_base | money }}
-                          </span>
-                        </dd>
-                      </div>
-
-                      <div class="price__sale"{% unless on_sale %} style="display:none;"{% endunless %}>
-                        <dt class="price__compare">
-                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-                        </dt>
-                        <dd class="price__compare">
-                          <s class="price-item price-item--regular">
-                            {{ compare_at_price_base | money }}
-                          </s>
-                        </dd>
-                        <dt>
-                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-                        </dt>
-                        <dd class="price__last">
-                          <span class="price-item price-item--sale">
-                            {{ price_base | money }}
-                          </span>
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
+                  {%- render 'price',
+                    product: product,
+                    use_variant: true,
+                    show_badges: false,
+                    price_class: 'price--large',
+                    show_pdp_discount_badge: true
+                  -%}
                 </div>
-
-                {%- if on_sale -%}
-                  <div class="save__disoucnt">
-                    <span class="discount__sale__text">
-                      <span class="sale__save--percent">
-                        {{-
-                          compare_at_price_base
-                          | minus: price_base
-                          | times: 100.0
-                          | divided_by: compare_at_price_base
-                          | replace: ',', '.'
-                          | round
-                        -}}%
-                      </span>
-                      <span class="discount__sale__off">mai ieftin</span>
-                    </span>
-                  </div>
-                {%- endif -%}
               </div>
 
               <div>

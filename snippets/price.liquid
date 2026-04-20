@@ -6,6 +6,7 @@
   - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
+  - show_pdp_discount_badge: {Boolean} Circular % badge next to price (product page only)
 
   Usage:
   {% render 'price', product: product %}
@@ -22,13 +23,13 @@
   assign compare_at_price = 0
   assign on_sale = false
 
-  if target.compare_at_price != blank and target.compare_at_price > price
+  if target.compare_at_price > price
     assign compare_at_price = target.compare_at_price
     assign on_sale = true
-  elsif product.compare_at_price != blank and product.compare_at_price > price
+  elsif product.compare_at_price > price
     assign compare_at_price = product.compare_at_price
     assign on_sale = true
-  elsif product.compare_at_price_max != blank and product.compare_at_price_max > price
+  elsif product.compare_at_price_max > price
     assign compare_at_price = product.compare_at_price_max
     assign on_sale = true
   endif
@@ -122,6 +123,23 @@
       </dd>
     </small>
   </dl>
+  {%- if show_pdp_discount_badge and on_sale and compare_at_price > price -%}
+    <div class="save__disoucnt">
+      <span class="discount__sale__text">
+        <span class="sale__save--percent">
+          {{-
+            compare_at_price
+            | minus: price
+            | times: 100.0
+            | divided_by: compare_at_price
+            | replace: ',', '.'
+            | round
+          -}}%
+        </span>
+        <span class="discount__sale__off">mai ieftin</span>
+      </span>
+    </div>
+  {%- endif -%}
   {%- if show_badges -%}
     {% liquid
       assign sale_text = 'products.product.on_sale' | t

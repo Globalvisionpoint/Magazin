@@ -6,13 +6,13 @@
   assign compare_at_price_base = 0
   assign sale_product = false
 
-  if current_variant.compare_at_price != blank and current_variant.compare_at_price > price_base
+  if current_variant.compare_at_price > price_base
     assign compare_at_price_base = current_variant.compare_at_price
     assign sale_product = true
-  elsif product.compare_at_price != blank and product.compare_at_price > price_base
+  elsif product.compare_at_price > price_base
     assign compare_at_price_base = product.compare_at_price
     assign sale_product = true
-  elsif product.compare_at_price_max != blank and product.compare_at_price_max > price_base
+  elsif product.compare_at_price_max > price_base
     assign compare_at_price_base = product.compare_at_price_max
     assign sale_product = true
   endif
