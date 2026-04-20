@@ -30,9 +30,19 @@ if (!customElements.get("product-form")) {
         const redirectToCheckout =
           submitButton?.dataset.redirectToCheckout === "true";
 
+        const isBuyNowButton = submitButton?.classList.contains(
+          "product-form__submit--buy-now"
+        );
+
         this.form.dataset.loading = "true";
-        submitButton.setAttribute("disabled", true);
-        submitButton.classList.add("loading");
+        submitButton.setAttribute("aria-disabled", "true");
+
+        if (isBuyNowButton) {
+          submitButton.classList.add("loading-visible");
+        } else {
+          submitButton.setAttribute("disabled", true);
+          submitButton.classList.add("loading");
+        }
         // Get Cart API
         let config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -89,8 +99,9 @@ if (!customElements.get("product-form")) {
           })
           .finally(() => {
             delete this.form.dataset.loading;
-            submitButton.classList.remove("loading");
+            submitButton.classList.remove("loading", "loading-visible");
             submitButton.removeAttribute("disabled");
+            submitButton.removeAttribute("aria-disabled");
             this.quickViewWarpper?.classList.remove("show__modal");
             document.body.classList.remove("overflow-hidden");
           });
