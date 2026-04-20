@@ -23,20 +23,8 @@
     assign target = product
   endif
 
+  assign compare_at_price = target.compare_at_price
   assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = 0
-  assign on_sale = false
-
-  if target.compare_at_price and target.compare_at_price > price
-    assign compare_at_price = target.compare_at_price
-    assign on_sale = true
-  elsif product.compare_at_price_max and product.compare_at_price_max > price
-    assign compare_at_price = product.compare_at_price_max
-    assign on_sale = true
-  elsif product.compare_at_price and product.compare_at_price > price
-    assign compare_at_price = product.compare_at_price
-    assign on_sale = true
-  endif
 
   assign available = target.available | default: false
   assign money_price = price | money
@@ -54,8 +42,8 @@
     price
      {{ price_class }}
     {%- if available == false %} price--sold-out {% endif -%}
-    {%- if on_sale %} price--on-sale {% endif -%}
-    {%- if use_variant != true and product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if compare_at_price > price %} price--on-sale {% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
   "
 >
   <dl>
@@ -127,7 +115,7 @@
       </dd>
     </small>
   </dl>
-  {%- if show_pdp_discount_badge and on_sale and compare_at_price > price -%}
+  {%- if show_pdp_discount_badge and compare_at_price > price -%}
     <div class="save__disoucnt">
       <span class="discount__sale__text">
         <span class="sale__save--percent">

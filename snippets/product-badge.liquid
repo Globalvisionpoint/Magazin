@@ -1,27 +1,6 @@
 {%- liquid
   assign nweBadgeDate = product.metafields.meta.product_new_badge.value | date: '%s'
   assign today_date = 'now' | date: '%s'
-  if product.selected_variant
-    assign current_variant = product.selected_variant
-  else
-    assign current_variant = product.selected_or_first_available_variant
-  endif
-
-  assign price_base = current_variant.price | default: product.price | default: 0
-  assign compare_at_price_base = 0
-  assign sale_product = false
-
-  if current_variant.compare_at_price and current_variant.compare_at_price > price_base
-    assign compare_at_price_base = current_variant.compare_at_price
-    assign sale_product = true
-  elsif product.compare_at_price_max and product.compare_at_price_max > price_base
-    assign compare_at_price_base = product.compare_at_price_max
-    assign sale_product = true
-  elsif product.compare_at_price and product.compare_at_price > price_base
-    assign compare_at_price_base = product.compare_at_price
-    assign sale_product = true
-  endif
-
   assign sale_text = 'products.product.on_sale' | t
 -%}
 
@@ -44,9 +23,12 @@
     <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
       {{- 'products.product.sold_out' | t -}}
     </span>
-  {%- elsif product.available and sale_product -%}
+  {%- elsif product.compare_at_price > product.price and product.available -%}
     {% liquid
-      assign percentage_badge = sale_product
+      assign percentage_badge = false
+      if settings.sale_percentage_show and product.selected_or_first_available_variant.compare_at_price != blank
+        assign percentage_badge = true
+      endif
     %}
     {%- if percentage_badge or sale_text != blank -%}
       <span class="badge badge--bottom-left sale-corner-badge color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">
@@ -54,10 +36,10 @@
           <span class="sale__save--percent"
             >-
             {{-
-              compare_at_price_base
-              | minus: price_base
+              product.selected_or_first_available_variant.compare_at_price
+              | minus: product.selected_or_first_available_variant.price
               | times: 100.0
-              | divided_by: compare_at_price_base
+              | divided_by: product.selected_or_first_available_variant.compare_at_price
               | replace: ',', '.'
               | round
             -}}
