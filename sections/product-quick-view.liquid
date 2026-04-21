@@ -1,8 +1,14 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
+  assign price_variant = current_variant.price | default: product.price | default: 0
+  assign compare_at_price_variant = current_variant.compare_at_price | default: product.compare_at_price
+  
+  if compare_at_price_variant == blank or compare_at_price_variant == nil
+    assign compare_at_price_variant = 0
+  endif
 
   assign on_sale = false
-  if current_variant.compare_at_price != nill
+  if compare_at_price_variant != blank and compare_at_price_variant > 0 and compare_at_price_variant > price_variant
     assign on_sale = true
   endif
 
