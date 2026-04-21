@@ -65,12 +65,30 @@
   assign current_variant = product.selected_or_first_available_variant
   assign price_base = current_variant.price | default: product.price | default: 0
   assign compare_at_price_base = current_variant.compare_at_price | default: 0
+  assign sale_price_from_variants = 0
+  assign sale_compare_from_variants = 0
   assign on_sale = false
+
+  for variant in product.variants
+    if variant.compare_at_price > variant.price
+      if sale_price_from_variants == 0 or variant.price < sale_price_from_variants
+        assign sale_price_from_variants = variant.price
+      endif
+      if variant.compare_at_price > sale_compare_from_variants
+        assign sale_compare_from_variants = variant.compare_at_price
+      endif
+    endif
+  endfor
+
   if compare_at_price_base > price_base
     assign on_sale = true
   endif
 
-  if on_sale == false and product.compare_at_price > product.price
+  if on_sale == false and sale_compare_from_variants > sale_price_from_variants and sale_price_from_variants > 0
+    assign on_sale = true
+    assign compare_at_price_base = sale_compare_from_variants
+    assign price_base = sale_price_from_variants
+  elsif on_sale == false and product.compare_at_price > product.price
     assign on_sale = true
     assign compare_at_price_base = product.compare_at_price
     assign price_base = product.price

@@ -16,12 +16,26 @@
   assign target = first_variant
   assign price = first_variant.price | default: product.price | default: 1999
   assign compare_at_price = first_variant.compare_at_price | default: 0
+  assign sale_price_from_variants = 0
+  assign sale_compare_from_variants = 0
+
+  for variant in product.variants
+    if variant.compare_at_price > variant.price
+      if sale_price_from_variants == 0 or variant.price < sale_price_from_variants
+        assign sale_price_from_variants = variant.price
+      endif
+      if variant.compare_at_price > sale_compare_from_variants
+        assign sale_compare_from_variants = variant.compare_at_price
+      endif
+    endif
+  endfor
 
   if use_variant != true
     assign price = product.price_min | default: product.price | default: price
-    assign compare_at_price = product.compare_at_price_max | default: 0
-    if compare_at_price <= price and product.compare_at_price > price
-      assign compare_at_price = product.compare_at_price
+    assign compare_at_price = product.compare_at_price_max | default: product.compare_at_price | default: 0
+    if sale_compare_from_variants > sale_price_from_variants and sale_price_from_variants > 0
+      assign price = sale_price_from_variants
+      assign compare_at_price = sale_compare_from_variants
     endif
   endif
 
