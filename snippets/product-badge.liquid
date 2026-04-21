@@ -23,6 +23,10 @@
     assign sale_product = true
     assign compare_at_price_base = product_compare_at_price_max_base
     assign price_base = product_price_base
+  elsif sale_product == false and current_variant.compare_at_price > current_variant.price
+    assign sale_product = true
+    assign compare_at_price_base = current_variant.compare_at_price
+    assign price_base = current_variant.price
   endif
 
   assign sale_text = 'products.product.on_sale' | t

@@ -35,6 +35,11 @@
       assign on_sale = true
     else
       assign on_sale = false
+      if first_variant.compare_at_price > first_variant.price
+        assign on_sale = true
+        assign compare_at_price = first_variant.compare_at_price
+        assign price = first_variant.price
+      endif
     endif
   endif
 
