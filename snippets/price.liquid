@@ -57,7 +57,7 @@
         - div.price__availability: Displayed when the product is sold out
     {%- endcomment -%}
 
-    <div class="price__regular">
+    <div class="price__regular"{% if on_sale %} style="display:none;"{% endif %}>
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
@@ -72,7 +72,7 @@
       </dd>
     </div>
 
-    <div class="price__sale">
+    <div class="price__sale"{% unless on_sale %} style="display:none;"{% endunless %}>
       <dt class="price__compare">
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
