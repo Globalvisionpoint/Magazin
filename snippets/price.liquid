@@ -21,6 +21,7 @@
   assign price = target.price | default: product.price | default: 1999
   assign compare_at_price = target.compare_at_price | default: 0
   assign product_price = product.price | default: price
+  assign product_price_min = product.price_min | default: product_price
   assign product_compare_at_price = product.compare_at_price | default: 0
   assign product_compare_at_price_max = product.compare_at_price_max | default: 0
 
@@ -29,9 +30,9 @@
     assign price = product_price
   endif
 
-  if compare_at_price <= price and product_compare_at_price_max > product_price
+  if compare_at_price <= price and product_compare_at_price_max > product_price_min
     assign compare_at_price = product_compare_at_price_max
-    assign price = product_price
+    assign price = product_price_min
   endif
 
   if compare_at_price <= price
@@ -48,10 +49,10 @@
   if compare_at_price > price
     assign on_sale = true
   endif
-  if on_sale == false and product.compare_at_price_max > product.price
+  if on_sale == false and product_compare_at_price_max > product_price_min
     assign on_sale = true
-    assign compare_at_price = product.compare_at_price_max
-    assign price = product.price
+    assign compare_at_price = product_compare_at_price_max
+    assign price = product_price_min
   endif
 
   assign available = target.available | default: false
