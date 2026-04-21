@@ -13,6 +13,18 @@
 
 {%- liquid
   assign first_variant = product.selected_or_first_available_variant
+  assign variant_min_price = 0
+  assign variant_max_compare_at_price = 0
+
+  for variant in product.variants
+    if variant_min_price == 0 or variant.price < variant_min_price
+      assign variant_min_price = variant.price
+    endif
+    if variant.compare_at_price > variant_max_compare_at_price
+      assign variant_max_compare_at_price = variant.compare_at_price
+    endif
+  endfor
+
   if use_variant
     assign target = first_variant
   else
@@ -32,21 +44,12 @@
   endif
 
   unless use_variant
-    assign price = product.price_min | default: price
-    assign compare_at_price = 0
+    assign price = variant_min_price | default: product.price_min | default: product.price | default: price
+    assign compare_at_price = variant_max_compare_at_price | default: product.compare_at_price_max | default: 0
     assign on_sale = false
-
-    for variant in product.variants
-      if variant.compare_at_price > variant.price
-        assign on_sale = true
-        if compare_at_price == 0 or variant.compare_at_price > compare_at_price
-          assign compare_at_price = variant.compare_at_price
-        endif
-        if variant.price < price
-          assign price = variant.price
-        endif
-      endif
-    endfor
+    if compare_at_price > price
+      assign on_sale = true
+    endif
   endunless
 
   assign available = target.available | default: false
