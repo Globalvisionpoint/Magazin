@@ -93,6 +93,11 @@
   if compare_at_price_base > price_base
     assign on_sale = true
   endif
+  if on_sale == false and product.compare_at_price_max > product.price
+    assign on_sale = true
+    assign compare_at_price_base = product.compare_at_price_max
+    assign price_base = product.price
+  endif
 
   assign productShortDescription = product.metafields.metaname.product_excerpt.value
   assign productSizeGuideHandler = product.metafields.metaname.product_size_guide.value

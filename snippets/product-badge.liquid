@@ -33,6 +33,11 @@
   if compare_at_price_base > price_base
     assign sale_product = true
   endif
+  if sale_product == false and product.compare_at_price_max > product.price
+    assign sale_product = true
+    assign compare_at_price_base = product.compare_at_price_max
+    assign price_base = product.price
+  endif
 
   assign sale_text = 'products.product.on_sale' | t
 -%}

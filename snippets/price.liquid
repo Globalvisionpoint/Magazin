@@ -48,6 +48,11 @@
   if compare_at_price > price
     assign on_sale = true
   endif
+  if on_sale == false and product.compare_at_price_max > product.price
+    assign on_sale = true
+    assign compare_at_price = product.compare_at_price_max
+    assign price = product.price
+  endif
 
   assign available = target.available | default: false
   assign money_price = price | money
@@ -77,7 +82,7 @@
         - div.price__availability: Displayed when the product is sold out
     {%- endcomment -%}
 
-    <div class="price__regular">
+    <div class="price__regular"{% if on_sale %} style="display:none;"{% endif %}>
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
@@ -92,7 +97,7 @@
       </dd>
     </div>
 
-    <div class="price__sale">
+    <div class="price__sale"{% if on_sale %} style="display:inline-flex;"{% else %} style="display:none;"{% endif %}>
       <dt class="price__compare">
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
