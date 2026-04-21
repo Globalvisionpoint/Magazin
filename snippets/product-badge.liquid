@@ -15,6 +15,15 @@
     assign sale_product = true
     assign compare_at_price_base = product_compare_at_price_max_base
     assign price_base = product_price_min_base
+  elsif sale_product == false
+    for variant in product.variants
+      if variant.compare_at_price > variant.price
+        assign sale_product = true
+        assign compare_at_price_base = variant.compare_at_price
+        assign price_base = variant.price
+        break
+      endif
+    endfor
   endif
 
   assign sale_text = 'products.product.on_sale' | t

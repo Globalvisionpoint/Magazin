@@ -83,6 +83,15 @@
     assign on_sale = true
     assign compare_at_price_base = product_compare_at_price_max_base
     assign price_base = product_price_min_base
+  elsif on_sale == false
+    for variant in product.variants
+      if variant.compare_at_price > variant.price
+        assign on_sale = true
+        assign compare_at_price_base = variant.compare_at_price
+        assign price_base = variant.price
+        break
+      endif
+    endfor
   endif
 
   assign productShortDescription = product.metafields.metaname.product_excerpt.value
