@@ -63,19 +63,15 @@
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
-  assign price_base = current_variant.price
-  assign compare_at_price_base = current_variant.compare_at_price
-  
-  if compare_at_price_base == blank and product.compare_at_price
-    assign compare_at_price_base = product.compare_at_price
-  endif
+  assign price_base = current_variant.price | default: product.price
+  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price
   
   if compare_at_price_base == blank and product.compare_at_price_max > price_base
     assign compare_at_price_base = product.compare_at_price_max
   endif
 
   assign on_sale = false
-  if compare_at_price_base and compare_at_price_base > price_base
+  if compare_at_price_base > price_base
     assign on_sale = true
   endif
 

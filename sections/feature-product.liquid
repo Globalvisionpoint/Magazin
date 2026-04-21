@@ -93,15 +93,11 @@
   assign product = section.settings.product
 
   assign current_variant = product.selected_or_first_available_variant
-  assign price_variant = current_variant.price
-  assign compare_at_price_variant = current_variant.compare_at_price
-  
-  if compare_at_price_variant == blank and product.compare_at_price
-    assign compare_at_price_variant = product.compare_at_price
-  endif
+  assign price_variant = current_variant.price | default: product.price
+  assign compare_at_price_variant = current_variant.compare_at_price | default: product.compare_at_price
 
   assign on_sale = false
-  if compare_at_price_variant and compare_at_price_variant > price_variant
+  if compare_at_price_variant > price_variant
     assign on_sale = true
   endif
 
