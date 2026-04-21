@@ -79,6 +79,16 @@
     assign price_base = product_price_base
   endif
 
+  if compare_at_price_base <= price_base
+    for variant in product.variants
+      if variant.compare_at_price > variant.price
+        assign compare_at_price_base = variant.compare_at_price
+        assign price_base = variant.price
+        break
+      endif
+    endfor
+  endif
+
   assign on_sale = false
   if compare_at_price_base > price_base
     assign on_sale = true
