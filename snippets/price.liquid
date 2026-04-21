@@ -32,27 +32,21 @@
   endif
 
   unless use_variant
-    assign product_price_min = product.price_min | default: price
-    assign product_compare_at_price_max = product.compare_at_price_max | default: 0
+    assign price = product.price_min | default: price
+    assign compare_at_price = 0
+    assign on_sale = false
 
-    if product_compare_at_price_max > product_price_min
-      assign on_sale = true
-      assign compare_at_price = product_compare_at_price_max
-      assign price = product_price_min
-    else
-      assign on_sale = false
-      assign compare_at_price = 0
-      assign price = product_price_min
-
-      for variant in product.variants
-        if variant.compare_at_price > variant.price
-          assign on_sale = true
+    for variant in product.variants
+      if variant.compare_at_price > variant.price
+        assign on_sale = true
+        if compare_at_price == 0 or variant.compare_at_price > compare_at_price
           assign compare_at_price = variant.compare_at_price
-          assign price = variant.price
-          break
         endif
-      endfor
-    endif
+        if variant.price < price
+          assign price = variant.price
+        endif
+      endif
+    endfor
   endunless
 
   assign available = target.available | default: false
@@ -72,7 +66,6 @@
      {{ price_class }}
     {%- if available == false %} price--sold-out {% endif -%}
     {%- if on_sale %} price--on-sale {% endif -%}
-    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
   "
 >
   <dl>
