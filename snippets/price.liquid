@@ -13,34 +13,21 @@
 
 {%- liquid
   assign first_variant = product.selected_or_first_available_variant
-
   assign target = first_variant
   assign price = first_variant.price | default: product.price | default: 1999
   assign compare_at_price = first_variant.compare_at_price | default: 0
-  assign on_sale = false
-
-  if compare_at_price > price
-    assign on_sale = true
-  endif
 
   if use_variant != true
-    assign price = product.price | default: first_variant.price | default: price
-    assign compare_at_price = product.compare_at_price | default: 0
-
-    if compare_at_price <= price and product.compare_at_price_max > price
-      assign compare_at_price = product.compare_at_price_max
+    assign price = product.price_min | default: product.price | default: price
+    assign compare_at_price = product.compare_at_price_max | default: 0
+    if compare_at_price <= price and product.compare_at_price > price
+      assign compare_at_price = product.compare_at_price
     endif
+  endif
 
-    if compare_at_price > price
-      assign on_sale = true
-    else
-      assign on_sale = false
-      if first_variant.compare_at_price > first_variant.price
-        assign on_sale = true
-        assign compare_at_price = first_variant.compare_at_price
-        assign price = first_variant.price
-      endif
-    endif
+  assign on_sale = false
+  if compare_at_price > price
+    assign on_sale = true
   endif
 
   assign available = target.available | default: false
