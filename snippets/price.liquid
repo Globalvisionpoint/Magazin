@@ -12,31 +12,42 @@
 {% endcomment %}
 
 {%- liquid
-  assign first_variant = product.selected_or_first_available_variant
-  assign target = first_variant
-  assign price = first_variant.price | default: product.price | default: 1999
-  assign compare_at_price = first_variant.compare_at_price | default: 0
-  assign sale_price_from_variants = 0
-  assign sale_compare_from_variants = 0
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
 
-  for variant in product.variants
-    if variant.compare_at_price > variant.price
-      if sale_price_from_variants == 0 or variant.price < sale_price_from_variants
-        assign sale_price_from_variants = variant.price
-      endif
-      if variant.compare_at_price > sale_compare_from_variants
-        assign sale_compare_from_variants = variant.compare_at_price
-      endif
-    endif
-  endfor
+  assign price = target.price | default: product.price | default: 1999
+  assign compare_at_price = target.compare_at_price | default: product.compare_at_price | default: 0
+  if compare_at_price <= price and product.compare_at_price_max > price
+    assign compare_at_price = product.compare_at_price_max
+  endif
 
-  if use_variant != true
-    assign price = product.price_min | default: product.price | default: price
-    assign compare_at_price = product.compare_at_price_max | default: product.compare_at_price | default: 0
-    if sale_compare_from_variants > sale_price_from_variants and sale_price_from_variants > 0
-      assign price = sale_price_from_variants
-      assign compare_at_price = sale_compare_from_variants
-    endif
+  if compare_at_price <= price
+    case product.handle
+      when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
+        assign compare_at_price = 39900
+      when 'tableta-android-10-1-inch-20gb-ram-128gb-rom-wifi-procesor-8-nuclee-cu-tastatura-mouse-stilou-carcasa-de-protectie'
+        assign compare_at_price = 72900
+      when 'tableta-android-10-1-inch-18gb-ram-128gb-rom-wifi-cu-tastatura-mouse-carcasa-de-protectie-si-stilou'
+        assign compare_at_price = 59900
+      when 'tableta-android-10-inch-12gb-ram-128gb-rom-wifi-bluetooth-husa-protectie-anti-shock-pentru-copii'
+        assign compare_at_price = 59900
+      else
+        if price <= 29900
+          assign compare_at_price = 39900
+        elsif price <= 49900
+          assign compare_at_price = 59900
+        elsif price <= 59900
+          assign compare_at_price = 72900
+        elsif price <= 79900
+          assign compare_at_price = 99900
+        else
+          assign compare_at_price = price | times: 125 | divided_by: 100
+          assign compare_at_price = compare_at_price | plus: 99 | divided_by: 100 | times: 100
+        endif
+    endcase
   endif
 
   assign on_sale = false
@@ -61,6 +72,7 @@
      {{ price_class }}
     {%- if available == false %} price--sold-out {% endif -%}
     {%- if on_sale %} price--on-sale {% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
   "
 >
   <dl>
@@ -71,7 +83,7 @@
         - div.price__availability: Displayed when the product is sold out
     {%- endcomment -%}
 
-    <div class="price__regular"{% if on_sale %} style="display:none;"{% endif %}>
+    <div class="price__regular">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
@@ -86,7 +98,7 @@
       </dd>
     </div>
 
-    <div class="price__sale"{% if on_sale %} style="display:inline-flex;"{% else %} style="display:none;"{% endif %}>
+    <div class="price__sale">
       <dt class="price__compare">
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
