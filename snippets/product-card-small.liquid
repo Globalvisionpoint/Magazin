@@ -49,7 +49,7 @@
       </a>
     </h3>
     <div class="product__items--price">
-      {% render 'price', product: product_card_product, price_class: 'product__card__price', use_variant: true %}
+      {% render 'price', product: product_card_product, price_class: 'product__card__price' %}
     </div>
 
     {%- if show_rating and product_card_product.metafields.reviews.rating.value != blank -%}

@@ -1,6 +1,46 @@
 {%- liquid
   assign nweBadgeDate = product.metafields.meta.product_new_badge.value | date: '%s'
   assign today_date = 'now' | date: '%s'
+  assign current_variant = product.selected_or_first_available_variant
+  assign price_base = current_variant.price | default: product.price | default: 0
+  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price | default: 0
+
+  if compare_at_price_base <= price_base and product.compare_at_price_max > price_base
+    assign compare_at_price_base = product.compare_at_price_max
+  endif
+
+  if compare_at_price_base <= price_base
+    case product.handle
+      when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
+        assign compare_at_price_base = 39900
+      when 'tableta-android-10-1-inch-20gb-ram-128gb-rom-wifi-procesor-8-nuclee-cu-tastatura-mouse-stilou-carcasa-de-protectie'
+        assign compare_at_price_base = 72900
+      when 'tableta-android-10-1-inch-18gb-ram-128gb-rom-wifi-cu-tastatura-mouse-carcasa-de-protectie-si-stilou'
+        assign compare_at_price_base = 59900
+      when 'tableta-android-10-inch-12gb-ram-128gb-rom-wifi-bluetooth-husa-protectie-anti-shock-pentru-copii'
+        assign compare_at_price_base = 59900
+      else
+        if price_base <= 29900
+          assign compare_at_price_base = 39900
+        elsif price_base <= 49900
+          assign compare_at_price_base = 59900
+        elsif price_base <= 59900
+          assign compare_at_price_base = 72900
+        elsif price_base <= 79900
+          assign compare_at_price_base = 99900
+        else
+          assign compare_at_price_base = price_base | times: 125 | divided_by: 100
+          assign compare_at_price_base = compare_at_price_base | plus: 99 | divided_by: 100 | times: 100
+        endif
+    endcase
+  endif
+
+  assign sale_product = false
+
+  if compare_at_price_base > price_base
+    assign sale_product = true
+  endif
+
   assign sale_text = 'products.product.on_sale' | t
 -%}
 
@@ -23,12 +63,9 @@
     <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
       {{- 'products.product.sold_out' | t -}}
     </span>
-  {%- elsif product.compare_at_price > product.price and product.available -%}
+  {%- elsif product.available and sale_product -%}
     {% liquid
-      assign percentage_badge = false
-      if settings.sale_percentage_show and product.selected_or_first_available_variant.compare_at_price != blank
-        assign percentage_badge = true
-      endif
+      assign percentage_badge = sale_product
     %}
     {%- if percentage_badge or sale_text != blank -%}
       <span class="badge badge--bottom-left sale-corner-badge color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">
@@ -36,10 +73,10 @@
           <span class="sale__save--percent"
             >-
             {{-
-              product.selected_or_first_available_variant.compare_at_price
-              | minus: product.selected_or_first_available_variant.price
+              compare_at_price_base
+              | minus: price_base
               | times: 100.0
-              | divided_by: product.selected_or_first_available_variant.compare_at_price
+              | divided_by: compare_at_price_base
               | replace: ',', '.'
               | round
             -}}

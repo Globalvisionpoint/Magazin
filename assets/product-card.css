@@ -300,17 +300,11 @@
 }
 
 .product__card__price.price--on-sale .price-item--regular {
-  color: #121212;
-  font-weight: 500;
+  color: #8f8f8f;
+  font-weight: 400;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
-  text-decoration-thickness: 2px;
-}
-
-.product__card__price:not(.price--on-sale) .price-item--regular {
-  color: #e21c23;
-  font-size: 2.05rem;
-  font-weight: 700;
+  text-decoration-thickness: 1px;
 }
 
 .product__card__price .price__compare {
@@ -876,13 +870,6 @@ button.product__card__actions__btn.loading {
 
 .product__card .product__card__price .price-item--sale {
   font-size: 1.8rem;
-  line-height: 1.05;
-}
-
-.product__card .product__card__price:not(.price--on-sale) .price-item--regular {
-  color: #e21c23;
-  font-size: 1.8rem;
-  font-weight: 700;
   line-height: 1.05;
 }
 
