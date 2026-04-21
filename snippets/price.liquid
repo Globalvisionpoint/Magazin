@@ -12,8 +12,9 @@
 {% endcomment %}
 
 {%- liquid
+  assign first_variant = product.selected_or_first_available_variant
   if use_variant
-    assign target = product.selected_or_first_available_variant
+    assign target = first_variant
   else
     assign target = product
   endif
@@ -23,6 +24,11 @@
   assign on_sale = false
   if compare_at_price > price
     assign on_sale = true
+  endif
+  if on_sale == false and first_variant.compare_at_price > first_variant.price
+    assign on_sale = true
+    assign compare_at_price = first_variant.compare_at_price
+    assign price = first_variant.price
   endif
 
   if use_variant == false
