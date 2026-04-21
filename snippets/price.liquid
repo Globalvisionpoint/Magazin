@@ -19,18 +19,18 @@
   endif
 
   assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = target.compare_at_price | default: product.compare_at_price
+  assign compare_at_price = target.compare_at_price
   
-  if compare_at_price == blank or compare_at_price == nil
-    assign compare_at_price = 0
+  if compare_at_price == blank and product.compare_at_price
+    assign compare_at_price = product.compare_at_price
   endif
   
-  if compare_at_price <= price and product.compare_at_price_max > price
+  if compare_at_price == blank and product.compare_at_price_max > price
     assign compare_at_price = product.compare_at_price_max
   endif
 
   assign on_sale = false
-  if compare_at_price != blank and compare_at_price > 0 and compare_at_price > price
+  if compare_at_price and compare_at_price > price
     assign on_sale = true
   endif
 
