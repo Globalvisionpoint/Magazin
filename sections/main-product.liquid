@@ -68,7 +68,10 @@
   assign product_price_min_base = product.price_min | default: product.price | default: price_base
   assign product_compare_at_price_base = product.compare_at_price | default: 0
   assign product_compare_at_price_max_base = product.compare_at_price_max | default: 0
-  assign on_sale = compare_at_price_base > price_base
+  assign on_sale = false
+  if compare_at_price_base > price_base
+    assign on_sale = true
+  endif
 
   if on_sale == false and product_compare_at_price_base > product_price_min_base
     assign on_sale = true

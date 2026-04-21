@@ -6,7 +6,10 @@
   assign compare_at_price_base = current_variant.compare_at_price | default: 0
   assign product_price_min_base = product.price_min | default: product.price | default: price_base
   assign product_compare_at_price_max_base = product.compare_at_price_max | default: 0
-  assign sale_product = compare_at_price_base > price_base
+  assign sale_product = false
+  if compare_at_price_base > price_base
+    assign sale_product = true
+  endif
 
   if sale_product == false and product_compare_at_price_max_base > product_price_min_base
     assign sale_product = true

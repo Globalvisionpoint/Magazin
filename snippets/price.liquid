@@ -20,7 +20,10 @@
 
   assign price = target.price | default: product.price | default: 1999
   assign compare_at_price = target.compare_at_price | default: 0
-  assign on_sale = compare_at_price > price
+  assign on_sale = false
+  if compare_at_price > price
+    assign on_sale = true
+  endif
 
   if use_variant == false
     assign product_price_min = product.price_min | default: price
