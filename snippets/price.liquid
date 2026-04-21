@@ -31,7 +31,7 @@
     assign price = first_variant.price
   endif
 
-  if use_variant == false
+  unless use_variant
     assign product_price_min = product.price_min | default: price
     assign product_compare_at_price_max = product.compare_at_price_max | default: 0
 
@@ -53,7 +53,7 @@
         endif
       endfor
     endif
-  endif
+  endunless
 
   assign available = target.available | default: false
   assign money_price = price | money
