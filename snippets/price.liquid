@@ -24,6 +24,12 @@
     assign compare_at_price = product.compare_at_price_max
   endif
 
+  comment
+    Folosim compare_at_price setat in Shopify daca exista si e valid
+    Fallback-ul se aplica DOAR daca nu e setat sau e invalid
+  endcomment
+  assign original_compare_at_price = compare_at_price
+  
   if compare_at_price <= price
     case product.handle
       when 'videoproiector-portabil-smart-4k-ultra-hd-cu-wifi6-bluetooth-5-0-autofocus-proiectie-ajustabila'
