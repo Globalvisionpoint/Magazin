@@ -19,9 +19,19 @@
   endif
 
   assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = target.compare_at_price | default: product.compare_at_price | default: 0
-  if compare_at_price <= price and product.compare_at_price_max > price
-    assign compare_at_price = product.compare_at_price_max
+  assign compare_at_price = target.compare_at_price | default: 0
+  assign product_price = product.price | default: price
+  assign product_compare_at_price = product.compare_at_price | default: 0
+  assign product_compare_at_price_max = product.compare_at_price_max | default: 0
+
+  if compare_at_price <= price and product_compare_at_price > product_price
+    assign compare_at_price = product_compare_at_price
+    assign price = product_price
+  endif
+
+  if compare_at_price <= price and product_compare_at_price_max > product_price
+    assign compare_at_price = product_compare_at_price_max
+    assign price = product_price
   endif
 
   assign on_sale = false

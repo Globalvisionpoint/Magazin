@@ -1,8 +1,15 @@
 {%- liquid
   assign sale_price = input_price | default: product.price | default: 0
   assign sale_compare_at_price = input_compare_at_price | default: 0
+  assign product_price = product.price | default: sale_price
+  assign product_compare_at_price = product.compare_at_price | default: 0
+  assign product_compare_at_price_max = product.compare_at_price_max | default: 0
 
-  if sale_compare_at_price <= sale_price and product.compare_at_price_max > sale_price
-    assign sale_compare_at_price = product.compare_at_price_max
+  if sale_compare_at_price <= sale_price and product_compare_at_price > product_price
+    assign sale_compare_at_price = product_compare_at_price
+  endif
+
+  if sale_compare_at_price <= sale_price and product_compare_at_price_max > product_price
+    assign sale_compare_at_price = product_compare_at_price_max
   endif
 -%}{{- sale_compare_at_price -}}
