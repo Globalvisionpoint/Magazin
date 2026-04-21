@@ -2,6 +2,7 @@
   assign sale_price = input_price | default: product.price | default: 0
   assign sale_compare_at_price = input_compare_at_price | default: 0
   assign product_price = product.price | default: sale_price
+  assign product_price_min = product.price_min | default: product_price
   assign product_compare_at_price = product.compare_at_price | default: 0
   assign product_compare_at_price_max = product.compare_at_price_max | default: 0
 
@@ -9,16 +10,7 @@
     assign sale_compare_at_price = product_compare_at_price
   endif
 
-  if sale_compare_at_price <= sale_price and product_compare_at_price_max > product_price
+  if sale_compare_at_price <= sale_price and product_compare_at_price_max > product_price_min
     assign sale_compare_at_price = product_compare_at_price_max
-  endif
-
-  if sale_compare_at_price <= sale_price
-    for variant in product.variants
-      if variant.compare_at_price > variant.price
-        assign sale_compare_at_price = variant.compare_at_price
-        break
-      endif
-    endfor
   endif
 -%}{{- sale_compare_at_price -}}
