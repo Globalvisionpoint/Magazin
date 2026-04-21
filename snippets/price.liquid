@@ -14,21 +14,16 @@
 {%- liquid
   assign first_variant = product.selected_or_first_available_variant
 
-  if use_variant
-    assign target = first_variant
-  else
-    assign target = product
-  endif
-
-  assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = target.compare_at_price | default: 0
+  assign target = first_variant
+  assign price = first_variant.price | default: product.price | default: 1999
+  assign compare_at_price = first_variant.compare_at_price | default: 0
   assign on_sale = false
 
   if compare_at_price > price
     assign on_sale = true
   endif
 
-  unless use_variant
+  if use_variant != true
     assign price = product.price | default: first_variant.price | default: price
     assign compare_at_price = product.compare_at_price | default: 0
 
@@ -36,11 +31,12 @@
       assign compare_at_price = product.compare_at_price_max
     endif
 
-    assign on_sale = false
     if compare_at_price > price
       assign on_sale = true
+    else
+      assign on_sale = false
     endif
-  endunless
+  endif
 
   assign available = target.available | default: false
   assign money_price = price | money
