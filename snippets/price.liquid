@@ -19,7 +19,10 @@
   endif
 
   assign price = target.price | default: product.price | default: 1999
-  assign compare_at_price = target.compare_at_price | default: product.compare_at_price | default: 0
+  assign compare_at_price = target.compare_at_price
+  if compare_at_price == blank or compare_at_price == 0
+    assign compare_at_price = product.compare_at_price | default: 0
+  endif
   
   comment
     Daca compare_at_price nu e setat in Shopify (e 0), calculeaza automat

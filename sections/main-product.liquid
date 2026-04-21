@@ -64,7 +64,10 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign price_base = current_variant.price | default: product.price | default: 0
-  assign compare_at_price_base = current_variant.compare_at_price | default: product.compare_at_price | default: 0
+  assign compare_at_price_base = current_variant.compare_at_price
+  if compare_at_price_base == blank or compare_at_price_base == 0
+    assign compare_at_price_base = product.compare_at_price | default: 0
+  endif
 
   comment
     Daca compare_at_price nu e setat in Shopify (e 0), calculeaza automat
