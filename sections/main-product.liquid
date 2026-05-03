@@ -81,41 +81,6 @@
       display: block;
     }
 
-    /* CSS Grid layout: title spans full width, columns below — no magic margins */
-    .section-{{ section.id }}-padding .product.row {
-      display: grid !important;
-      {% if section.settings.media_size == 'large' %}
-      grid-template-columns: 7fr 5fr;
-      {% elsif section.settings.media_size == 'medium' %}
-      grid-template-columns: 6fr 6fr;
-      {% else %}
-      grid-template-columns: 5fr 7fr;
-      {% endif %}
-      grid-template-areas:
-        "title title"
-        "media  info";
-      column-gap: var(--grid-desktop-horizontal-spacing, 20px);
-      row-gap: 0;
-      align-items: start;
-    }
-
-    .section-{{ section.id }}-padding .product__title-sku-row {
-      grid-area: title;
-      margin-bottom: 1rem;
-    }
-
-    .section-{{ section.id }}-padding .product.row > *:nth-child(2) {
-      grid-area: media;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .section-{{ section.id }}-padding .product.row > *:nth-child(3) {
-      grid-area: info;
-      max-width: 100%;
-      width: 100%;
-    }
-
     .section-{{ section.id }}-padding .product__media_container {
       max-width: 72%;
       margin-left: auto;
@@ -132,6 +97,7 @@
 
     .section-{{ section.id }}-padding .product__sku--desktop-top {
       display: block;
+      margin-bottom: -1rem;
       font-size: 1.4rem;
       color: rgba(var(--color-foreground), 0.6);
     }
@@ -142,6 +108,10 @@
 
     .section-{{ section.id }}-padding #sku__{{ section.id }} {
       display: none;
+    }
+
+    .section-{{ section.id }}-padding #ProductInfo-{{ section.id }} {
+      margin-top: -5.6rem;
     }
   }
 </style>
