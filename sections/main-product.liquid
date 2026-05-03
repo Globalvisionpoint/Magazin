@@ -157,9 +157,9 @@
   data-section-type="main-product"
   class="{{ container }} section-{{ section.id }}-padding"
 >
-  <h1 class="product__title product__title--desktop-top">{{ product.title | escape }}</h1>
   <div class="product row row-cols-md-2 row-cols-1 product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} media__postion--{{ section.settings.media_position }}">
     <div class="{{ media_column }}">
+      <h1 class="product__title product__title--desktop-top">{{ product.title | escape }}</h1>
       <div class="product__media_container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ 'accessibility.skip_to_product_info' | t }}
