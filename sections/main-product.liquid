@@ -74,9 +74,11 @@
   @media screen and (min-width: 990px) {
     .section-{{ section.id }}-padding .product__title--desktop-top {
       display: block;
-      width: calc(100% * {{ media_width }});
-      max-width: 100%;
-      margin: 0 auto 1.6rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: calc((100% - (100% * {{ media_width }})) / 2);
+      padding-right: calc((100% - (100% * {{ media_width }})) / 2);
+      margin: 0 0 1.6rem;
       font-size: 3rem;
       line-height: 1.2;
       font-weight: 700;
