@@ -72,13 +72,15 @@
   }
 
   @media screen and (min-width: 990px) {
+    .section-{{ section.id }}-padding .product__media_container {
+      max-width: 72%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .section-{{ section.id }}-padding .product__title--desktop-top {
       display: block;
-      width: 100%;
-      box-sizing: border-box;
-      padding-left: calc((100% - (100% * {{ media_width }})) / 2);
-      padding-right: calc((100% - (100% * {{ media_width }})) / 2);
-      margin: 0 0 1.6rem;
+      margin: 0 0 1.2rem;
       font-size: 3rem;
       line-height: 1.2;
       font-weight: 700;
@@ -163,8 +165,8 @@
 >
   <div class="product row row-cols-md-2 row-cols-1 product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} media__postion--{{ section.settings.media_position }}">
     <div class="{{ media_column }}">
-      <h1 class="product__title product__title--desktop-top">{{ product.title | escape }}</h1>
       <div class="product__media_container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
+        <h1 class="product__title product__title--desktop-top">{{ product.title | escape }}</h1>
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ 'accessibility.skip_to_product_info' | t }}
         </a>
