@@ -1,0 +1,371 @@
+<div {{ block.shopify_attributes }}>
+  {%- if product != blank -%}
+    {%- liquid
+      assign gift_card_recipient_feature_active = false
+      if block.settings.show_gift_card_recipient and product.gift_card?
+        assign gift_card_recipient_feature_active = true
+      endif
+
+      assign show_dynamic_checkout = false
+      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+        assign show_dynamic_checkout = true
+      endif
+    -%}
+    <product-form
+      class="product-form mb-20 product_buy_button_form"
+      data-hide-errors="{{ gift_card_recipient_feature_active }}"
+    >
+      {%- liquid
+        assign gift_card_recipient_feature_active = false
+        if block.settings.show_gift_card_recipient and product.gift_card?
+          assign gift_card_recipient_feature_active = true
+        endif
+
+        assign show_dynamic_checkout = false
+        if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+          assign show_dynamic_checkout = true
+        endif
+      -%}
+
+      <div class="product-form__error-message-wrapper no-js-inline" role="alert" hidden>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          role="presentation"
+          class="icon icon-error"
+          viewBox="0 0 13 13"
+        >
+          <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+          <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+          <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+        </svg>
+        <span class="product-form__error-message"></span>
+      </div>
+
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {%- if gift_card_recipient_feature_active -%}
+          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+        {%- endif -%}
+        <div class="product-form__buttons">
+          <div class="product-form__cart--box d-flex align-items-end">
+            {%- if block.settings.quantity__button -%}
+              <div class="product-form__input product-form__quantity">
+                <label class="form__label" for="Quantity-{{ section.id }}">
+                  <strong>{{ 'products.product.quantity.label' | t }}</strong>
+                </label>
+
+                <quantity-input class="quantity">
+                  <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                    </span>
+                    {% render 'icon-minus' %}
+                  </button>
+                  <input
+                    class="quantity__input"
+                    type="number"
+                    name="quantity"
+                    id="Quantity-{{ section.id }}"
+                    min="1"
+                    value="1"
+                    form="product-form-{{ section.id }}"
+                  >
+                  <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                    </span>
+                    {% render 'icon-plus' %}
+                  </button>
+                </quantity-input>
+              </div>
+            {%- endif -%}
+
+            <div class="product__add__cart__button">
+              <button
+                type="submit"
+                name="add"
+                class="product-form__submit button {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %} button--medium"
+                {% if product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                {%- if current_variant.available -%}
+                  {%- if current_variant.inventory_quantity <= 0
+                    and current_variant.inventory_policy == 'continue'
+                    and block.settings.preorder_button
+                  -%}
+                    {% if block.settings.cart_icon_type != 'none' %}
+                      <span class="action__btn--svg">{% render 'icon-cart', icon: block.settings.cart_icon_type %}</span>
+                    {% endif %}
+                    <span class="cart--button-text">{{ 'products.product.pre_order' | t }}</span>
+                  {%- else -%}
+                    {% if block.settings.cart_icon_type != 'none' %}
+                      <span class="action__btn--svg">{% render 'icon-cart', icon: block.settings.cart_icon_type %}</span>
+                    {% endif %}
+                    <span class="cart--button-text">{{ 'products.product.add_to_cart' | t }}</span>
+                  {%- endif -%}
+                {%- else -%}
+                  <span class="cart--button-text">{{ 'products.product.sold_out' | t }}</span>
+                {%- endif -%}
+              </button>
+            </div>
+          </div>
+
+          {%- if show_dynamic_checkout and current_variant.available -%}
+            <div class="product__buy_now_button w-100">
+              <button
+                type="button"
+                name="buy_now"
+                data-buy-now="true"
+                class="product-form__submit product-form__submit--buy-now button button--secondary button--medium mt-15"
+                {% if product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                <span class="action__btn--svg" aria-hidden="true">⚡</span>
+                <span class="cart--button-text">Cumpără direct</span>
+              </button>
+            </div>
+          {%- elsif current_variant.available == false -%}
+            <div
+              id="notify__me--available-{{ section.id }}"
+              class="product__buy_now_button w-100 notify__me--available-{{ section.id }}"
+            >
+              <modal-opener
+                class="product-popup-modal__opener"
+                data-modal="#PopupModal-4"
+                {{ block.shopify_attributes }}
+              >
+                <button
+                  id="ProductPopup-notify"
+                  class="button__notify--product button button--secondary button--medium mt-15"
+                  type="button"
+                  aria-haspopup="dialog"
+                >
+                  {{ 'products.product.back_in_stock_notify.button' | t }}
+                </button>
+              </modal-opener>
+            </div>
+          {%- endif -%}
+
+          <style>
+            .product-form__buttons .product-trust-badges {
+              margin-top: 1.5rem !important;
+              padding: 1.4rem 1rem !important;
+              border: 1px solid #dde3e6;
+              border-radius: 12px;
+              background: #edf2f3;
+              display: grid !important;
+              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+              gap: 1.05rem 0.85rem !important;
+            }
+
+            .product-form__buttons .product-trust-badge {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 0.3rem;
+              text-align: center;
+              min-height: 10.6rem;
+              padding: 0.25rem;
+            }
+
+            .product-form__buttons .product-trust-badge__icon {
+              width: 2.9rem !important;
+              height: 2.9rem !important;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              color: #1f1f1f;
+            }
+
+            .product-form__buttons .product-trust-badge__icon svg {
+              width: 2.1rem !important;
+              height: 2.1rem !important;
+              display: block;
+            }
+
+            .product-form__buttons .product-trust-badge__title {
+              margin: 0;
+              font-size: 1.32rem !important;
+              line-height: 1.18 !important;
+              font-weight: 800 !important;
+              color: #111111;
+              text-transform: uppercase;
+              letter-spacing: 0.01em;
+            }
+
+            .product-form__buttons .product-trust-badge__text {
+              margin: 0;
+              font-size: 1.16rem !important;
+              line-height: 1.32 !important;
+              font-weight: 500 !important;
+              color: #6a6a6a;
+            }
+
+            @media screen and (max-width: 749px) {
+              .product-form__buttons .product-trust-badges {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 0.85rem 0.55rem !important;
+                padding: 1rem 0.75rem !important;
+              }
+
+              .product-form__buttons .product-trust-badge__icon {
+                width: 2.55rem !important;
+                height: 2.55rem !important;
+              }
+
+              .product-form__buttons .product-trust-badge__icon svg {
+                width: 1.85rem !important;
+                height: 1.85rem !important;
+              }
+
+              .product-form__buttons .product-trust-badge {
+                min-height: 10rem;
+              }
+
+              .product-form__buttons .product-trust-badge__title {
+                font-size: 1.06rem !important;
+              }
+
+              .product-form__buttons .product-trust-badge__text {
+                font-size: 0.96rem !important;
+              }
+            }
+          </style>
+
+          <div class="product-trust-badges" aria-label="Beneficiile comenzii">
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6.5 10h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="m11.5 13 1.8 1.8L17.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17 7.2 20.5 6v4.4c0 3-1.7 5.6-4.2 6.8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="product-trust-badge__title">PLATĂ SECURIZATĂ</p>
+              <p class="product-trust-badge__text">Plată securizată cu cardul sau numerar la livrare.</p>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 13h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M14 7h3.8l2.2 2.6V13h-6V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="7.5" cy="16.5" r="1.7" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="17.5" cy="16.5" r="1.7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <p class="product-trust-badge__title">TRANSPORT NAȚIONAL</p>
+              <p class="product-trust-badge__text">Livrare în 24-48 de ore, rapid și sigur, oriunde în țară.</p>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4a8 8 0 1 1-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 1.5v4.5M20.5 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8.2 13.8 12 16l4.6-2.7V9.1L12 6.4 7.4 9.1v4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="product-trust-badge__title">14 ZILE DREPT DE RETUR GARANTAT.</p>
+              <p class="product-trust-badge__text">Drept de retur garantat în 14 zile.</p>
+            </div>
+            <div class="product-trust-badge">
+              <span class="product-trust-badge__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M8.4 14.1 7 21l5-2.3L17 21l-1.4-6.9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="product-trust-badge__title">PRODUSE PREMIUM</p>
+              <p class="product-trust-badge__text">Produse premium de calitate superioară.</p>
+            </div>
+          </div>
+        </div>
+      {%- endform -%}
+      {%- liquid
+        assign preorder_button_show = false
+        if block.settings.preorder_button
+          assign preorder_button_show = true
+        endif
+      -%}
+      <script>
+        window.preorder_button = {{ preorder_button_show }};
+      </script>
+    </product-form>
+  {%- else -%}
+    <div class="product-form">
+      <div class="product-form__buttons form">
+        <button
+          type="submit"
+          name="add"
+          class="product-form__submit button button--full-width button--primary"
+          disabled
+        >
+          {{ 'products.product.sold_out' | t }}
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+  {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+    | where: 'pick_up_enabled', true
+  -%}
+
+  <pickup-availability
+    class="product__pickup-availabilities no-js-hidden mb-20"
+    {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
+      available
+    {% endif %}
+    data-root-url="{{ routes.root_url }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    data-has-only-default-variant="{{ product.has_only_default_variant }}"
+  >
+    <template>
+      <pickup-availability-preview class="pickup-availability-preview">
+        {% render 'icon-unavailable' %}
+        <div class="pickup-availability-info">
+          <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+          <button class="pickup-availability-button link link--text underlined-link">
+            {{ 'products.product.pickup_availability.refresh' | t }}
+          </button>
+        </div>
+      </pickup-availability-preview>
+    </template>
+  </pickup-availability>
+</div>
+
+<script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+
+{% if block.settings.wishlist_btn %}
+  {%- render 'text-button-wishlist' -%}
+{% endif %}
+
+{% if block.settings.compare_btn %}
+  {%- render 'text-button-compare' %}
+{% endif %}
+
+{%- if block.settings.guarantee_safe_checkout -%}
+  <div class="guarantee__safe__checkout">
+    <p>{{ block.settings.safe_checkout_text }}</p>
+    <ul class="list d-flex product__payment mb-20" role="list">
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="product__payment__item">
+          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
