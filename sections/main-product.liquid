@@ -55,42 +55,6 @@
     }
   }
 
-  /* Desktop: title above image */
-  .product__title--above {
-    display: none;
-  }
-
-  @media screen and (min-width: 990px) {
-    .product__title--above {
-      display: block;
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 1.4rem;
-      padding: 0 1rem;
-    }
-
-    .product__info-container .product__title {
-      display: none;
-    }
-
-    .product__media_container .product__media.main--product__media--adapt {
-      padding-top: 62% !important;
-    }
-
-    .section-{{ section.id }}-padding > .product .col-lg-5,
-    .section-{{ section.id }}-padding > .product .col-lg-6 {
-      flex: 0 0 42%;
-      max-width: 42%;
-    }
-
-    .section-{{ section.id }}-padding > .product .col-lg-7:last-child,
-    .section-{{ section.id }}-padding > .product .col-lg-6:last-child {
-      flex: 0 0 58%;
-      max-width: 58%;
-    }
-  }
-
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.mobile_padding_top }}px;
     padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
@@ -175,7 +139,6 @@
   data-section-type="main-product"
   class="{{ container }} section-{{ section.id }}-padding"
 >
-  <h1 class="product__title product__title--above">{{ product.title | escape }}</h1>
   <div class="product row row-cols-md-2 row-cols-1 product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} media__postion--{{ section.settings.media_position }}">
     <div class="{{ media_column }}">
       <div class="product__media_container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
