@@ -1,6 +1,12 @@
 @media screen and (min-width: 990px) {
-  .product__media_container .product__media {
-    padding-top: 65% !important;
+  .product__media_container {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product__media_container .product__media.main--product__media--adapt {
+    padding-top: 78% !important;
   }
 }
 
