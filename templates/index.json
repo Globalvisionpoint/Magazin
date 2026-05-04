@@ -114,7 +114,7 @@
             "content_alignment": "start",
             "button_label": "Accesează categoria!",
             "button_icon": true,
-            "button_link": "shopify://collections/electrocasnice2",
+            "button_link": "shopify://collections/electrocasnice",
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
