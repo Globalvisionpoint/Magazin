@@ -93,7 +93,7 @@
             "content_alignment": "start",
             "button_label": "Accesează categoria!",
             "button_icon": true,
-            "button_link": "shopify://collections/climatizare-si-incalzire2",
+            "button_link": "shopify://collections/climatizare-si-incalzire",
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
