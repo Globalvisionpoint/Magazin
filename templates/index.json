@@ -72,7 +72,7 @@
             "content_alignment": "start",
             "button_label": "Accesează categoria!",
             "button_icon": true,
-            "button_link": "shopify://collections/bucatarie-si-servire2",
+            "button_link": "shopify://collections/bucatarie-si-servire",
             "enble_entire_link": true,
             "button_type": "primary",
             "button_size": "small",
