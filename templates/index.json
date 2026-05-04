@@ -135,7 +135,7 @@
             "content_alignment": "start",
             "button_label": "Accesează categoria!",
             "button_icon": true,
-            "button_link": "shopify://collections/ingrijire-personala",
+            "button_link": "shopify://collections/ingrijire-personala-1",
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
