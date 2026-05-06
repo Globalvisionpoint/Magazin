@@ -257,7 +257,7 @@
   color: rgba(var(--color-foreground));
   visibility: visible !important;
   opacity: 1 !important;
-  margin-bottom: 1.4rem;
+  margin-bottom: 3rem;
 }
 
 .product__card__badges {
@@ -500,7 +500,7 @@ button.product__card__actions__btn.loading {
 }
 .product-card-action-buttons {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 0;
   min-height: 5.2rem;
   align-items: end;
 }
