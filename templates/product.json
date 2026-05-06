@@ -100,10 +100,6 @@
             "safe_checkout_text": "PLATA ONLINE CU CARDUL SAU ÎN NUMERAR LA LIVRARE"
           }
         },
-        "maxbundle_app_block_product_bundle_wfHNaG": {
-          "type": "shopify://apps/maxbundle/blocks/app-block-product-bundle/469560a3-d600-4f5e-a767-2a4cdaceacca",
-          "settings": {}
-        },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
           "type": "share",
           "settings": {
@@ -147,7 +143,6 @@
         "53de2819-ab0a-47a4-aeca-1e575e63ae70",
         "variant_picker_gYNLwq",
         "buy_buttons",
-        "maxbundle_app_block_product_bundle_wfHNaG",
         "0a478e9c-d23b-4b8b-b309-62919d0eb667",
         "d0e5cb3f-bc16-499b-bb44-24e33b8e8d49",
         "4da3a3dc-a122-42f1-ac3a-ff8d5edd3467"
