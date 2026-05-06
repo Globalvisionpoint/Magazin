@@ -257,6 +257,7 @@
   color: rgba(var(--color-foreground));
   visibility: visible !important;
   opacity: 1 !important;
+  margin-bottom: 1.4rem;
 }
 
 .product__card__badges {
