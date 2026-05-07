@@ -111,6 +111,13 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "10605107893285769442": {
+        "type": "shopify://apps/amp-bundles/blocks/amp-bundles-embed/7161efe5-6fe7-4f63-bef9-72179702263a",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "background-1": {
         "settings": {
