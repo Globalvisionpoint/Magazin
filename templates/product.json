@@ -32,6 +32,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "amp_bundles_amp_buy_x_get_y_bundles_TFWJWD": {
+          "type": "shopify://apps/amp-bundles/blocks/amp-buy-x-get-y-bundles/7161efe5-6fe7-4f63-bef9-72179702263a",
+          "settings": {
+            "product": "{{ product }}"
+          }
+        },
         "d563cb6b-8466-4cf0-8cd4-34ce1b371973": {
           "type": "vendor",
           "disabled": true,
@@ -134,6 +140,7 @@
         }
       },
       "block_order": [
+        "amp_bundles_amp_buy_x_get_y_bundles_TFWJWD",
         "d563cb6b-8466-4cf0-8cd4-34ce1b371973",
         "title",
         "sku_YfBLyt",
