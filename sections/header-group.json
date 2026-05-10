@@ -105,7 +105,7 @@
             "cat_menu_url": "shopify://collections/articole-menaj",
             "icon": "bottle",
             "menu": "categorii",
-            "vertical_menu_type": "mega_menu",
+            "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
             "height": "adapt",
             "promo1_heading": "",
