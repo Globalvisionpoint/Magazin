@@ -116,10 +116,10 @@
         "4f7ad834-0df7-4578-8ba9-b685aadff222": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Tablete Android Bussines",
+            "cat_menu_name": "Bucatarie si servire",
             "cat_menu_url": "shopify://collections/bucatarie-si-servire",
-            "icon": "computer",
-            "menu": "",
+            "icon": "bottle",
+            "menu": "categorii-copie",
             "vertical_menu_type": "mega_menu",
             "mega_menu_column": "2",
             "height": "adapt",
