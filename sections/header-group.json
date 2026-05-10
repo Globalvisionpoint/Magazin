@@ -206,61 +206,13 @@
         "da0cec0b-826f-4fa4-9272-ea031635cf20": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Smartwatch",
+            "cat_menu_name": "Trotinete Copii",
             "cat_menu_url": "shopify://collections/trotinete-copii",
             "icon": "truck",
             "menu": "biciclete-trotinete",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
             "height": "square",
-            "promo1_heading": "",
-            "promo1_text": "",
-            "promo1_link": ""
-          }
-        },
-        "e88d6327-909a-4318-bb87-a8e1d545d0c6": {
-          "type": "category_menu",
-          "disabled": true,
-          "settings": {
-            "cat_menu_name": "Wireless Router",
-            "cat_menu_url": "shopify://collections/all",
-            "icon": "wirless",
-            "menu": "",
-            "vertical_menu_type": "dropdown",
-            "mega_menu_column": "3",
-            "height": "adapt",
-            "promo1_heading": "",
-            "promo1_text": "",
-            "promo1_link": ""
-          }
-        },
-        "e6dd6aef-5d18-434b-958f-8286196ca1da": {
-          "type": "category_menu",
-          "disabled": true,
-          "settings": {
-            "cat_menu_name": "Bluetooth Speaker",
-            "cat_menu_url": "shopify://collections/all",
-            "icon": "bluetooth",
-            "menu": "",
-            "vertical_menu_type": "dropdown",
-            "mega_menu_column": "3",
-            "height": "adapt",
-            "promo1_heading": "",
-            "promo1_text": "",
-            "promo1_link": ""
-          }
-        },
-        "8e8d20db-b525-4be4-ab67-37943ce647e4": {
-          "type": "category_menu",
-          "disabled": true,
-          "settings": {
-            "cat_menu_name": "Printers & Projectors",
-            "cat_menu_url": "shopify://collections/all",
-            "icon": "printers",
-            "menu": "",
-            "vertical_menu_type": "dropdown",
-            "mega_menu_column": "3",
-            "height": "adapt",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
@@ -276,10 +228,7 @@
         "35dc92fb-2284-4507-bab5-86e6653bdd4c",
         "58110268-a7c9-4a91-b524-4c08e51ef583",
         "d4eceda2-f308-4588-8af9-f7c2f5a65898",
-        "da0cec0b-826f-4fa4-9272-ea031635cf20",
-        "e88d6327-909a-4318-bb87-a8e1d545d0c6",
-        "e6dd6aef-5d18-434b-958f-8286196ca1da",
-        "8e8d20db-b525-4be4-ab67-37943ce647e4"
+        "da0cec0b-826f-4fa4-9272-ea031635cf20"
       ],
       "custom_css": [],
       "settings": {
