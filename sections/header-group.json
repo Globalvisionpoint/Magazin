@@ -236,7 +236,7 @@
         "show_offset": false,
         "logo": "shopify://shop_images/logo_scris.png",
         "logo_width": 130,
-        "menu": "main-menu",
+        "menu": "",
         "header_design": "logo__left--menu-bottom",
         "border_hide_on_home_page": false,
         "header_sticky": true,
