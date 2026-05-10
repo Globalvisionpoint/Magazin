@@ -405,34 +405,34 @@
     background: rgba(var(--color-button), var(--alpha-button-background));
     color: rgb(var(--color-button-text));
     border: 0.1rem solid rgba(var(--color-button), var(--alpha-button-background));
-    border-radius: 1rem;
-    padding: 1rem 1.5rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 0.75rem;
+    padding: 0.72rem 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
   }
 
   .categories__menu--button:hover {
-    filter: brightness(1.06);
+    filter: brightness(1.04);
     transform: translateY(-1px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
   }
 
   .categories__button--icon {
-    margin-right: 0.8rem;
+    margin-right: 0.6rem;
   }
 
   .categories__button--icon > svg {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 1.9rem;
+    height: 1.9rem;
   }
 
   .categories__menu--text {
     margin-left: 0;
-    font-size: 1.82rem;
-    font-weight: 700;
+    font-size: 1.68rem;
+    font-weight: 600;
     letter-spacing: 0.01em;
   }
 
