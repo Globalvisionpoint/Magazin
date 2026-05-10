@@ -86,6 +86,15 @@
             "link": "https://anpc.ro/ce-este-sal/"
           }
         },
+        "image_kWJXYL": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-scris-rosu-despre-noi.png",
+            "image_width": 100,
+            "link": "shopify://pages/despre-noi"
+          }
+        },
         "image_FLRgtw": {
           "type": "image",
           "settings": {
@@ -95,23 +104,12 @@
             "link": "https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO"
           }
         },
-        "image_kWJXYL": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "heading": "Heading",
-            "image": "shopify://shop_images/genereaza-un-banner-cu-apostila-aurie-cu-magazoin-de-incredere-certificat-verificat.png",
-            "image_width": 100,
-            "link": ""
-          }
-        },
         "image_FQ7pbX": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "heading": "",
-            "image": "shopify://shop_images/genereaz-ao-imagine-de-772x250-cu-iconita-de-google-pay-si-apple-pay.png",
-            "image_width": 155,
+            "image": "shopify://shop_images/genereaza-o-imagine-cu-scris-rosu-contactsi-o-iconita-de-telefon.png",
+            "image_width": 105,
             "link": ""
           }
         }
@@ -122,8 +120,8 @@
         "3d7e2d8c-1b8e-4e2d-be90-97680e4c4ac5",
         "6c12f5ad-1f2b-4d5d-a59e-5931a27ed7cc",
         "image_w7KXxz",
-        "image_FLRgtw",
         "image_kWJXYL",
+        "image_FLRgtw",
         "image_FQ7pbX"
       ],
       "settings": {
