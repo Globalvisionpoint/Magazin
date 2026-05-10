@@ -120,14 +120,10 @@
 }
 .product__card__image {
   display: flex;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  overflow: hidden;
 }
 .product__card__image img {
   width: 100%;
   height: auto;
-  object-fit: cover;
 }
 .product__card__content {
   padding-top: 20px;
