@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/favicon_b7566afb-62e9-4198-bbbe-0f101066fd8c.png",
+    "favicon": "shopify://shop_images/logo_mic.png",
     "currency_code_enabled": false,
     "back_top_enable": false,
     "enable_rtl": false,
@@ -112,8 +112,8 @@
     },
     "content_for_index": [],
     "blocks": {
-      "10605107893285769442": {
-        "type": "shopify://apps/amp-bundles/blocks/amp-bundles-embed/7161efe5-6fe7-4f63-bef9-72179702263a",
+      "15539626159989124859": {
+        "type": "shopify://apps/maxbundle/blocks/app-embed/469560a3-d600-4f5e-a767-2a4cdaceacca",
         "disabled": false,
         "settings": {}
       }
