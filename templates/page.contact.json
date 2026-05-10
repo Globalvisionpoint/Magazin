@@ -49,7 +49,7 @@
           "settings": {
             "heading": "Adresă Depozit",
             "icon": "address",
-            "text": "<p>Nicolae Bălcescu nr. 41A,</p><p> Câmpina, județul Prahova, ROMÂNIA, </p><p>Cod poștal 105600<br/><br/></p>"
+            "text": "<p>Bdul. Voluntari 86 HALA DE CARNE Sc. 1 Et. 1 SP. 9-43 Cod 077190 (COMPL. COM. SMART EXPO FLORA)<br/></p>"
           }
         },
         "9616bdd2-2e00-4c58-93cc-b62f5a399c5f": {
@@ -57,7 +57,7 @@
           "settings": {
             "heading": "Email",
             "icon": "email",
-            "text": "<p>Smart Universal<br/><br/></p><p></p>"
+            "text": "<p>contact.smartuniversal@gmail.com<br/></p><p></p>"
           }
         },
         "1661515112c1890be1-0": {
@@ -79,9 +79,9 @@
         "contact_list_dFcPwd": {
           "type": "contact_list",
           "settings": {
-            "heading": "Live Chat",
+            "heading": "",
             "icon": "none",
-            "text": "<p>Accesați chat-ul live pentru a discuta direct cu noi.</p>"
+            "text": ""
           }
         },
         "contact_list_kTCWn6": {
@@ -89,7 +89,7 @@
           "settings": {
             "heading": "Telefon",
             "icon": "phone",
-            "text": "<p>0757226794</p>"
+            "text": "<p>0730482022</p>"
           }
         }
       },
@@ -179,7 +179,6 @@
       "settings": {
         "container": "container",
         "show_offset": true,
-        "image": "shopify://shop_images/Screenshot_2025-04-01_111637.png",
         "image_height": "small",
         "map": "",
         "map_height": "small",
