@@ -400,4 +400,64 @@
     color: #c71c34;
     padding-left: 1.55rem;
   }
+
+  .categories__menu--button {
+    background: rgba(var(--color-button), var(--alpha-button-background));
+    color: rgb(var(--color-button-text));
+    border: 0.1rem solid rgba(var(--color-button), var(--alpha-button-background));
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .categories__menu--button:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .categories__button--icon {
+    margin-right: 0.8rem;
+  }
+
+  .categories__button--icon > svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .categories__menu--text {
+    margin-left: 0;
+    font-size: 1.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .categories__menu--icon {
+    width: 2.4rem;
+    min-width: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .categories__menu--icon > svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .categories__menu--label {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .cat__has--submenu-icon > svg {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
 }
