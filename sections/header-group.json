@@ -163,7 +163,7 @@
           "settings": {
             "cat_menu_name": "Electrocasnice",
             "cat_menu_url": "shopify://collections/electrocasnice",
-            "icon": "computer",
+            "icon": "keyboard",
             "menu": "electrocasnice",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "2",
