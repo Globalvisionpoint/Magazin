@@ -227,6 +227,64 @@ theme.collectionSlider = (function () {
   return sliderProduct;
 })();
 
+(function () {
+  function rewriteMyShopifyLinks(root) {
+    var scope = root || document;
+    var links = scope.querySelectorAll('a[href*=".myshopify.com/"]');
+
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href) return;
+
+      try {
+        var parsed = new URL(href, window.location.origin);
+        if (!parsed.hostname || parsed.hostname.indexOf('.myshopify.com') === -1) return;
+
+        // Keep destination path/query/hash but force current storefront domain.
+        var storefrontPath = parsed.pathname + parsed.search + parsed.hash;
+        link.setAttribute('href', storefrontPath || '/');
+      } catch (error) {
+        // Ignore malformed URLs injected by third-party content.
+      }
+    });
+  }
+
+  function bindMyShopifyLinkGuard() {
+    if (window.__myshopifyLinkGuardBound) return;
+    window.__myshopifyLinkGuardBound = true;
+
+    rewriteMyShopifyLinks(document);
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (!node || node.nodeType !== 1) return;
+          rewriteMyShopifyLinks(node);
+        });
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindMyShopifyLinkGuard);
+  } else {
+    bindMyShopifyLinkGuard();
+  }
+
+  window.addEventListener('load', function () {
+    rewriteMyShopifyLinks(document);
+  });
+
+  document.addEventListener('shopify:section:load', function (event) {
+    rewriteMyShopifyLinks(event.target || document);
+  });
+})();
+
 theme.productTab = (function () {
   function setActiveTab(container, trigger) {
     var targetId = trigger.getAttribute("data-target");
