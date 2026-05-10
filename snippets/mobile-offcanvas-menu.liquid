@@ -320,16 +320,20 @@
           <button class="mobile__categories--menu mobile--menu-header-button active">
             {{ 'sections.header.categories_menu' | t }}
           </button>
-          <button class="mobile__main--menu mobile--menu-header-button">{{ 'sections.header.menu' | t }}</button>
+          {% if section.settings.show_mobile_menu_toggle %}
+            <button class="mobile__main--menu mobile--menu-header-button">{{ 'sections.header.menu' | t }}</button>
+          {% endif %}
         </div>
       {% else %}
         {%- render 'header-logo', className: 'offcanvas__logo_link' -%}
       {% endif %}
       <button class="offcanvas__close_btn">close</button>
     </div>
-    <nav class="offcanvas__menu mobile__main-menu--list d-none">
-      {%- render 'mobile-menu-nav', account_icon: account_icon, wishlist_icon: wishlist_icon -%}
-    </nav>
+    {% if section.settings.show_mobile_menu_toggle %}
+      <nav class="offcanvas__menu mobile__main-menu--list d-none">
+        {%- render 'mobile-menu-nav', account_icon: account_icon, wishlist_icon: wishlist_icon -%}
+      </nav>
+    {% endif %}
     <nav class="offcanvas__menu mobile__categories--list">
       {%- render 'categories-mobile-menu', account_icon: account_icon, wishlist_icon: wishlist_icon -%}
     </nav>
