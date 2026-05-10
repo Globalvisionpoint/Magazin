@@ -176,13 +176,13 @@
         "58110268-a7c9-4a91-b524-4c08e51ef583": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Camere Auto",
-            "cat_menu_url": "shopify://collections/camere-auto",
-            "icon": "camera",
-            "menu": "",
+            "cat_menu_name": "Ingrijire Personala",
+            "cat_menu_url": "shopify://collections/ingrijire-personala-1",
+            "icon": "perfume",
+            "menu": "ingrijire-personala",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
-            "height": "adapt",
+            "height": "square",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
