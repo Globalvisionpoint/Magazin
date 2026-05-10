@@ -253,6 +253,7 @@
         "compare_button": false,
         "search_type": "search_box",
         "vertical_menu": true,
+        "show_mobile_menu_toggle": false,
         "vertical_button_label": "Toate categoriile",
         "menu_toggle_button_label": "All Categories +",
         "menu_toggle_button_label_2": "Hide Categories -",
