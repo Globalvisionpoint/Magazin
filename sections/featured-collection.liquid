@@ -95,6 +95,11 @@
       }
     }
 
+      /* Force 3-column peek layout on all pages */
+      [data-section-id="{{ section.id }}"][data-section-type="product-slider"] .swiper-slide {
+        width: calc((100% - 40px) / 3) !important;
+      }
+
     {%- if request.page_type == 'collection' -%}
       [data-section-id="{{ section.id }}"][data-section-type="product-slider"] .productSlider .swiper-wrapper {
         align-items: stretch;
@@ -106,9 +111,6 @@
       }
       
           /* Constrain to 3 visible slides (1 full + 2 partial peek) */
-          [data-section-id="{{ section.id }}"][data-section-type="product-slider"] .swiper-slide {
-            width: calc((100% - 40px) / 3) !important;
-          }
 
       [data-section-id="{{ section.id }}"][data-section-type="product-slider"] .swiper-slide > .product__card {
         width: 100%;
