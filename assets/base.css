@@ -2437,6 +2437,13 @@ input:-moz-placeholder {
   max-width: 100% !important;
 }
 
+.contact__section .container,
+.contact--info-with-map .container {
+  max-width: 100% !important;
+  padding-left: clamp(1.6rem, 2vw, 3.2rem);
+  padding-right: clamp(1.6rem, 2vw, 3.2rem);
+}
+
 .link.button--not-underline {
   text-decoration: none;
 }
