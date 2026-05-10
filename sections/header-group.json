@@ -131,13 +131,13 @@
         "33b5ce05-9b8a-4646-89e0-88aefa3fd578": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Smartwatch-uri",
-            "cat_menu_url": "shopify://collections/smartwatch-uri",
-            "icon": "watch",
-            "menu": "",
+            "cat_menu_name": "Casa si gradina",
+            "cat_menu_url": "shopify://collections/casa-si-gradina",
+            "icon": "washing",
+            "menu": "casa-si-gradina",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
-            "height": "adapt",
+            "height": "square",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
