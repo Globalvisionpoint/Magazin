@@ -164,7 +164,7 @@
             "cat_menu_name": "Electrocasnice",
             "cat_menu_url": "shopify://collections/electrocasnice",
             "icon": "computer",
-            "menu": "",
+            "menu": "electrocasnice",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
             "height": "square",
