@@ -238,7 +238,7 @@
         "logo_width": 130,
         "menu": "",
         "header_design": "logo__left--menu-bottom",
-        "border_hide_on_home_page": true,
+        "border_hide_on_home_page": false,
         "header_sticky": true,
         "sticky_color_background": "#ffffff",
         "sticky_text_color": "#121212",

@@ -64,6 +64,7 @@
     "predictive_search_enabled": true,
     "search_type": "none",
     "search_filter_tags": "",
+    "show_unavailable_product": "hide",
     "show_collection": true,
     "show_article": true,
     "show_page": true,
