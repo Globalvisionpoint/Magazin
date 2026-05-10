@@ -59,6 +59,8 @@
       ],
       "settings": {
         "container": "container",
+        "image": "shopify://shop_images/logo_scris_1200_x_628_px_7342d8e4-2f0b-4573-94e7-df5a1408e23e.png",
+        "image_2": "shopify://shop_images/Bucatarie_si_servire.webp",
         "height": "adapt",
         "image_layout": "text_first",
         "video_url": "",
@@ -106,6 +108,7 @@
         "template--14633138651249__5a6437d2-d7e9-46cb-a8c5-257c63ea24d9-168970469115234a51-2",
         "template--14633138651249__5a6437d2-d7e9-46cb-a8c5-257c63ea24d9-168970469115234a51-3"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "image_overlay_opacity": 30,
@@ -152,6 +155,7 @@
         "template--14633138651249__fa14ea68-dd32-4584-8974-44db5422310d-text-1",
         "template--14633138651249__fa14ea68-dd32-4584-8974-44db5422310d-button-1"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "transparent_media": false,
@@ -248,6 +252,7 @@
         "c47cdd16-dae7-4a9f-9e49-a205cf40cfee",
         "9deaa2b1-0f91-413f-bef0-0b51c8fb95c4"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "subtitle": "",
@@ -314,6 +319,7 @@
         "template--14633138651249__96d4f826-f309-4ac1-98fa-31acbac8da6b-testimonial-3",
         "template--14633138651249__96d4f826-f309-4ac1-98fa-31acbac8da6b-testimonial-4"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "show_offset": true,
@@ -395,6 +401,7 @@
         "template--14633138651249__9e1c617c-9bf1-4b11-bea8-6bbaed5c448a-featured_promotion-3",
         "04d9bb2b-aa9f-4c50-abd0-9825c9cbd6d5"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "subtitle": "",
