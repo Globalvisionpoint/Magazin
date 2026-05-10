@@ -205,15 +205,14 @@
         },
         "da0cec0b-826f-4fa4-9272-ea031635cf20": {
           "type": "category_menu",
-          "disabled": true,
           "settings": {
             "cat_menu_name": "Smartwatch",
-            "cat_menu_url": "shopify://collections/all",
-            "icon": "watch",
-            "menu": "",
+            "cat_menu_url": "shopify://collections/trotinete-copii",
+            "icon": "truck",
+            "menu": "biciclete-trotinete",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
-            "height": "adapt",
+            "height": "square",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
