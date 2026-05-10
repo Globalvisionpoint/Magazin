@@ -101,10 +101,10 @@
         "33706005-3d2e-453d-9dfb-d620faf833b0": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Produse cu Reduceri",
+            "cat_menu_name": "Articole menaj",
             "cat_menu_url": "shopify://collections/articole-menaj",
-            "icon": "price_tag",
-            "menu": "",
+            "icon": "bottle",
+            "menu": "categorii",
             "vertical_menu_type": "mega_menu",
             "mega_menu_column": "3",
             "height": "adapt",
@@ -288,7 +288,7 @@
         "show_offset": false,
         "logo": "shopify://shop_images/logo_scris.png",
         "logo_width": 130,
-        "menu": "categorii",
+        "menu": "",
         "header_design": "logo__left--menu-bottom",
         "border_hide_on_home_page": false,
         "header_sticky": true,
