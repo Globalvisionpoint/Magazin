@@ -191,13 +191,13 @@
         "d4eceda2-f308-4588-8af9-f7c2f5a65898": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Aerografe",
-            "cat_menu_url": "shopify://collections/aerografe",
-            "icon": "perfume",
-            "menu": "",
+            "cat_menu_name": "Sanitare",
+            "cat_menu_url": "shopify://collections/sanitare",
+            "icon": "lock",
+            "menu": "sanitare",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
-            "height": "adapt",
+            "height": "square",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
