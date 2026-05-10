@@ -103,7 +103,7 @@
           "settings": {
             "cat_menu_name": "Articole menaj",
             "cat_menu_url": "shopify://collections/articole-menaj",
-            "icon": "bottle",
+            "icon": "emoji_menaj",
             "menu": "articole-menaj",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
@@ -118,7 +118,7 @@
           "settings": {
             "cat_menu_name": "Bucatarie si servire",
             "cat_menu_url": "shopify://collections/bucatarie-si-servire",
-            "icon": "bottle",
+            "icon": "emoji_bucatarie",
             "menu": "categorii-copie",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "4",
@@ -133,7 +133,7 @@
           "settings": {
             "cat_menu_name": "Casa si gradina",
             "cat_menu_url": "shopify://collections/casa-si-gradina",
-            "icon": "washing",
+            "icon": "emoji_casa_gradina",
             "menu": "casa-si-gradina",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
@@ -148,7 +148,7 @@
           "settings": {
             "cat_menu_name": "Climatizare si incalzire",
             "cat_menu_url": "shopify://collections/climatizare-si-incalzire",
-            "icon": "iron",
+            "icon": "emoji_climatizare",
             "menu": "climatizare-si-incalzire",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
@@ -163,7 +163,7 @@
           "settings": {
             "cat_menu_name": "Electrocasnice",
             "cat_menu_url": "shopify://collections/electrocasnice",
-            "icon": "keyboard",
+            "icon": "emoji_appliances",
             "menu": "electrocasnice",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "2",
@@ -178,7 +178,7 @@
           "settings": {
             "cat_menu_name": "Ingrijire Personala",
             "cat_menu_url": "shopify://collections/ingrijire-personala-1",
-            "icon": "perfume",
+            "icon": "emoji_beauty",
             "menu": "ingrijire-personala",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
@@ -193,7 +193,7 @@
           "settings": {
             "cat_menu_name": "Sanitare",
             "cat_menu_url": "shopify://collections/sanitare",
-            "icon": "lock",
+            "icon": "emoji_sanitare",
             "menu": "sanitare",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
@@ -208,7 +208,7 @@
           "settings": {
             "cat_menu_name": "Trotinete Copii",
             "cat_menu_url": "shopify://collections/trotinete-copii",
-            "icon": "truck",
+            "icon": "emoji_bicycle",
             "menu": "biciclete-trotinete",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
