@@ -161,13 +161,13 @@
         "35dc92fb-2284-4507-bab5-86e6653bdd4c": {
           "type": "category_menu",
           "settings": {
-            "cat_menu_name": "Diagnoze Auto",
-            "cat_menu_url": "shopify://collections/diagnoze-auto",
-            "icon": "truck",
+            "cat_menu_name": "Electrocasnice",
+            "cat_menu_url": "shopify://collections/electrocasnice",
+            "icon": "computer",
             "menu": "",
             "vertical_menu_type": "dropdown",
             "mega_menu_column": "3",
-            "height": "adapt",
+            "height": "square",
             "promo1_heading": "",
             "promo1_text": "",
             "promo1_link": ""
