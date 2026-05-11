@@ -255,22 +255,19 @@ theme.collectionSlider = (function () {
 
     rewriteMyShopifyLinks(document);
 
-    // Keep expensive DOM observation only in theme editor.
-    if (window.Shopify && window.Shopify.designMode) {
-      var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-          mutation.addedNodes.forEach(function (node) {
-            if (!node || node.nodeType !== 1) return;
-            rewriteMyShopifyLinks(node);
-          });
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (!node || node.nodeType !== 1) return;
+          rewriteMyShopifyLinks(node);
         });
       });
+    });
 
-      observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true,
-      });
-    }
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -337,21 +334,6 @@ theme.productTab = (function () {
 })();
 
 (function () {
-  function runWhenIdle(callback, timeout) {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(callback, { timeout: timeout || 1500 });
-      return;
-    }
-
-    window.setTimeout(callback, 250);
-  }
-
-  function isProductPage() {
-    var body = document.body;
-    if (body && body.classList.contains('template-product')) return true;
-    return window.location.pathname.indexOf('/products/') === 0;
-  }
-
   function normalizeProductTabHeadings(root) {
     (root || document).querySelectorAll('.tab_content').forEach(function (container) {
       if (container.querySelector('h1, h2')) return;
@@ -628,37 +610,24 @@ theme.productTab = (function () {
   }
 
   function applyBestPracticesBoost(root) {
-    // These enhancements are only needed on product pages and are expensive on home.
-    if (!isProductPage()) return;
-
     hardenYoutubeEmbeds(root);
     upgradeImageResolution(root);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    runWhenIdle(function () {
-      applyBestPracticesBoost(document);
-    }, 2000);
+    applyBestPracticesBoost(document);
   });
 
   window.addEventListener('load', function () {
-    runWhenIdle(function () {
-      applyBestPracticesBoost(document);
-    }, 2500);
+    applyBestPracticesBoost(document);
   });
 
   document.addEventListener('shopify:section:load', function (event) {
-    runWhenIdle(function () {
-      applyBestPracticesBoost(event.target || document);
-    }, 2500);
+    applyBestPracticesBoost(event.target || document);
   });
 })();
 
-(function () {
-  function initThemeSections() {
-    if (window.__themeSectionsBooted) return;
-    window.__themeSectionsBooted = true;
-
+document.addEventListener("DOMContentLoaded", function () {
   let sections = new theme.Sections(),
     headerSearchModule = new theme.Sections(),
     headerCartModule = new theme.Sections(),
@@ -691,14 +660,7 @@ for (var i = 0; i < compare.length; i++) {
   compare[i].innerHTML = "Elimină din comparare";
 }
     }, 1000);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initThemeSections, { once: true });
-  } else {
-    initThemeSections();
-  }
-})();
+});
 
 (function () {
   function hideCookiePrivacyUi() {
