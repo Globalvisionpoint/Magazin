@@ -4,11 +4,6 @@ theme.headerCategoryMenu = (function () {
       ".categories__menu--button"
     );
     const CAETGORYE_MENU_WRAPPER = document.querySelector(".categories__menu");
-    if (!CATEGORY_ACTION_BUTTON || !CAETGORYE_MENU_WRAPPER) return;
-
-    if (CATEGORY_ACTION_BUTTON.dataset.categoryMenuBound === "true") return;
-    CATEGORY_ACTION_BUTTON.dataset.categoryMenuBound = "true";
-
     CATEGORY_ACTION_BUTTON?.addEventListener("click", (event) => {
       if (CAETGORYE_MENU_WRAPPER.classList.contains("menu_open")) {
         CAETGORYE_MENU_WRAPPER.classList.remove("menu_open");
@@ -27,11 +22,6 @@ theme.headerCategoryMenu = (function () {
       ".collapsible--categories-item"
     );
     if (ALL_COLLAPSIBLE_ITEMS.length > 0) {
-      if (
-        ALL_CAT_TOGGLE_BTN &&
-        ALL_CAT_TOGGLE_BTN.dataset.categoryToggleBound !== "true"
-      ) {
-        ALL_CAT_TOGGLE_BTN.dataset.categoryToggleBound = "true";
       ALL_CAT_TOGGLE_BTN?.addEventListener("click", (event) => {
         let dataLabelFirst = ALL_CAT_TOGGLE_BTN.dataset.labelFirst;
         let dataLabelSecond = ALL_CAT_TOGGLE_BTN.dataset.label;
@@ -51,7 +41,6 @@ theme.headerCategoryMenu = (function () {
           }
         });
       });
-      }
     }
 
     // Body Event Class
@@ -65,23 +54,4 @@ theme.headerCategoryMenu = (function () {
     }
   }
   return categoryMenu;
-})();
-
-(function () {
-  function initCategoryMenuNow() {
-    if (window.__categoryMenuInstantInitDone) return;
-    window.__categoryMenuInstantInitDone = true;
-
-    if (typeof theme.headerCategoryMenu === "function") {
-      theme.headerCategoryMenu(document);
-    }
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCategoryMenuNow, {
-      once: true,
-    });
-  } else {
-    initCategoryMenuNow();
-  }
 })();
