@@ -364,26 +364,13 @@
     {% endstyle %}
 
     {%- if content_for_layout contains 'swiper' -%}
-      <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}" media="print" onload="this.media='all'">
-      <noscript>{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}</noscript>
+      {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
     {%- if content_for_layout contains 'glightbox' -%}
       <link rel="stylesheet" href="{{ 'glightbox.min.css' | asset_url }}" media="print" onload="this.media='all'">
       <noscript>{{ 'glightbox.min.css' | asset_url | stylesheet_tag }}</noscript>
     {%- endif -%}
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <style>
-      /* Critical above-fold styles inlined to prevent FOUC */
-      *,*::before,*::after{box-sizing:inherit}
-      html{box-sizing:border-box;font-size:62.5%;height:100%}
-      body{margin:0;min-height:100%;font-size:1.4rem;letter-spacing:.06rem}
-      .no-js:not(html){display:none!important}
-      html.no-js .no-js:not(html){display:block!important}
-      .visually-hidden{position:absolute!important;overflow:hidden;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);word-wrap:normal!important}
-      img,svg{display:block;max-width:100%}
-      img{height:auto}
-      .icon{display:inline-block;vertical-align:middle}
-    </style>
     {%- if theme_rtl -%}
       {{ 'rtl.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
