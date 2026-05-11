@@ -18,27 +18,6 @@
     "a055a0f5-3975-4b2c-aba8-3eef332a0c8e": {
       "type": "slideshow-with-banner",
       "blocks": {
-        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Articole_menaj.webp",
-            "heading": "Articole menaj",
-            "heading_size": "h2",
-            "subheading": "",
-            "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Curățenie perfectă, casă fericită</p>",
-            "content_alignment": "start",
-            "button_label": "Accesează categoria!",
-            "button_icon": false,
-            "button_link": "shopify://collections/articole-menaj",
-            "enble_entire_link": true,
-            "button_type": "primary",
-            "button_size": "small",
-            "color_scheme": "background-1",
-            "color_scheme_enable": true,
-            "color_scheme_2": "background-1"
-          }
-        },
         "slide_Ekkikg": {
           "type": "slide",
           "settings": {
@@ -79,6 +58,27 @@
             "color_scheme": "background-1",
             "color_scheme_enable": true,
             "color_scheme_2": ""
+          }
+        },
+        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Articole_menaj.webp",
+            "heading": "Articole menaj",
+            "heading_size": "h2",
+            "subheading": "",
+            "subheading_color": "color-foreground-accent-1",
+            "text": "<p>Curățenie perfectă, casă fericită</p>",
+            "content_alignment": "start",
+            "button_label": "Accesează categoria!",
+            "button_icon": false,
+            "button_link": "shopify://collections/articole-menaj",
+            "enble_entire_link": true,
+            "button_type": "primary",
+            "button_size": "small",
+            "color_scheme": "background-1",
+            "color_scheme_enable": true,
+            "color_scheme_2": "background-1"
           }
         },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
@@ -146,9 +146,9 @@
         }
       },
       "block_order": [
-        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1",
         "slide_Ekkikg",
         "535d5fb0-da91-4126-8767-efc8d3407eac",
+        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1",
         "9f55674d-a34d-4e43-beaa-bafce50d02e0",
         "slide_TdwFd8",
         "slide_mCcgVT"
