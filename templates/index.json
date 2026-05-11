@@ -39,25 +39,25 @@
             "color_scheme_2": "background-1"
           }
         },
-        "535d5fb0-da91-4126-8767-efc8d3407eac": {
+        "slide_TdwFd8": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Bucatarie_si_servire.webp",
-            "heading": "Bucatarie si servire",
+            "image": "shopify://shop_images/Electrocasnice.webp",
+            "heading": "Electrocasnice",
             "heading_size": "h2",
             "subheading": "",
             "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Gătit cu pasiune, servit cu plăcere</p>",
+            "text": "<p>Tehnologie care ușurează viața de zi cu zi</p>",
             "content_alignment": "start",
             "button_label": "Accesează categoria!",
             "button_icon": true,
-            "button_link": "shopify://collections/bucatarie-si-servire",
-            "enble_entire_link": true,
+            "button_link": "shopify://collections/electrocasnice",
+            "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
             "color_scheme": "background-1",
             "color_scheme_enable": true,
-            "color_scheme_2": ""
+            "color_scheme_2": "background-1"
           }
         },
         "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1": {
@@ -81,6 +81,27 @@
             "color_scheme_2": "background-1"
           }
         },
+        "535d5fb0-da91-4126-8767-efc8d3407eac": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Bucatarie_si_servire.webp",
+            "heading": "Bucatarie si servire",
+            "heading_size": "h2",
+            "subheading": "",
+            "subheading_color": "color-foreground-accent-1",
+            "text": "<p>Gătit cu pasiune, servit cu plăcere</p>",
+            "content_alignment": "start",
+            "button_label": "Accesează categoria!",
+            "button_icon": true,
+            "button_link": "shopify://collections/bucatarie-si-servire",
+            "enble_entire_link": true,
+            "button_type": "primary",
+            "button_size": "small",
+            "color_scheme": "background-1",
+            "color_scheme_enable": true,
+            "color_scheme_2": ""
+          }
+        },
         "9f55674d-a34d-4e43-beaa-bafce50d02e0": {
           "type": "slide",
           "settings": {
@@ -94,27 +115,6 @@
             "button_label": "Accesează categoria!",
             "button_icon": true,
             "button_link": "shopify://collections/climatizare-si-incalzire",
-            "enble_entire_link": false,
-            "button_type": "primary",
-            "button_size": "small",
-            "color_scheme": "background-1",
-            "color_scheme_enable": true,
-            "color_scheme_2": "background-1"
-          }
-        },
-        "slide_TdwFd8": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Electrocasnice.webp",
-            "heading": "Electrocasnice",
-            "heading_size": "h2",
-            "subheading": "",
-            "subheading_color": "color-foreground-accent-1",
-            "text": "<p>Tehnologie care ușurează viața de zi cu zi</p>",
-            "content_alignment": "start",
-            "button_label": "Accesează categoria!",
-            "button_icon": true,
-            "button_link": "shopify://collections/electrocasnice",
             "enble_entire_link": false,
             "button_type": "primary",
             "button_size": "small",
@@ -147,10 +147,10 @@
       },
       "block_order": [
         "slide_Ekkikg",
-        "535d5fb0-da91-4126-8767-efc8d3407eac",
-        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1",
-        "9f55674d-a34d-4e43-beaa-bafce50d02e0",
         "slide_TdwFd8",
+        "template--14647252844657__a055a0f5-3975-4b2c-aba8-3eef332a0c8e-slide-1",
+        "535d5fb0-da91-4126-8767-efc8d3407eac",
+        "9f55674d-a34d-4e43-beaa-bafce50d02e0",
         "slide_mCcgVT"
       ],
       "settings": {
