@@ -93,6 +93,23 @@
 <noscript>{{ 'mega-menu-products.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'categories-menu.css' | asset_url | stylesheet_tag }}</noscript>
 
+<style>
+  /* Critical fallback to prevent desktop category-menu FOUC before async CSS loads */
+  @media only screen and (min-width: 992px) {
+    .categories__menu .dropdown__categories--menu {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .categories__menu.menu_open .dropdown__categories--menu {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+</style>
+
 {%- style -%}
           @media only screen and (min-width: 1367px){
             .container-fluid.padding--narrow-header {
