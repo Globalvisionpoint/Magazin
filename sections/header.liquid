@@ -58,8 +58,7 @@
     endif
   endif
 -%}
-<link rel="stylesheet" href="{{ 'header.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'header.css' | asset_url | stylesheet_tag }}</noscript>
+{{ 'header.css' | asset_url | stylesheet_tag }}
 <link
   rel="stylesheet"
   href="{{ 'component-cart-notification.css' | asset_url }}"
@@ -86,12 +85,11 @@
 <link rel="stylesheet" href="{{ 'product-tooltip.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'product-card.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'mega-menu-products.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'categories-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'categories-menu.css' | asset_url | stylesheet_tag }}
 <noscript>{{ 'mega-menu-collection-list.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'product-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'product-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'mega-menu-products.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'categories-menu.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
   /* Critical fallback to prevent desktop category-menu FOUC before async CSS loads */
