@@ -33,7 +33,7 @@
       ],
       "name": "Scrolling text",
       "settings": {
-        "speed": 2,
+        "speed": 5,
         "direction": "left",
         "text_size": "body--text",
         "margin_top": 0,
