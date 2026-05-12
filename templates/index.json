@@ -16,7 +16,7 @@
           "type": "announcement",
           "settings": {
             "text": "Reduceri de până la 50%",
-            "text_stroke": false
+            "text_stroke": true
           }
         }
       },
