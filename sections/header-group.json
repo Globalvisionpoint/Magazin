@@ -46,6 +46,7 @@
         },
         "8bbb82c5-ffb7-4643-94aa-5bf601927882": {
           "type": "countdown_timer",
+          "disabled": true,
           "settings": {
             "index": false,
             "no_index": false,
