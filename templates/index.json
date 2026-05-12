@@ -99,7 +99,7 @@
         "container": "container-fluid",
         "show_offset": true,
         "image_desktop": "shopify://shop_images/76d9b437-be1d-4883-8116-864736597a1f.jpg",
-        "image_mobile": "shopify://shop_images/76d9b437-be1d-4883-8116-864736597a1f_4b0fd6e1-2ebd-44d8-a0e1-118876968693.jpg",
+        "image_mobile": "shopify://shop_images/76d9b437-be1d-4883-8116-864736597a1f.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "desktop_content_position": "middle-center",
