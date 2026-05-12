@@ -9,6 +9,39 @@
  */
 {
   "sections": {
+    "scrolling_text_4fx3YP": {
+      "type": "scrolling-text",
+      "blocks": {
+        "announcement_RNdRXg": {
+          "type": "announcement",
+          "settings": {
+            "text": "Reduceri de pana la 50%",
+            "text_stroke": false
+          }
+        }
+      },
+      "block_order": [
+        "announcement_RNdRXg"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "speed": 2,
+        "direction": "left",
+        "text_size": "body--text",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "mobile_margin_top": 0,
+        "mobile_margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "color_scheme": "accent-1",
+        "custom_colors": false,
+        "foreground": "#121212",
+        "background": "#fff"
+      }
+    },
     "1716484172851e90cb": {
       "type": "apps",
       "settings": {
@@ -1565,6 +1598,7 @@
     }
   },
   "order": [
+    "scrolling_text_4fx3YP",
     "1716484172851e90cb",
     "image_banner_EyPH6T",
     "a055a0f5-3975-4b2c-aba8-3eef332a0c8e",
