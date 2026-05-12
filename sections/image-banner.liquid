@@ -69,12 +69,12 @@
           }}
         </div>
       {%- elsif section.settings.image_mobile == blank -%}
-        <div class="banner__media media{% if section.settings.image_desktop == blank and section.settings.image_mobile == blank %} placeholder{% endif %}">
+        <div class="banner__media banner__media-desktop media{% if section.settings.image_desktop == blank and section.settings.image_mobile == blank %} placeholder{% endif %}">
           {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
         </div>
       {%- endif -%}
       {%- if section.settings.image_mobile != blank -%}
-        <div class="banner__media banner__media-mobile media">
+        <div class="banner__media banner__media-mobile media{% if section.settings.image_desktop == blank and section.settings.image_mobile == blank %} placeholder{% endif %}">
           {%- liquid
             assign image_height_mobile = section.settings.image_mobile.width | divided_by: section.settings.image_mobile.aspect_ratio
             assign sizes = '100vw'
