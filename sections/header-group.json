@@ -53,7 +53,7 @@
             "countdown_year": 2026,
             "countdown_month": "05",
             "countdown_days": "31",
-            "link_label": "Cumpără",
+            "link_label": "",
             "button_icon": false,
             "button_icon_mobile": false,
             "link": "shopify://collections/all",
