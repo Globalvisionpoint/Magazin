@@ -38,7 +38,7 @@
     "product_card_radius": false,
     "product_card_spacing": true,
     "product_card_color_scheme": "background-2",
-    "color_swatches": true,
+    "color_swatches": false,
     "color_swatch_activation": "Color",
     "max_swatches_show": 4,
     "color_swatch_type": "image",
