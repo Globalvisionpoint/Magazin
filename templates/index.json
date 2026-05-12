@@ -15,21 +15,13 @@
         "announcement_RNdRXg": {
           "type": "announcement",
           "settings": {
-            "text": "Grăbește-te! Oferta expiră!",
-            "text_stroke": false
-          }
-        },
-        "announcement_pzH4ip": {
-          "type": "announcement",
-          "settings": {
-            "text": "Reduceri de până la 50%",
+            "text": "Grăbește-te! Oferta expiră! Reduceri de până la 50%",
             "text_stroke": false
           }
         }
       },
       "block_order": [
-        "announcement_RNdRXg",
-        "announcement_pzH4ip"
+        "announcement_RNdRXg"
       ],
       "name": "Scrolling text",
       "settings": {
