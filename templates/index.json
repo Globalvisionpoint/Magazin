@@ -153,6 +153,7 @@
         "9f55674d-a34d-4e43-beaa-bafce50d02e0",
         "slide_mCcgVT"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-fluid",
         "show_offset": true,
@@ -1435,8 +1436,8 @@
   "order": [
     "1716484172851e90cb",
     "a055a0f5-3975-4b2c-aba8-3eef332a0c8e",
-    "17a17a4f-546e-45d1-a0ef-66ae411bd989",
     "16504672629ef790da",
+    "17a17a4f-546e-45d1-a0ef-66ae411bd989",
     "6fe148f8-4e52-4a0a-9452-f3b63bf8c0aa",
     "f3e2e88d-5f15-4991-8a35-a6362a460113",
     "featured_collection_3TRnpp",
