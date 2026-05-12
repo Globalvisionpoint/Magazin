@@ -69,7 +69,7 @@
         "stack_images_on_mobile": true,
         "show_text_below": true,
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 40,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
