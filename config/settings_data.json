@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/logo_mic.png",
+    "favicon": "shopify://shop_images/logo_mic_43e8fb41-a3e3-42d0-bc17-7899fedde359.png",
     "currency_code_enabled": false,
     "back_top_enable": false,
     "enable_rtl": false,
@@ -38,7 +38,7 @@
     "product_card_radius": false,
     "product_card_spacing": true,
     "product_card_color_scheme": "background-2",
-    "color_swatches": true,
+    "color_swatches": false,
     "color_swatch_activation": "Color",
     "max_swatches_show": 4,
     "color_swatch_type": "image",
@@ -241,11 +241,11 @@
       },
       "scheme-95fa1942-f0a4-4f51-88d1-e2e797ae651d": {
         "settings": {
-          "background": "#c93131",
+          "background": "#e3ff00",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#c5343e",
           "button": "#c93131",
-          "button_label": "#ffffff",
+          "button_label": "#e3ff00",
           "primary_button_hover_bg": "#000000",
           "primary_button_hover_text": "#ffffff",
           "secondary_button_label": "#000000",

@@ -46,6 +46,7 @@
         },
         "8bbb82c5-ffb7-4643-94aa-5bf601927882": {
           "type": "countdown_timer",
+          "disabled": true,
           "settings": {
             "index": false,
             "no_index": false,
@@ -53,17 +54,17 @@
             "countdown_year": 2026,
             "countdown_month": "05",
             "countdown_days": "31",
-            "link_label": "Cumpără",
+            "link_label": "",
             "button_icon": false,
             "button_icon_mobile": false,
             "link": "shopify://collections/all",
             "button_type": "primary",
             "button_size": "extra--small",
-            "text": "Ofertele de reducere expiră în...",
+            "text": "Ofertele de reducere expiră în ...",
             "enable_close_btn": true,
-            "color_scheme": "scheme-95fa1942-f0a4-4f51-88d1-e2e797ae651d",
+            "color_scheme": "accent-1",
             "custom_colors": false,
-            "foreground": "#e5ff21",
+            "foreground": "#ffffff",
             "background": "#c93131"
           }
         }
