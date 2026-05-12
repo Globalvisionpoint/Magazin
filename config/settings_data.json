@@ -241,11 +241,11 @@
       },
       "scheme-95fa1942-f0a4-4f51-88d1-e2e797ae651d": {
         "settings": {
-          "background": "#c93131",
+          "background": "#e3ff00",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#c5343e",
           "button": "#c93131",
-          "button_label": "#ffffff",
+          "button_label": "#e3ff00",
           "primary_button_hover_bg": "#000000",
           "primary_button_hover_text": "#ffffff",
           "secondary_button_label": "#000000",
