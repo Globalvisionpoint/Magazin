@@ -14,7 +14,6 @@
       "blocks": {
         "announcement_RNdRXg": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Grăbește-te! Oferta expiră!",
             "text_stroke": false
@@ -22,7 +21,6 @@
         },
         "announcement_qbeDHj": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Reduceri de până la 50%",
             "text_stroke": false
