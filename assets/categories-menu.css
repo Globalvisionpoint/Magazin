@@ -6,7 +6,7 @@
   color: rgb(var(--color-button-text));
   border: none;
   border-radius: 0;
-  padding: 0 1.4rem;
+  padding: 0 1.7rem;
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1;
@@ -14,8 +14,8 @@
   transition: opacity 0.2s ease;
   display: flex;
   align-items: center;
-  height: 3.4rem;
-  min-height: 3.4rem;
+  height: 4.2rem;
+  min-height: 4.2rem;
 }
 .categories__menu--button:hover {
   opacity: 0.88;
@@ -447,15 +447,15 @@
   }
 
   .categories__button--icon {
-    margin-right: 0.7rem;
+    margin-right: 0.8rem;
     display: flex;
     align-items: center;
     height: 100%;
   }
 
   .categories__button--icon > svg {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
     display: block;
   }
 
