@@ -2,12 +2,21 @@
   width: 2rem;
 }
 .categories__menu--button {
-  background: rgba(var(--primary-button-hover-background), 0);
+  background: rgba(var(--color-button));
   border: none;
-  color: rgba(var(--color-foreground));
-  font-size: 1.6rem;
+  color: rgba(var(--color-button-text));
+  font-size: 1.3rem;
+  font-weight: 600;
   align-items: center;
-  padding: 2.2rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+}
+.categories__menu--button:hover {
+  opacity: 0.88;
 }
 .categories__menu--icon {
   line-height: 1;
