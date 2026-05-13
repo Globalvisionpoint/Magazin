@@ -14,6 +14,7 @@
       "blocks": {
         "announcement_RNdRXg": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Grăbește-te! Oferta expiră!",
             "text_stroke": false
@@ -21,17 +22,26 @@
         },
         "announcement_qbeDHj": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Reduceri de până la 50%",
+            "text_stroke": false
+          }
+        },
+        "announcement_VrjAVX": {
+          "type": "announcement",
+          "settings": {
+            "text": "📞 Comenzi telefonice sau ✅ WhatsApp la 0730482022",
             "text_stroke": false
           }
         }
       },
       "block_order": [
         "announcement_RNdRXg",
-        "announcement_qbeDHj"
+        "announcement_qbeDHj",
+        "announcement_VrjAVX"
       ],
-      "name": "Scrolling text",
+      "name": "Bara text",
       "settings": {
         "speed": 5,
         "direction": "left",
