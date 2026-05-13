@@ -5,13 +5,17 @@
   background: rgba(var(--color-button), var(--alpha-button-background));
   color: rgb(var(--color-button-text));
   border: none;
-  border-radius: 0.3rem;
-  padding: 0.72rem 1.2rem;
+  border-radius: 0;
+  padding: 0.95rem 1.4rem;
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1;
   box-shadow: none;
   transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  height: 2.8rem;
+  min-height: 2.8rem;
 }
 .categories__menu--button:hover {
   opacity: 0.88;
@@ -23,12 +27,15 @@
   line-height: 1;
 }
 .categories__menu--text {
-  margin-left: 1rem;
+  margin-left: 0;
   flex-shrink: 0;
   margin-left: 0;
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .header--categories-menu {
   margin: 0;
@@ -419,13 +426,17 @@
     background: rgba(var(--color-button), var(--alpha-button-background));
     color: rgb(var(--color-button-text));
     border: none;
-    border-radius: 0.3rem;
-    padding: 0.72rem 1.2rem;
+    border-radius: 0;
+    padding: 0.95rem 1.4rem;
     font-size: 1.35rem;
     font-weight: 600;
     line-height: 1;
     box-shadow: none;
     transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    height: 2.8rem;
+    min-height: 2.8rem;
   }
 
   .categories__menu--button:hover {
@@ -436,12 +447,16 @@
   }
 
   .categories__button--icon {
-    margin-right: 0.6rem;
+    margin-right: 0.7rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   .categories__button--icon > svg {
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: block;
   }
 
   .categories__menu--text {
@@ -449,6 +464,9 @@
     font-size: 1.35rem;
     font-weight: 600;
     letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   .categories__menu--icon {
