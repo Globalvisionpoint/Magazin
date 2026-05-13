@@ -275,15 +275,17 @@
       "blocks": {
         "announcement_FbiwJ7": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
-            "text": "Grăbește-te! Oferta expiră!",
+            "text": "👉 Grăbește-te! Oferta Expiră! ⏳",
             "text_stroke": false
           }
         },
         "announcement_VWAi99": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
-            "text": "Reduceri de până la 50%",
+            "text": "🏷️ Reduceri de până la 50% 💰",
             "text_stroke": false
           }
         },
