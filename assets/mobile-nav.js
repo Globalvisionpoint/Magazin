@@ -29,10 +29,38 @@ theme.headerSection = (function () {
           offcanvasMenu
             .querySelectorAll(".offcanvas__sub_menu")
             .forEach(function (ul) {
-              const subMenuToggle = document.createElement("button");
-              subMenuToggle.classList.add("offcanvas__sub_menu_toggle");
-              subMenuToggle.setAttribute("aria-label", "menu collapse");
-              ul.parentNode.appendChild(subMenuToggle);
+              if (!ul.nextElementSibling || !ul.nextElementSibling.classList.contains("offcanvas__sub_menu_toggle")) {
+                const subMenuToggle = document.createElement("button");
+                subMenuToggle.classList.add("offcanvas__sub_menu_toggle");
+                subMenuToggle.setAttribute("aria-label", "menu collapse");
+                ul.parentNode.appendChild(subMenuToggle);
+              }
+
+              if (offcanvasMenu.classList.contains("mobile__categories--list")) {
+                const subMenuChildren = Array.from(ul.children).filter(
+                  (item) => item.classList.contains("offcanvas__sub_menu_li")
+                );
+
+                if (!ul.querySelector(".offcanvas__sub_menu_close_li")) {
+                  const closeLi = document.createElement("li");
+                  closeLi.className = "offcanvas__sub_menu_li offcanvas__sub_menu_close_li";
+                  closeLi.innerHTML = '<button type="button" class="offcanvas__sub_menu_close_btn">Inchide</button>';
+                  ul.insertBefore(closeLi, ul.firstChild);
+                }
+
+                if (subMenuChildren.length > 6 && !ul.querySelector(".offcanvas__see_all_li")) {
+                  subMenuChildren.forEach((item, index) => {
+                    if (index >= 6) {
+                      item.classList.add("offcanvas__sub_menu_item--hidden");
+                    }
+                  });
+
+                  const seeAllLi = document.createElement("li");
+                  seeAllLi.className = "offcanvas__sub_menu_li offcanvas__see_all_li";
+                  seeAllLi.innerHTML = '<button type="button" class="offcanvas__see_all_btn">Vezi tot</button>';
+                  ul.appendChild(seeAllLi);
+                }
+              }
             });
 
           /* Submenu toggle */
@@ -69,6 +97,46 @@ theme.headerSection = (function () {
                 }
               });
             });
+
+            if (offcanvasMenu.classList.contains("mobile__categories--list")) {
+              offcanvasMenu
+                .querySelectorAll(".offcanvas__sub_menu_close_btn")
+                .forEach(function (closeBtn) {
+                  closeBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const subMenu = this.closest(".offcanvas__sub_menu");
+                    if (!subMenu) return;
+
+                    subMenu.classList.remove("is-expanded");
+                    const seeAllBtn = subMenu.querySelector(".offcanvas__see_all_btn");
+                    if (seeAllBtn) {
+                      seeAllBtn.textContent = "Vezi tot";
+                    }
+
+                    const parent = subMenu.parentElement;
+                    const toggle = parent.querySelector(":scope > .offcanvas__sub_menu_toggle");
+                    if (toggle) {
+                      toggle.classList.remove("active");
+                    }
+                    parent.classList.remove("active");
+                    slideUp(subMenu);
+                  });
+                });
+
+              offcanvasMenu
+                .querySelectorAll(".offcanvas__see_all_btn")
+                .forEach(function (seeAllBtn) {
+                  seeAllBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const subMenu = this.closest(".offcanvas__sub_menu");
+                    if (!subMenu) return;
+
+                    subMenu.classList.toggle("is-expanded");
+                    const isExpanded = subMenu.classList.contains("is-expanded");
+                    this.textContent = isExpanded ? "Vezi mai putin" : "Vezi tot";
+                  });
+                });
+            }
         });
       }
 
