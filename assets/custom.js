@@ -615,7 +615,15 @@ theme.productTab = (function () {
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    applyBestPracticesBoost(document);
+    var runBoost = function () {
+      applyBestPracticesBoost(document);
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runBoost, { timeout: 2000 });
+    } else {
+      setTimeout(runBoost, 700);
+    }
   });
 
   window.addEventListener('load', function () {
