@@ -10,6 +10,10 @@ theme.headerSection = (function () {
         offcanvasMenuAll = document.querySelectorAll(".offcanvas__menu"),
         body = document.querySelector("body");
 
+      if (!offcanvasOpen || !offcanvasClose || !offcanvasHeader || !body) {
+        return;
+      }
+
       /* Open/Close Menu On Click Toggle Button */
       offcanvasOpen.addEventListener("click", function (e) {
         e.preventDefault();

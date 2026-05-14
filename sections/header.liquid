@@ -829,6 +829,34 @@
 <script src="{{ 'mega-menu-slider.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'header-category-menu.js' | asset_url }}" defer="defer"></script>
 
+<script>
+  (function () {
+    if (window.__mobileMenuQuickBind) return;
+    window.__mobileMenuQuickBind = true;
+
+    document.addEventListener('click', function (event) {
+      var openBtn = event.target.closest('.header__actions_btn--menu');
+      if (openBtn) {
+        var offcanvas = document.querySelector('.offcanvas-header');
+        if (!offcanvas) return;
+        event.preventDefault();
+        offcanvas.classList.add('open');
+        document.body.style.overflowY = 'hidden';
+        return;
+      }
+
+      var closeBtn = event.target.closest('.offcanvas__close_btn');
+      if (closeBtn) {
+        var offcanvasClose = document.querySelector('.offcanvas-header');
+        if (!offcanvasClose) return;
+        event.preventDefault();
+        offcanvasClose.classList.remove('open');
+        document.body.style.overflowY = null;
+      }
+    }, true);
+  })();
+</script>
+
 {%- unless template contains 'cart' -%}
   <script src="{{ 'cart_drawer_action.js' | asset_url }}" defer></script>
 {%- endunless -%}
