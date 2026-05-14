@@ -249,16 +249,21 @@
           }
 
           .mobile__categories--list .offcanvas__sub_menu_toggle {
-            top: 50%;
-            transform: translateY(-50%);
+            position: absolute;
+            right: 0.7rem;
+            top: 0.1rem;
+            bottom: auto;
             width: 3.2rem;
-            height: 3.2rem;
+            height: 4.2rem;
             border: none;
             border-radius: 0;
             cursor: pointer;
             z-index: 2;
             transition: background-color 0.3s ease;
             background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
 
           .mobile__categories--list .offcanvas__sub_menu_toggle:hover {
@@ -413,6 +418,8 @@
           font-weight: 500;
           line-height: 1.15;
           box-shadow: none;
+          position: relative;
+          padding-right: 4.5rem;
         }
 
         .mobile__categories--list .offcanvas__menu_li.active > .mobile__catgory--mneu-link.offcanvas__menu_item {
