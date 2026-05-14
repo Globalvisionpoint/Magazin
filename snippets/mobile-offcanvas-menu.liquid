@@ -244,21 +244,16 @@
             transform: translateX(-50%) translateY(-50%);
             background-color: rgba(var(--color-foreground), 0.5);
           }
-          .offcanvas__sub_menu_toggle:not(.active)::after {
-            transform: translateX(-50%) translateY(-50%) rotate(90deg);
-          }
 
-          .mobile__categories--list .offcanvas__sub_menu_toggle {
+          .mobile__categories--list .offcanvas__sub_menu_toggle::before,
+          .mobile__categories--list .offcanvas__sub_menu_toggle::after {
+            width: 1.4rem;
+            height: 2.2px;
+            background-color: rgb(var(--color-button));
+            position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            width: 3.2rem;
-            height: 3.2rem;
-            border: none;
-            border-radius: 0;
-            cursor: pointer;
-            z-index: 2;
-            transition: background-color 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
           }
 
           .mobile__categories--list .offcanvas__sub_menu_toggle:hover {
@@ -267,25 +262,6 @@
 
           .mobile__categories--list .offcanvas__sub_menu_toggle.active {
             background: rgba(255, 255, 255, 0.95);
-          }
-
-          {% if theme_rtl %}
-          .mobile__categories--list .offcanvas__sub_menu_toggle {
-            left: 0.7rem;
-            right: auto;
-          }
-          {% else %}
-          .mobile__categories--list .offcanvas__sub_menu_toggle {
-            right: 0.7rem;
-            left: auto;
-          }
-          {% endif %}
-
-          .mobile__categories--list .offcanvas__sub_menu_toggle::before,
-          .mobile__categories--list .offcanvas__sub_menu_toggle::after {
-            width: 14px;
-            height: 2px;
-            background-color: rgb(var(--color-button));
           }
           .offcanvas__logo span.h2 {
               margin: 0;
@@ -393,6 +369,8 @@
 
         .mobile__categories--list .offcanvas__menu_li {
           position: relative;
+          display: flex;
+          align-items: stretch;
         }
 
         .mobile__categories--list .mobile__catgory--mneu-link.offcanvas__menu_item,
@@ -413,6 +391,8 @@
           font-weight: 500;
           line-height: 1.15;
           box-shadow: none;
+          position: relative;
+          padding-right: 4.5rem;
         }
 
         .mobile__categories--list .offcanvas__menu_li.active > .mobile__catgory--mneu-link.offcanvas__menu_item {
@@ -497,6 +477,69 @@
         .offcanvas__footer {
           margin: 3rem 0;
           padding: 0 1.4rem;
+        }
+
+        .offcanvas__footer h4 {
+          margin-bottom: 1.2rem !important;
+          font-size: 1.45rem;
+          font-weight: 600;
+          color: #2b2b2b;
+        }
+
+        .offcanvas__footer .button {
+          border-radius: 0;
+          font-size: 1.45rem;
+          padding: 1.1rem 1.4rem;
+          font-weight: 600;
+          min-height: 4.4rem;
+          margin-bottom: 0.9rem;
+        }
+
+        .offcanvas__footer .button--secondary {
+          background: transparent;
+          border: 2px solid rgb(var(--color-button));
+          color: rgb(var(--color-button));
+        }
+
+        .offcanvas__footer .button--secondary:hover {
+          background: rgba(var(--color-button), 0.08);
+        }
+
+        .offcanvas__footer .button--primary {
+          background: rgb(var(--color-button));
+          color: rgb(var(--color-button-text));
+          border: 0;
+        }
+
+        .offcanvas__footer .button--primary:hover {
+          background: rgba(var(--color-button), 0.9);
+        }
+
+        .offcanvas__footer .button--full-width {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_toggle {
+          position: absolute;
+          right: 0.8rem;
+          top: 0;
+          bottom: 0;
+          margin: auto 0;
+          width: 3.2rem;
+          height: 3.2rem;
+          border: none;
+          border-radius: 0;
+          cursor: pointer;
+          z-index: 2;
+          transition: background-color 0.3s ease;
+          background: rgba(255, 255, 255, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
         }
 </style>
 
