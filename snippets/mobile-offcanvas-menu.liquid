@@ -505,6 +505,52 @@
           margin: 3rem 0;
           padding: 0 1.4rem;
         }
+
+        .offcanvas__footer .button {
+          border-radius: 0;
+          font-size: 1.45rem;
+          font-weight: 600;
+          min-height: 4.4rem;
+          padding: 0.9rem 1.4rem;
+          margin-bottom: 0.9rem;
+          width: 100%;
+          border: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .offcanvas__footer .button--primary {
+          background: rgb(var(--color-button));
+          color: rgb(var(--color-button-text));
+        }
+
+        .offcanvas__footer .button--primary:hover {
+          background: rgba(var(--color-button), 0.9);
+        }
+
+        .offcanvas__footer .button--secondary {
+          background: #fff;
+          border: 2px solid rgb(var(--color-button));
+          color: rgb(var(--color-button));
+        }
+
+        .offcanvas__footer .button--secondary:hover {
+          background: rgba(var(--color-button), 0.05);
+        }
+
+        .offcanvas__footer .button--full-width {
+          width: 100%;
+        }
+
+        .offcanvas__footer h4 {
+          margin-bottom: 1.2rem;
+          font-size: 1.45rem;
+          font-weight: 600;
+          color: #2b2b2b;
+        }
 </style>
 
 <div class="offcanvas-header" tabindex="-1">
