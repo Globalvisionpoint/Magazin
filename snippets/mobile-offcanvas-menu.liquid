@@ -296,38 +296,218 @@
            }
          }
         .mobile--menu-header-button {
-      background: transparent;
-      border: 0.15rem solid rgba(var(--color-foreground), 0.3);
-      font-size: 1.5rem;
-      padding: 0.2rem 1.5rem;
-      border-radius: 0.4rem;
-  }
-           .mobile--menu-header-button.active{
-               background-color: rgba(var(--color-button),var(--alpha-button-background));
-               border-color: rgba(var(--color-button),var(--alpha-button-background));
-               color: rgb(var(--color-button-text));
-           }
-      .mobile--menu-header-button + .mobile--menu-header-button {
-        margin-left: 0.5rem;
-    }
+          background: transparent;
+          border: 0.15rem solid rgba(var(--color-foreground), 0.3);
+          font-size: 1.5rem;
+          padding: 0.2rem 1.5rem;
+          border-radius: 0.4rem;
+        }
+        .mobile--menu-header-button.active {
+          background-color: rgba(var(--color-button), var(--alpha-button-background));
+          border-color: rgba(var(--color-button), var(--alpha-button-background));
+          color: rgb(var(--color-button-text));
+        }
+        .mobile--menu-header-button + .mobile--menu-header-button {
+          margin-left: 0.5rem;
+        }
+
+        /* Mobile drawer redesign to match requested reference */
+        .offcanvas-header {
+          background: #f5f5f5;
+        }
+
+        .offcanvas__logo {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1.2rem;
+          padding: 1.4rem 1.4rem 0.9rem;
+          border-bottom: 0;
+          background: #f5f5f5;
+        }
+
+        .offcanvas__home-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.9rem;
+          color: #2b2b2b;
+          font-size: 1.65rem;
+          font-weight: 600;
+          text-decoration: none;
+          line-height: 1;
+        }
+
+        .offcanvas__home-link svg {
+          width: 2.6rem;
+          height: 2.6rem;
+          color: rgb(var(--color-button));
+          flex-shrink: 0;
+        }
+
+        .offcanvas__close_btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.9rem;
+          width: auto;
+          height: auto;
+          text-indent: 0;
+          font-size: 1.65rem;
+          color: #2b2b2b;
+          font-weight: 500;
+          line-height: 1;
+          border: 0;
+          background: transparent;
+        }
+
+        .offcanvas__close_btn::before,
+        .offcanvas__close_btn::after {
+          display: none;
+        }
+
+        .offcanvas__close_icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(var(--color-button));
+          font-size: 3.4rem;
+          line-height: 1;
+          transform: translateY(-1px);
+        }
+
+        .offcanvas__menu {
+          padding: 0 1.1rem;
+        }
+
+        .mobile__categories--list .offcanvas__menu_ul,
+        .mobile__main-menu--list .offcanvas__menu_ul {
+          padding: 0;
+        }
+
+        .mobile__categories--list .offcanvas__menu_li,
+        .mobile__main-menu--list .offcanvas__menu_li,
+        .mobile__categories--list .offcanvas__menu_li:first-child,
+        .mobile__main-menu--list .offcanvas__menu_li:first-child {
+          margin: 0 0 1rem;
+          border: 0;
+        }
+
+        .mobile__categories--list .mobile__catgory--mneu-link.offcanvas__menu_item,
+        .mobile__main-menu--list .offcanvas__menu_item:not(.header__actions_btn) {
+          display: flex;
+          align-items: center;
+          min-height: 5.4rem;
+          width: 100%;
+          padding: 0.95rem 1.4rem;
+          border-radius: 1.2rem;
+          border: 0;
+          background: #ebebeb;
+          color: #333 !important;
+          text-transform: none;
+          letter-spacing: 0;
+          font-family: var(--font-body-family);
+          font-size: 1.65rem;
+          font-weight: 500;
+          line-height: 1.2;
+          box-shadow: none;
+        }
+
+        .mobile__categories--list .mobile__catgory--mneu-link.offcanvas__menu_item .categories__menu--label {
+          color: inherit;
+        }
+
+        .mobile__categories--list .offcanvas__menu_li.active > .mobile__catgory--mneu-link.offcanvas__menu_item,
+        .mobile__main-menu--list .offcanvas__menu_li.active > .offcanvas__menu_item:not(.header__actions_btn) {
+          background: rgb(var(--color-button));
+          color: rgb(var(--color-button-text)) !important;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_toggle {
+          left: 1rem;
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2.6rem;
+          height: 2.6rem;
+          border: 0;
+          border-radius: 50%;
+          background: transparent;
+        }
+
+        .mobile__categories--list .mobile__catgory--mneu-link.offcanvas__menu_item {
+          padding-left: 4.6rem;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_toggle::before,
+        .mobile__categories--list .offcanvas__sub_menu_toggle::after {
+          width: 1.3rem;
+          height: 0.22rem;
+          background: rgb(var(--color-button));
+        }
+
+        .mobile__categories--list .offcanvas__menu_li.active > .offcanvas__sub_menu_toggle {
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile__categories--list .offcanvas__menu_li.active > .offcanvas__sub_menu_toggle::before,
+        .mobile__categories--list .offcanvas__menu_li.active > .offcanvas__sub_menu_toggle::after {
+          background: rgb(var(--color-button-text));
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu {
+          margin: 0.8rem 0 1.2rem;
+          padding: 0.7rem 1.2rem;
+          border-radius: 1.2rem;
+          background: #fff;
+          border: 1px solid #e5e5e5;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_li {
+          border: 0;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_item {
+          position: relative;
+          padding: 0.8rem 0 0.8rem 1.8rem;
+          color: #262626;
+          font-size: 1.5rem;
+          line-height: 1.3;
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_item::before {
+          content: "";
+          position: absolute;
+          left: 0.4rem;
+          top: 1.45rem;
+          width: 0.6rem;
+          height: 0.6rem;
+          border-top: 2px solid rgb(var(--color-button));
+          border-right: 2px solid rgb(var(--color-button));
+          transform: rotate(45deg);
+        }
+
+        .mobile__categories--list .offcanvas__sub_menu_text::after {
+          display: none;
+        }
+
+        .offcanvas__footer {
+          margin: 3rem 0;
+          padding: 0 1.4rem;
+        }
 </style>
 
 <div class="offcanvas-header" tabindex="-1">
   <div class="offcanvas__inner">
     <div class="offcanvas__logo">
-      {% if section.settings.vertical_menu %}
-        <div class="offcanvas__header--menu--type">
-          <button class="mobile__categories--menu mobile--menu-header-button active">
-            {{ 'sections.header.categories_menu' | t }}
-          </button>
-          {% if section.settings.show_mobile_menu_toggle %}
-            <button class="mobile__main--menu mobile--menu-header-button">{{ 'sections.header.menu' | t }}</button>
-          {% endif %}
-        </div>
-      {% else %}
-        {%- render 'header-logo', className: 'offcanvas__logo_link' -%}
-      {% endif %}
-      <button class="offcanvas__close_btn">close</button>
+      <a href="{{ routes.root_url }}" class="offcanvas__home-link" aria-label="Acasa">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 3.3L2.2 11.7c-.3.2-.4.6-.4 1v7.2c0 .6.4 1 1 1h6.1c.6 0 1-.4 1-1v-4.2h4.2v4.2c0 .6.4 1 1 1h6.1c.6 0 1-.4 1-1v-7.2c0-.4-.2-.8-.5-1L12 3.3z"/>
+        </svg>
+        <span>Acasa</span>
+      </a>
+      <button class="offcanvas__close_btn" aria-label="Inchide meniul">
+        <span class="offcanvas__close_icon" aria-hidden="true">✕</span>
+        <span>Inchide meniul</span>
+      </button>
     </div>
     {% if section.settings.show_mobile_menu_toggle %}
       <nav class="offcanvas__menu mobile__main-menu--list d-none">
