@@ -1575,6 +1575,7 @@ button.product-form__submit.loading:after {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   box-shadow: 0 10px 20px rgba(217, 45, 47, 0.16);
@@ -1595,8 +1596,11 @@ button.product-form__submit.loading:after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  align-self: stretch;
-  flex: 0 0 4.6rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.6rem;
+  height: 100%;
   margin: 0;
   background: #bf1835;
   color: #ffd84d;
@@ -1610,7 +1614,6 @@ button.product-form__submit.loading:after {
 
 .product_buy_button_form .product-form__submit.button .cart--button-text,
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
-  flex: 1 1 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
