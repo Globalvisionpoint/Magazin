@@ -1438,3 +1438,8 @@ button.product__card__actions__btn.loading {
     min-height: 2.6rem !important;
   }
 }
+
+  /* Product slider title height override */
+  [data-section-type="product-slider"] .product__card__title {
+    min-height: 3rem !important;
+  }
