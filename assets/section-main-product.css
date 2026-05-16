@@ -1671,7 +1671,7 @@ button.product-form__submit.loading:after {
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
   color: #000000 !important;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.05em;
 }
 
