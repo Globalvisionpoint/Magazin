@@ -395,7 +395,7 @@ div#cart-notification {
   justify-content: center;
   min-height: 3.2rem;
   padding: 0.45rem 1rem;
-  border-radius: 0.9rem;
+  border-radius: 0;
   border: 1px solid rgba(18, 18, 18, 0.2);
   background: #ffffff;
   color: #151515;
