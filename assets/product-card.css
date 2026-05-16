@@ -192,6 +192,12 @@
   margin: 0.1rem 0 0;
 }
 
+@media only screen and (min-width: 750px) {
+  .product-recommendations .product__card__title {
+    min-height: 5.2rem;
+  }
+}
+
 .product-recommendations .product__card__title a {
   text-align: center;
   font-family: var(--font-heading-family);
