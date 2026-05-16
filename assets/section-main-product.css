@@ -1571,7 +1571,9 @@ button.product-form__submit.loading:after {
   font-weight: 700;
   gap: 0;
   padding: 0;
-  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 0.06em;
