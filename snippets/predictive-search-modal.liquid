@@ -151,9 +151,6 @@
 
       <div class="popular__search--history">
         <div class="popular__search--tags">
-          {% if settings.popular_search_heading != blank %}
-            <h4 class="popular__search--title">{{ settings.popular_search_heading }}</h4>
-          {% endif %}
           <ul class="d-flex flex-wrap popular__search--tag-list">
             {% for tag in popular_search_tag %}
               <li class="popular__search--tag--item">
@@ -171,9 +168,6 @@
         -%}
 
         <div class="popular__search--tags">
-          {% if settings.most_searched_product_heading != blank %}
-            <h4 class="popular__search--title">{{ settings.most_searched_product_heading }}</h4>
-          {% endif %}
           <ul
             id="predictive-search-results-products-list"
             class="predictive-search__results-list list-unstyled"
