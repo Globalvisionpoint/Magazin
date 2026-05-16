@@ -565,10 +565,17 @@ variant-selects {
   flex-wrap: nowrap;
   gap: 1rem;
   width: 100%;
+  position: relative;
+  padding-right: clamp(7.4rem, 14vw, 8.8rem);
 }
 
 .save__disoucnt {
-  margin-left: 0.6rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-left: 0;
+  z-index: 1;
 }
 
 .product .price__box_wrapper .price {
@@ -625,10 +632,11 @@ variant-selects {
 @media screen and (max-width: 575px) {
   .price__box_wrapper {
     gap: 0.7rem;
+    padding-right: clamp(6.2rem, 18vw, 7.2rem);
   }
 
   .save__disoucnt {
-    margin-left: 0.45rem;
+    right: 0;
   }
 
   .discount__sale__text {
