@@ -1403,6 +1403,10 @@ button.product__card__actions__btn.loading {
 }
 
 /* Collection pages: keep title-price spacing consistent with homepage cards */
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) {
+  height: 96% !important;
+}
+
 .template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__title {
   min-height: 2.4rem !important;
 }
