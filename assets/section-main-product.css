@@ -1601,8 +1601,8 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit.button .action__btn--svg svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
   filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 

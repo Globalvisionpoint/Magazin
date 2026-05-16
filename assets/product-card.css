@@ -571,8 +571,8 @@ button.product__card__actions__btn.loading {
 }
 
 .product-recommendations .product__card--cart-btn .action__btn--svg svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
   filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
@@ -974,8 +974,8 @@ button.product__card__actions__btn.loading {
 }
 
 .product__card .product__card--cart-btn .action__btn--svg svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
   filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
