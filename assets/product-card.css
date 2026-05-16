@@ -1219,8 +1219,7 @@ button.product__card__actions__btn.loading {
     align-items: stretch;
   }
 
-  .product__card .product__card__title,
-  .product__card:not(.product__card--list) .product__card__title {
+  .product__card .product__card__title {
     min-height: 5.2rem;
   }
 
