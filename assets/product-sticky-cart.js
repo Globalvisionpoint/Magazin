@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const stickyPriceValue = document.querySelector(".product__sticky_price-value");
   const buyButtonForm = document.querySelector(".product_buy_button_form");
   const productStickyWrapper = document.querySelector(".product__sticky");
+  const triggerAddButton =
+    buyButtonForm?.querySelector('button[name="add"]') ||
+    document.querySelector('.product_buy_button_form button[name="add"]');
+  const stickyTriggerElement = triggerAddButton || buyButtonForm;
   const mainVariantInput = buyButtonForm?.querySelector('input[name="id"]');
   const mobileQuery = window.matchMedia("(max-width: 991px)");
 
@@ -57,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   syncStickyVariant();
 
-  if (!buyButtonForm || !productStickyWrapper) {
+  if (!stickyTriggerElement || !productStickyWrapper) {
     return;
   }
 
@@ -74,11 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const rect = buyButtonForm.getBoundingClientRect();
-    const buyButtonVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    const passedBuyButton = rect.bottom < 0;
+    const rect = stickyTriggerElement.getBoundingClientRect();
+    const triggerIsVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    const triggerPassedTop = rect.bottom <= 0;
 
-    if (passedBuyButton && !buyButtonVisible) {
+    if (triggerPassedTop && !triggerIsVisible) {
       productStickyWrapper.classList.add("sticky");
       document.body.classList.add("sticky__cart");
     } else {
@@ -107,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(updateStickyBar, {
       threshold: [0, 0.1, 0.3, 0.6, 1]
     });
-    observer.observe(buyButtonForm);
+    observer.observe(stickyTriggerElement);
   }
 
   updateStickyBar();
