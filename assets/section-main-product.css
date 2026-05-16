@@ -529,9 +529,9 @@ variant-selects {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 7.8rem;
-  min-height: 7.8rem;
-  padding: 0.8rem;
+  min-width: 8.1rem;
+  min-height: 8.1rem;
+  padding: 0.85rem;
   border-radius: 50%;
   background: #9f1010;
   color: rgba(var(--color-background));
@@ -573,7 +573,7 @@ variant-selects {
   position: absolute;
   top: 50%;
   right: 2.2rem;
-  transform: translateY(-50%) rotate(30deg);
+  transform: translateY(-50%) rotate(15deg);
   margin-left: 0;
   z-index: 1;
 }
@@ -640,9 +640,9 @@ variant-selects {
   }
 
   .discount__sale__text {
-    min-width: 6.8rem;
-    min-height: 6.8rem;
-    padding: 0.65rem;
+    min-width: 7.1rem;
+    min-height: 7.1rem;
+    padding: 0.7rem;
   }
 
   .sale__save--percent {
