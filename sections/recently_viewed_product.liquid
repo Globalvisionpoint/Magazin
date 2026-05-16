@@ -67,14 +67,22 @@
     padding: 1rem 1rem 0 !important;
   }
 
+  .section-{{ section.id }}-padding .product__card__content.product--card-spacing-true {
+    padding: 0 !important;
+  }
+
   .section-{{ section.id }}-padding .product-card-action-buttons {
     margin-left: -1rem;
     margin-right: -1rem;
     margin-bottom: 0 !important;
     padding-top: 1.2rem;
+    margin-top: auto !important;
   }
 
   .section-{{ section.id }}-padding .product__card--action-btn.product__card--cart-btn {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
     border-radius: 0 0 1rem 1rem !important;
   }
 
@@ -94,6 +102,11 @@
       margin-left: -0.45rem;
       margin-right: -0.45rem;
       padding-top: 0.1rem;
+      margin-bottom: -0.45rem !important;
+    }
+
+    .section-{{ section.id }}-padding .product__card--action-btn.product__card--cart-btn {
+      border-radius: 0 0 1rem 1rem !important;
     }
   }
 </style>
