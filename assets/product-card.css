@@ -1401,3 +1401,36 @@ button.product__card__actions__btn.loading {
     transform: translateX(3px);
   }
 }
+
+/* Collection pages: keep title-price spacing consistent with homepage cards */
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__title {
+  min-height: 3.2rem;
+}
+
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price {
+  min-height: 4rem;
+}
+
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price:not(.price--on-sale) .price__regular,
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price.price--on-sale .price__sale {
+  min-height: 3.4rem;
+}
+
+.template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price:not(.price--on-sale) .price__regular {
+  padding-top: 0;
+}
+
+@media only screen and (max-width: 749px) {
+  .template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__title {
+    min-height: 3rem;
+  }
+
+  .template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price {
+    min-height: 3.8rem;
+  }
+
+  .template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price:not(.price--on-sale) .price__regular,
+  .template-search[data-section-type="collection-product"] .product__card:not(.product__card--list) .product__card__price.price--on-sale .price__sale {
+    min-height: 3.2rem;
+  }
+}
