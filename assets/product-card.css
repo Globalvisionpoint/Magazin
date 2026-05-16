@@ -131,7 +131,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  gap: 0.2rem;
+  gap: 0.05rem;
 }
 
 .product-recommendations .product__card {
@@ -184,7 +184,7 @@
 .product-recommendations .product__card__content {
   padding-top: 0;
   text-align: center;
-  gap: 0.25rem;
+  gap: 0.05rem;
 }
 
 .product-recommendations .product__card__title {
