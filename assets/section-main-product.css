@@ -1613,9 +1613,9 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit.button:not(.product-form__submit--buy-now) .cart--button-text {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  text-align: center;
   padding: 0 1rem;
   font-size: 1.2rem;
   font-weight: 700;
