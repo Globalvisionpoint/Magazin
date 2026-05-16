@@ -402,8 +402,8 @@ div#cart-notification {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 #mini-cart-drawer .cart-notification-product .cart-close-icon .link:hover {
