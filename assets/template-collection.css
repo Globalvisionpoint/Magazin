@@ -628,7 +628,7 @@ button.gird__column_icon.active {
 
 .template-search[data-section-type="collection-product"] .product__card__price:not(.price--on-sale) .price__regular,
 .template-search[data-section-type="collection-product"] .product__card__price.price--on-sale .price__sale {
-  min-height: 5.4rem;
+  min-height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -636,7 +636,7 @@ button.gird__column_icon.active {
 }
 
 .template-search[data-section-type="collection-product"] .product__card__price:not(.price--on-sale) .price__regular {
-  padding-top: 1.6rem;
+  padding-top: 0;
 }
 
 .template-search[data-section-type="collection-product"] .product__card__price .price__regular dd,
@@ -647,11 +647,11 @@ button.gird__column_icon.active {
 @media only screen and (max-width: 749px) {
   .template-search[data-section-type="collection-product"] .product__card__price:not(.price--on-sale) .price__regular,
   .template-search[data-section-type="collection-product"] .product__card__price.price--on-sale .price__sale {
-    min-height: 5rem;
+    min-height: 3.6rem;
   }
 
   .template-search[data-section-type="collection-product"] .product__card__price:not(.price--on-sale) .price__regular {
-    padding-top: 1.4rem;
+    padding-top: 0;
   }
 }
 .search_result_bar {
