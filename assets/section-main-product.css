@@ -1597,11 +1597,13 @@ button.product-form__submit.loading:after {
   flex: 0 0 4.6rem;
   margin: 0;
   background: #bf1835;
-  color: #fff;
+  color: #ffd84d;
 }
 
 .product_buy_button_form .product-form__submit.button .action__btn--svg svg {
   width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
 .product_buy_button_form .product-form__submit.button .cart--button-text {

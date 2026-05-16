@@ -567,11 +567,13 @@ button.product__card__actions__btn.loading {
   flex: 0 0 4.6rem;
   margin: 0;
   background: #bf1835;
-  color: #fff;
+  color: #ffd84d;
 }
 
 .product-recommendations .product__card--cart-btn .action__btn--svg svg {
   width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
 .product-recommendations .product__card--cart-btn .cart__buton--label {
@@ -968,11 +970,13 @@ button.product__card__actions__btn.loading {
   flex: 0 0 4.6rem;
   margin: 0;
   background: #bf1835;
-  color: #fff;
+  color: #ffd84d;
 }
 
 .product__card .product__card--cart-btn .action__btn--svg svg {
   width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
 .product__card .product__card--cart-btn .cart__buton--label {
