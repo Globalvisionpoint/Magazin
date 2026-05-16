@@ -855,6 +855,13 @@ button.product__card__actions__btn.loading {
   margin: 0.05rem 0 0;
 }
 
+@media only screen and (min-width: 750px) {
+  .product__card .product__card__title {
+    flex: 0 0 auto;
+    min-height: 4.8rem;
+  }
+}
+
 .product__card .product__card__title a {
   text-align: center;
   font-family: var(--font-heading-family);
