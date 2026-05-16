@@ -1197,7 +1197,20 @@ button.product__card__actions__btn.loading {
 
 
 /* Cardul de produs - Stiluri generale */
-.product__card {
+.product__card {}
+
+@media only screen and (min-width: 750px) {
+  .product__card .product__card--cart-btn .cart__buton--label,
+  .product__card .product__card--buy-now-btn .cart__buton--label {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+  }
+}
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
