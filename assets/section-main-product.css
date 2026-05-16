@@ -1612,7 +1612,7 @@ button.product-form__submit.loading:after {
   filter: drop-shadow(0 1px 0 rgba(120, 85, 0, 0.55));
 }
 
-.product_buy_button_form .product-form__submit.button .cart--button-text {
+.product_buy_button_form .product-form__submit.button:not(.product-form__submit--buy-now) .cart--button-text {
   display: inline-flex;
   align-items: center;
   justify-content: center;
