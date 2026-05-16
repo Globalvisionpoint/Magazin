@@ -918,6 +918,12 @@ deferred-media {
   border-radius: 0 !important;
 }
 
+/* Keep product card CTA aligned with card shape (rounded only at the bottom). */
+.product__card--action-btn,
+.product__card-style2--action-btn {
+  border-radius: var(--button-border-radius) !important;
+}
+
 /* Global hover animation for major button components */
 .button,
 .customer button,
