@@ -199,7 +199,11 @@
   font-size: 1.22rem;
   font-weight: 700;
   line-height: 1.25;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .product-recommendations .product-card--rating {
@@ -854,7 +858,11 @@ button.product__card__actions__btn.loading {
   font-size: 1.22rem;
   font-weight: 700;
   line-height: 1.25;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .product__card .product-card--rating {
