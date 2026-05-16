@@ -146,28 +146,19 @@
     border-radius: 1.3rem;
     background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%) !important;
     color: #ffffff !important;
-    display: grid;
-    grid-template-columns: 4.6rem minmax(0, 1fr) 4.6rem;
+    display: inline-flex;
     align-items: stretch;
+    justify-content: flex-start;
     overflow: hidden;
     font-family: var(--font-heading-family);
     box-shadow: 0 10px 20px rgba(217, 45, 47, 0.16);
   }
 
-  .product__sticky_add__form .product__add__cart__button .button::after {
-    content: '';
-    grid-column: 3;
-    display: block;
-    background: #d92d2f;
-  }
-
   .product__sticky_add__form .product__add__cart__button .action__btn--svg {
     display: inline-flex;
-    grid-column: 1;
     align-items: center;
     justify-content: center;
     flex: 0 0 4.6rem;
-    width: 4.6rem;
     align-self: stretch;
     background: #bf1835;
     color: #ffd84d;
@@ -181,18 +172,17 @@
 
   .product__sticky_add__form .product__add__cart__button .cart--button-text {
     display: inline-flex;
-    grid-column: 2;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1 1 auto;
-    padding: 0 0.9rem;
+    padding: 0 0.9rem 0 0.45rem;
     font-size: 0.92rem;
     font-weight: 700;
     letter-spacing: 0;
     line-height: 1.1;
     text-align: center;
     text-transform: uppercase;
-    white-space: nowrap;
+    white-space: nowrap !important;
     background: #d92d2f;
   }
 
@@ -257,18 +247,16 @@
     .product__sticky_add__form .product__add__cart__button .cart--button-text {
       font-size: 0.82rem;
       padding: 0 0.35rem;
-      white-space: normal;
+      white-space: nowrap !important;
       line-height: 1.05;
     }
 
     .product__sticky_add__form .product__add__cart__button .button {
       min-height: 4.8rem;
-      grid-template-columns: 3.8rem minmax(0, 1fr) 3.8rem;
     }
 
     .product__sticky_add__form .product__add__cart__button .action__btn--svg {
       flex-basis: 3.8rem;
-      width: 3.8rem;
     }
 
     .product__sticky_add__form .product__add__cart__button .cart--button-text {
