@@ -572,7 +572,7 @@ variant-selects {
 .save__disoucnt {
   position: absolute;
   top: 50%;
-  right: 0.3rem;
+  right: 1.1rem;
   transform: translateY(-50%);
   margin-left: 0;
   z-index: 1;
@@ -636,7 +636,7 @@ variant-selects {
   }
 
   .save__disoucnt {
-    right: 0.25rem;
+    right: 0.8rem;
   }
 
   .discount__sale__text {
