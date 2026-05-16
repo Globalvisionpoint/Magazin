@@ -831,7 +831,7 @@ button.product__card__actions__btn.loading {
 .product__card__content {
   padding-top: 0;
   text-align: center;
-  gap: 0.2rem;
+  gap: 0.05rem;
 }
 
 .product__card__title {
@@ -860,7 +860,7 @@ button.product__card__actions__btn.loading {
 }
 
 .product__card .product__card__price dl {
-  min-height: 4.4rem;
+  min-height: 4rem;
   justify-content: flex-end;
 }
 
@@ -1281,11 +1281,11 @@ button.product__card__actions__btn.loading {
 }
 
 .product__card:not(.product__card--list) .product__card__title {
-  min-height: 7.6rem;
+  min-height: 6rem;
 }
 
 .product__card:not(.product__card--list) .product__card__price {
-  min-height: 5.8rem;
+  min-height: 4.8rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -1294,7 +1294,7 @@ button.product__card__actions__btn.loading {
 .product__card:not(.product__card--list) .product__card__price:not(.price--on-sale) .price__regular,
 .product__card:not(.product__card--list) .product__card__price.price--on-sale .price__sale {
   width: 100%;
-  min-height: 5rem;
+  min-height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1302,7 +1302,7 @@ button.product__card__actions__btn.loading {
 }
 
 .product__card:not(.product__card--list) .product__card__price:not(.price--on-sale) .price__regular {
-  padding-top: 1.2rem;
+  padding-top: 0.8rem;
 }
 
 .product__card:not(.product__card--list) .product--color-swatch-wrapper {
@@ -1316,10 +1316,10 @@ button.product__card__actions__btn.loading {
 
 @media only screen and (max-width: 749px) {
   .product__card:not(.product__card--list) .product__card__title {
-    min-height: 5rem;
+    min-height: 4.8rem;
   }
 
   .product__card:not(.product__card--list) .product__card__price {
-    min-height: 5rem;
+    min-height: 4.3rem;
   }
 }
