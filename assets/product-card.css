@@ -568,11 +568,19 @@ button.product__card__actions__btn.loading {
 
 .product-recommendations .product__card--cart-btn .cart__buton--label {
   display: inline-flex !important;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 0 1rem;
+  font-family: var(--font-body-family);
+  font-size: 1.14rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-shadow: none;
 }
+
 @media only screen and (min-width: 1200px) {
   .product-card-action-buttons {
     display: grid;
@@ -957,9 +965,10 @@ button.product__card__actions__btn.loading {
 
 .product__card .product__card--cart-btn .cart__buton--label {
   display: inline-flex !important;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 0 1rem;
   font-family: var(--font-body-family);
   font-size: 1.14rem;
@@ -967,6 +976,14 @@ button.product__card__actions__btn.loading {
   letter-spacing: 0.02em;
   line-height: 1;
   text-shadow: none;
+}
+
+.product__card .product__card--buy-now-btn .cart__buton--label {
+  display: inline-flex !important;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 749px) {
