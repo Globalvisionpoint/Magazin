@@ -37,7 +37,7 @@
 }
 
 .product-recommendations .product__card__title {
-  min-height: 7.4rem;
+  min-height: 6rem;
 }
 
 .product-recommendations .product__card__title a {
@@ -45,7 +45,7 @@
 }
 
 .product-recommendations .product__card__price {
-  min-height: 6rem;
+  min-height: 4.8rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -53,7 +53,7 @@
 
 .product-recommendations .product__card__price .price__regular,
 .product-recommendations .product__card__price.price--on-sale .price__sale {
-  min-height: 5rem;
+  min-height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -62,7 +62,7 @@
 }
 
 .product-recommendations .product__card__price:not(.price--on-sale) .price__regular {
-  padding-top: 1.4rem;
+  padding-top: 0.8rem;
 }
 
 .product-recommendations .product__card .product--color-swatch-wrapper {
@@ -76,11 +76,11 @@
 
 @media only screen and (max-width: 749px) {
   .product-recommendations .product__card__title {
-    min-height: 6.2rem;
+    min-height: 4.8rem;
   }
 
   .product-recommendations .product__card__price {
-    min-height: 5.4rem;
+    min-height: 4.3rem;
   }
 
   .product-recommendations .product__card .product--color-swatch-wrapper {
