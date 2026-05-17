@@ -876,7 +876,6 @@ input:focus {
   line-height: 1;
   display: flex;
   align-items: center;
-  vertical-align: middle;
 }
 .button--icon-right {
   margin-left: 0;
@@ -884,6 +883,8 @@ input:focus {
 .button--icon > svg {
   width: 2.2rem;
   display: inline-block;
+  vertical-align: baseline;
+  transform: translateY(2px);
 }
 .button--icon-left {
   margin-right: 0.5rem;
