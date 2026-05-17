@@ -2485,6 +2485,19 @@ input:-moz-placeholder {
   justify-content: center;
 }
 
+/* Reduce gap between product grids/sliders and "Vezi mai multe" buttons across collection sections */
+.section[data-section-type="featured-collection"] .collection--button.mt-20,
+.section[data-section-type="popular-product-with-tabs"] .collection--button.mt-20,
+.section[data-section-type="product-tabs"] .collection--button.mt-20 {
+  margin-top: 1rem !important;
+}
+
+.section[data-section-type="featured-collection"] .loadMoreWrapper.mt-30,
+.section[data-section-type="popular-product-with-tabs"] .loadMoreWrapper.mt-30,
+.section[data-section-type="product-tabs"] .loadMoreWrapper.mt-30 {
+  margin-top: 1rem !important;
+}
+
 @media only screen and (max-width: 360px) {
 .button, .customer button, .shopify-challenge__button {
     font-size: calc(var(--button-font-size) * 1.2rem);
