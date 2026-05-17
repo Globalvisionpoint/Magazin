@@ -422,6 +422,15 @@ div#cart-notification {
   font-weight: 700;
 }
 
+#mini-cart-drawer #cart-notification-subtotal {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: 2.2rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #111111;
+}
+
 @media screen and (max-width: 749px) {
   #mini-cart-drawer .cart-notification__heading .item__success_message {
     font-size: 1.5rem;
@@ -457,6 +466,11 @@ div#cart-notification {
 
   #mini-cart-drawer .totals__subtotal {
     font-size: 1.9rem;
+  }
+
+  #mini-cart-drawer #cart-notification-subtotal {
+    font-size: 1.95rem;
+    font-weight: 800;
   }
 }
 
