@@ -2485,6 +2485,34 @@ input:-moz-placeholder {
   justify-content: center;
 }
 
+/* Keep custom wrapper full-width so center alignment works on desktop */
+load-more-product {
+  display: block;
+  width: 100%;
+}
+
+/* Force center for all "Vezi mai multe" markup variants */
+.loadMoreWrapper,
+.button--wrapper,
+.collection--button {
+  width: 100%;
+}
+
+.loadMoreWrapper > .loadMoreBtn,
+.button--wrapper > a,
+.collection--button > a,
+a#loadMoreBtn,
+button.loadMoreBtn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section[data-section-type="featured-collection"] .row.text-center > .col,
+.section[data-section-type="best-deals-products"] .row.text-center > .col {
+  display: flex;
+  justify-content: center;
+}
+
 /* Keep a compact and identical gap before all "Vezi mai multe" buttons */
 .section[data-section-type="featured-collection"] .collection--button,
 .section[data-section-type="featured-collection"] .loadMoreWrapper,
