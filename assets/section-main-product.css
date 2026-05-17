@@ -1684,6 +1684,45 @@ button.product-form__submit.loading:after {
   letter-spacing: 0.05em;
 }
 
+/* Notify me button (out of stock) - sharp corners, black background, white text */
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now {
+  border-radius: 0 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28) !important;
+  animation: none !important;
+}
+
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now::before {
+  border-radius: 0 !important;
+  background: #0f0f0f !important;
+}
+
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now::after {
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now:hover,
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now:focus {
+  border-radius: 0 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.34) !important;
+  filter: none !important;
+}
+
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now .cart--button-text {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now .action__btn--svg {
+  border-radius: 0 !important;
+  background: #0f0f0f !important;
+  color: #ffffff !important;
+}
+
 @keyframes buynow-glow {
   0%, 100% {
     box-shadow: 0 10px 25px rgba(255, 165, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
