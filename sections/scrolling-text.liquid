@@ -54,7 +54,11 @@
           class="scrolling--item__inner {{ section.settings.text_size }} {% if block.settings.text_stroke %} scrolling--item__text--stroke {% endif %}"
           {{ block.shopify_attributes }}
         >
-          <span class="scrolling--text__content"> {{ block.settings.text }}</span>
+          {%- if block.settings.link != blank -%}
+            <a class="scrolling--text__content scrolling--text__link" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+          {%- else -%}
+            <span class="scrolling--text__content">{{ block.settings.text }}</span>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
@@ -268,6 +272,11 @@
             "id": "text",
             "default": "Welcome to store",
             "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         },
         {
           "type": "checkbox",

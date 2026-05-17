@@ -50,6 +50,16 @@
   white-space: nowrap;
 }
 
+.scrolling--text__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.scrolling--text__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 @media screen and (min-width: 750px) {
   .scrolling--text .scrolling--item__inner {
     margin: 0 2.5rem;
