@@ -229,10 +229,11 @@
                 %}
 
                 {%- if block.settings.show_view_all and more_in_collection and block.settings.button_label != blank -%}
-                  <div class="collection--button text-center mt-20">
+                  <div class="collection--button text-center mt-20" style="display:flex; justify-content:center; width:100%; margin-top:0.2rem;">
                     <a
                       href="{{ collection.url }}"
                       class="button button--{{ block.settings.button_size }} {{ button_class }}  {% if block.settings.button_icon %} button--with-icon{% endif %}"
+                      style="margin-left:auto; margin-right:auto;"
                     >
                       {{- block.settings.button_label -}}
 
