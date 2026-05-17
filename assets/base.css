@@ -2685,11 +2685,12 @@ media only screen and (max-width: 363px) {
   transform: translateY(-2px) !important;
 }
 
-/* Add hover zoom effect for "Vezi mai multe" buttons */
-.button--vezi-mai-multe {
-  transition: transform 0.3s ease-in-out;
+/* Add hover animation for 'Vezi mai multe' buttons */
+button.load-more-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.button--vezi-mai-multe:hover {
+button.load-more-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
