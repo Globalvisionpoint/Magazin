@@ -2644,9 +2644,9 @@ media only screen and (max-width: 363px) {
 
 /* Enhanced styling for "Vezi mai multe" buttons - clean text link style */
 #loadMoreBtn {
-  font-size: 1.8rem !important;
+  font-size: 1.6rem !important;
   font-weight: 600 !important;
-  color: #c93131 !important;
+  color: #000000 !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -2658,14 +2658,14 @@ media only screen and (max-width: 363px) {
 }
 
 #loadMoreBtn:hover {
-  color: #a01e1e !important;
+  color: #333333 !important;
   transform: translateX(3px) !important;
 }
 
 .loadMoreBtn {
-  font-size: 1.8rem !important;
+  font-size: 1.6rem !important;
   font-weight: 600 !important;
-  color: #c93131 !important;
+  color: #000000 !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -2677,6 +2677,6 @@ media only screen and (max-width: 363px) {
 }
 
 .loadMoreBtn:hover {
-  color: #a01e1e !important;
+  color: #333333 !important;
   transform: translateX(3px) !important;
 }
