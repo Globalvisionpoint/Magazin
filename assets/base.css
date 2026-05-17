@@ -2643,30 +2643,48 @@ media only screen and (max-width: 363px) {
 }
 
 /* Enhanced styling for "Vezi mai multe" buttons */
-a#loadMoreBtn.button,
-a#loadMoreBtn.button--large,
-a#loadMoreBtn.button--medium,
-button.loadMoreBtn.button,
-button.loadMoreBtn.button--large,
-button.loadMoreBtn.button--medium {
-  font-size: 2rem !important;
+#loadMoreBtn {
+  font-size: 2.2rem !important;
   font-weight: 700 !important;
-  padding: 1.5rem 3rem !important;
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
-  letter-spacing: 0.08rem !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  padding: 1.8rem 3.5rem !important;
+  letter-spacing: 0.1rem !important;
+  text-decoration: none !important;
+  background: linear-gradient(135deg, rgb(var(--color-button)) 0%, rgb(201, 30, 30) 100%) !important;
+  color: rgb(var(--color-button-text)) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 6px 20px rgba(201, 49, 49, 0.35) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   text-transform: uppercase !important;
   border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-a#loadMoreBtn.button:hover,
-a#loadMoreBtn.button--large:hover,
-a#loadMoreBtn.button--medium:hover,
-button.loadMoreBtn.button:hover,
-button.loadMoreBtn.button--large:hover,
-button.loadMoreBtn.button--medium:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
-  transform: translateY(-4px) !important;
+#loadMoreBtn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  transition: left 0.4s ease !important;
+  z-index: 1 !important;
+}
+
+#loadMoreBtn:hover {
+  box-shadow: 0 10px 30px rgba(201, 49, 49, 0.5) !important;
+  transform: translateY(-3px) !important;
+}
+
+#loadMoreBtn:hover::before {
+  left: 100% !important;
+}
+
+#loadMoreBtn .button--icon {
+  position: relative !important;
+  z-index: 2 !important;
 }
