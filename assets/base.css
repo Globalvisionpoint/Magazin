@@ -2495,26 +2495,29 @@ input:-moz-placeholder {
 .section[data-section-type="product-slider"] a.button.button--large,
 .section[data-section-type="product-slider"] .button.button--secondary {
   position: relative;
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: fit-content;
-  min-height: 4.9rem;
-  min-width: 18.5rem;
+  width: auto;
+  min-height: 0;
+  min-width: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 2.4rem 0 5.1rem !important;
-  background: linear-gradient(135deg, #d71f35 0%, #e12c2d 100%) !important;
-  color: #ffffff !important;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #111111 !important;
   border: 0 !important;
-  border-radius: 1.6rem;
-  box-shadow: 0 12px 26px rgba(217, 45, 47, 0.2);
-  font-size: 1.08rem;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 1.6rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
-  overflow: hidden;
-  transition: transform var(--duration-short) ease, box-shadow var(--duration-short) ease, filter var(--duration-short) ease;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: none;
+  overflow: visible;
+  transition: color var(--duration-short) ease;
 }
 
 .collection--button .button::before,
@@ -2526,19 +2529,8 @@ input:-moz-placeholder {
 .section[data-section-type="product-slider"] .button--wrapper .button::before,
 .section[data-section-type="product-slider"] a.button.button--large::before,
 .section[data-section-type="product-slider"] .button.button--secondary::before {
-  content: '➜';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #bc1733;
-  color: #ffffff;
-  font-size: 1.55rem;
-  font-weight: 700;
+  content: none !important;
+  display: none !important;
 }
 
 .collection--button .button .button--icon,
@@ -2565,11 +2557,12 @@ input:-moz-placeholder {
 .section[data-section-type="product-slider"] a.button.button--large:focus,
 .section[data-section-type="product-slider"] .button.button--secondary:hover,
 .section[data-section-type="product-slider"] .button.button--secondary:focus {
-  background: linear-gradient(135deg, #d71f35 0%, #e12c2d 100%) !important;
-  color: #ffffff !important;
-  box-shadow: 0 14px 28px rgba(217, 45, 47, 0.24);
-  filter: brightness(1.03);
-  transform: translateY(-1px);
+  background: transparent !important;
+  color: #000000 !important;
+  box-shadow: none !important;
+  filter: none;
+  transform: none;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 749px) {
@@ -2582,11 +2575,11 @@ input:-moz-placeholder {
   .section[data-section-type="product-slider"] .button--wrapper .button,
   .section[data-section-type="product-slider"] a.button.button--large,
   .section[data-section-type="product-slider"] .button.button--secondary {
-    min-width: 14.4rem;
-    min-height: 4.4rem;
-    padding: 0 1.6rem 0 4.4rem !important;
-    border-radius: 1.4rem;
-    font-size: 1rem;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 1.4rem;
   }
 
   .collection--button .button::before,
@@ -2598,8 +2591,8 @@ input:-moz-placeholder {
   .section[data-section-type="product-slider"] .button--wrapper .button::before,
   .section[data-section-type="product-slider"] a.button.button--large::before,
   .section[data-section-type="product-slider"] .button.button--secondary::before {
-    width: 3.7rem;
-    font-size: 1.35rem;
+    content: none !important;
+    display: none !important;
   }
 }
 
