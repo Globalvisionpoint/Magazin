@@ -52,6 +52,11 @@
     margin-left: auto;
     margin-right: 0;
   }
+  
+  /* Force center alignment for all view-more buttons on desktop */
+  .button--wrapper {
+    text-align: center !important;
+  }
 }
 
 .section-heading__sub_title a {

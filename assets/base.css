@@ -2481,8 +2481,17 @@ input:-moz-placeholder {
 .collection--button,
 .loadMoreWrapper,
 .button--wrapper {
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: center;
+}
+
+.loadMoreWrapper > a,
+.loadMoreWrapper > button,
+.collection--button > a,
+.button--wrapper > a,
+a#loadMoreBtn,
+button.loadMoreBtn {
+  display: inline-block;
 }
 
 /* Keep custom wrapper full-width so center alignment works on desktop */
@@ -2498,14 +2507,7 @@ load-more-product {
   width: 100%;
 }
 
-.loadMoreWrapper > .loadMoreBtn,
-.button--wrapper > a,
-.collection--button > a,
-a#loadMoreBtn,
-button.loadMoreBtn {
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .section[data-section-type="featured-collection"] .row.text-center > .col,
 .section[data-section-type="best-deals-products"] .row.text-center > .col {
@@ -2513,34 +2515,49 @@ button.loadMoreBtn {
   justify-content: center;
 }
 
-/* Definitive desktop centering for all homepage collection "Vezi mai multe" links */
+/* Global desktop centering for ALL button wrappers */
 @media only screen and (min-width: 750px) {
+  .loadMoreWrapper,
+  .collection--button,
+  .button--wrapper,
+  load-more-product {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .loadMoreWrapper > a,
+  .loadMoreWrapper > button,
+  .loadMoreWrapper > .loadMoreBtn,
+  .collection--button > a,
+  .collection--button > button,
+  .collection--button > .loadMoreBtn,
+  .button--wrapper > a,
+  .button--wrapper > button,
+  a#loadMoreBtn,
+  button.loadMoreBtn {
+    display: inline-block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Section-specific overrides to ensure centering */
   .section[data-section-type="product-slider"] .loadMoreWrapper,
   .section[data-section-type="product-slider"] .collection--button,
   .section[data-section-type="product-slider"] .button--wrapper,
   .section[data-section-type="product-tab"] .loadMoreWrapper,
   .section[data-section-type="product-tab"] .collection--button,
-  .section[data-section-type="product-tab"] .button--wrapper {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
+  .section[data-section-type="product-tab"] .button--wrapper,
+  .section[data-section-type="featured-collection"] .loadMoreWrapper,
+  .section[data-section-type="featured-collection"] .collection--button,
+  .section[data-section-type="featured-collection"] .button--wrapper,
+  .section[data-section-type="popular-product-with-tabs"] .loadMoreWrapper,
+  .section[data-section-type="popular-product-with-tabs"] .collection--button,
+  .section[data-section-type="popular-product-with-tabs"] .button--wrapper,
+  .section[data-section-type="best-deals-products"] .loadMoreWrapper,
+  .section[data-section-type="best-deals-products"] .collection--button,
+  .section[data-section-type="best-deals-products"] .button--wrapper {
     text-align: center !important;
-  }
-
-  .section[data-section-type="product-slider"] .loadMoreWrapper > a,
-  .section[data-section-type="product-slider"] .loadMoreWrapper > button,
-  .section[data-section-type="product-slider"] .collection--button > a,
-  .section[data-section-type="product-slider"] .button--wrapper > a,
-  .section[data-section-type="product-slider"] a#loadMoreBtn,
-  .section[data-section-type="product-tab"] .collection--button > a,
-  .section[data-section-type="product-tab"] .button--wrapper > a {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .section[data-section-type="product-slider"] load-more-product {
-    display: block !important;
-    width: 100% !important;
   }
 }
 
