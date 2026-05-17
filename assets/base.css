@@ -2498,7 +2498,7 @@ input:-moz-placeholder {
 .section[data-section-type="best-deals-products"] .collection--button,
 .section[data-section-type="best-deals-products"] .loadMoreWrapper,
 .section[data-section-type="best-deals-products"] .button--wrapper {
-  margin-top: 0.8rem !important;
+  margin-top: 0.2rem !important;
 }
 
 @media only screen and (max-width: 360px) {
