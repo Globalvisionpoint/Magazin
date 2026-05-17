@@ -1174,8 +1174,8 @@
             "collection": "articole-menaj-aspiratoare",
             "products_to_show": 10,
             "show_view_all": true,
-            "button_label": "Vezi tot",
-            "button_icon": false,
+            "button_label": "Vezi mai multe",
+            "button_icon": true,
             "button_style": "secondary",
             "button_size": "large"
           }
