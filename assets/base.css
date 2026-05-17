@@ -2478,6 +2478,22 @@ input:-moz-placeholder {
   width:100%
 }
 
+/* Mobile and desktop: ensure arrow/icon stays aligned with text */
+.loadMoreWrapper > a,
+.loadMoreWrapper > button,
+.loadMoreWrapper > .loadMoreBtn,
+.collection--button > a,
+.collection--button > button,
+.collection--button > .loadMoreBtn,
+.button--wrapper > a,
+.button--wrapper > button,
+a#loadMoreBtn,
+button.loadMoreBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}
+
 .collection--button,
 .loadMoreWrapper,
 .button--wrapper {
@@ -2536,9 +2552,6 @@ load-more-product {
   .button--wrapper > button,
   a#loadMoreBtn,
   button.loadMoreBtn {
-    display: inline-flex !important;
-    align-items: center !important;
-    vertical-align: middle !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
