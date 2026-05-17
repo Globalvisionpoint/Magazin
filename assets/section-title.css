@@ -78,9 +78,9 @@
 }
 .section--header-countdown-timer .countdown__text {
   display: block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.4rem;
 }
 .section--header-countdown-timer .countdown__number {
   padding: 0.3rem 0.8rem;
@@ -129,7 +129,7 @@
   }
   .section--header-countdown-timer .countdown__text {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
   .section--header-wrapper .section-heading + .section__header--info {
     margin-top: 1rem;
