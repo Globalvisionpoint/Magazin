@@ -149,14 +149,14 @@
                   >
                 </div>
                 <div class="action_drawer_footer d-flex flex-direction-column">
-                  <button class="button button--primary button__save"">{{ 'general.coupon_code.save_button' | t }}</button>
+                  <button class="button button--primary button__save">{{ 'general.coupon_code.save_button' | t }}</button>
                   <button class="link button__cancel" onclick="this.closest('details').querySelector('summary').click()"> {{ 'general.coupon_code.cancel_title' | t }}</button>
                 </div>
 
                 <div class="coupon_wrong_message error no-js-inline mt-15">
                   {{ 'general.coupon_code.coupon_wrong_message' | t }}
                 </div>
-              </discount-code
+              </discount-code>
             </div>
           </details>
           {% endif %}
@@ -188,15 +188,7 @@
               </div>
       
               <div class="tax-note caption-large rte mb-15">
-                {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                  {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                {%- elsif cart.taxes_included -%}
-                  Taxe incluse. Livrare calculata la finalizare.
-                {%- elsif shop.shipping_policy.body != blank -%}
-                  {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-                {%- else -%}
-                  {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
-                {%- endif -%}
+                Taxe incluse. Livrare calculată la finalizare.
               </div>
       
               <div class="d-flex justify-content-between cart_notification--footer">
