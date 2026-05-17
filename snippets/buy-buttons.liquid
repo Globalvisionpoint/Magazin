@@ -146,11 +146,12 @@
               >
                 <button
                   id="ProductPopup-notify"
-                  class="button__notify--product button button--secondary button--medium mt-15"
+                  class="button__notify--product product-form__submit product-form__submit--buy-now button button--secondary button--medium mt-15"
                   type="button"
                   aria-haspopup="dialog"
                 >
-                  {{ 'products.product.back_in_stock_notify.button' | t }}
+                  <span class="action__btn--svg" aria-hidden="true">⚡</span>
+                  <span class="cart--button-text">{{ 'products.product.back_in_stock_notify.button' | t }}</span>
                 </button>
               </modal-opener>
             </div>

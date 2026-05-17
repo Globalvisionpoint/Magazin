@@ -1684,65 +1684,6 @@ button.product-form__submit.loading:after {
   letter-spacing: 0.05em;
 }
 
-/* Notify me button (out of stock): match Buy Now shape, use black theme */
-.product_buy_button_form .product__buy_now_button .button__notify--product,
-.product .product__buy_now_button .button__notify--product {
-  position: relative;
-  width: 100%;
-  min-height: 4.8rem !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1rem 0 4.6rem !important;
-  border: 0 !important;
-  border-radius: 1.3rem !important;
-  background: linear-gradient(135deg, #111111 0%, #1f1f1f 100%) !important;
-  color: #ffffff !important;
-  font-family: var(--font-heading-family);
-  font-weight: 900 !important;
-  font-size: 1.7rem !important;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  line-height: 1;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28) !important;
-  overflow: hidden;
-}
-
-.product_buy_button_form .product__buy_now_button .button__notify--product::before,
-.product .product__buy_now_button .button__notify--product::before {
-  content: '⚡';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4.6rem;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #000000;
-  color: #ffffff;
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 0;
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
-.product_buy_button_form .product__buy_now_button .button__notify--product::after,
-.product .product__buy_now_button .button__notify--product::after {
-  content: none !important;
-  display: none !important;
-}
-
-.product_buy_button_form .product__buy_now_button .button__notify--product:hover,
-.product_buy_button_form .product__buy_now_button .button__notify--product:focus,
-.product .product__buy_now_button .button__notify--product:hover,
-.product .product__buy_now_button .button__notify--product:focus {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
-  color: #ffffff !important;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.34) !important;
-  filter: brightness(1.03);
-}
-
 @keyframes buynow-glow {
   0%, 100% {
     box-shadow: 0 10px 25px rgba(255, 165, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
