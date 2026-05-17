@@ -2642,60 +2642,25 @@ media only screen and (max-width: 363px) {
         padding-bottom: 0.9rem;
 }
 
-/* Enhanced styling for "Zobacz mai multe" buttons */
-#loadMoreBtn,
-#loadMoreBtn.link,
-#loadMoreBtn.link.with--icon,
-#loadMoreBtn.link.with--icon.button--not-underline {
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
-  padding: 1.8rem 3.5rem !important;
-  letter-spacing: 0.1rem !important;
-  text-decoration: none !important;
-  background: linear-gradient(135deg, rgb(201, 49, 49) 0%, rgb(160, 30, 30) 100%) !important;
-  color: rgb(255, 255, 255) !important;
-  border-radius: 50px !important;
-  box-shadow: 0 6px 20px rgba(201, 49, 49, 0.35) !important;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  text-transform: uppercase !important;
+/* Enhanced styling for "Vezi mai multe" buttons - SIMPLE & DIRECT */
+#loadMoreBtn {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  padding: 15px 40px !important;
+  margin: 20px auto !important;
+  background-color: #c93131 !important;
+  color: white !important;
   border: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.8rem !important;
-  position: relative !important;
-  overflow: hidden !important;
-  text-underline-offset: 0 !important;
-  text-decoration-line: none !important;
+  border-radius: 30px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
 }
 
-#loadMoreBtn::before,
-#loadMoreBtn.link::before,
-#loadMoreBtn.link.with--icon::before,
-#loadMoreBtn.link.with--icon.button--not-underline::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: -100% !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: rgba(255, 255, 255, 0.25) !important;
-  transition: left 0.4s ease !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
-
-#loadMoreBtn:hover,
-#loadMoreBtn.link:hover,
-#loadMoreBtn.link.with--icon:hover,
-#loadMoreBtn.link.with--icon.button--not-underline:hover {
-  box-shadow: 0 10px 30px rgba(201, 49, 49, 0.55) !important;
-  transform: translateY(-3px) !important;
-  background: linear-gradient(135deg, rgb(180, 30, 30) 0%, rgb(140, 20, 20) 100%) !important;
-}
-
-#loadMoreBtn:hover::before,
-#loadMoreBtn.link:hover::before,
-#loadMoreBtn.link.with--icon:hover::before,
-#loadMoreBtn.link.with--icon.button--not-underline:hover::before {
-  left: 100% !important;
+#loadMoreBtn:hover {
+  background-color: #a01e1e !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
 }
