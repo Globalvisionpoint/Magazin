@@ -1696,13 +1696,13 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now::before {
-  border-radius: 0 !important;
-  background: #0f0f0f !important;
+  content: none !important;
+  display: none !important;
 }
 
 .product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now::after {
-  border-radius: 0 !important;
-  background: rgba(255, 255, 255, 0.06) !important;
+  content: none !important;
+  display: none !important;
 }
 
 .product_buy_button_form .product__buy_now_button .button__notify--product.product-form__submit--buy-now:hover,
