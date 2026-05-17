@@ -2658,8 +2658,10 @@ media only screen and (max-width: 363px) {
 }
 
 #loadMoreBtn:hover {
-  color: #333333 !important;
-  transform: translateX(3px) !important;
+  color: #c93131 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  transform: translateY(-2px) !important;
 }
 
 .loadMoreBtn {
@@ -2677,6 +2679,8 @@ media only screen and (max-width: 363px) {
 }
 
 .loadMoreBtn:hover {
-  color: #333333 !important;
-  transform: translateX(3px) !important;
+  color: #c93131 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  transform: translateY(-2px) !important;
 }
