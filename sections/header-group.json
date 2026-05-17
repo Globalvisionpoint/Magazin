@@ -278,6 +278,7 @@
           "disabled": true,
           "settings": {
             "text": "👉 Grăbește-te! Oferta Expiră! ⏳",
+            "link": "",
             "text_stroke": false
           }
         },
@@ -286,6 +287,7 @@
           "disabled": true,
           "settings": {
             "text": "🏷️ Reduceri de până la 50% 💰",
+            "link": "",
             "text_stroke": false
           }
         },
@@ -293,6 +295,7 @@
           "type": "announcement",
           "settings": {
             "text": "🟡 Comenzi telefonice sau 🟢 WhatsApp: 0730482022",
+            "link": "https://wa.me/40730482022",
             "text_stroke": false
           }
         }
