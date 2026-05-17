@@ -2536,7 +2536,9 @@ load-more-product {
   .button--wrapper > button,
   a#loadMoreBtn,
   button.loadMoreBtn {
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
