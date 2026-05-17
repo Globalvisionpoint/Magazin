@@ -869,12 +869,17 @@ input:focus {
 }
 .button--with-icon {
   align-items: center;
+  gap: 0.5rem;
+  display: flex;
 }
 .button--icon {
-  line-height: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
 }
 .button--icon-right {
-  margin-left: 0.5rem;
+  margin-left: 0;
 }
 .button--icon > svg {
   width: 2.2rem;
