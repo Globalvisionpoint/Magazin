@@ -417,8 +417,14 @@ div#cart-notification {
   background: #ffffff;
 }
 
+#mini-cart-drawer .cart_notification_links_inner .totals {
+  align-items: baseline;
+}
+
 #mini-cart-drawer .totals__subtotal {
+  margin: 0;
   font-size: 2.4rem;
+  line-height: 1;
   font-weight: 700;
 }
 
@@ -426,7 +432,7 @@ div#cart-notification {
   margin: 0;
   font-family: var(--font-heading-family);
   font-size: 2.2rem;
-  line-height: 1.1;
+  line-height: 1;
   font-weight: 800;
   color: #111111;
 }
