@@ -315,27 +315,27 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
       </div>
 
       {% if section.settings.button_position == 'bottom' and section.settings.button_label != blank -%}
-          <div class="row text-center {% if slider_enable %}mt-50{% else %}mt-30{% endif %}">
-            <div class="col">
-              <a
-                href="{{ collection.url }}"
-                id="loadMoreBtn"
-                class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {{ button_class }} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {% if section.settings.button_icon %} button--with-icon{% endif %}"
-              >
-                {{- section.settings.button_label -}}
+    <div class="row text-center" style="margin-top: 0.2rem; --bs-gutter-y: 0;">
+      <div class="col">
+        <a
+          href="{{ collection.url }}"
+          id="loadMoreBtn"
+          class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {{ button_class }} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {% if section.settings.button_icon %} button--with-icon{% endif %}"
+        >
+          {{- section.settings.button_label -}}
 
-                {% if section.settings.button_icon %}
-                  <span class="button--icon button--icon-right">
-                    {% if section.settings.icon_type == 'arrow' %}
-                      {% render 'icon-arrow-right' %}
-                    {% else %}
-                      {% render 'icon-chevron-right' %}
-                    {% endif %}
-                  </span>
-                {% endif %}
-              </a>
-            </div>
-          </div>
+          {% if section.settings.button_icon %}
+            <span class="button--icon button--icon-right">
+              {% if section.settings.icon_type == 'arrow' %}
+                {% render 'icon-arrow-right' %}
+              {% else %}
+                {% render 'icon-chevron-right' %}
+              {% endif %}
+            </span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
       {%- endif -%}
       
   </div>
