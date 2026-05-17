@@ -2643,35 +2643,30 @@ media only screen and (max-width: 363px) {
 }
 
 /* Enhanced styling for "Vezi mai multe" buttons */
-.loadMoreWrapper > a,
-.loadMoreWrapper > button,
-.loadMoreWrapper > .loadMoreBtn,
-.collection--button > a,
-.collection--button > button,
-.collection--button > .loadMoreBtn,
-.button--wrapper > a,
-.button--wrapper > button,
-a#loadMoreBtn,
-button.loadMoreBtn {
-  font-size: 1.8rem !important;
-  font-weight: 600 !important;
-  padding: 1.2rem 2.5rem !important;
-  letter-spacing: 0.05rem !important;
+a#loadMoreBtn.button,
+a#loadMoreBtn.button--large,
+a#loadMoreBtn.button--medium,
+button.loadMoreBtn.button,
+button.loadMoreBtn.button--large,
+button.loadMoreBtn.button--medium {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  padding: 1.5rem 3rem !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+  letter-spacing: 0.08rem !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  text-transform: uppercase !important;
   border: none !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
-  transition: all 0.3s ease !important;
 }
 
-.loadMoreWrapper > a:hover,
-.loadMoreWrapper > button:hover,
-.loadMoreWrapper > .loadMoreBtn:hover,
-.collection--button > a:hover,
-.collection--button > button:hover,
-.collection--button > .loadMoreBtn:hover,
-.button--wrapper > a:hover,
-.button--wrapper > button:hover,
-a#loadMoreBtn:hover,
-button.loadMoreBtn:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
-  transform: translateY(-3px) !important;
+a#loadMoreBtn.button:hover,
+a#loadMoreBtn.button--large:hover,
+a#loadMoreBtn.button--medium:hover,
+button.loadMoreBtn.button:hover,
+button.loadMoreBtn.button--large:hover,
+button.loadMoreBtn.button--medium:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-4px) !important;
 }
