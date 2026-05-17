@@ -57,6 +57,10 @@
   .button--wrapper {
     text-align: center !important;
   }
+
+  .section--header-countdown-timer .countdown__text {
+    display: none;
+  }
 }
 
 .section-heading__sub_title a {
@@ -73,7 +77,10 @@
   color: rgba(var(--text-link-hover-color));
 }
 .section--header-countdown-timer .countdown__text {
-  display: none;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
 }
 .section--header-countdown-timer .countdown__number {
   padding: 0.3rem 0.8rem;
@@ -85,6 +92,11 @@
 }
 .section--header-countdown-timer {
   gap: 0.3rem;
+}
+.section--header-countdown-timer .countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .section-heading__title:only-child {
   margin-bottom: 0;
@@ -114,6 +126,10 @@
   }
   .section--header-countdown-timer {
     justify-content: center;
+  }
+  .section--header-countdown-timer .countdown__text {
+    display: block;
+    font-size: 0.75rem;
   }
   .section--header-wrapper .section-heading + .section__header--info {
     margin-top: 1rem;
