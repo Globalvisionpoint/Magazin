@@ -60,6 +60,22 @@
 .deals--product-cart-button {
   position: relative;
 }
+
+/* Keep SOLD OUT label centered only for disabled best-deals buttons */
+.deals--product-cart-button[disabled] {
+  justify-content: center !important;
+  text-align: center;
+}
+
+.deals--product-cart-button[disabled] > svg {
+  display: none;
+}
+
+.deals--product-cart-button[disabled] .cart__buton--label {
+  width: 100%;
+  text-align: center;
+}
+
 .deals--product-cart-button.link:hover {
   text-decoration: underline;
 }

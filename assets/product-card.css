@@ -994,6 +994,33 @@ button.product__card__actions__btn.loading {
   text-shadow: none;
 }
 
+/* Keep SOLD OUT labels centered only for disabled product-card buttons */
+.product__card .product__card--cart-btn[disabled],
+.product-recommendations .product__card--cart-btn[disabled] {
+  justify-content: center !important;
+}
+
+.product__card .product__card--cart-btn[disabled] .action__btn--svg,
+.product-recommendations .product__card--cart-btn[disabled] .action__btn--svg {
+  display: none !important;
+}
+
+.product__card .product__card--cart-btn[disabled] .cart__buton--label,
+.product-recommendations .product__card--cart-btn[disabled] .cart__buton--label {
+  width: 100% !important;
+  flex: 1 1 100% !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 1rem !important;
+  margin: 0 !important;
+}
+
+.product__card .product__card--cart-btn[disabled]::after,
+.product-recommendations .product__card--cart-btn[disabled]::after {
+  content: none !important;
+  display: none !important;
+}
+
 .product__card .product__card--buy-now-btn .cart__buton--label {
   display: inline-flex !important;
   flex: 0 1 auto;
