@@ -2504,7 +2504,8 @@ button.loadMoreBtn {
 .loadMoreWrapper,
 .button--wrapper {
   display: block;
-  text-align: center;
+  text-align: center !important;
+  width: 100%;
 }
 
 .loadMoreWrapper > a,
@@ -2513,7 +2514,9 @@ button.loadMoreBtn {
 .button--wrapper > a,
 a#loadMoreBtn,
 button.loadMoreBtn {
-  display: inline-block;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 auto !important;
 }
 
 /* Keep custom wrapper full-width so center alignment works on desktop */
