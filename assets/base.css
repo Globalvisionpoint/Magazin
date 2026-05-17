@@ -2641,3 +2641,37 @@ media only screen and (max-width: 363px) {
         padding-top: 0.2rem;
         padding-bottom: 0.9rem;
 }
+
+/* Enhanced styling for "Vezi mai multe" buttons */
+.loadMoreWrapper > a,
+.loadMoreWrapper > button,
+.loadMoreWrapper > .loadMoreBtn,
+.collection--button > a,
+.collection--button > button,
+.collection--button > .loadMoreBtn,
+.button--wrapper > a,
+.button--wrapper > button,
+a#loadMoreBtn,
+button.loadMoreBtn {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  padding: 1.2rem 2.5rem !important;
+  letter-spacing: 0.05rem !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.3s ease !important;
+}
+
+.loadMoreWrapper > a:hover,
+.loadMoreWrapper > button:hover,
+.loadMoreWrapper > .loadMoreBtn:hover,
+.collection--button > a:hover,
+.collection--button > button:hover,
+.collection--button > .loadMoreBtn:hover,
+.button--wrapper > a:hover,
+.button--wrapper > button:hover,
+a#loadMoreBtn:hover,
+button.loadMoreBtn:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
+  transform: translateY(-3px) !important;
+}
