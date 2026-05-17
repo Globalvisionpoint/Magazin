@@ -439,6 +439,7 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
       {%- if loadMoreButton and section.settings.button_label != blank -%}
         <div class="text-center loadMoreWrapper mt-30">
           <button
+            style="font-size: 2rem !important; font-weight: bold !important; padding: 15px 40px !important; background-color: #c93131 !important; color: white !important; border: none !important; border-radius: 30px !important; box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important; text-decoration: none !important; display: inline-block !important; transition: all 0.3s ease !important;"
             class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {{ button_class }} loadMoreBtn {% if section.settings.button_icon %} button--with-icon{% endif %}"
             data-section-id="{{ section.id }}"
             data-url="{{ collection.url }}"
