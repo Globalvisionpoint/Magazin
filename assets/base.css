@@ -788,7 +788,7 @@ input:focus {
     align-items: center;
     box-sizing: border-box;
     font-size: calc(var(--button-font-size) * 1.2rem);
-    padding: 1.2rem 1rem 1.3rem;
+    padding: 1.2rem 1.5rem 1.3rem;
     text-decoration: none;
     border: var(--button-border-width) solid transparent;
     background-color: rgba(var(--color-button), var(--alpha-button-background));
@@ -2683,4 +2683,13 @@ media only screen and (max-width: 363px) {
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   transform: translateY(-2px) !important;
+}
+
+/* Add hover zoom effect for "Vezi mai multe" buttons */
+.button--vezi-mai-multe {
+  transition: transform 0.3s ease-in-out;
+}
+
+.button--vezi-mai-multe:hover {
+  transform: scale(1.05);
 }
