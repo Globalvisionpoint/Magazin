@@ -78,7 +78,7 @@
 }
 .section--header-countdown-timer .countdown__text {
   display: block;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin-top: 0.4rem;
 }
@@ -129,7 +129,7 @@
   }
   .section--header-countdown-timer .countdown__text {
     display: block;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
   .section--header-wrapper .section-heading + .section__header--info {
     margin-top: 1rem;
