@@ -100,12 +100,6 @@
             "safe_checkout_text": "PLATA ONLINE CU CARDUL SAU ÎN NUMERAR LA LIVRARE"
           }
         },
-        "apphero_free_gift_app_block_mM74g9": {
-          "type": "shopify://apps/apphero-free-gift/blocks/app-block/775538df-2a18-473b-ada3-d731b074c1a3",
-          "settings": {
-            "ahl_gift_code": ""
-          }
-        },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
           "type": "share",
           "settings": {
@@ -114,6 +108,12 @@
             "facebook_share": false,
             "twitter_share": false,
             "pinterest_share": false
+          }
+        },
+        "apphero_free_gift_app_block_mM74g9": {
+          "type": "shopify://apps/apphero-free-gift/blocks/app-block/775538df-2a18-473b-ada3-d731b074c1a3",
+          "settings": {
+            "ahl_gift_code": ""
           }
         },
         "d0e5cb3f-bc16-499b-bb44-24e33b8e8d49": {
@@ -149,8 +149,8 @@
         "53de2819-ab0a-47a4-aeca-1e575e63ae70",
         "variant_picker_gYNLwq",
         "buy_buttons",
-        "apphero_free_gift_app_block_mM74g9",
         "0a478e9c-d23b-4b8b-b309-62919d0eb667",
+        "apphero_free_gift_app_block_mM74g9",
         "d0e5cb3f-bc16-499b-bb44-24e33b8e8d49",
         "4da3a3dc-a122-42f1-ac3a-ff8d5edd3467"
       ],
