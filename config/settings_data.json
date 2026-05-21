@@ -113,10 +113,13 @@
     },
     "content_for_index": [],
     "blocks": {
-      "1987381849243170004": {
-        "type": "shopify://apps/apphero-free-gift/blocks/app-embed/775538df-2a18-473b-ada3-d731b074c1a3",
+      "631149020729379069": {
+        "type": "shopify://apps/xb-free-gifts-bxgy/blocks/free_gift/019a6cc6-69f6-7803-8602-3b7020878985",
         "disabled": false,
-        "settings": {}
+        "settings": {
+          "customScript": "",
+          "showExampleBxgy": false
+        }
       }
     },
     "color_schemes": {
