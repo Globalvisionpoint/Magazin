@@ -113,13 +113,10 @@
     },
     "content_for_index": [],
     "blocks": {
-      "631149020729379069": {
-        "type": "shopify://apps/xb-free-gifts-bxgy/blocks/free_gift/019a6cc6-69f6-7803-8602-3b7020878985",
+      "14808536273768958909": {
+        "type": "shopify://apps/hue-free-gift-upsell/blocks/alpha/3c57bfdc-648f-48a1-a3a2-f62f80094e4f",
         "disabled": false,
-        "settings": {
-          "customScript": "",
-          "showExampleBxgy": false
-        }
+        "settings": {}
       }
     },
     "color_schemes": {
