@@ -320,7 +320,7 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
         <a
           href="{{ collection.url }}"
           id="loadMoreBtn"
-          style="font-size: 1.6rem !important; font-weight: 400 !important; color: #3b82f6 !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important; transition: all 0.3s ease !important;"
+          style="font-size: 1.6rem !important; font-weight: 300 !important; color: #3b82f6 !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important; transition: all 0.3s ease !important;"
           class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {{ button_class }} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {% if section.settings.button_icon %} button--with-icon{% endif %}"
         >
           {{- section.settings.button_label -}}
@@ -1071,3 +1071,4 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
   }
 }
 {% endschema %}
+
