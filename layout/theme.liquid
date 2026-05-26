@@ -125,9 +125,9 @@
       <script src="{{ 'counter-up.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- unless template.name == 'product' -%}
+    {%- if template.name == 'product' or settings.show_quick_view_button or content_for_layout contains 'product-form' -%}
       <script src="{{ 'product-variant.js' | asset_url }}" defer="defer"></script>
-    {%- endunless -%}
+    {%- endif -%}
 
     {{ content_for_header }}
 
@@ -297,8 +297,7 @@
         --white-color: #FFFFFF;
       }
 
-      body,
-      body * {
+      body {
         font-family: var(--font-body-family) !important;
       }
 
