@@ -1625,7 +1625,7 @@ button.product-form__submit.loading:after {
   width: 100%;
   text-align: center;
   padding: 0 1rem;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.3;
   color: #fff !important;
@@ -1744,7 +1744,7 @@ button.product-form__submit.loading:after {
   }
 
   .product_buy_button_form .product-form__submit.button .cart--button-text {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
   }
 
   .product_buy_button_form .product-form__submit--buy-now .action__btn--svg {
