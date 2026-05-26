@@ -223,6 +223,12 @@
     body.sticky__cart {
       padding-bottom: calc(8.6rem + var(--mobile-navigation-bar-height, 0px));
     }
+
+    .product__sticky_add__form .product__add__cart__button,
+    .product__sticky_add__form .product__add__cart__button.mr-20 {
+      flex: 0 1 clamp(15.8rem, calc(50vw - 1.3rem), 18.2rem);
+      max-width: clamp(15.8rem, calc(50vw - 1.3rem), 18.2rem);
+    }
   }
 
   @media only screen and (max-width: 479px) {
@@ -251,8 +257,8 @@
 
     .product__sticky_add__form .product__add__cart__button,
     .product__sticky_add__form .product__add__cart__button.mr-20 {
-      flex: 0 1 15.8rem;
-      max-width: 15.8rem;
+      flex: 0 1 clamp(16.2rem, calc(50vw - 1.2rem), 18rem);
+      max-width: clamp(16.2rem, calc(50vw - 1.2rem), 18rem);
     }
 
     .product__sticky_add__form .product__add__cart__button .button {
