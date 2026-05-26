@@ -439,7 +439,7 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
       {%- if loadMoreButton and section.settings.button_label != blank -%}
         <div class="text-center loadMoreWrapper mt-30">
           <button
-            style="font-size: 1.8rem !important; font-weight: 300 !important; color: #3b82f6 !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important;"
+            style="font-size: 1.8rem !important; font-weight: 300 !important; color: #1e3a8a !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important;"
             class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {{ button_class }} loadMoreBtn {% if section.settings.button_icon %} button--with-icon{% endif %}"
             data-section-id="{{ section.id }}"
             data-url="{{ collection.url }}"
@@ -471,7 +471,7 @@ row row-cols-xl-{{ productShowXl }} row-cols-lg-{{ productShowLg }} row-cols-md-
               <a
                 href="{{ collection.url }}"
                 id="loadMoreBtn"
-                style="font-size: 1.6rem !important; font-weight: 300 !important; color: #3b82f6 !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important; transition: all 0.3s ease !important; transition: all 0.3s ease !important;"
+                style="font-size: 1.6rem !important; font-weight: 300 !important; color: #1e3a8a !important; background: none !important; border: none !important; box-shadow: none !important; text-decoration: none !important; display: inline-block !important; padding: 5px 10px !important; transition: all 0.3s ease !important; transition: all 0.3s ease !important;"
                 class="{% unless section.settings.button_design == 'link' %}button button--{{ section.settings.button_size }} {% endunless %} {{ button_class }} {% if section.settings.underline and section.settings.button_design == 'link' %} button--underline {% endif %} {% if section.settings.button_icon %} button--with-icon{% endif %}"
               >
                 {{- section.settings.button_label -}}
