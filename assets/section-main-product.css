@@ -578,6 +578,22 @@ variant-selects {
   z-index: 1;
 }
 
+.price__verified-badge {
+  position: absolute;
+  top: 50%;
+  right: 1.8rem;
+  transform: translateY(-50%);
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 83, 45, 0.28);
+  background: #ecfdf3;
+  color: #14532d;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .product .price__box_wrapper .price {
   align-items: center;
   flex: 1 1 auto;
@@ -637,6 +653,12 @@ variant-selects {
 
   .save__disoucnt {
     right: 1.6rem;
+  }
+
+  .price__verified-badge {
+    right: 1.2rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 1rem;
   }
 
   .discount__sale__text {

@@ -318,6 +318,12 @@
                   </div>
                 </div>
 
+                {%- unless on_sale -%}
+                  <div class="price__verified-badge" aria-label="Produs verificat">
+                    Produs verificat
+                  </div>
+                {%- endunless -%}
+
                 {%- if on_sale and block.settings.save_percentage -%}
                   <div class="save__disoucnt">
                     <span class="discount__sale__text">
