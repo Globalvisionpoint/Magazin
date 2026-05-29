@@ -451,16 +451,30 @@
                       {% render 'icon-caret' %}
                     </summary>
                     <div class="accordion__content rte">
-                      {%- if block.settings.productdesc == 'shortdesc' and product_short_description != blank -%}
-                        <div class="product__description rte">
-                          {{ product_short_description }}
+                      <div class="product__description-fade js-product-description-fade is-collapsed" data-collapsed-height="260">
+                        <div class="product__description-fade-inner">
+                          {%- if block.settings.productdesc == 'shortdesc' and product_short_description != blank -%}
+                            <div class="product__description rte">
+                              {{ product_short_description }}
+                            </div>
+                          {%- elsif block.settings.productdesc == 'fulldesc' and product.description != blank -%}
+                            <div class="product__description rte">
+                              {{ product.description }}
+                            </div>
+                          {%- endif -%}
                         </div>
-                      {%- elsif block.settings.productdesc == 'fulldesc' and product.description != blank -%}
-                        {%- assign truncatewords_count = block.settings.truncatewords_count_handle -%}
-                        <div class="product__description rte">
-                          {{ product.description | truncatewords: truncatewords_count, '' }}
-                        </div>
-                      {%- endif -%}
+                      </div>
+                      <div class="product__description-actions">
+                        <button
+                          type="button"
+                          class="product__description-toggle js-product-description-toggle"
+                          aria-expanded="false"
+                          data-expand-text="Vezi mai mult"
+                          data-collapse-text="Închide descrierea"
+                        >
+                          Vezi mai mult
+                        </button>
+                      </div>
                     </div>
                   </details>
                 {% else %}
@@ -474,7 +488,7 @@
                   {% endif %}
 
                   <div class="accordion__content rte">
-                    <div class="product__description-fade js-product-description-fade is-collapsed" data-collapsed-height="320">
+                    <div class="product__description-fade js-product-description-fade is-collapsed" data-collapsed-height="260">
                       <div class="product__description-fade-inner">
                         {%- if block.settings.productdesc == 'shortdesc' and product_short_description != blank -%}
                           <div class="product__description rte">
