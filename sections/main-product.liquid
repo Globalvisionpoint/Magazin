@@ -1272,18 +1272,8 @@
       descriptionWrappers.forEach(function (wrapper) {
         var contentWrapper = wrapper.closest('.accordion__content');
         var toggle = contentWrapper ? contentWrapper.querySelector('.js-product-description-toggle') : null;
-        var inner = wrapper.querySelector('.product__description-fade-inner');
 
-        if (!toggle || !inner) {
-          return;
-        }
-
-        var collapsedHeight = Number(wrapper.dataset.collapsedHeight || 320);
-        var fullHeight = inner.scrollHeight;
-
-        if (fullHeight <= collapsedHeight + 8) {
-          wrapper.classList.remove('is-collapsed');
-          toggle.style.display = 'none';
+        if (!toggle) {
           return;
         }
 
