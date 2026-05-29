@@ -35,6 +35,45 @@
       margin-bottom: {{ section.settings.margin_bottom }}px;
     }
   }
+
+  #product_all .product-description-collapse {
+    position: relative;
+    overflow: hidden;
+    max-height: 34rem;
+    transition: max-height 0.3s ease;
+  }
+
+  #product_all .product-description-collapse.is-expanded {
+    max-height: 200rem;
+  }
+
+  #product_all .product-description-collapse:not(.is-expanded)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10rem;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(var(--color-background), 1));
+  }
+
+  #product_all .product-description-actions {
+    margin-top: 1.2rem;
+  }
+
+  #product_all .product-description-toggle {
+    border: 0;
+    background: transparent;
+    color: #1e3a8a;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.18rem;
+  }
 </style>
 {%- liquid
   assign container = ''
@@ -111,7 +150,20 @@
               assign product_description_sanitized = product_description_sanitized | replace: '//www.youtube.com/embed/', '//www.youtube-nocookie.com/embed/'
             -%}
             <div id="product_all" class="tab_pane active {% if forloop.first == true %} show {% endif %}">
-              {{ product_description_sanitized }}
+              <div class="product-description-collapse" data-collapsed-height="340">
+                {{ product_description_sanitized }}
+              </div>
+              <div class="product-description-actions">
+                <button
+                  type="button"
+                  class="product-description-toggle"
+                  aria-expanded="false"
+                  data-expand-text="Vezi mai mult"
+                  data-collapse-text="Închide descrierea"
+                >
+                  Vezi mai mult
+                </button>
+              </div>
             </div>
           {%- when 'reviews' -%}
             <div id="product_new" class="tab_pane {% if forloop.first == true %} show {% endif %}">
@@ -148,6 +200,27 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var container = document.getElementById('product_all');
+    if (!container) return;
+
+    var collapse = container.querySelector('.product-description-collapse');
+    var toggle = container.querySelector('.product-description-toggle');
+    if (!collapse || !toggle) return;
+
+    toggle.addEventListener('click', function () {
+      var expanded = collapse.classList.toggle('is-expanded');
+      toggle.setAttribute('aria-expanded', String(expanded));
+      toggle.textContent = expanded ? toggle.dataset.collapseText : toggle.dataset.expandText;
+
+      if (!expanded) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
