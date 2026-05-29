@@ -1596,6 +1596,52 @@ button.product-form__submit.loading:after {
   padding-top: 1.5rem;
   margin-top: 0;
 }
+
+.product__description-fade {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+
+.product__description-fade.is-collapsed {
+  max-height: 32rem;
+}
+
+.product__description-fade:not(.is-collapsed) {
+  max-height: 200rem;
+}
+
+.product__description-fade.is-collapsed::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(var(--color-background), 1));
+}
+
+.product__description-actions {
+  margin-top: 1rem;
+}
+
+.product__description-toggle {
+  border: 0;
+  background: transparent;
+  color: #1e3a8a;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+.product__description-toggle:hover {
+  color: #17316f;
+}
 .deferred-media__poster-button.video--button {
   position: absolute;
   background: rgba(var(--color-background));
