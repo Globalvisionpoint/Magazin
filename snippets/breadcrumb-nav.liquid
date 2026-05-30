@@ -8,54 +8,56 @@
     {%- when 'product' -%}
     {%- assign primary_collection = blank -%}
     {%- assign secondary_collection = blank -%}
+    {%- assign selected_collection_keys = '|' -%}
 
-    {%- assign context_collection_is_generic = false -%}
     {%- if collection != blank -%}
       {%- assign context_handle_downcase = collection.handle | downcase -%}
-      {%- assign context_title_downcase = collection.title | downcase -%}
+      {%- assign context_title_key = collection.title | strip | downcase | replace: ' ', '' | replace: '-', '' | replace: '_', '' -%}
+      {%- assign context_is_generic = false -%}
+
       {%- if context_handle_downcase == 'all'
         or context_handle_downcase == 'all-products'
         or context_handle_downcase == 'catalog'
         or context_handle_downcase == 'frontpage'
-        or context_title_downcase contains 'all products'
-        or context_title_downcase contains 'toate produsele'
+        or context_title_key contains 'allproducts'
+        or context_title_key contains 'toateprodusele'
       -%}
-        {%- assign context_collection_is_generic = true -%}
+        {%- assign context_is_generic = true -%}
       {%- endif -%}
-    {%- endif -%}
 
-    {%- if collection != blank and context_collection_is_generic == false -%}
-      {%- assign primary_collection = collection -%}
+      {%- unless context_is_generic -%}
+        {%- assign primary_collection = collection -%}
+        {%- assign selected_collection_keys = selected_collection_keys | append: context_title_key | append: '|' -%}
+      {%- endunless -%}
     {%- endif -%}
 
     {%- if product.collections != blank and product.collections.size > 0 -%}
       {%- for product_collection in product.collections -%}
         {%- assign collection_handle_downcase = product_collection.handle | downcase -%}
-        {%- assign collection_title_downcase = product_collection.title | downcase -%}
+        {%- assign collection_title_key = product_collection.title | strip | downcase | replace: ' ', '' | replace: '-', '' | replace: '_', '' -%}
+        {%- assign collection_key_token = '|' | append: collection_title_key | append: '|' -%}
         {%- assign is_generic_collection = false -%}
 
         {%- if collection_handle_downcase == 'all'
           or collection_handle_downcase == 'all-products'
           or collection_handle_downcase == 'catalog'
           or collection_handle_downcase == 'frontpage'
-          or collection_title_downcase contains 'all products'
-          or collection_title_downcase contains 'toate produsele'
+          or collection_title_key contains 'allproducts'
+          or collection_title_key contains 'toateprodusele'
         -%}
           {%- assign is_generic_collection = true -%}
         {%- endif -%}
 
         {%- unless is_generic_collection -%}
-          {%- if primary_collection == blank -%}
-            {%- assign primary_collection = product_collection -%}
-          {%- elsif secondary_collection == blank and product_collection.id != primary_collection.id -%}
-            {%- assign primary_title_downcase = primary_collection.title | downcase -%}
-            {%- assign candidate_title_downcase = product_collection.title | downcase -%}
-            {%- assign candidate_handle_downcase = product_collection.handle | downcase -%}
-            {%- assign primary_handle_downcase = primary_collection.handle | downcase -%}
-            {%- if candidate_title_downcase != primary_title_downcase and candidate_handle_downcase != primary_handle_downcase -%}
+          {%- unless selected_collection_keys contains collection_key_token -%}
+            {%- if primary_collection == blank -%}
+              {%- assign primary_collection = product_collection -%}
+              {%- assign selected_collection_keys = selected_collection_keys | append: collection_title_key | append: '|' -%}
+            {%- elsif secondary_collection == blank -%}
               {%- assign secondary_collection = product_collection -%}
+              {%- assign selected_collection_keys = selected_collection_keys | append: collection_title_key | append: '|' -%}
             {%- endif -%}
-          {%- endif -%}
+          {%- endunless -%}
         {%- endunless -%}
       {%- endfor -%}
     {%- endif -%}
