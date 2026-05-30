@@ -895,7 +895,13 @@ span.input__field--label {
 }
 h1.product__title {
   margin-top: 0;
+  margin-bottom: 0.6rem;
 }
+
+.product__info-container > .product__title + [id^="sku__"] {
+  margin-top: 0.2rem;
+}
+
 @media only screen and (min-width: 992px) {
   .product__info-container {
     padding: 0 3rem 0 0;
