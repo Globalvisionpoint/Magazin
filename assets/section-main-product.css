@@ -911,11 +911,11 @@ h1.product__title {
 }
 
 .product__info-container > .price__box_wrapper + div {
-  margin-top: 0.35rem;
+  margin-top: 0 !important;
 }
 
 .product__info-container > .price__box_wrapper + div .product_buy_button_form {
-  margin-top: 0 !important;
+  margin-top: -0.4rem !important;
 }
 
 @media only screen and (min-width: 992px) {
