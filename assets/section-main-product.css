@@ -1263,16 +1263,18 @@ span.product__media-icon.motion-reduce > a {
 
   .thumbnail-slider .thumbnail-list.slider {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.6rem;
     padding: 0.5rem;
     flex: 1;
     scroll-padding-left: 0.5rem;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .thumbnail-list__item.slider__slide {
     width: calc((100% - 1.8rem) / 4);
+    min-width: calc((100% - 1.8rem) / 4);
     max-width: calc((100% - 1.8rem) / 4);
   }
 }
