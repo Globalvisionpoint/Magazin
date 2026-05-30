@@ -9,13 +9,9 @@
       <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
     </li>
     {%- when 'product' -%}
-    {%- assign breadcrumb_collection = collection -%}
-    {%- if breadcrumb_collection == blank and product.collections != blank and product.collections.size > 0 -%}
-      {%- assign breadcrumb_collection = product.collections.first -%}
-    {%- endif -%}
-    {%- if breadcrumb_collection.url -%}
+    {%- if collection.url -%}
     <li class="breadcrumbs__item">
-      {{ breadcrumb_collection.title | link_to: breadcrumb_collection.url }}
+      {{ collection.title | link_to: collection.url }}
     </li>
     {%- endif -%}
     <li class="breadcrumbs__item">
