@@ -1,19 +1,38 @@
 <nav role="navigation" aria-label="breadcrumbs">
   <ol class="breadcrumbs__list">
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="/">{{ 'general.back_to_home_label' | t }}</a>
-    </li>
     {%- case t -%}
     {%- when 'page' -%}
     <li class="breadcrumbs__item">
       <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
     </li>
     {%- when 'product' -%}
-    {%- if collection.url -%}
+    {%- assign primary_collection = collection -%}
+    {%- if primary_collection == blank and product.collections != blank and product.collections.size > 0 -%}
+      {%- assign primary_collection = product.collections.first -%}
+    {%- endif -%}
+
+    {%- assign secondary_collection = blank -%}
+    {%- if product.collections != blank and product.collections.size > 1 -%}
+      {%- for product_collection in product.collections -%}
+        {%- if primary_collection == blank or product_collection.id != primary_collection.id -%}
+          {%- assign secondary_collection = product_collection -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+    {%- if primary_collection.url -%}
     <li class="breadcrumbs__item">
-      {{ collection.title | link_to: collection.url }}
+      {{ primary_collection.title | link_to: primary_collection.url }}
     </li>
     {%- endif -%}
+
+    {%- if secondary_collection != blank and secondary_collection.url -%}
+    <li class="breadcrumbs__item">
+      {{ secondary_collection.title | link_to: secondary_collection.url }}
+    </li>
+    {%- endif -%}
+
     <li class="breadcrumbs__item">
       <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
     </li>
