@@ -503,6 +503,65 @@
         });
       }
     </script>
+
+    {% style %}
+      .header-breadcrumb-bar {
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        background: #ffffff;
+        padding: 0.8rem 0;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scrollbar-width: thin;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__item {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+        font-size: 1.4rem;
+        color: #1f2937;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__item + .breadcrumbs__item {
+        margin-left: 0.8rem;
+        padding-left: 0.8rem;
+        position: relative;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__item + .breadcrumbs__item::before {
+        content: "/";
+        position: absolute;
+        left: -0.2rem;
+        color: #9ca3af;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__link,
+      .header-breadcrumb-bar .breadcrumbs__item a {
+        text-decoration: none;
+        color: #d11f44;
+      }
+
+      .header-breadcrumb-bar .breadcrumbs__link[aria-current='page'] {
+        color: #1f2937;
+      }
+
+      @media only screen and (max-width: 749px) {
+        .header-breadcrumb-bar .breadcrumbs__item {
+          font-size: 1.3rem;
+        }
+      }
+    {% endstyle %}
 </head>
 
   <body class="gradient">   
@@ -515,6 +574,20 @@
     {%- endif -%}
 
     {%- sections 'header-group' -%}
+
+    {%- if request.page_type == 'product'
+      or request.page_type == 'collection'
+      or request.page_type == 'page'
+      or request.page_type == 'blog'
+      or request.page_type == 'article'
+    -%}
+      {%- assign t = template | split: '.' | first -%}
+      <div class="header-breadcrumb-bar">
+        <div class="container">
+          {%- render 'breadcrumb-nav', t: t -%}
+        </div>
+      </div>
+    {%- endif -%}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
