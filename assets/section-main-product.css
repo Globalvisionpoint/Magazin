@@ -906,6 +906,10 @@ h1.product__title {
   margin-top: 0.3rem;
 }
 
+.product__info-container > .product-variant-inventory + .price__box_wrapper {
+  margin-top: 0.5rem;
+}
+
 @media only screen and (min-width: 992px) {
   .product__info-container {
     padding: 0 3rem 0 0;
