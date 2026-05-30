@@ -998,7 +998,24 @@ span.product__media-icon.motion-reduce > a {
   } */
 
   .product__media-list {
-    margin-bottom: 3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .thumbnail-slider {
+    margin-bottom: 0.6rem;
+  }
+
+  .product__media_container {
+    margin-bottom: 0.6rem;
+  }
+
+  .product__info-container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .product__info-container > *:first-child {
+    margin-top: 0;
   }
   .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
     margin-left: -1.5rem;
