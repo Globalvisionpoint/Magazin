@@ -9,6 +9,25 @@
     {%- assign primary_collection = blank -%}
     {%- assign secondary_collection = blank -%}
 
+    {%- assign context_collection_is_generic = false -%}
+    {%- if collection != blank -%}
+      {%- assign context_handle_downcase = collection.handle | downcase -%}
+      {%- assign context_title_downcase = collection.title | downcase -%}
+      {%- if context_handle_downcase == 'all'
+        or context_handle_downcase == 'all-products'
+        or context_handle_downcase == 'catalog'
+        or context_handle_downcase == 'frontpage'
+        or context_title_downcase contains 'all products'
+        or context_title_downcase contains 'toate produsele'
+      -%}
+        {%- assign context_collection_is_generic = true -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if collection != blank and context_collection_is_generic == false -%}
+      {%- assign primary_collection = collection -%}
+    {%- endif -%}
+
     {%- if product.collections != blank and product.collections.size > 0 -%}
       {%- for product_collection in product.collections -%}
         {%- assign collection_handle_downcase = product_collection.handle | downcase -%}
@@ -29,14 +48,16 @@
           {%- if primary_collection == blank -%}
             {%- assign primary_collection = product_collection -%}
           {%- elsif secondary_collection == blank and product_collection.id != primary_collection.id -%}
-            {%- assign secondary_collection = product_collection -%}
+            {%- assign primary_title_downcase = primary_collection.title | downcase -%}
+            {%- assign candidate_title_downcase = product_collection.title | downcase -%}
+            {%- assign candidate_handle_downcase = product_collection.handle | downcase -%}
+            {%- assign primary_handle_downcase = primary_collection.handle | downcase -%}
+            {%- if candidate_title_downcase != primary_title_downcase and candidate_handle_downcase != primary_handle_downcase -%}
+              {%- assign secondary_collection = product_collection -%}
+            {%- endif -%}
           {%- endif -%}
         {%- endunless -%}
       {%- endfor -%}
-    {%- endif -%}
-
-    {%- if primary_collection == blank and collection != blank -%}
-      {%- assign primary_collection = collection -%}
     {%- endif -%}
 
     {%- if primary_collection.url -%}
