@@ -6,19 +6,37 @@
       <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
     </li>
     {%- when 'product' -%}
-    {%- assign primary_collection = collection -%}
-    {%- if primary_collection == blank and product.collections != blank and product.collections.size > 0 -%}
-      {%- assign primary_collection = product.collections.first -%}
+    {%- assign primary_collection = blank -%}
+    {%- assign secondary_collection = blank -%}
+
+    {%- if product.collections != blank and product.collections.size > 0 -%}
+      {%- for product_collection in product.collections -%}
+        {%- assign collection_handle_downcase = product_collection.handle | downcase -%}
+        {%- assign collection_title_downcase = product_collection.title | downcase -%}
+        {%- assign is_generic_collection = false -%}
+
+        {%- if collection_handle_downcase == 'all'
+          or collection_handle_downcase == 'all-products'
+          or collection_handle_downcase == 'catalog'
+          or collection_handle_downcase == 'frontpage'
+          or collection_title_downcase contains 'all products'
+          or collection_title_downcase contains 'toate produsele'
+        -%}
+          {%- assign is_generic_collection = true -%}
+        {%- endif -%}
+
+        {%- unless is_generic_collection -%}
+          {%- if primary_collection == blank -%}
+            {%- assign primary_collection = product_collection -%}
+          {%- elsif secondary_collection == blank and product_collection.id != primary_collection.id -%}
+            {%- assign secondary_collection = product_collection -%}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
     {%- endif -%}
 
-    {%- assign secondary_collection = blank -%}
-    {%- if product.collections != blank and product.collections.size > 1 -%}
-      {%- for product_collection in product.collections -%}
-        {%- if primary_collection == blank or product_collection.id != primary_collection.id -%}
-          {%- assign secondary_collection = product_collection -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
+    {%- if primary_collection == blank and collection != blank -%}
+      {%- assign primary_collection = collection -%}
     {%- endif -%}
 
     {%- if primary_collection.url -%}
