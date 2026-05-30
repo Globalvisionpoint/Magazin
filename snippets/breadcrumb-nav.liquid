@@ -62,15 +62,13 @@
       {%- endfor -%}
     {%- endif -%}
 
-    {%- if primary_collection.url -%}
-    <li class="breadcrumbs__item">
-      {{ primary_collection.title | link_to: primary_collection.url }}
-    </li>
-    {%- endif -%}
-
     {%- if secondary_collection != blank and secondary_collection.url -%}
     <li class="breadcrumbs__item">
       {{ secondary_collection.title | link_to: secondary_collection.url }}
+    </li>
+    {%- elsif primary_collection.url -%}
+    <li class="breadcrumbs__item">
+      {{ primary_collection.title | link_to: primary_collection.url }}
     </li>
     {%- endif -%}
 
