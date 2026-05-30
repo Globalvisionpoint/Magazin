@@ -911,7 +911,7 @@ h1.product__title {
 }
 
 .product__info-container .product_buy_button_form {
-  margin-top: -0.8rem !important;
+  margin-top: -1.4rem !important;
 }
 
 @media only screen and (min-width: 992px) {
@@ -925,7 +925,7 @@ h1.product__title {
   }
 
   .product__info-container .product_buy_button_form {
-    margin-top: -1.2rem !important;
+    margin-top: -2rem !important;
   }
 
   h1.product__title {
