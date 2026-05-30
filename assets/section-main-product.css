@@ -926,6 +926,11 @@ h1.product__title {
 
   .product__info-container .product_buy_button_form {
     margin-top: -2rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .product-form__buttons .product-trust-badges {
+    margin-bottom: 0 !important;
   }
 
   h1.product__title {
