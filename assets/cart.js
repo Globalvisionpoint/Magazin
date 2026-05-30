@@ -112,14 +112,11 @@ class CartItems extends HTMLElement {
   }
 
   updateLiveRegions(line, itemCount) {
-    if (this.currentItemCount === itemCount) {
-      document
-        .getElementById(`Line-item-error-${line}`)
-        .querySelector(".cart-item__error-text").innerHTML =
-        window.cartStrings.quantityError.replace(
-          "[quantity]",
-          document.getElementById(`Quantity-${line}`).value
-        );
+    const lineItemError = document.getElementById(`Line-item-error-${line}`);
+    if (lineItemError) {
+      const errorText = lineItemError.querySelector(".cart-item__error-text");
+      if (errorText) errorText.textContent = "";
+      lineItemError.style.display = "none";
     }
 
     this.currentItemCount = itemCount;

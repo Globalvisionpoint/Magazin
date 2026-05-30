@@ -151,21 +151,10 @@ class CartNotification extends HTMLElement {
       });
   }
   updateLiveRegions(line, itemCount) {
-    if (this.currentItemCount === itemCount) {
-      document
-        .getElementById(`Line-item-error-${line}`)
-        .querySelector(".cart-item__error-text").innerHTML =
-        window.cartStrings.quantityError.replace(
-          "[quantity]",
-          document.getElementById(`Quantity-${line}`).value
-        );
-      document
-        .getElementById(`Line-item-error-${line}`)
-        .classList.remove("no-js-inline");
-    } else {
-      document
-        .getElementById(`Line-item-error-${line}`)
-        .classList.add("no-js-inline");
+    const lineItemError = document.getElementById(`Line-item-error-${line}`);
+    if (lineItemError) {
+      lineItemError.classList.add("no-js-inline");
+      lineItemError.style.display = "none";
     }
     this.currentItemCount = itemCount;
   }
