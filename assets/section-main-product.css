@@ -905,6 +905,11 @@ h1.product__title {
   .product__info-container {
     padding-top: 0.5rem;
   }
+
+  h1.product__title {
+    font-size: calc(var(--font-heading-size) * 2.2rem);
+    line-height: 1.25;
+  }
 }
 
 .product__media {
