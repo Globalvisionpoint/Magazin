@@ -910,6 +910,11 @@ h1.product__title {
   margin-top: 0.5rem;
 }
 
+.product__info-container > .price__box_wrapper + .product-form__quantity,
+.product__info-container > .price__box_wrapper + .product-form {
+  margin-top: 0.5rem;
+}
+
 @media only screen and (min-width: 992px) {
   .product__info-container {
     padding: 0 3rem 0 0;
