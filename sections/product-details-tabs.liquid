@@ -96,6 +96,18 @@
     text-underline-offset: 0.18rem;
     text-align: center;
   }
+
+  #product_all .product-description-separator {
+    width: 100%;
+    margin: 1.8rem 0 0;
+    border-top: 1px solid rgba(15, 23, 42, 0.16);
+  }
+
+  @media screen and (max-width: 749px) {
+    #product_all .product-description-separator {
+      margin-top: 1.4rem;
+    }
+  }
 </style>
 {%- liquid
   assign container = ''
@@ -186,6 +198,7 @@
                   Vezi toată descrierea
                 </button>
               </div>
+              <div class="product-description-separator" aria-hidden="true"></div>
             </div>
           {%- when 'reviews' -%}
             <div id="product_new" class="tab_pane {% if forloop.first == true %} show {% endif %}">
