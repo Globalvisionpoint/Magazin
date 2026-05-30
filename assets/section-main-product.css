@@ -902,6 +902,10 @@ h1.product__title {
   margin-top: 0.2rem;
 }
 
+.product__info-container > [id^="sku__"] + .product-variant-inventory {
+  margin-top: 0.3rem;
+}
+
 @media only screen and (min-width: 992px) {
   .product__info-container {
     padding: 0 3rem 0 0;
