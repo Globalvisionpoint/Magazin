@@ -1790,7 +1790,7 @@ button.product-form__submit.loading:after {
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
   background: #fbd455 !important;
-  border: 0.5px solid rgba(0, 0, 0, 0.85) !important;
+  border: 0.35px solid rgba(0, 0, 0, 0.65) !important;
   box-sizing: border-box;
   box-shadow: 0 10px 25px rgba(241, 175, 66, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   position: relative;
@@ -1815,7 +1815,7 @@ button.product-form__submit.loading:after {
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
   background: #f3ba48 !important;
-  border: 0.5px solid rgba(0, 0, 0, 0.85) !important;
+  border: 0.35px solid rgba(0, 0, 0, 0.65) !important;
   box-shadow: 0 14px 32px rgba(241, 175, 66, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.34);
   filter: none;
 }
