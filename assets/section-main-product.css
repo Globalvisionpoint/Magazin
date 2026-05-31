@@ -1789,10 +1789,10 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: linear-gradient(180deg, #3a4252 0%, #1f2632 100%) !important;
-  border: 1px solid rgba(12, 16, 24, 0.95) !important;
+  background: linear-gradient(180deg, #bf2b33 0%, #971f27 100%) !important;
+  border: 1px solid rgba(120, 20, 27, 0.95) !important;
   box-sizing: border-box;
-  box-shadow: 0 8px 18px rgba(10, 14, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 18px rgba(151, 31, 39, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.14);
   position: relative;
   overflow: visible;
   animation: none;
@@ -1807,16 +1807,16 @@ button.product-form__submit.loading:after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 58%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 60%);
   border-radius: 1.3rem;
   pointer-events: none;
 }
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: linear-gradient(180deg, #444d5f 0%, #262e3b 100%) !important;
-  border: 1px solid rgba(12, 16, 24, 0.95) !important;
-  box-shadow: 0 10px 22px rgba(10, 14, 22, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, #c9343d 0%, #a6242d 100%) !important;
+  border: 1px solid rgba(120, 20, 27, 0.95) !important;
+  box-shadow: 0 10px 22px rgba(151, 31, 39, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   filter: none !important;
 }
 
