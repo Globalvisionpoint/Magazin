@@ -1789,15 +1789,16 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: linear-gradient(180deg, #f4f7fb 0%, #e8edf4 100%) !important;
-  border: 1px solid rgba(167, 178, 194, 0.95) !important;
+  background: linear-gradient(135deg, #ffe891 0%, #ffd45b 42%, #ffbf2f 100%) !important;
+  border: 1px solid #d89a0f !important;
   box-sizing: border-box;
-  box-shadow: 0 8px 18px rgba(42, 58, 78, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 18px rgba(207, 140, 12, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.56);
   position: relative;
   overflow: visible;
   animation: none;
   justify-content: center;
   padding: 0 1.6rem;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .product_buy_button_form .product-form__submit--buy-now::before {
@@ -1807,16 +1808,17 @@ button.product-form__submit.loading:after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 62%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.06) 52%, rgba(255, 255, 255, 0) 72%);
   border-radius: 1.3rem;
   pointer-events: none;
 }
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: linear-gradient(180deg, #edf2f8 0%, #dfe7f1 100%) !important;
-  border: 1px solid rgba(152, 166, 185, 0.95) !important;
-  box-shadow: 0 10px 22px rgba(42, 58, 78, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  background: linear-gradient(135deg, #ffec9f 0%, #ffd968 40%, #ffc537 100%) !important;
+  border: 1px solid #cf9008 !important;
+  box-shadow: 0 10px 22px rgba(207, 140, 12, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.64);
+  transform: translateY(-1px);
   filter: none !important;
 }
 
@@ -1829,11 +1831,11 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
-  color: #1f2a3a !important;
+  color: #222015 !important;
   text-shadow: none;
   font-weight: 900 !important;
   font-size: 1.4rem !important;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   width: 100%;
   text-align: center;
 }
