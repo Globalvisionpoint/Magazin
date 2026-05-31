@@ -528,6 +528,20 @@
           fill: currentColor;
         }
 
+        .offcanvas__footer-logo {
+          display: flex;
+          justify-content: center;
+          margin-top: 1.4rem;
+          text-decoration: none;
+        }
+
+        .offcanvas__footer-logo-image {
+          display: block;
+          width: auto;
+          max-width: min(18rem, 65vw);
+          height: auto;
+        }
+
         .offcanvas__footer .button .offcanvas__menu_text__icon {
           margin-left: 0;
           font-family: var(--font-body-family);
@@ -597,6 +611,22 @@
             </span>
           </a>
         {%- endunless -%}
+
+        {%- if section.settings.logo != blank -%}
+          <a href="{{ routes.root_url }}" class="offcanvas__footer-logo" aria-label="Smart Universal">
+            {%- assign footer_logo_width = section.settings.logo_width | default: 160 -%}
+            {%- assign footer_logo_width_2x = footer_logo_width | times: 2 -%}
+            <img
+              srcset="{{ section.settings.logo | image_url: width: footer_logo_width, format: 'webp' }} 1x, {{ section.settings.logo | image_url: width: footer_logo_width_2x, format: 'webp' }} 2x"
+              src="{{ section.settings.logo | image_url: width: footer_logo_width, format: 'webp' }}"
+              loading="lazy"
+              class="offcanvas__footer-logo-image"
+              width="{{ section.settings.logo.width }}"
+              height="{{ section.settings.logo.height }}"
+              alt="{{ section.settings.logo.alt | default: 'Smart Universal' | escape }}"
+            >
+          </a>
+        {%- endif -%}
       {%- endif -%}
     </div>
     <div class="offcanvas__localziation">
