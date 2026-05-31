@@ -555,10 +555,11 @@ variant-selects {
 
 .discount__sale__off {
   margin-top: 0.35rem;
-  font-size: 1.2rem;
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.1;
   text-transform: lowercase;
+  color: #ffd84d;
 }
 .price__box_wrapper {
   display: flex;
@@ -703,7 +704,8 @@ variant-selects {
   }
 
   .discount__sale__off {
-    font-size: 0.86rem;
+    font-size: 1.05rem;
+    color: #ffd84d;
   }
 
   .product .price__box_wrapper .price-item--sale {
