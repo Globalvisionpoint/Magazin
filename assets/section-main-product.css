@@ -1789,10 +1789,10 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: linear-gradient(135deg, #1b8a82 0%, #136d66 55%, #0f5b56 100%) !important;
-  border: 1px solid #0b4f4a !important;
+  background: linear-gradient(135deg, #ffe27a 0%, #ffd84d 46%, #f5cb35 100%) !important;
+  border: 1px solid #d7ad16 !important;
   box-sizing: border-box;
-  box-shadow: 0 8px 18px rgba(11, 79, 74, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 18px rgba(201, 156, 23, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.45);
   position: relative;
   overflow: visible;
   animation: none;
@@ -1808,16 +1808,16 @@ button.product-form__submit.loading:after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 46%, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 72%);
   border-radius: 1.3rem;
   pointer-events: none;
 }
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: linear-gradient(135deg, #21988f 0%, #187b73 52%, #126560 100%) !important;
-  border: 1px solid #0a4a46 !important;
-  box-shadow: 0 10px 22px rgba(11, 79, 74, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #ffea8e 0%, #ffdd59 44%, #f7cd37 100%) !important;
+  border: 1px solid #cfa512 !important;
+  box-shadow: 0 10px 22px rgba(201, 156, 23, 0.31), inset 0 1px 0 rgba(255, 255, 255, 0.52);
   transform: translateY(-1px);
   filter: none !important;
 }
@@ -1831,7 +1831,7 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
-  color: #ffffff !important;
+  color: #2a1f00 !important;
   text-shadow: none;
   font-weight: 900 !important;
   font-size: 1.4rem !important;
