@@ -1792,11 +1792,11 @@ button.product-form__submit.loading:after {
   background: linear-gradient(
     90deg,
     #d42020 0%,
-    #d42020 18%,
-    #e57c1d 34%,
+    #d42020 10%,
+    #e57c1d 22%,
     #f2c54a 50%,
-    #e57c1d 66%,
-    #d42020 82%,
+    #e57c1d 78%,
+    #d42020 90%,
     #d42020 100%
   ) !important;
   box-shadow: 0 10px 25px rgba(212, 32, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -1824,11 +1824,11 @@ button.product-form__submit.loading:after {
   background: linear-gradient(
     90deg,
     #c81d1d 0%,
-    #c81d1d 18%,
-    #db731a 34%,
+    #c81d1d 10%,
+    #db731a 22%,
     #f0c040 50%,
-    #db731a 66%,
-    #c81d1d 82%,
+    #db731a 78%,
+    #c81d1d 90%,
     #c81d1d 100%
   ) !important;
   box-shadow: 0 14px 32px rgba(200, 29, 29, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.34);
