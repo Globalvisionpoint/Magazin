@@ -1509,3 +1509,15 @@ button.product__card__actions__btn.loading {
   content: none !important;
   display: none !important;
 }
+
+/* Sale percent corner badges: yellow background with red text */
+.product__card__badges .sale-corner-badge,
+.product-recommendations .product__card__badges .sale-corner-badge {
+  background: #ffd84d !important;
+}
+
+.product__card__badges .sale-corner-badge .sale__save--percent,
+.product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
+  color: #e21c23 !important;
+  text-shadow: none;
+}
