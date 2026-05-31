@@ -1514,10 +1514,32 @@ button.product__card__actions__btn.loading {
 .product__card__badges .sale-corner-badge,
 .product-recommendations .product__card__badges .sale-corner-badge {
   background: #ffd84d !important;
+  width: 5.8rem !important;
+  height: 5.8rem !important;
+  min-width: 5.8rem !important;
 }
 
 .product__card__badges .sale-corner-badge .sale__save--percent,
 .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
   color: #e21c23 !important;
   text-shadow: none;
+  top: 1.2rem !important;
+  left: -0.45rem !important;
+  width: 4.7rem !important;
+}
+
+@media only screen and (max-width: 575px) {
+  .product__card__badges .sale-corner-badge,
+  .product-recommendations .product__card__badges .sale-corner-badge {
+    width: 5.2rem !important;
+    height: 5.2rem !important;
+    min-width: 5.2rem !important;
+  }
+
+  .product__card__badges .sale-corner-badge .sale__save--percent,
+  .product-recommendations .product__card__badges .sale-corner-badge .sale__save--percent {
+    top: 1rem !important;
+    left: -0.55rem !important;
+    width: 4.5rem !important;
+  }
 }
