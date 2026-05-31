@@ -508,8 +508,26 @@
           padding: 0 1.4rem;
         }
 
-        .offcanvas__footer .button {
+        .offcanvas__footer .button--primary {
           border-radius: 0 !important;
+          background-color: rgb(var(--color-button)) !important;
+          color: rgb(var(--color-button-text)) !important;
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        .offcanvas__footer .button--primary:hover,
+        .offcanvas__footer .button--primary:active,
+        .offcanvas__footer .button--primary:focus,
+        .offcanvas__footer .button--primary:focus-visible {
+          background-color: rgb(var(--color-button)) !important;
+          color: rgb(var(--color-button-text)) !important;
+        }
+
+        .offcanvas__footer .button--primary svg,
+        .offcanvas__footer .button--primary .button--icon,
+        .offcanvas__footer .button--primary .offcanvas__menu_text__icon {
+          color: rgb(var(--color-button-text)) !important;
+          fill: currentColor;
         }
 
         .offcanvas__footer .button .offcanvas__menu_text__icon {
