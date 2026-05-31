@@ -152,6 +152,7 @@
     align-items: stretch;
     justify-content: flex-start;
     overflow: hidden;
+    position: relative;
     font-family: var(--font-heading-family);
     box-shadow: none;
   }
@@ -164,6 +165,8 @@
     align-self: stretch;
     background: #bf1835;
     color: #ffd84d;
+    position: relative;
+    z-index: 2;
   }
 
   .product__sticky_add__form .product__add__cart__button .action__btn--svg svg {
@@ -176,7 +179,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     padding: 0 0.8rem;
     font-size: 1.16rem;
     font-weight: 700;
@@ -188,6 +195,7 @@
     color: #1f1f1f;
     background: #f3da63;
     transform: none;
+    z-index: 1;
   }
 
   .product__sticky_add__form .product__add__cart__button .button[disabled] {
