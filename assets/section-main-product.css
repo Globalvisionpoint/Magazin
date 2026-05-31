@@ -1797,6 +1797,13 @@ button.product-form__submit.loading:after {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (min-width: 750px) {
+  .product_buy_button_form .product-form__submit.button:not(.product-form__submit--buy-now) .cart--button-text {
+    font-size: 1.24rem;
+    transform: translateX(7px);
+  }
+}
+
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
   background: linear-gradient(135deg, #ffd84d 0%, #ffe066 52%, #ffe98a 100%) !important;
