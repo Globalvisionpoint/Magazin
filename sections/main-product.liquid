@@ -125,10 +125,6 @@
       display: none;
     }
 
-    .section-{{ section.id }}-padding #ProductInfo-{{ section.id }}.product__info-container--desktop-no-sku {
-      margin-top: 1rem;
-    }
-
     .section-{{ section.id }}-padding #ProductInfo-{{ section.id }} {
       margin-top: -7rem;
     }
@@ -253,7 +249,7 @@
     <div class="{{ content_column }}">
       <div
         id="ProductInfo-{{ section.id }}"
-        class="product__info-container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}{% if current_variant.sku == blank %} product__info-container--desktop-no-sku{% endif %}"
+        class="product__info-container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}"
       >
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
