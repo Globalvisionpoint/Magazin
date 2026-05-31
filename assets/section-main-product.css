@@ -533,8 +533,8 @@ variant-selects {
   min-height: 8.6rem;
   padding: 0.95rem;
   border-radius: 50%;
-  background: #9f1010;
-  color: rgba(var(--color-background));
+  background: #ffd84d;
+  color: #e21c23;
   text-align: center;
   font-weight: 700;
   line-height: 1;
@@ -549,6 +549,11 @@ variant-selects {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.discount__sale__text .sale__save--percent,
+.discount__sale__text .discount__sale__off {
+  color: #e21c23;
 }
 
 .discount__sale__off {
