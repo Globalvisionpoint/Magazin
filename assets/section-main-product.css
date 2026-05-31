@@ -1792,21 +1792,10 @@ button.product-form__submit.loading:after {
   background: linear-gradient(
     90deg,
     #d42020 0%,
-    #d42020 1.5%,
-    #de3c22 5%,
-    #e95f25 9%,
-    #f0822a 14%,
-    #f5a335 21%,
-    #f8bc41 30%,
-    #facc4e 40%,
-    #fbd455 50%,
-    #facc4e 60%,
-    #f8bc41 70%,
-    #f5a335 79%,
-    #f0822a 86%,
-    #e95f25 91%,
-    #de3c22 95%,
-    #d42020 98.5%,
+    #d42020 2%,
+    #fbd455 2%,
+    #fbd455 98%,
+    #d42020 98%,
     #d42020 100%
   ) !important;
   box-shadow: 0 10px 25px rgba(212, 32, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -1834,21 +1823,10 @@ button.product-form__submit.loading:after {
   background: linear-gradient(
     90deg,
     #c81d1d 0%,
-    #c81d1d 1.5%,
-    #d1301f 5%,
-    #da4a22 9%,
-    #e26624 14%,
-    #e9832c 21%,
-    #ee9d36 30%,
-    #f1af42 40%,
-    #f3ba48 50%,
-    #f1af42 60%,
-    #ee9d36 70%,
-    #e9832c 79%,
-    #e26624 86%,
-    #da4a22 91%,
-    #d1301f 95%,
-    #c81d1d 98.5%,
+    #c81d1d 2%,
+    #f3ba48 2%,
+    #f3ba48 98%,
+    #c81d1d 98%,
     #c81d1d 100%
   ) !important;
   box-shadow: 0 14px 32px rgba(200, 29, 29, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.34);
