@@ -1789,8 +1789,8 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: linear-gradient(135deg, #ffa500 0%, #ffb84d 50%, #ffc857 100%) !important;
-  box-shadow: 0 10px 25px rgba(255, 165, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #ffd84d 0%, #ffe066 52%, #ffe98a 100%) !important;
+  box-shadow: 0 10px 25px rgba(255, 216, 77, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: visible;
   animation: buynow-glow 3s ease-in-out infinite;
@@ -1810,14 +1810,14 @@ button.product-form__submit.loading:after {
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: linear-gradient(135deg, #ffb347 0%, #ffc857 50%, #ffd966 100%) !important;
-  box-shadow: 0 14px 32px rgba(255, 165, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #ffc14d 0%, #ffb53a 50%, #ffaa2d 100%) !important;
+  box-shadow: 0 14px 32px rgba(255, 181, 58, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   filter: brightness(1.08);
 }
 
 .product_buy_button_form .product-form__submit--buy-now .action__btn--svg {
-  background: linear-gradient(135deg, #ff8c00 0%, #ff9e1b 100%);
-  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3), inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #f2bf1a 0%, #f5c93a 100%);
+  box-shadow: 0 4px 12px rgba(242, 191, 26, 0.32), inset 0 -1px 2px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-size: 1.6rem;
   font-weight: 900;
@@ -1825,7 +1825,7 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit--buy-now .action__btn--svg:hover {
-  background: linear-gradient(135deg, #ff9e1b 0%, #ffaa2d 100%);
+  background: linear-gradient(135deg, #e6ac14 0%, #edae28 100%);
 }
 
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
@@ -1883,10 +1883,10 @@ button.product-form__submit.loading:after {
 
 @keyframes buynow-glow {
   0%, 100% {
-    box-shadow: 0 10px 25px rgba(255, 165, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 216, 77, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   50% {
-    box-shadow: 0 12px 35px rgba(255, 165, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 35px rgba(255, 193, 77, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 }
 
