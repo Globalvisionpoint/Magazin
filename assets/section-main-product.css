@@ -1789,23 +1789,8 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: linear-gradient(
-    90deg,
-    #d42020 0%,
-    #d42020 2%,
-    #dd4122 4%,
-    #e96726 6%,
-    #f29a33 8%,
-    #f8c74a 10%,
-    #fbd455 50%,
-    #f8c74a 90%,
-    #f29a33 92%,
-    #e96726 94%,
-    #dd4122 96%,
-    #d42020 98%,
-    #d42020 100%
-  ) !important;
-  box-shadow: 0 10px 25px rgba(212, 32, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  background: #fbd455 !important;
+  box-shadow: 0 10px 25px rgba(241, 175, 66, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   position: relative;
   overflow: visible;
   animation: buynow-glow 3s ease-in-out infinite;
@@ -1827,24 +1812,9 @@ button.product-form__submit.loading:after {
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: linear-gradient(
-    90deg,
-    #c81d1d 0%,
-    #c81d1d 2%,
-    #d13b1f 4%,
-    #dc5d23 6%,
-    #e6892d 8%,
-    #efad3d 10%,
-    #f3ba48 50%,
-    #efad3d 90%,
-    #e6892d 92%,
-    #dc5d23 94%,
-    #d13b1f 96%,
-    #c81d1d 98%,
-    #c81d1d 100%
-  ) !important;
-  box-shadow: 0 14px 32px rgba(200, 29, 29, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  filter: brightness(1.08);
+  background: #f3ba48 !important;
+  box-shadow: 0 14px 32px rgba(241, 175, 66, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  filter: none;
 }
 
 .product_buy_button_form .product-form__submit--buy-now .action__btn--svg {
@@ -1912,10 +1882,10 @@ button.product-form__submit.loading:after {
 
 @keyframes buynow-glow {
   0%, 100% {
-    box-shadow: 0 10px 25px rgba(212, 32, 32, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    box-shadow: 0 10px 25px rgba(241, 175, 66, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   }
   50% {
-    box-shadow: 0 12px 35px rgba(212, 32, 32, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    box-shadow: 0 12px 35px rgba(241, 175, 66, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.32);
   }
 }
 
