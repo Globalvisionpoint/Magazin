@@ -1789,13 +1789,13 @@ button.product-form__submit.loading:after {
 
 /* Buy Now Button - Premium Style */
 .product_buy_button_form .product-form__submit--buy-now {
-  background: #fbd455 !important;
-  border: 0.35px solid rgba(0, 0, 0, 0.65) !important;
+  background: linear-gradient(180deg, #3a4252 0%, #1f2632 100%) !important;
+  border: 1px solid rgba(12, 16, 24, 0.95) !important;
   box-sizing: border-box;
-  box-shadow: 0 10px 25px rgba(241, 175, 66, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  box-shadow: 0 8px 18px rgba(10, 14, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: visible;
-  animation: buynow-glow 3s ease-in-out infinite;
+  animation: none;
   justify-content: center;
   padding: 0 1.6rem;
 }
@@ -1807,17 +1807,17 @@ button.product-form__submit.loading:after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 58%);
   border-radius: 1.3rem;
   pointer-events: none;
 }
 
 .product_buy_button_form .product-form__submit--buy-now:hover,
 .product_buy_button_form .product-form__submit--buy-now:focus {
-  background: #f3ba48 !important;
-  border: 0.35px solid rgba(0, 0, 0, 0.65) !important;
-  box-shadow: 0 14px 32px rgba(241, 175, 66, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.34);
-  filter: none;
+  background: linear-gradient(180deg, #444d5f 0%, #262e3b 100%) !important;
+  border: 1px solid rgba(12, 16, 24, 0.95) !important;
+  box-shadow: 0 10px 22px rgba(10, 14, 22, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  filter: none !important;
 }
 
 .product_buy_button_form .product-form__submit--buy-now .action__btn--svg {
@@ -1829,8 +1829,8 @@ button.product-form__submit.loading:after {
 }
 
 .product_buy_button_form .product-form__submit--buy-now .cart--button-text {
-  color: #000000 !important;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  color: #ffffff !important;
+  text-shadow: none;
   font-weight: 900 !important;
   font-size: 1.4rem !important;
   letter-spacing: 0.05em;
