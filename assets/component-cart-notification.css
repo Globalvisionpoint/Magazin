@@ -410,19 +410,28 @@ div#cart-notification {
   min-height: 40px;
   padding: 0;
   border-radius: 0;
-  border: 1px solid rgba(18, 18, 18, 0.2);
-  background: #ffffff;
-  color: #151515;
+  border: 0;
+  background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%);
+  color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-size: 1.6rem;
   font-weight: 700;
+  box-shadow: 0 8px 16px rgba(217, 45, 47, 0.16);
 }
 
 #mini-cart-drawer .cart-notification-product .cart-close-icon .link:hover {
-  border-color: rgba(18, 18, 18, 0.34);
-  background: rgba(18, 18, 18, 0.03);
+  background: linear-gradient(135deg, #cf1f3b 0%, #df2f31 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(217, 45, 47, 0.2);
+}
+
+#mini-cart-drawer .cart-notification-product .cart-close-icon .link:focus,
+#mini-cart-drawer .cart-notification-product .cart-close-icon .link:focus-visible,
+#mini-cart-drawer .cart-notification-product .cart-close-icon .link:active {
+  background: linear-gradient(135deg, #cf1f3b 0%, #df2f31 100%);
+  color: #ffffff;
 }
 
 #mini-cart-drawer .cart_notification_links_inner {
