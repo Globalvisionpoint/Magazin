@@ -330,6 +330,10 @@ div#cart-notification {
   border-bottom: 0 !important;
 }
 
+#mini-cart-drawer .cart-notification .cart__items {
+  padding-bottom: 0;
+}
+
 #mini-cart-drawer .cart-notification-product {
   display: grid;
   grid-template-columns: minmax(88px, 104px) minmax(0, 1fr) 95px;
@@ -516,7 +520,7 @@ div#cart-notification {
 
 #mini-cart-drawer .mini--cart-drawer-footer {
   border-top: 0;
-  margin-top: 3rem;
+  margin-top: 0;
 }
 
 #mini-cart-drawer .cart__notification--attribute {
