@@ -515,6 +515,15 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .mini--cart-drawer-footer {
+  border-top: 0;
+}
+
+#mini-cart-drawer .cart__notification--attribute {
+  border-bottom: 0;
+}
+
+#mini-cart-drawer .cart_notification_links_inner .totals {
+  padding-top: 1.2rem;
   border-top: 1px solid rgba(18, 18, 18, 0.08);
 }
 
