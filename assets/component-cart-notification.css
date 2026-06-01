@@ -537,6 +537,11 @@ div#cart-notification {
   margin-bottom: 1rem;
 }
 
+#mini-cart-drawer .cart__notification--attribute:empty {
+  display: none;
+  padding: 0;
+}
+
 #mini-cart-drawer .totals__subtotal {
   margin: 0;
   font-size: 2.4rem;
