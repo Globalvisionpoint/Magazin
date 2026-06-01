@@ -78,88 +78,8 @@
     </div>
 
     <div class="cart-notification__links {% if cart == empty %} no-js-inline {% endif %}" id="empty__cart__button">
-    <div class="mini--cart-drawer-footer color-background-2">
-
-      {% if gift_message or settings.cart_note_enable or settings.shipping_calc_enable or settings.coupon_enable %}
-        <div class="cart__notification--attribute d-flex  {% if gift_message %}justify-content-between{% else %}justify-content-around{% endif %}">
-        {% if gift_message %}
-          <details id="details__gift--card-product" class="cart--drawer-details-popup">
-            <summary class="details__gift--card-label mini-cart-popup-summary">
-              {% render 'gift-wrap-icon' %}
-              {{ 'general.gift_wrapping_message.button_title' | t }} 
-            </summary>
-        
-            <div class="gift__card--details">
-        
-              <gift-wrap-message class="cart__drawer--popup">
-                <div class="action_drawer_heading">
-                  <h6 class="mb-15 mt-0">{{ 'general.gift_wrapping_message.popup_title' | t }} </h6>
-                </div>
-                <div class="action_drawer_body mb-20">
-                  <textarea
-                    class="text-area"
-                    id="giftMessage"
-                    class="form-control"
-                    rows="3"
-                    placeholder="{{ 'general.gift_wrapping_message.placeholder_title' | t }}"
-                    spellcheck="false"
-                    name="attributes[gift-note]"
-                  ></textarea>
-                </div>
-                <div class="action_drawer_footer d-flex flex-direction-column">
-                  <button class="button button--primary button__save">{{ 'general.gift_wrapping_message.save_button' | t }}</button>
-                  <button
-                    onclick="this.closest('details').querySelector('summary').click()"
-                    class="link button__cancel"
-                  >
-                    {{ 'general.gift_wrapping_message.cancel_title' | t }}
-                  </button>
-                </div>
-              </gift-wrap-message>
-        
-            </div>
-          </details>
-          {% endif %} 
-        
-
-
-          {% if settings.coupon_enable %}
-          <details id="drawer--cart-coupon" class="cart--drawer-details-popup">
-            <summary class="details__gift--card-label cart_notification_action_button mini-cart-popup-summary">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
-              {{ 'general.coupon_code.button_title' | t }}
-            </summary>
-            <div class="gift__card--details">
-              <discount-code class="cart__drawer--popup">
-                <div class="action_drawer_heading">
-                  <h6 class="mb-15 mt-0"> {{ 'general.coupon_code.popup_title' | t }} </h6>
-                </div>
-                <div class="action_drawer_body mb-20">
-                  <input
-                    id="coupon_code"
-                    placeholder="Enter discount code here"
-                    type="text"
-                    name="discount"
-                    form="cart"
-                    value=""
-                  >
-                </div>
-                <div class="action_drawer_footer d-flex flex-direction-column">
-                  <button class="button button--primary button__save">{{ 'general.coupon_code.save_button' | t }}</button>
-                  <button class="link button__cancel" onclick="this.closest('details').querySelector('summary').click()"> {{ 'general.coupon_code.cancel_title' | t }}</button>
-                </div>
-
-                <div class="coupon_wrong_message error no-js-inline mt-15">
-                  {{ 'general.coupon_code.coupon_wrong_message' | t }}
-                </div>
-              </discount-code>
-            </div>
-          </details>
-          {% endif %}
-        </div>
-        {% endif %}
-
-         <div class="cart_notification_links_inner">
+      <div class="mini--cart-drawer-footer color-background-2">
+        <div class="cart_notification_links_inner">
               <div class="totals d-flex justify-content-between align-items-center">
                 <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
                 <p id="cart-notification-subtotal">{{ cart.total_price | money_with_currency }}</p>
@@ -202,9 +122,7 @@
                 {%- endif -%}
               </div>
             </div>
-                              
-                        
-      </div>     
+      </div>
     </div>
   </div>
 </div>
