@@ -330,10 +330,14 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart-notification-product {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  row-gap: 0.85rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 95px;
+  grid-template-areas:
+    "title title actions"
+    "image info actions";
+  column-gap: 0.9rem;
+  row-gap: 0.5rem;
+  align-items: start;
   padding: 1rem;
   padding-bottom: 1.2rem;
   border: 1px solid rgba(18, 18, 18, 0.08);
@@ -342,10 +346,12 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart-notification__product--image {
+  grid-area: image;
   flex: 0 0 auto;
 }
 
 #mini-cart-drawer .cart-notification-product__info {
+  grid-area: info;
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
@@ -353,6 +359,7 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart-notification-product__actions {
+  grid-area: actions;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -364,10 +371,10 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart-notification-product__name--top {
-  flex: 0 0 100%;
-  width: 100%;
+  grid-area: title;
+  width: auto;
   margin: 0;
-  padding-right: 0;
+  padding-right: 0.4rem;
 }
 
 #mini-cart-drawer .cart-notification-product__name--top a {
