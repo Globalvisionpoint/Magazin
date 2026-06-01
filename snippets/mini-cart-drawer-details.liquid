@@ -78,10 +78,6 @@
     </div>
 
     <div class="cart-notification__links {% if cart == empty %} no-js-inline {% endif %}" id="empty__cart__button">
-      <div id="gift-wrapping" class="add__gift--wrap-in--mini-cart">
-          {% render 'add-gift-wrap' %}
-      </div>
-
     <div class="mini--cart-drawer-footer color-background-2">
 
       {% if gift_message or settings.cart_note_enable or settings.shipping_calc_enable or settings.coupon_enable %}
