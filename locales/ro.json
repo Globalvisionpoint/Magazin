@@ -29,8 +29,8 @@
       "cart_error": "A apărut o eroare la actualizarea coșului. Vă rugăm să încercați din nou.",
       "cart_quantity_error_html": "Puteți adăuga numai [cantitate] din acest articol în coș.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">transportul</a> sunt calculate la finalizare",
-      "taxes_included_but_shipping_at_checkout": "Taxa inclusă și transportul calculat la finalizare",
-      "taxes_included_and_shipping_policy_html": "Taxe incluse. <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Livrare</a> calculată la checkout.",
+      "taxes_included_but_shipping_at_checkout": "TVA inclus în preț. Livrare calculată la finalizare.",
+      "taxes_included_and_shipping_policy_html": "TVA inclus în preț. Livrare calculată la finalizare.",
       "taxes_and_shipping_at_checkout": "Taxele și transportul sunt calculate la finalizare",
       "headings": {
         "product": "Produs",
