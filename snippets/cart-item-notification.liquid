@@ -9,6 +9,10 @@
     </div>
   </div>
 
+  <h6 class="cart-notification-product__name cart-notification-product__name--top">
+    <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+  </h6>
+
   {% if item.image %}
   <a href="{{ item.url }}" class="cart-notification__product--image">
     <img class="cart-notification-product__image"
@@ -25,7 +29,6 @@
     {%- if settings.show_vendor_cart_drawer -%}
     <p class="caption-with-letter-spacing mb-0">{{ item.product.vendor }}</p>
     {%- endif -%}
-    <h6 class="cart-notification-product__name"><a href="{{ item.url }}">{{ item.product.title | escape }}</a></h6>
     {%- unless item.product.has_only_default_variant -%}
     {%- for option in item.options_with_values -%}
     <span class="cart-notification-product__option">
