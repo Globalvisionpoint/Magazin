@@ -331,11 +331,11 @@ div#cart-notification {
 
 #mini-cart-drawer .cart-notification-product {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) 95px;
+  grid-template-columns: minmax(88px, 104px) minmax(0, 1fr) 95px;
   grid-template-areas:
-    "title title actions"
+    "title title title"
     "image info actions";
-  column-gap: 0.9rem;
+  column-gap: 0.7rem;
   row-gap: 0.5rem;
   align-items: start;
   padding: 1rem;
@@ -347,7 +347,9 @@ div#cart-notification {
 
 #mini-cart-drawer .cart-notification__product--image {
   grid-area: image;
-  flex: 0 0 auto;
+  width: 100%;
+  max-width: 104px;
+  justify-self: start;
 }
 
 #mini-cart-drawer .cart-notification-product__info {
@@ -365,16 +367,19 @@ div#cart-notification {
   align-items: stretch;
   flex: 0 0 95px;
   width: 95px;
+  min-width: 95px;
+  max-width: 95px;
   margin-left: auto;
   align-self: flex-start;
   gap: 0;
+  justify-self: end;
 }
 
 #mini-cart-drawer .cart-notification-product__name--top {
   grid-area: title;
   width: auto;
   margin: 0;
-  padding-right: 0.4rem;
+  padding-right: 0;
 }
 
 #mini-cart-drawer .cart-notification-product__name--top a {
