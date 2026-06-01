@@ -413,7 +413,7 @@ div#cart-notification {
 
 #mini-cart-drawer .cart__item_price .price,
 #mini-cart-drawer .cart-item__discounted-prices .price {
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   color: #c91f39;
   font-weight: 700;
 }
@@ -551,7 +551,7 @@ div#cart-notification {
 
   #mini-cart-drawer .cart__item_price .price,
   #mini-cart-drawer .cart-item__discounted-prices .price {
-    font-size: 1.36rem;
+    font-size: 1.5rem;
   }
 
   #mini-cart-drawer .cart-notification-product .cart__item--footer {
