@@ -510,8 +510,16 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart_notification--footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   gap: 1.4rem;
   margin-top: 1rem;
+}
+
+#mini-cart-drawer .cart_notification--footer > * {
+  width: 100%;
 }
 
 #mini-cart-drawer .cart_notification--footer .button {
