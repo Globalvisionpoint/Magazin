@@ -533,6 +533,10 @@ div#cart-notification {
   text-transform: none;
 }
 
+#mini-cart-drawer .cart_notification--footer .button.mb-15 {
+  margin-bottom: 0 !important;
+}
+
 @media screen and (max-width: 749px) {
   #mini-cart-drawer .cart_notification--footer .button {
     font-size: 1.25rem;
