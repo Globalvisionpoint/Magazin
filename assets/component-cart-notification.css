@@ -352,6 +352,17 @@ div#cart-notification {
   min-width: 0;
 }
 
+#mini-cart-drawer .cart-notification-product__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 0 0 95px;
+  width: 95px;
+  margin-left: auto;
+  align-self: flex-start;
+  gap: 0;
+}
+
 #mini-cart-drawer .cart-notification-product__name--top {
   flex: 0 0 100%;
   width: 100%;
@@ -396,7 +407,17 @@ div#cart-notification {
 }
 
 #mini-cart-drawer .cart-notification-product .cart__item_price {
-  margin: 0.45rem 0 0.35rem;
+  margin: 0;
+}
+
+#mini-cart-drawer .cart-notification-product__actions .cart__item_price {
+  margin: 0 0 0.2rem;
+}
+
+#mini-cart-drawer .cart-notification-product__actions .cart__item_price .price,
+#mini-cart-drawer .cart-notification-product__actions .cart-item__discounted-prices .price {
+  display: inline-block;
+  line-height: 1.2;
 }
 
 #mini-cart-drawer .cart-notification-product .cart__item--footer {
@@ -406,15 +427,13 @@ div#cart-notification {
   align-items: flex-start;
   flex-wrap: nowrap;
   gap: 0.6rem;
-  flex: 0 0 95px;
+  flex: 0 0 auto;
   width: 95px;
-  margin-left: auto;
-  align-self: flex-start;
-  margin-top: 0.35rem;
+  margin: 0;
 }
 
 #mini-cart-drawer .cart-notification-product .cart__item--footer .quantity {
-  margin-top: 0;
+  margin-top: 0 !important;
   flex: 0 0 auto;
   width: 95px !important;
   min-width: 95px !important;
@@ -516,11 +535,9 @@ div#cart-notification {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
-    flex: 0 0 95px;
+    flex: 0 0 auto;
     width: 95px;
-    margin-left: auto;
-    align-self: flex-start;
-    margin-top: 0.35rem;
+    margin: 0;
   }
 
   #mini-cart-drawer .cart-notification-product cart-remove-button-2 {
