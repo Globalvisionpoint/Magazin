@@ -85,34 +85,6 @@
       
     </div>
     
-    <div class="cart__item--footer d-flex align-items-center">
-      <quantity-input class="quantity mt-10">
-        <button class="quantity__button no-js-hidden" name="minus" type="button">
-          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-          {% render 'icon-minus' %}
-        </button>
-        <input class="quantity__input"
-               type="number"
-               name="updates[]"
-               value="{{ item.quantity }}"
-               min="0"
-               aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-               id="Quantity-{{ item.index | plus: 1 }}"
-               data-index="{{ item.index | plus: 1 }}"
-               >
-        <button class="quantity__button no-js-hidden" name="plus" type="button">
-          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-          {% render 'icon-plus' %}
-        </button>
-      </quantity-input>
-
-
-      <cart-remove-button-2 class="cart-close-icon" id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-        <button class="link"> {{ 'general.cart.remove' | t }}</button>
-      </cart-remove-button-2>
-
-    </div>
-    
     <p class="drawer_cart-item__error no-js-inline" id="Line-item-error-{{ item.index | plus: 1 }}">
       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
         <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -146,6 +118,34 @@
     {%- endif -%}
 
     
+  </div>
+
+  <div class="cart__item--footer d-flex align-items-center">
+    <quantity-input class="quantity mt-10">
+      <button class="quantity__button no-js-hidden" name="minus" type="button">
+        <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+        {% render 'icon-minus' %}
+      </button>
+      <input class="quantity__input"
+             type="number"
+             name="updates[]"
+             value="{{ item.quantity }}"
+             min="0"
+             aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+             id="Quantity-{{ item.index | plus: 1 }}"
+             data-index="{{ item.index | plus: 1 }}"
+             >
+      <button class="quantity__button no-js-hidden" name="plus" type="button">
+        <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+        {% render 'icon-plus' %}
+      </button>
+    </quantity-input>
+
+
+    <cart-remove-button-2 class="cart-close-icon" id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+      <button class="link"> {{ 'general.cart.remove' | t }}</button>
+    </cart-remove-button-2>
+
   </div>
 </div>
 {%- endfor -%}

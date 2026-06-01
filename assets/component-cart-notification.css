@@ -348,7 +348,7 @@ div#cart-notification {
 #mini-cart-drawer .cart-notification-product__info {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -406,7 +406,10 @@ div#cart-notification {
   align-items: flex-start;
   flex-wrap: nowrap;
   gap: 0.6rem;
+  flex: 0 0 95px;
   width: 95px;
+  margin-left: auto;
+  align-self: flex-start;
 }
 
 #mini-cart-drawer .cart-notification-product .cart__item--footer .quantity {
@@ -512,7 +515,10 @@ div#cart-notification {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
+    flex: 0 0 95px;
     width: 95px;
+    margin-left: auto;
+    align-self: flex-start;
   }
 
   #mini-cart-drawer .cart-notification-product cart-remove-button-2 {
