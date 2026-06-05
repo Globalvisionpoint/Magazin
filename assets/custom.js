@@ -626,10 +626,6 @@ theme.productTab = (function () {
     }
   });
 
-  window.addEventListener('load', function () {
-    applyBestPracticesBoost(document);
-  });
-
   document.addEventListener('shopify:section:load', function (event) {
     applyBestPracticesBoost(event.target || document);
   });
