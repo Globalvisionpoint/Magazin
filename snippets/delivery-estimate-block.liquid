@@ -242,72 +242,86 @@
   endif
 
   assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_start_day }}, {{ delivery_start_date }} - {{ delivery_end_day }}, {{ delivery_end_date }}'
+  assign start_day_strong = '<strong>' | append: start_weekday | append: '</strong>'
+  assign start_date_strong = '<strong>' | append: start_date_short | append: '</strong>'
+  assign end_day_strong = '<strong>' | append: end_weekday | append: '</strong>'
+  assign end_date_strong = '<strong>' | append: end_date_short | append: '</strong>'
+  assign range_strong = '<strong>' | append: delivery_range | append: '</strong>'
+
   assign delivery_message_rendered = delivery_message_template
-    | replace: '{{ delivery_start_day }}', '<strong>' | append: start_weekday | append: '</strong>'
-    | replace: '{{ delivery_start_date }}', '<strong>' | append: start_date_short | append: '</strong>'
-    | replace: '{{ delivery_end_day }}', '<strong>' | append: end_weekday | append: '</strong>'
-    | replace: '{{ delivery_end_date }}', '<strong>' | append: end_date_short | append: '</strong>'
-    | replace: '{{ delivery_range }}', '<strong>' | append: delivery_range | append: '</strong>'
+  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_start_day }}', start_day_strong
+  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_start_date }}', start_date_strong
+  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_end_day }}', end_day_strong
+  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_end_date }}', end_date_strong
+  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_range }}', range_strong
 -%}
 
 <style>
   .product-delivery-estimate {
-    margin-top: 1.4rem;
-    padding: 1.25rem;
+    margin-top: 1.6rem;
+    padding: 1.6rem;
     border: 1px solid {{ block.settings.delivery_border_color }};
-    border-radius: 14px;
-    background: linear-gradient(140deg, {{ block.settings.delivery_bg_color }} 0%, #ffffff 100%);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 42%),
+      linear-gradient(145deg, {{ block.settings.delivery_bg_color }} 0%, #ffffff 100%);
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    box-shadow: 0 8px 26px rgba(18, 36, 56, 0.09);
+    gap: 1.25rem;
+    box-shadow: 0 16px 34px rgba(18, 36, 56, 0.14);
   }
 
   .product-delivery-estimate__icon {
-    width: 3.4rem;
-    height: 3.4rem;
-    flex: 0 0 3.4rem;
+    width: 4.6rem;
+    height: 4.6rem;
+    flex: 0 0 4.6rem;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: {{ block.settings.delivery_icon_color }};
-    background: {{ block.settings.delivery_icon_bg_color }};
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    background:
+      radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.28) 34%, rgba(255, 255, 255, 0) 62%),
+      linear-gradient(155deg, rgba(255, 255, 255, 0.46) 0%, {{ block.settings.delivery_icon_bg_color }} 42%, rgba(0, 0, 0, 0.12) 140%);
+    box-shadow:
+      inset 0 2px 6px rgba(255, 255, 255, 0.68),
+      inset 0 -6px 10px rgba(0, 0, 0, 0.16),
+      0 10px 16px rgba(12, 23, 35, 0.2);
   }
 
   .product-delivery-estimate__icon svg {
-    width: 2rem;
-    height: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
     display: block;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
   }
 
   .product-delivery-estimate__title {
-    margin: 0 0 0.3rem;
-    font-size: 1.24rem;
+    margin: 0 0 0.45rem;
+    font-size: 1.34rem;
     line-height: 1.2;
     font-weight: 800;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: {{ block.settings.delivery_title_color }};
   }
 
   .product-delivery-estimate__range {
     margin: 0;
-    font-size: 1.34rem;
-    line-height: 1.45;
-    font-weight: 700;
+    font-size: 1.56rem;
+    line-height: 1.42;
+    font-weight: 800;
     color: {{ block.settings.delivery_text_color }};
   }
 
   .product-delivery-estimate__range strong {
     color: {{ block.settings.delivery_date_color }};
-    font-weight: 800;
+    font-weight: 900;
   }
 
   .product-delivery-estimate__note {
-    margin: 0.5rem 0 0;
-    font-size: 1.15rem;
+    margin: 0.7rem 0 0;
+    font-size: 1.2rem;
     line-height: 1.4;
     font-weight: 600;
     color: {{ block.settings.delivery_note_color }};
@@ -315,16 +329,27 @@
 
   @media screen and (max-width: 749px) {
     .product-delivery-estimate {
-      padding: 1rem;
+      padding: 1.15rem;
       gap: 0.75rem;
     }
 
+    .product-delivery-estimate__icon {
+      width: 3.9rem;
+      height: 3.9rem;
+      flex-basis: 3.9rem;
+    }
+
+    .product-delivery-estimate__icon svg {
+      width: 1.95rem;
+      height: 1.95rem;
+    }
+
     .product-delivery-estimate__title {
-      font-size: 1.15rem;
+      font-size: 1.16rem;
     }
 
     .product-delivery-estimate__range {
-      font-size: 1.22rem;
+      font-size: 1.28rem;
     }
 
     .product-delivery-estimate__note {
