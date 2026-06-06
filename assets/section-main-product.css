@@ -960,6 +960,16 @@ h1.product__title {
     margin-top: 0 !important;
   }
 
+  .product__info-container [id^="shopify-block-delivery_estimate"] ~ .product__accordion,
+  .product__info-container [id^="shopify-block-delivery_estimate"] ~ .main-product__description {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .product__info-container .main-product__description {
+    padding-top: 0 !important;
+  }
+
   .product__info-container .product_buy_button_form {
     margin-top: -2rem !important;
     margin-bottom: 0 !important;
