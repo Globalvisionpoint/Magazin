@@ -717,7 +717,20 @@
           };
 
           function normalizeText(value) {
-            return value.replace(/[\u015F\u0163\u015E\u0162]/g, function (ch) {
+            if (!value) return value;
+
+            var normalized = value;
+            if (typeof normalized.normalize === 'function') {
+              normalized = normalized.normalize('NFC');
+            }
+
+            normalized = normalized
+              .replace(/s[\u0326\u0327]/g, '\u0219')
+              .replace(/S[\u0326\u0327]/g, '\u0218')
+              .replace(/t[\u0326\u0327]/g, '\u021B')
+              .replace(/T[\u0326\u0327]/g, '\u021A');
+
+            return normalized.replace(/[\u015F\u0163\u015E\u0162]/g, function (ch) {
               return replacements[ch] || ch;
             });
           }
