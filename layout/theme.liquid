@@ -306,6 +306,23 @@
         font-family: var(--font-body-family) !important;
       }
 
+      html[lang='ro'] {
+        --font-body-family: 'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+        --font-body-style: normal;
+        --font-body-weight: 400;
+        --font-heading-family: 'Magazin Display', 'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+        --font-heading-style: normal;
+        --font-heading-weight: 700;
+      }
+
+      html[lang='ro'] body,
+      html[lang='ro'] button,
+      html[lang='ro'] input,
+      html[lang='ro'] select,
+      html[lang='ro'] textarea {
+        font-feature-settings: 'locl' 1, 'ccmp' 1, 'kern' 1;
+      }
+
       h1,
       h2,
       h3,
