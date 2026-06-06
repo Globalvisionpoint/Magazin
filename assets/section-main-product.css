@@ -941,6 +941,25 @@ h1.product__title {
     padding-top: 0.5rem;
   }
 
+  .product__info-container [id^="shopify-block-delivery_estimate"] {
+    margin-bottom: 0 !important;
+  }
+
+  .product__info-container [id^="shopify-block-delivery_estimate"] + .social__share_box {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .product__info-container [id^="shopify-block-delivery_estimate"] + .social__share_box + * {
+    margin-top: 0 !important;
+  }
+
+  .product__info-container [id^="shopify-block-delivery_estimate"] + * {
+    margin-top: 0 !important;
+  }
+
   .product__info-container .product_buy_button_form {
     margin-top: -2rem !important;
     margin-bottom: 0 !important;
