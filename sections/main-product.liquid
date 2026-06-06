@@ -756,7 +756,7 @@
                 show_pickup_availability: block.settings.pickup_availability,
                 current_variant: current_variant
               %}
-            {%- when 'delivery_estimate', 'delivery_estimate_pro' -%}
+            {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
@@ -2205,6 +2205,72 @@
           "id": "delivery_border_color",
           "default": "#337239",
           "label": "Culoare border"
+        },
+        {
+          "type": "checkbox",
+          "id": "non_delivery_saturday",
+          "default": true,
+          "label": "Sambata fara livrare"
+        },
+        {
+          "type": "checkbox",
+          "id": "non_delivery_sunday",
+          "default": true,
+          "label": "Duminica fara livrare"
+        }
+      ]
+    },
+    {
+      "type": "delivery_cutoff",
+      "name": "Livrare cutoff (fix)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "delivery_title",
+          "default": "Livrare rapida",
+          "label": "Titlu bloc"
+        },
+        {
+          "type": "range",
+          "id": "delivery_days_min",
+          "min": 0,
+          "max": 14,
+          "step": 1,
+          "default": 1,
+          "label": "Livrare minima (zile lucratoare)"
+        },
+        {
+          "type": "range",
+          "id": "delivery_days_max",
+          "min": 0,
+          "max": 21,
+          "step": 1,
+          "default": 2,
+          "label": "Livrare maxima (zile lucratoare)"
+        },
+        {
+          "type": "checkbox",
+          "id": "delivery_cutoff_enabled",
+          "default": true,
+          "label": "Activeaza ora limita"
+        },
+        {
+          "type": "range",
+          "id": "delivery_cutoff_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "default": 15,
+          "label": "Ora limita"
+        },
+        {
+          "type": "range",
+          "id": "delivery_cutoff_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "default": 30,
+          "label": "Minute limita"
         },
         {
           "type": "checkbox",
