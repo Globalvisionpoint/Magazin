@@ -157,164 +157,186 @@
             </div>
           {%- endif -%}
 
-          <style>
-            .product-form__buttons .product-trust-badges {
-              margin-top: 1.6rem !important;
-              padding: 1.2rem !important;
-              border: 1px solid #ced8e0;
-              border-radius: 12px;
-              background: linear-gradient(180deg, #f7fafc 0%, #eef3f8 100%);
-              display: grid !important;
-              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-              gap: 0.95rem !important;
-            }
+          {%- if block.settings.show_delivery_estimate -%}
+            {%- liquid
+              assign delivery_days = block.settings.delivery_days | default: 1 | plus: 0
+              assign day_seconds = 86400
+              assign now_timestamp = 'now' | date: '%s' | plus: 0
+              assign remaining_working_days = delivery_days
+              assign start_offset_days = 0
 
-            .product-form__buttons .product-trust-badge {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: flex-start;
-              gap: 0.55rem;
-              text-align: center;
-              min-height: 11.2rem;
-              padding: 0.95rem 0.7rem;
-              border: 1px solid #d8e2ea;
-              border-radius: 10px;
-              background: #ffffff;
-              box-shadow: 0 2px 8px rgba(22, 35, 53, 0.06);
-            }
+              if delivery_days > 0
+                assign start_offset_days = 1
+              endif
 
-            .product-form__buttons .product-trust-badge__icon {
-              width: 3.4rem !important;
-              height: 3.4rem !important;
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              color: #c81e2a;
-              border-radius: 999px;
-              background: #fff0f2;
-            }
+              assign estimated_timestamp = now_timestamp
 
-            .product-form__buttons .product-trust-badge:nth-child(2) .product-trust-badge__icon {
-              color: #0f8d4a;
-              background: #ecf9f0;
-            }
+              for i in (0..120)
+                if i >= start_offset_days
+                  assign offset_seconds = i | times: day_seconds
+                  assign candidate_timestamp = now_timestamp | plus: offset_seconds
+                  assign candidate_weekday = candidate_timestamp | date: '%u'
+                  assign is_non_delivery_day = false
 
-            .product-form__buttons .product-trust-badge:nth-child(3) .product-trust-badge__icon {
-              color: #1e5bd8;
-              background: #edf3ff;
-            }
+                  case candidate_weekday
+                    when '1'
+                      if block.settings.non_delivery_monday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '2'
+                      if block.settings.non_delivery_tuesday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '3'
+                      if block.settings.non_delivery_wednesday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '4'
+                      if block.settings.non_delivery_thursday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '5'
+                      if block.settings.non_delivery_friday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '6'
+                      if block.settings.non_delivery_saturday
+                        assign is_non_delivery_day = true
+                      endif
+                    when '7'
+                      if block.settings.non_delivery_sunday
+                        assign is_non_delivery_day = true
+                      endif
+                  endcase
 
-            .product-form__buttons .product-trust-badge:nth-child(4) .product-trust-badge__icon {
-              color: #d0620f;
-              background: #fff4e8;
-            }
+                  unless is_non_delivery_day
+                    if remaining_working_days > 0
+                      assign remaining_working_days = remaining_working_days | minus: 1
+                      if remaining_working_days == 0
+                        assign estimated_timestamp = candidate_timestamp
+                        break
+                      endif
+                    else
+                      assign estimated_timestamp = candidate_timestamp
+                      break
+                    endif
+                  endunless
+                endif
+              endfor
 
-            .product-form__buttons .product-trust-badge__icon svg {
-              width: 2.15rem !important;
-              height: 2.15rem !important;
-              display: block;
-            }
+              assign delivery_weekday_number = estimated_timestamp | date: '%u'
+              assign delivery_weekday_name = 'luni'
 
-            .product-form__buttons .product-trust-badge__title {
-              margin: 0;
-              font-size: 1.3rem !important;
-              line-height: 1.24 !important;
-              font-weight: 800 !important;
-              color: #1a2430;
-              text-transform: uppercase;
-              letter-spacing: 0.02em;
-            }
+              case delivery_weekday_number
+                when '1'
+                  assign delivery_weekday_name = 'luni'
+                when '2'
+                  assign delivery_weekday_name = 'marti'
+                when '3'
+                  assign delivery_weekday_name = 'miercuri'
+                when '4'
+                  assign delivery_weekday_name = 'joi'
+                when '5'
+                  assign delivery_weekday_name = 'vineri'
+                when '6'
+                  assign delivery_weekday_name = 'sambata'
+                when '7'
+                  assign delivery_weekday_name = 'duminica'
+              endcase
 
-            .product-form__buttons .product-trust-badge__text {
-              margin: 0;
-              font-size: 1.14rem !important;
-              line-height: 1.42 !important;
-              font-weight: 600 !important;
-              color: #3f4f5f;
-            }
+              assign delivery_date = estimated_timestamp | date: '%d.%m.%Y'
+              assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_day }}, {{ delivery_date }}'
+              assign delivery_message = delivery_message_template | replace: '{{ delivery_day }}', delivery_weekday_name | replace: '{{ delivery_date }}', delivery_date
+            -%}
 
-            @media screen and (max-width: 749px) {
-              .product-form__buttons .product-trust-badges {
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                gap: 0.7rem !important;
-                padding: 0.9rem !important;
+            <style>
+              .product-form__buttons .product-delivery-estimate {
+                margin-top: 1.6rem !important;
+                padding: 1.15rem 1.2rem !important;
+                border: 1px solid {{ block.settings.delivery_border_color }};
+                border-radius: 12px;
+                background: {{ block.settings.delivery_bg_color }};
+                display: flex;
+                align-items: flex-start;
+                gap: 0.9rem;
               }
 
-              .product-form__buttons .product-trust-badge__icon {
-                width: 3rem !important;
-                height: 3rem !important;
+              .product-form__buttons .product-delivery-estimate__icon {
+                width: 3.2rem;
+                height: 3.2rem;
+                flex: 0 0 3.2rem;
+                border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: {{ block.settings.delivery_icon_color }};
+                background: {{ block.settings.delivery_icon_bg_color }};
               }
 
-              .product-form__buttons .product-trust-badge__icon svg {
-                width: 1.95rem !important;
-                height: 1.95rem !important;
+              .product-form__buttons .product-delivery-estimate__icon svg {
+                width: 1.9rem;
+                height: 1.9rem;
+                display: block;
               }
 
-              .product-form__buttons .product-trust-badge {
-                min-height: 10.6rem;
-                padding: 0.8rem 0.55rem;
+              .product-form__buttons .product-delivery-estimate__text {
+                margin: 0;
+                font-size: 1.35rem;
+                line-height: 1.45;
+                font-weight: 700;
+                color: {{ block.settings.delivery_text_color }};
               }
 
-              .product-form__buttons .product-trust-badge__title {
-                font-size: 1.18rem !important;
+              .product-form__buttons .product-delivery-estimate__text strong {
+                color: {{ block.settings.delivery_date_color }};
+                font-weight: 800;
               }
 
-              .product-form__buttons .product-trust-badge__text {
-                font-size: 1.06rem !important;
-                line-height: 1.38 !important;
-              }
-            }
-          </style>
+              @media screen and (max-width: 749px) {
+                .product-form__buttons .product-delivery-estimate {
+                  padding: 1rem !important;
+                  gap: 0.75rem;
+                }
 
-          <div class="product-trust-badges" aria-label="Beneficiile comenzii">
-            <div class="product-trust-badge">
-              <span class="product-trust-badge__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                  <path d="M6.5 10h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="m11.5 13 1.8 1.8L17.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M17 7.2 20.5 6v4.4c0 3-1.7 5.6-4.2 6.8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
+                .product-form__buttons .product-delivery-estimate__text {
+                  font-size: 1.24rem;
+                }
+              }
+            </style>
+
+            <div class="product-delivery-estimate" aria-label="Data estimata de livrare">
+              <span class="product-delivery-estimate__icon" aria-hidden="true">
+                {%- case block.settings.delivery_icon -%}
+                  {%- when 'calendar' -%}
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 3v3M17 3v3M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="2"/>
+                      <path d="M9 13h2M13 13h2M9 17h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  {%- when 'package' -%}
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M4 7l8 4 8-4M12 11v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- when 'clock' -%}
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                      <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 13h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M13 7h4l4 4v2h-8V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <circle cx="7" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                {%- endcase -%}
               </span>
-              <p class="product-trust-badge__title">PLATĂ SECURIZATĂ</p>
-              <p class="product-trust-badge__text">Plată securizată cu cardul sau numerar la livrare.</p>
+              <p class="product-delivery-estimate__text">
+                {{ delivery_message | replace: delivery_weekday_name, '<strong>' | append: delivery_weekday_name | append: '</strong>' | replace: delivery_date, '<strong>' | append: delivery_date | append: '</strong>' }}
+              </p>
             </div>
-            <div class="product-trust-badge">
-              <span class="product-trust-badge__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 13h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M14 7h3.8l2.2 2.6V13h-6V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <circle cx="7.5" cy="16.5" r="1.7" stroke="currentColor" stroke-width="2"/>
-                  <circle cx="17.5" cy="16.5" r="1.7" stroke="currentColor" stroke-width="2"/>
-                </svg>
-              </span>
-              <p class="product-trust-badge__title">TRANSPORT NAȚIONAL</p>
-              <p class="product-trust-badge__text">Livrare în 24-48 de ore, rapid și sigur, oriunde în țară.</p>
-            </div>
-            <div class="product-trust-badge">
-              <span class="product-trust-badge__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4a8 8 0 1 1-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M12 1.5v4.5M20.5 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M8.2 13.8 12 16l4.6-2.7V9.1L12 6.4 7.4 9.1v4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <p class="product-trust-badge__title">14 ZILE DREPT DE RETUR GARANTAT.</p>
-              <p class="product-trust-badge__text">Drept de retur garantat în 14 zile.</p>
-            </div>
-            <div class="product-trust-badge">
-              <span class="product-trust-badge__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
-                  <circle cx="12" cy="9" r="2.2" stroke="currentColor" stroke-width="2"/>
-                  <path d="M8.4 14.1 7 21l5-2.3L17 21l-1.4-6.9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <p class="product-trust-badge__title">PRODUSE PREMIUM</p>
-              <p class="product-trust-badge__text">Produse premium de calitate superioară.</p>
-            </div>
-          </div>
+          {%- endif -%}
         </div>
       {%- endform -%}
       {%- liquid

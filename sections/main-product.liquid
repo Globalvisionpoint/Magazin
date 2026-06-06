@@ -2041,21 +2041,137 @@
           "label": "Show compare button"
         },
   		{
-        	"type": "header",
-        	"content": "guarantee safe checkout"
-        },
+  	        "type": "header",
+  	        "content": "Bloc livrare estimata"
+          },
   		{
-          "type": "checkbox",
-          "id": "guarantee_safe_checkout",
-          "default": false,
-          "label": "Show trust badge"
-        },
-        {
-          "type": "text",
-          "id": "safe_checkout_text",
-          "default": "Guaranteed safe checkout",
-          "label": "Trust badge text"
-        }
+            "type": "checkbox",
+            "id": "show_delivery_estimate",
+            "default": true,
+            "label": "Afiseaza bloc livrare estimata"
+          },
+          {
+            "type": "textarea",
+            "id": "delivery_message",
+            "default": "Livrare estimata: {{ delivery_day }}, {{ delivery_date }}",
+            "label": "Text livrare",
+            "info": "Poti folosi variabilele {{ delivery_day }} si {{ delivery_date }} in text."
+          },
+          {
+            "type": "range",
+            "id": "delivery_days",
+            "min": 0,
+            "max": 14,
+            "step": 1,
+            "default": 1,
+            "label": "Zile de livrare"
+          },
+          {
+            "type": "select",
+            "id": "delivery_icon",
+            "label": "Iconita",
+            "default": "truck",
+            "options": [
+              {
+                "value": "truck",
+                "label": "Camion"
+              },
+              {
+                "value": "calendar",
+                "label": "Calendar"
+              },
+              {
+                "value": "package",
+                "label": "Colet"
+              },
+              {
+                "value": "clock",
+                "label": "Ceas"
+              }
+            ]
+          },
+          {
+            "type": "color",
+            "id": "delivery_text_color",
+            "default": "#1A2430",
+            "label": "Culoare text"
+          },
+          {
+            "type": "color",
+            "id": "delivery_date_color",
+            "default": "#0F6A60",
+            "label": "Culoare zi si data"
+          },
+          {
+            "type": "color",
+            "id": "delivery_icon_color",
+            "default": "#1E5BD8",
+            "label": "Culoare iconita"
+          },
+          {
+            "type": "color",
+            "id": "delivery_icon_bg_color",
+            "default": "#EDF3FF",
+            "label": "Fundal iconita"
+          },
+          {
+            "type": "color",
+            "id": "delivery_bg_color",
+            "default": "#F7FAFC",
+            "label": "Fundal bloc"
+          },
+          {
+            "type": "color",
+            "id": "delivery_border_color",
+            "default": "#CED8E0",
+            "label": "Culoare border"
+          },
+          {
+            "type": "header",
+  	        "content": "Zile nelucratoare (fara livrare)"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_monday",
+            "default": false,
+            "label": "Luni"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_tuesday",
+            "default": false,
+            "label": "Marti"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_wednesday",
+            "default": false,
+            "label": "Miercuri"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_thursday",
+            "default": false,
+            "label": "Joi"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_friday",
+            "default": false,
+            "label": "Vineri"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_saturday",
+            "default": true,
+            "label": "Sambata"
+          },
+          {
+            "type": "checkbox",
+            "id": "non_delivery_sunday",
+            "default": true,
+            "label": "Duminica"
+          }
       ]
     },
      {
