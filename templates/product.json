@@ -102,7 +102,7 @@
           "type": "delivery_estimate",
           "settings": {
             "delivery_title": "",
-            "delivery_label": "Livrare estimata",
+            "delivery_label": "",
             "delivery_interval_prefix": "Ajunge la tine",
             "delivery_note": "Comandă azi până la ora 15:30 și poți primi mâine.",
             "delivery_days_min": 2,
