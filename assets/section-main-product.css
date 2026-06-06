@@ -566,23 +566,26 @@ variant-selects {
   transform: translateX(-0.12rem);
 }
 .price__box_wrapper {
+  --price-to-badge-gap: 0.65rem;
+  --badge-right-offset: 2.2rem;
+  --badge-footprint: 8.4rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  gap: 0.55rem;
+  gap: var(--price-to-badge-gap);
   width: 100%;
   position: relative;
   height: 5.4rem;
   min-height: 5.4rem;
   max-height: 5.4rem;
-  padding-right: clamp(5.8rem, 17vw, 6.8rem);
+  padding-right: calc(var(--badge-footprint) + var(--badge-right-offset) + var(--price-to-badge-gap));
 }
 
 .save__disoucnt {
   position: absolute;
   top: 50%;
-  right: 2.2rem;
+  right: var(--badge-right-offset);
   transform: translateY(-50%) rotate(15deg);
   margin-left: 0;
   z-index: 1;
@@ -649,6 +652,16 @@ variant-selects {
   flex-wrap: nowrap;
   gap: 0.65rem;
   line-height: 1;
+  min-width: 0;
+}
+
+.product .price--on-sale .price__compare {
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.product .price--on-sale .price__last {
+  flex: 0 0 auto;
 }
 
 .product .price__box_wrapper .price-item--sale {
@@ -673,6 +686,9 @@ variant-selects {
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-decoration-line: line-through;
   text-decoration-color: #e21c23;
   text-decoration-thickness: 1.5px;
@@ -680,11 +696,12 @@ variant-selects {
 
 @media screen and (max-width: 575px) {
   .price__box_wrapper {
-    gap: 0.55rem;
+    --price-to-badge-gap: 0.6rem;
+    --badge-right-offset: 1.6rem;
+    --badge-footprint: 8rem;
     height: 5.4rem;
     min-height: 5.4rem;
     max-height: 5.4rem;
-    padding-right: clamp(5.8rem, 17vw, 6.8rem);
   }
 
   .save__disoucnt {
@@ -732,9 +749,28 @@ variant-selects {
   }
 
   .product .price__box_wrapper .price--on-sale .price-item--regular {
-    font-size: 1.9rem;
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
     color: rgba(var(--color-foreground), 0.65);
     text-decoration-color: #e21c23;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .price__box_wrapper {
+    --price-to-badge-gap: 0.5rem;
+    --badge-footprint: 7.8rem;
+  }
+
+  .product .price__box_wrapper .price-item--sale {
+    font-size: clamp(2.6rem, 8.8vw, 3rem);
+  }
+
+  .product .price__box_wrapper .price-item--regular {
+    font-size: clamp(2.6rem, 8.8vw, 3rem);
+  }
+
+  .product .price__box_wrapper .price--on-sale .price-item--regular {
+    font-size: clamp(1.1rem, 3.8vw, 1.45rem);
   }
 }
 
