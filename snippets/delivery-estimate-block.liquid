@@ -241,19 +241,20 @@
     assign delivery_range = delivery_start_full | append: ' - ' | append: delivery_end_full
   endif
 
-  assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_start_day }}, {{ delivery_start_date }} - {{ delivery_end_day }}, {{ delivery_end_date }}'
-  assign start_day_strong = '<strong>' | append: start_weekday | append: '</strong>'
-  assign start_date_strong = '<strong>' | append: start_date_short | append: '</strong>'
-  assign end_day_strong = '<strong>' | append: end_weekday | append: '</strong>'
-  assign end_date_strong = '<strong>' | append: end_date_short | append: '</strong>'
-  assign range_strong = '<strong>' | append: delivery_range | append: '</strong>'
+  assign delivery_label = block.settings.delivery_label | default: 'Livrare estimata'
+  assign delivery_interval_prefix = block.settings.delivery_interval_prefix | default: 'Ajunge la tine intre'
 
-  assign delivery_message_rendered = delivery_message_template
-  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_start_day }}', start_day_strong
-  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_start_date }}', start_date_strong
-  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_end_day }}', end_day_strong
-  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_end_date }}', end_date_strong
-  assign delivery_message_rendered = delivery_message_rendered | replace: '{{ delivery_range }}', range_strong
+  assign delivery_emoji = '🚚'
+  case block.settings.delivery_icon
+    when 'calendar'
+      assign delivery_emoji = '📅'
+    when 'package'
+      assign delivery_emoji = '📦'
+    when 'clock'
+      assign delivery_emoji = '⏱️'
+    when 'truck'
+      assign delivery_emoji = '🚚'
+  endcase
 -%}
 
 <style>
@@ -272,14 +273,13 @@
   }
 
   .product-delivery-estimate__icon {
-    width: 4.6rem;
-    height: 4.6rem;
-    flex: 0 0 4.6rem;
+    width: 5rem;
+    height: 5rem;
+    flex: 0 0 5rem;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: {{ block.settings.delivery_icon_color }};
     background:
       radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.28) 34%, rgba(255, 255, 255, 0) 62%),
       linear-gradient(155deg, rgba(255, 255, 255, 0.46) 0%, {{ block.settings.delivery_icon_bg_color }} 42%, rgba(0, 0, 0, 0.12) 140%);
@@ -289,11 +289,13 @@
       0 10px 16px rgba(12, 23, 35, 0.2);
   }
 
-  .product-delivery-estimate__icon svg {
-    width: 2.25rem;
-    height: 2.25rem;
-    display: block;
-    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+  .product-delivery-estimate__emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    transform: translateY(-1px);
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.85),
+      0 3px 3px rgba(0, 0, 0, 0.25);
   }
 
   .product-delivery-estimate__title {
@@ -306,17 +308,20 @@
     color: {{ block.settings.delivery_title_color }};
   }
 
-  .product-delivery-estimate__range {
+  .product-delivery-estimate__label {
     margin: 0;
-    font-size: 1.56rem;
-    line-height: 1.42;
-    font-weight: 800;
+    font-size: 1.18rem;
+    line-height: 1.35;
+    font-weight: 700;
     color: {{ block.settings.delivery_text_color }};
   }
 
-  .product-delivery-estimate__range strong {
+  .product-delivery-estimate__range {
+    margin: 0.3rem 0 0;
+    font-size: 1.56rem;
+    line-height: 1.42;
+    font-weight: 800;
     color: {{ block.settings.delivery_date_color }};
-    font-weight: 900;
   }
 
   .product-delivery-estimate__note {
@@ -339,13 +344,16 @@
       flex-basis: 3.9rem;
     }
 
-    .product-delivery-estimate__icon svg {
-      width: 1.95rem;
-      height: 1.95rem;
+    .product-delivery-estimate__emoji {
+      font-size: 2rem;
     }
 
     .product-delivery-estimate__title {
       font-size: 1.16rem;
+    }
+
+    .product-delivery-estimate__label {
+      font-size: 1.06rem;
     }
 
     .product-delivery-estimate__range {
@@ -360,36 +368,20 @@
 
 <div class="product-delivery-estimate" aria-label="Interval estimat de livrare">
   <span class="product-delivery-estimate__icon" aria-hidden="true">
-    {%- case block.settings.delivery_icon -%}
-      {%- when 'calendar' -%}
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 3v3M17 3v3M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="2"/>
-          <path d="M9 13h2M13 13h2M9 17h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      {%- when 'package' -%}
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M4 7l8 4 8-4M12 11v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      {%- when 'clock' -%}
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      {%- else -%}
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 13h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M13 7h4l4 4v2h-8V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="7" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
-          <circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
-        </svg>
-    {%- endcase -%}
+    <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
   </span>
 
   <div class="product-delivery-estimate__content">
     <p class="product-delivery-estimate__title">{{ block.settings.delivery_title }}</p>
-    <p class="product-delivery-estimate__range">{{ delivery_message_rendered }}</p>
+    <p class="product-delivery-estimate__label">{{ delivery_label }}</p>
+    <p class="product-delivery-estimate__range">
+      {{ delivery_interval_prefix }}
+      {% if min_timestamp == max_timestamp %}
+        {{ delivery_start_full }}
+      {% else %}
+        {{ delivery_start_full }} - {{ delivery_end_full }}
+      {% endif %}
+    </p>
     {%- if block.settings.delivery_note != blank -%}
       <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
     {%- endif -%}
