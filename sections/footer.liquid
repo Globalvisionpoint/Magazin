@@ -285,7 +285,7 @@
         {% endif %}
 
         <div class="col-12 col-md-auto mb--20 footer--copyright-container">
-          <span class="footer__copyright">&copy; {{ 'now' | date: '%Y' }}, {{ section.settings.powered_by }}</span>
+          <span class="footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ section.settings.powered_by }}</span>
         </div>
 
         {% if section.settings.payment_icons_type == 'manual' %}
