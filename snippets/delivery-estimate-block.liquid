@@ -285,10 +285,10 @@
   assign delivery_title = block.settings.delivery_title | strip
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
   assign title_color = block.settings.delivery_title_color | default: settings.delivery_global_title_color | default: '#000000'
-  assign label_color = block.settings.delivery_label_color | default: settings.delivery_global_label_color | default: block.settings.delivery_text_color | default: '#27AE60'
+  assign label_color = block.settings.delivery_label_color | default: settings.delivery_global_label_color | default: block.settings.delivery_text_color | default: '#1E7D3A'
   assign prefix_color = block.settings.delivery_prefix_color | default: settings.delivery_global_prefix_color | default: block.settings.delivery_text_color | default: '#1A2430'
   assign date_color = block.settings.delivery_date_color | default: settings.delivery_global_date_color | default: '#C93131'
-  assign note_color = block.settings.delivery_note_color | default: settings.delivery_global_note_color | default: '#27AE60'
+  assign note_color = block.settings.delivery_note_color | default: settings.delivery_global_note_color | default: '#1E7D3A'
   assign icon_bg_color = block.settings.delivery_icon_bg_color | default: '#FFFFFF'
   assign block_bg_color = block.settings.delivery_bg_color | default: settings.delivery_global_bg_color | default: '#F3F3F3'
   assign border_color = block.settings.delivery_border_color | default: settings.delivery_global_border_color | default: '#337239'
