@@ -951,12 +951,12 @@ h1.product__title {
 
   .product__info-container > * + .product__accordion,
   .product__info-container > * + .main-product__description {
-    margin-top: 0.4rem !important;
+    margin-top: 0.9rem !important;
     padding-top: 0 !important;
   }
 
   .product__info-container .product__accordion.accordion {
-    margin-top: 0.4rem !important;
+    margin-top: 0.9rem !important;
   }
 
   .product__info-container .product__accordion.accordion summary {
