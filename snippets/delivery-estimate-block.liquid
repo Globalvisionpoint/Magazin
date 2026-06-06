@@ -313,7 +313,12 @@
   }
 
   #shopify-block-{{ block.id }} + * {
-    margin-top: 0.5rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #shopify-block-{{ block.id }} + .social__share_box + * {
+    margin-top: 0 !important;
   }
 
   .product-delivery-estimate {
