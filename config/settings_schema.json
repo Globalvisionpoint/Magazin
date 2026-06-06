@@ -259,7 +259,7 @@
         "type": "color",
         "id": "delivery_global_note_color",
         "label": "Text secundar",
-        "default": "#4A5A6A"
+        "default": "#27AE60"
       },
       {
         "type": "color",
