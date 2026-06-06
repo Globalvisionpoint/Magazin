@@ -1024,6 +1024,71 @@ span.product__media-icon.motion-reduce > a {
   }
 }
 
+@media screen and (min-width: 990px) {
+  .product--thumbnail .product__media-gallery,
+  .product--thumbnail_slider .product__media-gallery {
+    display: grid;
+    grid-template-columns: 8.8rem minmax(0, 1fr);
+    align-items: start;
+    column-gap: 1.6rem;
+  }
+
+  .product--thumbnail .product__media-gallery > .thumbnail-slider,
+  .product--thumbnail_slider .product__media-gallery > .thumbnail-slider {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    align-self: start;
+    margin: 0;
+  }
+
+  .product--thumbnail .product__media-gallery > .slider-mobile-gutter,
+  .product--thumbnail_slider .product__media-gallery > .slider-mobile-gutter {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .product--thumbnail .product__media-item .product__modal-opener,
+  .product--thumbnail_slider .product__media-item .product__modal-opener {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .product--thumbnail .thumbnail-slider,
+  .product--thumbnail_slider .thumbnail-slider {
+    display: block;
+    width: 100%;
+  }
+
+  .product--thumbnail .thumbnail-slider .slider-button,
+  .product--thumbnail_slider .thumbnail-slider .slider-button {
+    display: none;
+  }
+
+  .product--thumbnail .thumbnail-list.slider--tablet-up,
+  .product--thumbnail_slider .thumbnail-list.slider--tablet-up {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    overflow: visible;
+    scroll-padding-left: 0;
+  }
+
+  .product--thumbnail .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide,
+  .product--thumbnail_slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product--thumbnail .thumbnail-list__item .thumbnail,
+  .product--thumbnail_slider .thumbnail-list__item .thumbnail {
+    width: 100%;
+  }
+}
+
 /* Product media */
 @media screen and (max-width: 749px) {
   /* .product__media-list {
