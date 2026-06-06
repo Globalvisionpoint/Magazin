@@ -260,7 +260,15 @@
 
 <style>
   .product-delivery-estimate {
+    --delivery-title-size: {{ block.settings.delivery_title_size }}px;
+    --delivery-label-size: {{ block.settings.delivery_label_size }}px;
+    --delivery-range-size: {{ block.settings.delivery_range_size }}px;
+    --delivery-note-size: {{ block.settings.delivery_note_size }}px;
+    --delivery-icon-size: {{ block.settings.delivery_icon_size }}px;
+    --delivery-emoji-size: {{ block.settings.delivery_emoji_size }}px;
+
     margin-top: 1.6rem;
+    margin-left: {{ block.settings.delivery_offset_x }}px;
     padding: 1.6rem;
     border: 1px solid {{ block.settings.delivery_border_color }};
     border-radius: 0;
@@ -271,6 +279,7 @@
     align-items: flex-start;
     gap: 1.25rem;
     box-shadow: none;
+    transform: translateY({{ block.settings.delivery_offset_y }}px);
   }
 
   .product-delivery-estimate--clean {
@@ -300,9 +309,9 @@
   }
 
   .product-delivery-estimate__icon {
-    width: 5rem;
-    height: 5rem;
-    flex: 0 0 5rem;
+    width: var(--delivery-icon-size);
+    height: var(--delivery-icon-size);
+    flex: 0 0 var(--delivery-icon-size);
     border-radius: 0;
     display: inline-flex;
     align-items: center;
@@ -314,7 +323,7 @@
   }
 
   .product-delivery-estimate__emoji {
-    font-size: 2.5rem;
+    font-size: var(--delivery-emoji-size);
     line-height: 1;
     transform: translateY(-1px);
     text-shadow: none;
@@ -322,7 +331,7 @@
 
   .product-delivery-estimate__title {
     margin: 0 0 0.45rem;
-    font-size: 1.34rem;
+    font-size: var(--delivery-title-size);
     line-height: 1.2;
     font-weight: 800;
     letter-spacing: 0.03em;
@@ -332,7 +341,7 @@
 
   .product-delivery-estimate__label {
     margin: 0;
-    font-size: 1.18rem;
+    font-size: var(--delivery-label-size);
     line-height: 1.35;
     font-weight: 700;
     color: {{ block.settings.delivery_text_color }};
@@ -340,7 +349,7 @@
 
   .product-delivery-estimate__range {
     margin: 0.3rem 0 0;
-    font-size: 1.56rem;
+    font-size: var(--delivery-range-size);
     line-height: 1.42;
     font-weight: 800;
     color: {{ block.settings.delivery_date_color }};
@@ -348,7 +357,7 @@
 
   .product-delivery-estimate__note {
     margin: 0.7rem 0 0;
-    font-size: 1.2rem;
+    font-size: var(--delivery-note-size);
     line-height: 1.4;
     font-weight: 600;
     color: {{ block.settings.delivery_note_color }};
@@ -357,34 +366,16 @@
   @media screen and (max-width: 749px) {
     .product-delivery-estimate {
       margin-top: 1.6rem;
+      margin-left: {{ block.settings.delivery_offset_x }}px;
       padding: 1.6rem;
       gap: 1.25rem;
+      transform: translateY({{ block.settings.delivery_offset_y }}px);
     }
 
     .product-delivery-estimate__icon {
-      width: 5rem;
-      height: 5rem;
-      flex-basis: 5rem;
-    }
-
-    .product-delivery-estimate__emoji {
-      font-size: 2.5rem;
-    }
-
-    .product-delivery-estimate__title {
-      font-size: 1.34rem;
-    }
-
-    .product-delivery-estimate__label {
-      font-size: 1.18rem;
-    }
-
-    .product-delivery-estimate__range {
-      font-size: 1.56rem;
-    }
-
-    .product-delivery-estimate__note {
-      font-size: 1.2rem;
+      width: var(--delivery-icon-size);
+      height: var(--delivery-icon-size);
+      flex-basis: var(--delivery-icon-size);
     }
   }
 </style>
