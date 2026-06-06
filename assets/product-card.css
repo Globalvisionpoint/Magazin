@@ -951,15 +951,19 @@ button.product__card__actions__btn.loading {
   letter-spacing: 0.01em;
   transition: transform var(--duration-short) ease, box-shadow var(--duration-short) ease, filter var(--duration-short) ease;
   will-change: auto;
-  -webkit-font-smoothing: auto;
-  text-rendering: geometricPrecision;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .product__card .product__card--cart-btn:hover {
   background: linear-gradient(135deg, #c91f39 0%, #d92d2f 100%);
   color: #ffffff;
   box-shadow: 0 12px 20px rgba(217, 45, 47, 0.18);
-  filter: brightness(1.02);
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .product__card .product__card--cart-btn .action__btn--svg {
@@ -991,7 +995,10 @@ button.product__card__actions__btn.loading {
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
-  text-shadow: none;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 /* Keep SOLD OUT labels centered only for disabled product-card buttons */
