@@ -573,9 +573,9 @@ variant-selects {
   gap: 0.55rem;
   width: 100%;
   position: relative;
-  height: 5rem;
-  min-height: 5rem;
-  max-height: 5rem;
+  height: 5.2rem;
+  min-height: 5.2rem;
+  max-height: 5.2rem;
   padding-right: clamp(5.8rem, 17vw, 6.8rem);
 }
 
@@ -681,9 +681,9 @@ variant-selects {
 @media screen and (max-width: 575px) {
   .price__box_wrapper {
     gap: 0.55rem;
-    height: 5rem;
-    min-height: 5rem;
-    max-height: 5rem;
+    height: 5.2rem;
+    min-height: 5.2rem;
+    max-height: 5.2rem;
     padding-right: clamp(5.8rem, 17vw, 6.8rem);
   }
 
