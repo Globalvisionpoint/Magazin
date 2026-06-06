@@ -14,18 +14,8 @@
   assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
   assign padding_top = block.settings.delivery_padding_top | default: 16 | plus: 0
   assign padding_bottom = block.settings.delivery_padding_bottom | default: 16 | plus: 0
-  assign wrapper_margin_top = 0
-  assign wrapper_margin_bottom = 0
   assign non_delivery_saturday = block.settings.non_delivery_saturday
   assign non_delivery_sunday = block.settings.non_delivery_sunday
-
-  if padding_top > 0
-    assign wrapper_margin_top = 8
-  endif
-
-  if padding_bottom > 0
-    assign wrapper_margin_bottom = 0
-  endif
 
   if non_delivery_saturday == blank
     assign non_delivery_saturday = true
@@ -307,11 +297,6 @@
 -%}
 
 <style>
-  #shopify-block-{{ block.id }} {
-    margin-top: {{ wrapper_margin_top }}px !important;
-    margin-bottom: {{ wrapper_margin_bottom }}px !important;
-  }
-
   .product-delivery-estimate {
     --delivery-title-size: {{ block.settings.delivery_title_size | default: 13 }}px;
     --delivery-label-size: 12px;
