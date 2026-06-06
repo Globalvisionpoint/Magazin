@@ -116,7 +116,7 @@
             "delivery_icon_color": "#1e5bd8",
             "delivery_icon_bg_color": "#ffffff",
             "delivery_bg_color": "#f3f3f3",
-            "delivery_border_color": "#787878",
+            "delivery_border_color": "#337239",
             "non_delivery_monday": false,
             "non_delivery_tuesday": false,
             "non_delivery_wednesday": false,
