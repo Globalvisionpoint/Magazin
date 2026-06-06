@@ -2051,20 +2051,41 @@
       "name": "Livrare estimata",
       "settings": [
         {
+          "type": "text",
+          "id": "delivery_title",
+          "default": "Livrare rapida din stoc",
+          "label": "Titlu bloc"
+        },
+        {
+          "type": "text",
+          "id": "delivery_note",
+          "default": "Curier rapid in toata tara. Plata ramburs disponibila.",
+          "label": "Text secundar"
+        },
+        {
           "type": "textarea",
           "id": "delivery_message",
-          "default": "Livrare estimata: {{ delivery_day }}, {{ delivery_date }}",
+          "default": "Livrare estimata: {{ delivery_start_day }} {{ delivery_start_date }} - {{ delivery_end_day }} {{ delivery_end_date }}",
           "label": "Text livrare",
-          "info": "Poti folosi variabilele {{ delivery_day }} si {{ delivery_date }} in text."
+          "info": "Variabile disponibile: {{ delivery_start_day }}, {{ delivery_start_date }}, {{ delivery_end_day }}, {{ delivery_end_date }}, {{ delivery_range }}"
         },
         {
           "type": "range",
-          "id": "delivery_days",
+          "id": "delivery_days_min",
           "min": 0,
           "max": 14,
           "step": 1,
           "default": 1,
-          "label": "Zile de livrare"
+          "label": "Livrare minima (zile lucratoare)"
+        },
+        {
+          "type": "range",
+          "id": "delivery_days_max",
+          "min": 0,
+          "max": 21,
+          "step": 1,
+          "default": 2,
+          "label": "Livrare maxima (zile lucratoare)"
         },
         {
           "type": "select",
@@ -2092,9 +2113,21 @@
         },
         {
           "type": "color",
+          "id": "delivery_title_color",
+          "default": "#0F2D4E",
+          "label": "Culoare titlu"
+        },
+        {
+          "type": "color",
           "id": "delivery_text_color",
           "default": "#1A2430",
           "label": "Culoare text"
+        },
+        {
+          "type": "color",
+          "id": "delivery_note_color",
+          "default": "#4A5A6A",
+          "label": "Culoare text secundar"
         },
         {
           "type": "color",

@@ -1,18 +1,24 @@
 {%- liquid
-  assign delivery_days = block.settings.delivery_days | default: 1 | plus: 0
+  assign min_days = block.settings.delivery_days_min | default: 1 | plus: 0
+  assign max_days = block.settings.delivery_days_max | default: 2 | plus: 0
   assign day_seconds = 86400
   assign now_timestamp = 'now' | date: '%s' | plus: 0
-  assign remaining_working_days = delivery_days
-  assign start_offset_days = 0
 
-  if delivery_days > 0
-    assign start_offset_days = 1
+  if max_days < min_days
+    assign swap_days = min_days
+    assign min_days = max_days
+    assign max_days = swap_days
   endif
 
-  assign estimated_timestamp = now_timestamp
+  assign min_remaining = min_days
+  assign min_start_offset = 0
+  if min_days > 0
+    assign min_start_offset = 1
+  endif
+  assign min_timestamp = now_timestamp
 
   for i in (0..120)
-    if i >= start_offset_days
+    if i >= min_start_offset
       assign offset_seconds = i | times: day_seconds
       assign candidate_timestamp = now_timestamp | plus: offset_seconds
       assign candidate_weekday = candidate_timestamp | date: '%u'
@@ -50,89 +56,261 @@
       endcase
 
       unless is_non_delivery_day
-        if remaining_working_days > 0
-          assign remaining_working_days = remaining_working_days | minus: 1
-          if remaining_working_days == 0
-            assign estimated_timestamp = candidate_timestamp
+        if min_remaining > 0
+          assign min_remaining = min_remaining | minus: 1
+          if min_remaining == 0
+            assign min_timestamp = candidate_timestamp
             break
           endif
         else
-          assign estimated_timestamp = candidate_timestamp
+          assign min_timestamp = candidate_timestamp
           break
         endif
       endunless
     endif
   endfor
 
-  assign delivery_weekday_number = estimated_timestamp | date: '%u'
-  assign delivery_weekday_name = 'luni'
+  assign max_remaining = max_days
+  assign max_start_offset = 0
+  if max_days > 0
+    assign max_start_offset = 1
+  endif
+  assign max_timestamp = min_timestamp
 
-  case delivery_weekday_number
+  for i in (0..120)
+    if i >= max_start_offset
+      assign offset_seconds = i | times: day_seconds
+      assign candidate_timestamp = now_timestamp | plus: offset_seconds
+      assign candidate_weekday = candidate_timestamp | date: '%u'
+      assign is_non_delivery_day = false
+
+      case candidate_weekday
+        when '1'
+          if block.settings.non_delivery_monday
+            assign is_non_delivery_day = true
+          endif
+        when '2'
+          if block.settings.non_delivery_tuesday
+            assign is_non_delivery_day = true
+          endif
+        when '3'
+          if block.settings.non_delivery_wednesday
+            assign is_non_delivery_day = true
+          endif
+        when '4'
+          if block.settings.non_delivery_thursday
+            assign is_non_delivery_day = true
+          endif
+        when '5'
+          if block.settings.non_delivery_friday
+            assign is_non_delivery_day = true
+          endif
+        when '6'
+          if block.settings.non_delivery_saturday
+            assign is_non_delivery_day = true
+          endif
+        when '7'
+          if block.settings.non_delivery_sunday
+            assign is_non_delivery_day = true
+          endif
+      endcase
+
+      unless is_non_delivery_day
+        if max_remaining > 0
+          assign max_remaining = max_remaining | minus: 1
+          if max_remaining == 0
+            assign max_timestamp = candidate_timestamp
+            break
+          endif
+        else
+          assign max_timestamp = candidate_timestamp
+          break
+        endif
+      endunless
+    endif
+  endfor
+
+  assign start_weekday = 'luni'
+  assign end_weekday = 'luni'
+  assign start_weekday_number = min_timestamp | date: '%u'
+  assign end_weekday_number = max_timestamp | date: '%u'
+
+  case start_weekday_number
     when '1'
-      assign delivery_weekday_name = 'luni'
+      assign start_weekday = 'luni'
     when '2'
-      assign delivery_weekday_name = 'marti'
+      assign start_weekday = 'marti'
     when '3'
-      assign delivery_weekday_name = 'miercuri'
+      assign start_weekday = 'miercuri'
     when '4'
-      assign delivery_weekday_name = 'joi'
+      assign start_weekday = 'joi'
     when '5'
-      assign delivery_weekday_name = 'vineri'
+      assign start_weekday = 'vineri'
     when '6'
-      assign delivery_weekday_name = 'sambata'
+      assign start_weekday = 'sambata'
     when '7'
-      assign delivery_weekday_name = 'duminica'
+      assign start_weekday = 'duminica'
   endcase
 
-  assign delivery_date = estimated_timestamp | date: '%d.%m.%Y'
-  assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_day }}, {{ delivery_date }}'
-  assign delivery_message = delivery_message_template | replace: '{{ delivery_day }}', delivery_weekday_name | replace: '{{ delivery_date }}', delivery_date
-  assign delivery_day_emphasized = '<strong>' | append: delivery_weekday_name | append: '</strong>'
-  assign delivery_date_emphasized = '<strong>' | append: delivery_date | append: '</strong>'
-  assign delivery_message_highlighted = delivery_message | replace: delivery_weekday_name, delivery_day_emphasized | replace: delivery_date, delivery_date_emphasized
+  case end_weekday_number
+    when '1'
+      assign end_weekday = 'luni'
+    when '2'
+      assign end_weekday = 'marti'
+    when '3'
+      assign end_weekday = 'miercuri'
+    when '4'
+      assign end_weekday = 'joi'
+    when '5'
+      assign end_weekday = 'vineri'
+    when '6'
+      assign end_weekday = 'sambata'
+    when '7'
+      assign end_weekday = 'duminica'
+  endcase
+
+  assign start_day_number = min_timestamp | date: '%d' | plus: 0
+  assign end_day_number = max_timestamp | date: '%d' | plus: 0
+  assign start_month_number = min_timestamp | date: '%m'
+  assign end_month_number = max_timestamp | date: '%m'
+
+  assign start_month_name = 'ianuarie'
+  assign end_month_name = 'ianuarie'
+
+  case start_month_number
+    when '01'
+      assign start_month_name = 'ianuarie'
+    when '02'
+      assign start_month_name = 'februarie'
+    when '03'
+      assign start_month_name = 'martie'
+    when '04'
+      assign start_month_name = 'aprilie'
+    when '05'
+      assign start_month_name = 'mai'
+    when '06'
+      assign start_month_name = 'iunie'
+    when '07'
+      assign start_month_name = 'iulie'
+    when '08'
+      assign start_month_name = 'august'
+    when '09'
+      assign start_month_name = 'septembrie'
+    when '10'
+      assign start_month_name = 'octombrie'
+    when '11'
+      assign start_month_name = 'noiembrie'
+    when '12'
+      assign start_month_name = 'decembrie'
+  endcase
+
+  case end_month_number
+    when '01'
+      assign end_month_name = 'ianuarie'
+    when '02'
+      assign end_month_name = 'februarie'
+    when '03'
+      assign end_month_name = 'martie'
+    when '04'
+      assign end_month_name = 'aprilie'
+    when '05'
+      assign end_month_name = 'mai'
+    when '06'
+      assign end_month_name = 'iunie'
+    when '07'
+      assign end_month_name = 'iulie'
+    when '08'
+      assign end_month_name = 'august'
+    when '09'
+      assign end_month_name = 'septembrie'
+    when '10'
+      assign end_month_name = 'octombrie'
+    when '11'
+      assign end_month_name = 'noiembrie'
+    when '12'
+      assign end_month_name = 'decembrie'
+  endcase
+
+  assign start_date_short = start_day_number | append: ' ' | append: start_month_name
+  assign end_date_short = end_day_number | append: ' ' | append: end_month_name
+
+  assign delivery_start_full = start_weekday | append: ', ' | append: start_date_short
+  assign delivery_end_full = end_weekday | append: ', ' | append: end_date_short
+  assign delivery_range = delivery_start_full
+  if min_timestamp != max_timestamp
+    assign delivery_range = delivery_start_full | append: ' - ' | append: delivery_end_full
+  endif
+
+  assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_start_day }}, {{ delivery_start_date }} - {{ delivery_end_day }}, {{ delivery_end_date }}'
+  assign delivery_message_rendered = delivery_message_template
+    | replace: '{{ delivery_start_day }}', '<strong>' | append: start_weekday | append: '</strong>'
+    | replace: '{{ delivery_start_date }}', '<strong>' | append: start_date_short | append: '</strong>'
+    | replace: '{{ delivery_end_day }}', '<strong>' | append: end_weekday | append: '</strong>'
+    | replace: '{{ delivery_end_date }}', '<strong>' | append: end_date_short | append: '</strong>'
+    | replace: '{{ delivery_range }}', '<strong>' | append: delivery_range | append: '</strong>'
 -%}
 
 <style>
   .product-delivery-estimate {
-    margin-top: 1.6rem;
-    padding: 1.15rem 1.2rem;
+    margin-top: 1.4rem;
+    padding: 1.25rem;
     border: 1px solid {{ block.settings.delivery_border_color }};
-    border-radius: 12px;
-    background: {{ block.settings.delivery_bg_color }};
+    border-radius: 14px;
+    background: linear-gradient(140deg, {{ block.settings.delivery_bg_color }} 0%, #ffffff 100%);
     display: flex;
     align-items: flex-start;
-    gap: 0.9rem;
+    gap: 1rem;
+    box-shadow: 0 8px 26px rgba(18, 36, 56, 0.09);
   }
 
   .product-delivery-estimate__icon {
-    width: 3.2rem;
-    height: 3.2rem;
-    flex: 0 0 3.2rem;
+    width: 3.4rem;
+    height: 3.4rem;
+    flex: 0 0 3.4rem;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: {{ block.settings.delivery_icon_color }};
     background: {{ block.settings.delivery_icon_bg_color }};
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   }
 
   .product-delivery-estimate__icon svg {
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 2rem;
+    height: 2rem;
     display: block;
   }
 
-  .product-delivery-estimate__text {
+  .product-delivery-estimate__title {
+    margin: 0 0 0.3rem;
+    font-size: 1.24rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: {{ block.settings.delivery_title_color }};
+  }
+
+  .product-delivery-estimate__range {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1.34rem;
     line-height: 1.45;
     font-weight: 700;
     color: {{ block.settings.delivery_text_color }};
   }
 
-  .product-delivery-estimate__text strong {
+  .product-delivery-estimate__range strong {
     color: {{ block.settings.delivery_date_color }};
     font-weight: 800;
+  }
+
+  .product-delivery-estimate__note {
+    margin: 0.5rem 0 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: {{ block.settings.delivery_note_color }};
   }
 
   @media screen and (max-width: 749px) {
@@ -141,13 +319,21 @@
       gap: 0.75rem;
     }
 
-    .product-delivery-estimate__text {
-      font-size: 1.24rem;
+    .product-delivery-estimate__title {
+      font-size: 1.15rem;
+    }
+
+    .product-delivery-estimate__range {
+      font-size: 1.22rem;
+    }
+
+    .product-delivery-estimate__note {
+      font-size: 1.06rem;
     }
   }
 </style>
 
-<div class="product-delivery-estimate" aria-label="Data estimata de livrare">
+<div class="product-delivery-estimate" aria-label="Interval estimat de livrare">
   <span class="product-delivery-estimate__icon" aria-hidden="true">
     {%- case block.settings.delivery_icon -%}
       {%- when 'calendar' -%}
@@ -175,7 +361,12 @@
         </svg>
     {%- endcase -%}
   </span>
-  <p class="product-delivery-estimate__text">
-    {{ delivery_message_highlighted }}
-  </p>
+
+  <div class="product-delivery-estimate__content">
+    <p class="product-delivery-estimate__title">{{ block.settings.delivery_title }}</p>
+    <p class="product-delivery-estimate__range">{{ delivery_message_rendered }}</p>
+    {%- if block.settings.delivery_note != blank -%}
+      <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
+    {%- endif -%}
+  </div>
 </div>
