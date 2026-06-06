@@ -705,5 +705,72 @@
     {%- if settings.back_top_enable -%}
       {%- render 'back-to-top' -%}
     {%- endif -%}
+
+    {%- if request.locale.iso_code == 'ro' -%}
+      <script>
+        (function () {
+          var replacements = {
+            '\u015F': '\u0219',
+            '\u0163': '\u021B',
+            '\u015E': '\u0218',
+            '\u0162': '\u021A'
+          };
+
+          function normalizeText(value) {
+            return value.replace(/[\u015F\u0163\u015E\u0162]/g, function (ch) {
+              return replacements[ch] || ch;
+            });
+          }
+
+          function normalizeNode(root) {
+            if (!root) return;
+
+            if (root.nodeType === Node.TEXT_NODE) {
+              var normalized = normalizeText(root.nodeValue || '');
+              if (normalized !== root.nodeValue) {
+                root.nodeValue = normalized;
+              }
+              return;
+            }
+
+            if (root.nodeType !== Node.ELEMENT_NODE) return;
+            if (root.tagName === 'SCRIPT' || root.tagName === 'STYLE') return;
+
+            var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+            var current;
+            while ((current = walker.nextNode())) {
+              var nextValue = normalizeText(current.nodeValue || '');
+              if (nextValue !== current.nodeValue) {
+                current.nodeValue = nextValue;
+              }
+            }
+          }
+
+          function setupObserver() {
+            var observer = new MutationObserver(function (mutations) {
+              mutations.forEach(function (mutation) {
+                if (mutation.type === 'characterData' && mutation.target) {
+                  normalizeNode(mutation.target);
+                }
+                mutation.addedNodes.forEach(function (node) {
+                  normalizeNode(node);
+                });
+              });
+            });
+
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true,
+              characterData: true
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', function () {
+            normalizeNode(document.body);
+            setupObserver();
+          });
+        })();
+      </script>
+    {%- endif -%}
   </body>
 </html>
