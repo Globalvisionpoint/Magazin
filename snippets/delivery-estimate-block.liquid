@@ -3,6 +3,16 @@
   assign max_days = block.settings.delivery_days_max | default: 2 | plus: 0
   assign day_seconds = 86400
   assign now_timestamp = 'now' | date: '%s' | plus: 0
+  assign now_hour = 'now' | date: '%H' | plus: 0
+  assign now_minute = 'now' | date: '%M' | plus: 0
+  assign current_minutes = now_hour | times: 60 | plus: now_minute
+  assign cutoff_hour = block.settings.delivery_cutoff_hour | default: 15 | plus: 0
+  assign cutoff_minute = block.settings.delivery_cutoff_minute | default: 30 | plus: 0
+  assign cutoff_minutes = cutoff_hour | times: 60 | plus: cutoff_minute
+
+  if block.settings.delivery_cutoff_enabled and current_minutes >= cutoff_minutes
+    assign now_timestamp = now_timestamp | plus: day_seconds
+  endif
 
   if max_days < min_days
     assign swap_days = min_days

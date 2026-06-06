@@ -2093,6 +2093,34 @@
           "label": "Livrare maxima (zile lucratoare)"
         },
         {
+          "type": "header",
+          "content": "Program de lucru"
+        },
+        {
+          "type": "checkbox",
+          "id": "delivery_cutoff_enabled",
+          "default": true,
+          "label": "Activeaza ora limita"
+        },
+        {
+          "type": "range",
+          "id": "delivery_cutoff_hour",
+          "min": 0,
+          "max": 23,
+          "step": 1,
+          "default": 15,
+          "label": "Ora limita"
+        },
+        {
+          "type": "range",
+          "id": "delivery_cutoff_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "default": 30,
+          "label": "Minute limita"
+        },
+        {
           "type": "select",
           "id": "delivery_icon",
           "label": "Iconita",
@@ -2142,7 +2170,7 @@
         },
         {
           "type": "header",
-          "content": "Dimensiuni"
+          "content": "Dimensiuni text si iconita"
         },
         {
           "type": "range",
@@ -2206,7 +2234,7 @@
         },
         {
           "type": "header",
-          "content": "Pozitionare bloc"
+          "content": "Pozitionare bloc (X/Y)"
         },
         {
           "type": "range",
