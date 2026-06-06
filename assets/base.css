@@ -940,8 +940,13 @@ input:focus {
 .collection--button .button,
 #loadMoreBtn.button,
 .loadMoreWrapper .loadMoreBtn.button {
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   will-change: transform;
+  opacity: 1 !important;
+  filter: none !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .button:hover:not([disabled]):not(.disabled):not([aria-disabled="true"]),
@@ -953,9 +958,8 @@ input:focus {
 .collection--button .button:hover,
 #loadMoreBtn.button:hover,
 .loadMoreWrapper .loadMoreBtn.button:hover {
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-1px);
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
-  filter: brightness(1.04);
 }
 
 .button:active:not([disabled]):not(.disabled):not([aria-disabled="true"]),
@@ -967,7 +971,28 @@ input:focus {
 .collection--button .button:active,
 #loadMoreBtn.button:active,
 .loadMoreWrapper .loadMoreBtn.button:active {
-  transform: translateY(0) scale(0.995);
+  transform: translateY(0);
+}
+
+/* Ensure collection "Vezi mai multe" links use body typography, not heading button typography. */
+.collection--button > a,
+.collection--button > .button,
+.button--wrapper > a,
+.button--wrapper > .button,
+.loadMoreWrapper > a,
+.loadMoreWrapper > button,
+.loadMoreWrapper > .loadMoreBtn,
+.loadMoreWrapper .loadMoreBtn,
+a#loadMoreBtn,
+button.loadMoreBtn,
+.loadMoreBtn__label {
+  font-family: var(--font-body-family) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-variation-settings: "wght" 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #1e3a8a !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -982,7 +1007,6 @@ input:focus {
   .loadMoreWrapper .loadMoreBtn.button {
     transition: none;
     transform: none !important;
-    filter: none !important;
   }
 }
 
@@ -2507,6 +2531,23 @@ button.loadMoreBtn {
   text-align: center;
 }
 
+#loadMoreBtn.button,
+.loadMoreWrapper .loadMoreBtn.button,
+.collection--button > a.button,
+.collection--button .button {
+  color: #1e3a8a !important;
+  font-family: var(--font-body-family) !important;
+  font-weight: 200 !important;
+  font-variation-settings: "wght" 200;
+  letter-spacing: 0 !important;
+}
+.loadMoreWrapper .loadMoreBtn .loadMoreBtn__label,
+.collection--button .button .loadMoreBtn__label {
+  font-family: var(--font-body-family) !important;
+  font-weight: 200 !important;
+  font-variation-settings: "wght" 200;
+  letter-spacing: 0 !important;
+}
 .loadMoreWrapper > a,
 .loadMoreWrapper > button,
 .collection--button > a,
@@ -2645,8 +2686,10 @@ media only screen and (max-width: 363px) {
 /* Enhanced styling for "Vezi mai multe" buttons - clean text link style */
 #loadMoreBtn {
   font-size: 1.6rem !important;
-  font-weight: 600 !important;
-  color: #000000 !important;
+  font-weight: 200 !important;
+  font-variation-settings: "wght" 200;
+  letter-spacing: 0 !important;
+  color: #1e3a8a !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -2658,7 +2701,7 @@ media only screen and (max-width: 363px) {
 }
 
 #loadMoreBtn:hover {
-  color: #c93131 !important;
+  color: #1e3a8a !important;
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
   transform: translateY(-2px) !important;
@@ -2666,8 +2709,10 @@ media only screen and (max-width: 363px) {
 
 .loadMoreBtn {
   font-size: 1.6rem !important;
-  font-weight: 600 !important;
-  color: #000000 !important;
+  font-weight: 200 !important;
+  font-variation-settings: "wght" 200;
+  letter-spacing: 0 !important;
+  color: #1e3a8a !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
