@@ -101,10 +101,10 @@
         "delivery_estimate_9wzxiE": {
           "type": "delivery_estimate",
           "settings": {
-            "delivery_title": "Livrare rapida 24-48 ore",
+            "delivery_title": "",
             "delivery_label": "Livrare estimata",
-            "delivery_interval_prefix": "Ajunge la tine intre",
-            "delivery_note": "Curier rapid in toata tara. Plata ramburs disponibila.",
+            "delivery_interval_prefix": "Ajunge la tine",
+            "delivery_note": "Comandă azi până la ora 15:30 și poți primi mâine.",
             "delivery_days_min": 2,
             "delivery_days_max": 3,
             "delivery_icon": "truck",
