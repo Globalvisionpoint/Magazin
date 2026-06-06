@@ -1,29 +1,48 @@
 const quickViewWarpper = document.getElementById("quickViewWrapper");
+let activeQuickViewButton = null;
+let quickViewListenersBound = false;
+
+function closeQuickViewModal() {
+  if (!quickViewWarpper) return;
+
+  document.body.classList.remove("overflow-hidden");
+  quickViewWarpper.classList.remove("show__modal");
+
+  if (activeQuickViewButton) {
+    removeTrapFocus(activeQuickViewButton);
+    activeQuickViewButton.classList.remove("active");
+    activeQuickViewButton = null;
+  }
+}
+
+function bindQuickViewListeners() {
+  if (!quickViewWarpper || quickViewListenersBound) return;
+
+  quickViewListenersBound = true;
+
+  quickViewWarpper.addEventListener("keyup", (evt) => {
+    if (evt.code === "Escape") {
+      closeQuickViewModal();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!quickViewWarpper.classList.contains("show__modal")) return;
+    if (event.target.closest(".quick_view__body")) return;
+
+    closeQuickViewModal();
+  });
+}
 
 class quickViewModal extends HTMLElement {
   constructor() {
     super();
+    bindQuickViewListeners();
     this.addEventListener("click", this.onClickQuickViewModal);
-
-    quickViewWarpper.addEventListener("keyup", (evt) => {
-      if (evt.code === "Escape") {
-        document.body.classList.remove("overflow-hidden");
-        quickViewWarpper.classList.remove("show__modal");
-        removeTrapFocus(this.querySelector("button.active"));
-        this.querySelector("button").classList.remove("active");
-      }
-    });
-
-    document.addEventListener("click", function (event) {
-      let eventTarget = event.target;
-      if (!eventTarget.closest(".quick_view__body")) {
-        document.body.classList.remove("overflow-hidden");
-        quickViewWarpper.classList.remove("show__modal");
-        this.querySelector("button").classList.remove("active");
-      }
-    });
   }
   onClickQuickViewModal = async () => {
+    if (!quickViewWarpper) return;
+
     let quickViewModal = this.querySelector("button");
     let productHandle = quickViewModal.dataset.productHandle;
     quickViewModal.classList.add("loading");
@@ -38,6 +57,7 @@ class quickViewModal extends HTMLElement {
 
       document.body.classList.add("overflow-hidden");
       quickViewWarpper.classList.add("show__modal");
+      activeQuickViewButton = quickViewModal;
       quickViewModal.classList.add("active");
     } catch (error) {
       console.log("error", error);
@@ -57,13 +77,7 @@ class quickViewCloseTag extends HTMLElement {
   }
 
   quickViewClose() {
-    document.body.classList.remove("overflow-hidden");
-    quickViewWarpper.classList.remove("show__modal");
-    //trapFocus(document.querySelector("button.product__quick_view.active"));
-
-    document
-      .querySelector(".cart--icon-button.active")
-      .classList.remove("active");
+    closeQuickViewModal();
   }
 }
 customElements.define("quick-view-close", quickViewCloseTag);
