@@ -948,11 +948,6 @@ h1.product__title {
     min-height: 0 !important;
   }
 
-  .product__info-container > .social__share_box + .product__accordion,
-  .product__info-container > .social__share_box + .main-product__description {
-    margin-top: 1.5rem !important;
-  }
-
   .product__info-container .product_buy_button_form {
     margin-top: -2rem !important;
     margin-bottom: 0 !important;
