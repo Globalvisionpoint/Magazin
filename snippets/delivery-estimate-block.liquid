@@ -24,7 +24,7 @@
   endif
 
   if padding_bottom > 0
-    assign wrapper_margin_bottom = 2
+    assign wrapper_margin_bottom = 0
   endif
 
   if non_delivery_saturday == blank
@@ -310,6 +310,10 @@
   #shopify-block-{{ block.id }} {
     margin-top: {{ wrapper_margin_top }}px !important;
     margin-bottom: {{ wrapper_margin_bottom }}px !important;
+  }
+
+  #shopify-block-{{ block.id }} + * {
+    margin-top: 0.5rem !important;
   }
 
   .product-delivery-estimate {
