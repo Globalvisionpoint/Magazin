@@ -2047,14 +2047,32 @@
       ]
     },
     {
-      "type": "delivery_estimate_pro",
-      "name": "Livrare estimata + Cutoff",
+      "type": "delivery_estimate",
+      "name": "Livrare estimata",
       "settings": [
         {
           "type": "text",
           "id": "delivery_title",
           "default": "Livrare rapida",
           "label": "Titlu bloc"
+        },
+        {
+          "type": "text",
+          "id": "delivery_label",
+          "default": "Livrare estimata",
+          "label": "Eticheta livrare"
+        },
+        {
+          "type": "text",
+          "id": "delivery_interval_prefix",
+          "default": "Ajunge",
+          "label": "Prefix interval"
+        },
+        {
+          "type": "text",
+          "id": "delivery_note",
+          "default": "Comenzile plasate azi sunt procesate rapid.",
+          "label": "Text secundar"
         },
         {
           "type": "range",
@@ -2078,7 +2096,7 @@
           "type": "checkbox",
           "id": "delivery_cutoff_enabled",
           "default": true,
-          "label": "Activeaza ora limita"
+          "label": "Activeaza ora inchidere"
         },
         {
           "type": "range",
@@ -2087,7 +2105,7 @@
           "max": 23,
           "step": 1,
           "default": 15,
-          "label": "Ora limita"
+          "label": "Ora inchidere"
         },
         {
           "type": "range",
@@ -2096,7 +2114,27 @@
           "max": 59,
           "step": 1,
           "default": 30,
-          "label": "Minute limita"
+          "label": "Minute inchidere"
+        },
+        {
+          "type": "range",
+          "id": "delivery_padding_top",
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "default": 16,
+          "unit": "px",
+          "label": "Padding sus"
+        },
+        {
+          "type": "range",
+          "id": "delivery_padding_bottom",
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "default": 16,
+          "unit": "px",
+          "label": "Padding jos"
         },
         {
           "type": "select",
@@ -2123,86 +2161,6 @@
           ]
         },
         {
-          "type": "range",
-          "id": "delivery_title_size",
-          "min": 10,
-          "max": 40,
-          "step": 1,
-          "default": 13,
-          "unit": "px",
-          "label": "Dimensiune titlu"
-        },
-        {
-          "type": "range",
-          "id": "delivery_range_size",
-          "min": 12,
-          "max": 48,
-          "step": 1,
-          "default": 16,
-          "unit": "px",
-          "label": "Dimensiune interval livrare"
-        },
-        {
-          "type": "range",
-          "id": "delivery_icon_size",
-          "min": 28,
-          "max": 120,
-          "step": 1,
-          "default": 50,
-          "unit": "px",
-          "label": "Dimensiune container iconita"
-        },
-        {
-          "type": "range",
-          "id": "delivery_emoji_size",
-          "min": 16,
-          "max": 90,
-          "step": 1,
-          "default": 40,
-          "unit": "px",
-          "label": "Dimensiune emoji iconita"
-        },
-        {
-          "type": "range",
-          "id": "delivery_offset_y",
-          "min": 0,
-          "max": 240,
-          "step": 1,
-          "default": 120,
-          "unit": "px",
-          "label": "Mutare sus/jos (centru 120)"
-        },
-        {
-          "type": "range",
-          "id": "delivery_offset_x",
-          "min": 0,
-          "max": 240,
-          "step": 1,
-          "default": 120,
-          "unit": "px",
-          "label": "Mutare stanga/dreapta (centru 120)"
-        },
-        {
-          "type": "range",
-          "id": "delivery_padding_top",
-          "min": 0,
-          "max": 60,
-          "step": 1,
-          "default": 16,
-          "unit": "px",
-          "label": "Padding sus"
-        },
-        {
-          "type": "range",
-          "id": "delivery_padding_bottom",
-          "min": 0,
-          "max": 60,
-          "step": 1,
-          "default": 16,
-          "unit": "px",
-          "label": "Padding jos"
-        },
-        {
           "type": "color",
           "id": "delivery_title_color",
           "default": "#000000",
@@ -2211,8 +2169,14 @@
         {
           "type": "color",
           "id": "delivery_text_color",
-          "default": "#000000",
+          "default": "#1A2430",
           "label": "Culoare text"
+        },
+        {
+          "type": "color",
+          "id": "delivery_note_color",
+          "default": "#4A5A6A",
+          "label": "Culoare text secundar"
         },
         {
           "type": "color",
@@ -2222,95 +2186,15 @@
         },
         {
           "type": "color",
+          "id": "delivery_bg_color",
+          "default": "#F3F3F3",
+          "label": "Fundal bloc"
+        },
+        {
+          "type": "color",
           "id": "delivery_border_color",
           "default": "#337239",
           "label": "Culoare border"
-        }
-      ]
-    },
-    {
-      "type": "delivery_cutoff",
-      "name": "Livrare cutoff (nou)",
-      "settings": [
-        {
-          "type": "text",
-          "id": "delivery_title",
-          "default": "Livrare rapida",
-          "label": "Titlu bloc"
-        },
-        {
-          "type": "range",
-          "id": "delivery_days_min",
-          "min": 0,
-          "max": 14,
-          "step": 1,
-          "default": 1,
-          "label": "Livrare minima (zile lucratoare)"
-        },
-        {
-          "type": "range",
-          "id": "delivery_days_max",
-          "min": 0,
-          "max": 21,
-          "step": 1,
-          "default": 2,
-          "label": "Livrare maxima (zile lucratoare)"
-        },
-        {
-          "type": "checkbox",
-          "id": "delivery_cutoff_enabled",
-          "default": true,
-          "label": "Activeaza ora limita"
-        },
-        {
-          "type": "range",
-          "id": "delivery_cutoff_hour",
-          "min": 0,
-          "max": 23,
-          "step": 1,
-          "default": 15,
-          "label": "Ora limita"
-        },
-        {
-          "type": "range",
-          "id": "delivery_cutoff_minute",
-          "min": 0,
-          "max": 59,
-          "step": 1,
-          "default": 30,
-          "label": "Minute limita"
-        },
-        {
-          "type": "range",
-          "id": "delivery_padding_top",
-          "min": 0,
-          "max": 60,
-          "step": 1,
-          "default": 16,
-          "unit": "px",
-          "label": "Padding sus"
-        },
-        {
-          "type": "range",
-          "id": "delivery_padding_bottom",
-          "min": 0,
-          "max": 60,
-          "step": 1,
-          "default": 16,
-          "unit": "px",
-          "label": "Padding jos"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_saturday",
-          "default": true,
-          "label": "Sambata fara livrare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_sunday",
-          "default": true,
-          "label": "Duminica fara livrare"
         }
       ]
     },

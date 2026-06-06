@@ -99,7 +99,7 @@
           }
         },
         "delivery_estimate_9wzxiE": {
-          "type": "delivery_cutoff",
+          "type": "delivery_estimate",
           "settings": {
             "delivery_title": "Livrare rapida",
             "delivery_label": "Livrare estimată",

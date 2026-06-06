@@ -9,6 +9,7 @@
   assign cutoff_hour = block.settings.delivery_cutoff_hour | default: 15 | plus: 0
   assign cutoff_minute = block.settings.delivery_cutoff_minute | default: 30 | plus: 0
   assign cutoff_minutes = cutoff_hour | times: 60 | plus: cutoff_minute
+  assign cutoff_enabled = block.settings.delivery_cutoff_enabled
   assign offset_x = block.settings.delivery_offset_x | default: 120 | plus: 0 | minus: 120
   assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
   assign padding_top = block.settings.delivery_padding_top | default: 16 | plus: 0
@@ -24,7 +25,11 @@
     assign non_delivery_sunday = true
   endif
 
-  if block.settings.delivery_cutoff_enabled and current_minutes >= cutoff_minutes
+  if cutoff_enabled == blank
+    assign cutoff_enabled = true
+  endif
+
+  if cutoff_enabled and current_minutes >= cutoff_minutes
     assign now_timestamp = now_timestamp | plus: day_seconds
   endif
 
@@ -292,12 +297,12 @@
 
 <style>
   .product-delivery-estimate {
-    --delivery-title-size: {{ block.settings.delivery_title_size }}px;
+    --delivery-title-size: {{ block.settings.delivery_title_size | default: 13 }}px;
     --delivery-label-size: 12px;
-    --delivery-range-size: {{ block.settings.delivery_range_size }}px;
+    --delivery-range-size: {{ block.settings.delivery_range_size | default: 16 }}px;
     --delivery-note-size: {{ block.settings.delivery_note_size | default: 12 }}px;
-    --delivery-icon-size: {{ block.settings.delivery_icon_size }}px;
-    --delivery-emoji-size: {{ block.settings.delivery_emoji_size }}px;
+    --delivery-icon-size: {{ block.settings.delivery_icon_size | default: 50 }}px;
+    --delivery-emoji-size: {{ block.settings.delivery_emoji_size | default: 40 }}px;
 
     margin-top: 1.6rem;
     margin-left: {{ offset_x }}px;
