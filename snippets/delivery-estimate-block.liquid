@@ -14,8 +14,18 @@
   assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
   assign padding_top = block.settings.delivery_padding_top | default: 16 | plus: 0
   assign padding_bottom = block.settings.delivery_padding_bottom | default: 16 | plus: 0
+  assign wrapper_margin_top = 0
+  assign wrapper_margin_bottom = 0
   assign non_delivery_saturday = block.settings.non_delivery_saturday
   assign non_delivery_sunday = block.settings.non_delivery_sunday
+
+  if padding_top > 0
+    assign wrapper_margin_top = 8
+  endif
+
+  if padding_bottom > 0
+    assign wrapper_margin_bottom = 8
+  endif
 
   if non_delivery_saturday == blank
     assign non_delivery_saturday = true
@@ -271,7 +281,7 @@
   endif
 
   assign delivery_label = block.settings.delivery_label | strip
-  assign delivery_interval_prefix = block.settings.delivery_interval_prefix | default: 'Ajunge'
+  assign delivery_interval_prefix = block.settings.delivery_interval_prefix | strip
   assign delivery_title = block.settings.delivery_title | strip
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
   assign title_color = block.settings.delivery_title_color | default: '#000000'
@@ -296,6 +306,11 @@
 -%}
 
 <style>
+  #shopify-block-{{ block.id }} {
+    margin-top: {{ wrapper_margin_top }}px !important;
+    margin-bottom: {{ wrapper_margin_bottom }}px !important;
+  }
+
   .product-delivery-estimate {
     --delivery-title-size: {{ block.settings.delivery_title_size | default: 13 }}px;
     --delivery-label-size: 12px;
@@ -304,7 +319,7 @@
     --delivery-icon-size: {{ block.settings.delivery_icon_size | default: 50 }}px;
     --delivery-emoji-size: {{ block.settings.delivery_emoji_size | default: 40 }}px;
 
-    margin-top: 1.6rem;
+    margin-top: 0;
     margin-left: {{ offset_x }}px;
     padding: {{ padding_top }}px 1.6rem {{ padding_bottom }}px;
     border: 1px solid {{ border_color }};
@@ -402,7 +417,7 @@
 
   @media screen and (max-width: 749px) {
     .product-delivery-estimate {
-      margin-top: 1.6rem;
+      margin-top: 0;
       margin-left: {{ offset_x }}px;
       padding: {{ padding_top }}px 1.6rem {{ padding_bottom }}px;
       gap: 1.25rem;
@@ -430,7 +445,9 @@
       <p class="product-delivery-estimate__label">{{ delivery_label }}</p>
     {%- endif -%}
     <p class="product-delivery-estimate__range">
-      {{ delivery_interval_prefix }}
+      {%- if delivery_interval_prefix != blank -%}
+        {{ delivery_interval_prefix }}
+      {%- endif -%}
       {% if min_timestamp == max_timestamp %}
         {{ delivery_start_full }}
       {% else %}
