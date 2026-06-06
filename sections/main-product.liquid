@@ -2043,9 +2043,21 @@
         },
         {
           "type": "text",
+          "id": "delivery_label",
+          "default": "Livrare estimata",
+          "label": "Eticheta livrare"
+        },
+        {
+          "type": "text",
           "id": "delivery_interval_prefix",
           "default": "Ajunge",
           "label": "Prefix interval"
+        },
+        {
+          "type": "text",
+          "id": "delivery_note",
+          "default": "Comenzile plasate azi sunt procesate rapid.",
+          "label": "Text secundar"
         },
         {
           "type": "range",
@@ -2082,6 +2094,15 @@
         },
         {
           "type": "range",
+          "id": "delivery_cutoff_minute",
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "default": 30,
+          "label": "Minute inchidere"
+        },
+        {
+          "type": "range",
           "id": "delivery_padding_top",
           "min": 0,
           "max": 60,
@@ -2101,6 +2122,30 @@
           "label": "Padding jos"
         },
         {
+          "type": "select",
+          "id": "delivery_icon",
+          "label": "Iconita",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Camion" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "package", "label": "Colet" },
+            { "value": "clock", "label": "Ceas" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "delivery_visual_preset",
+          "label": "Varianta vizuala",
+          "default": "outline",
+          "options": [
+            { "value": "premium", "label": "Premium" },
+            { "value": "clean", "label": "Clean" },
+            { "value": "outline", "label": "Outline" },
+            { "value": "strong", "label": "Strong" }
+          ]
+        },
+        {
           "type": "color",
           "id": "delivery_title_color",
           "default": "#000000",
@@ -2108,9 +2153,15 @@
         },
         {
           "type": "color",
-          "id": "delivery_text_color",
+          "id": "delivery_label_color",
           "default": "#1A2430",
-          "label": "Culoare text"
+          "label": "Culoare eticheta"
+        },
+        {
+          "type": "color",
+          "id": "delivery_prefix_color",
+          "default": "#1A2430",
+          "label": "Culoare prefix interval"
         },
         {
           "type": "color",
