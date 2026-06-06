@@ -9,6 +9,8 @@
   assign cutoff_hour = block.settings.delivery_cutoff_hour | default: 15 | plus: 0
   assign cutoff_minute = block.settings.delivery_cutoff_minute | default: 30 | plus: 0
   assign cutoff_minutes = cutoff_hour | times: 60 | plus: cutoff_minute
+  assign offset_x = block.settings.delivery_offset_x | default: 120 | plus: 0 | minus: 120
+  assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
 
   if block.settings.delivery_cutoff_enabled and current_minutes >= cutoff_minutes
     assign now_timestamp = now_timestamp | plus: day_seconds
@@ -278,7 +280,7 @@
     --delivery-emoji-size: {{ block.settings.delivery_emoji_size }}px;
 
     margin-top: 1.6rem;
-    margin-left: {{ block.settings.delivery_offset_x }}px;
+    margin-left: {{ offset_x }}px;
     padding: 1.6rem;
     border: 1px solid {{ block.settings.delivery_border_color }};
     border-radius: 0;
@@ -289,7 +291,7 @@
     align-items: flex-start;
     gap: 1.25rem;
     box-shadow: none;
-    transform: translateY({{ block.settings.delivery_offset_y }}px);
+    transform: translateY({{ offset_y }}px);
   }
 
   .product-delivery-estimate--clean {
@@ -376,10 +378,10 @@
   @media screen and (max-width: 749px) {
     .product-delivery-estimate {
       margin-top: 1.6rem;
-      margin-left: {{ block.settings.delivery_offset_x }}px;
+      margin-left: {{ offset_x }}px;
       padding: 1.6rem;
       gap: 1.25rem;
-      transform: translateY({{ block.settings.delivery_offset_y }}px);
+      transform: translateY({{ offset_y }}px);
     }
 
     .product-delivery-estimate__icon {
