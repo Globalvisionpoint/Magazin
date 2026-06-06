@@ -103,7 +103,7 @@
           "settings": {
             "delivery_title": "Livrare rapida",
             "delivery_label": "Livrare estimată",
-            "delivery_interval_prefix": "Ajunge",
+            "delivery_interval_prefix": "",
             "delivery_note": "Comenzile plasate azi sunt procesate rapid.",
             "delivery_days_min": 2,
             "delivery_days_max": 3,
