@@ -110,6 +110,8 @@
             "delivery_cutoff_enabled": true,
             "delivery_cutoff_hour": 15,
             "delivery_cutoff_minute": 30,
+            "delivery_padding_top": 16,
+            "delivery_padding_bottom": 16,
             "delivery_icon": "package",
             "delivery_visual_preset": "outline",
             "delivery_title_size": 13,

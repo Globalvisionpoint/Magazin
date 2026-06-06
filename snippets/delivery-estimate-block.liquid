@@ -11,6 +11,18 @@
   assign cutoff_minutes = cutoff_hour | times: 60 | plus: cutoff_minute
   assign offset_x = block.settings.delivery_offset_x | default: 120 | plus: 0 | minus: 120
   assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
+  assign padding_top = block.settings.delivery_padding_top | default: 16 | plus: 0
+  assign padding_bottom = block.settings.delivery_padding_bottom | default: 16 | plus: 0
+  assign non_delivery_saturday = block.settings.non_delivery_saturday
+  assign non_delivery_sunday = block.settings.non_delivery_sunday
+
+  if non_delivery_saturday == blank
+    assign non_delivery_saturday = true
+  endif
+
+  if non_delivery_sunday == blank
+    assign non_delivery_sunday = true
+  endif
 
   if block.settings.delivery_cutoff_enabled and current_minutes >= cutoff_minutes
     assign now_timestamp = now_timestamp | plus: day_seconds
@@ -58,11 +70,11 @@
             assign is_non_delivery_day = true
           endif
         when '6'
-          if block.settings.non_delivery_saturday
+          if non_delivery_saturday
             assign is_non_delivery_day = true
           endif
         when '7'
-          if block.settings.non_delivery_sunday
+          if non_delivery_sunday
             assign is_non_delivery_day = true
           endif
       endcase
@@ -118,11 +130,11 @@
             assign is_non_delivery_day = true
           endif
         when '6'
-          if block.settings.non_delivery_saturday
+          if non_delivery_saturday
             assign is_non_delivery_day = true
           endif
         when '7'
-          if block.settings.non_delivery_sunday
+          if non_delivery_sunday
             assign is_non_delivery_day = true
           endif
       endcase
@@ -289,7 +301,7 @@
 
     margin-top: 1.6rem;
     margin-left: {{ offset_x }}px;
-    padding: 1.6rem;
+    padding: {{ padding_top }}px 1.6rem {{ padding_bottom }}px;
     border: 1px solid {{ border_color }};
     border-radius: 0;
     background:
@@ -387,7 +399,7 @@
     .product-delivery-estimate {
       margin-top: 1.6rem;
       margin-left: {{ offset_x }}px;
-      padding: 1.6rem;
+      padding: {{ padding_top }}px 1.6rem {{ padding_bottom }}px;
       gap: 1.25rem;
       transform: translateY({{ offset_y }}px);
     }
