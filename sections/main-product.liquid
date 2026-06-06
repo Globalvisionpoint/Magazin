@@ -10,24 +10,6 @@
       if language == request.locale.iso_code
         assign theme_rtl = true
       endif
-    endfor
-  endif
-%}
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'product-form-input.css' | asset_url | stylesheet_tag }}
-
-<link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-rating.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'dynamic-checkout.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'gift-card-recipient-form.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
-
-<noscript>{{ 'component-accordion.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-rating.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'dynamic-checkout.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'gift-card-recipient-form.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}</noscript>
@@ -192,15 +174,6 @@
   else
     assign container = 'container-fluid px-0'
   endif
--%}
-
-{%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
-{%- if first_3d_model -%}
-  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-  <link
-    id="ModelViewerStyle"
-    rel="stylesheet"
-    href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
     media="print"
     onload="this.media='all'"
   >
@@ -276,30 +249,42 @@
                         name="properties[Name]"
                         form="{{ product_form_id }}"
                       >
-                    </label>
-                  </div>
-                {%- endif -%}
-
-                {%- if block.settings.file_field -%}
-                  <div class="input__field_form">
-                    <label>
-                      <span class="input__field--label"
-                        ><b>{{ block.settings.file_field_label }}</b></span
-                      >
-                      <input type="file" id="file" name="properties[File]" form="{{ product_form_id }}">
-                    </label>
-                  </div>
-                {%- endif -%}
-              </div>
-            {%- when 'text' -%}
-              <p
-                class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                {{ block.shopify_attributes }}
-              >
-                {{- block.settings.text -}}
-              </p>
-            {%- when 'title' -%}
-              <h1 class="product__title" {{ block.shopify_attributes }}>
+                    {
+                      "type": "color",
+                      "id": "delivery_title_color",
+                      "default": "#0F2D4E",
+                      "label": "Culoare titlu"
+                    },
+                    {
+                      "type": "color",
+                      "id": "delivery_label_color",
+                      "default": "#1A2430",
+                      "label": "Culoare eticheta"
+                    },
+                    {
+                      "type": "color",
+                      "id": "delivery_date_color",
+                      "default": "#0F6A60",
+                      "label": "Culoare interval data"
+                    },
+                    {
+                      "type": "color",
+                      "id": "delivery_note_color",
+                      "default": "#4A5A6A",
+                      "label": "Culoare text secundar"
+                    },
+                    {
+                      "type": "color",
+                      "id": "delivery_border_color",
+                      "default": "#337239",
+                      "label": "Culoare chenar"
+                    },
+                    {
+                      "type": "color",
+                      "id": "delivery_bg_color",
+                      "default": "#F3F3F3",
+                      "label": "Culoare interior chenar"
+                    },
                 {{ product.title | escape }}
               </h1>
             {%- when 'price' -%}
@@ -2058,21 +2043,9 @@
         },
         {
           "type": "text",
-          "id": "delivery_label",
-          "default": "Livrare estimata",
-          "label": "Eticheta livrare"
-        },
-        {
-          "type": "text",
           "id": "delivery_interval_prefix",
           "default": "Ajunge",
           "label": "Prefix interval"
-        },
-        {
-          "type": "text",
-          "id": "delivery_note",
-          "default": "Comenzile plasate azi sunt procesate rapid.",
-          "label": "Text secundar"
         },
         {
           "type": "range",
@@ -2109,15 +2082,6 @@
         },
         {
           "type": "range",
-          "id": "delivery_cutoff_minute",
-          "min": 0,
-          "max": 59,
-          "step": 1,
-          "default": 30,
-          "label": "Minute inchidere"
-        },
-        {
-          "type": "range",
           "id": "delivery_padding_top",
           "min": 0,
           "max": 60,
@@ -2137,28 +2101,34 @@
           "label": "Padding jos"
         },
         {
-          "type": "select",
-          "id": "delivery_icon",
-          "label": "Iconita",
-          "default": "truck",
-          "options": [
-            { "value": "truck", "label": "Camion" },
-            { "value": "calendar", "label": "Calendar" },
-            { "value": "package", "label": "Colet" },
-            { "value": "clock", "label": "Ceas" }
-          ]
+          "type": "color",
+          "id": "delivery_title_color",
+          "default": "#000000",
+          "label": "Culoare titlu"
         },
         {
-          "type": "select",
-          "id": "delivery_visual_preset",
-          "label": "Varianta vizuala",
-          "default": "outline",
-          "options": [
-            { "value": "premium", "label": "Premium" },
-            { "value": "clean", "label": "Clean" },
-            { "value": "outline", "label": "Outline" },
-            { "value": "strong", "label": "Strong" }
-          ]
+          "type": "color",
+          "id": "delivery_text_color",
+          "default": "#1A2430",
+          "label": "Culoare text"
+        },
+        {
+          "type": "color",
+          "id": "delivery_date_color",
+          "default": "#C93131",
+          "label": "Culoare data"
+        },
+        {
+          "type": "color",
+          "id": "delivery_border_color",
+          "default": "#337239",
+          "label": "Culoare chenar"
+        },
+        {
+          "type": "color",
+          "id": "delivery_bg_color",
+          "default": "#F3F3F3",
+          "label": "Culoare interior"
         },
         {
           "type": "checkbox",

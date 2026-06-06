@@ -404,6 +404,10 @@
     font-size: var(--delivery-range-size);
     line-height: 1.42;
     font-weight: 800;
+    color: {{ text_color }};
+  }
+
+  .product-delivery-estimate__range-date {
     color: {{ date_color }};
   }
 
@@ -448,11 +452,13 @@
       {%- if delivery_interval_prefix != blank -%}
         {{ delivery_interval_prefix }}
       {%- endif -%}
-      {% if min_timestamp == max_timestamp %}
-        {{ delivery_start_full }}
-      {% else %}
-        {{ delivery_start_full }} - {{ delivery_end_full }}
-      {% endif %}
+      <span class="product-delivery-estimate__range-date">
+        {% if min_timestamp == max_timestamp %}
+          {{ delivery_start_full }}
+        {% else %}
+          {{ delivery_start_full }} - {{ delivery_end_full }}
+        {% endif %}
+      </span>
     </p>
     {%- if block.settings.delivery_note != blank -%}
       <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
