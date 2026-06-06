@@ -247,6 +247,9 @@
               assign delivery_date = estimated_timestamp | date: '%d.%m.%Y'
               assign delivery_message_template = block.settings.delivery_message | default: 'Livrare estimata: {{ delivery_day }}, {{ delivery_date }}'
               assign delivery_message = delivery_message_template | replace: '{{ delivery_day }}', delivery_weekday_name | replace: '{{ delivery_date }}', delivery_date
+              assign delivery_day_emphasized = '<strong>' | append: delivery_weekday_name | append: '</strong>'
+              assign delivery_date_emphasized = '<strong>' | append: delivery_date | append: '</strong>'
+              assign delivery_message_highlighted = delivery_message | replace: delivery_weekday_name, delivery_day_emphasized | replace: delivery_date, delivery_date_emphasized
             -%}
 
             <style>
@@ -333,7 +336,7 @@
                 {%- endcase -%}
               </span>
               <p class="product-delivery-estimate__text">
-                {{ delivery_message | replace: delivery_weekday_name, '<strong>' | append: delivery_weekday_name | append: '</strong>' | replace: delivery_date, '<strong>' | append: delivery_date | append: '</strong>' }}
+                {{ delivery_message_highlighted }}
               </p>
             </div>
           {%- endif -%}
