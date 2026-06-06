@@ -2053,26 +2053,8 @@
         {
           "type": "text",
           "id": "delivery_title",
-          "default": "Livrare rapida din stoc",
+          "default": "Livrare rapida",
           "label": "Titlu bloc"
-        },
-        {
-          "type": "text",
-          "id": "delivery_label",
-          "default": "Livrare estimata",
-          "label": "Eticheta livrare"
-        },
-        {
-          "type": "text",
-          "id": "delivery_interval_prefix",
-          "default": "Ajunge la tine intre",
-          "label": "Prefix interval"
-        },
-        {
-          "type": "text",
-          "id": "delivery_note",
-          "default": "Curier rapid in toata tara. Plata ramburs disponibila.",
-          "label": "Text secundar"
         },
         {
           "type": "range",
@@ -2091,10 +2073,6 @@
           "step": 1,
           "default": 2,
           "label": "Livrare maxima (zile lucratoare)"
-        },
-        {
-          "type": "header",
-          "content": "Program de lucru"
         },
         {
           "type": "checkbox",
@@ -2126,51 +2104,23 @@
           "label": "Iconita",
           "default": "truck",
           "options": [
-            {
-              "value": "truck",
-              "label": "Camion"
-            },
-            {
-              "value": "calendar",
-              "label": "Calendar"
-            },
-            {
-              "value": "package",
-              "label": "Colet"
-            },
-            {
-              "value": "clock",
-              "label": "Ceas"
-            }
+            { "value": "truck", "label": "Camion" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "package", "label": "Colet" },
+            { "value": "clock", "label": "Ceas" }
           ]
         },
         {
           "type": "select",
           "id": "delivery_visual_preset",
           "label": "Varianta vizuala",
-          "default": "premium",
+          "default": "outline",
           "options": [
-            {
-              "value": "premium",
-              "label": "Premium"
-            },
-            {
-              "value": "clean",
-              "label": "Clean"
-            },
-            {
-              "value": "outline",
-              "label": "Outline"
-            },
-            {
-              "value": "strong",
-              "label": "Strong"
-            }
+            { "value": "premium", "label": "Premium" },
+            { "value": "clean", "label": "Clean" },
+            { "value": "outline", "label": "Outline" },
+            { "value": "strong", "label": "Strong" }
           ]
-        },
-        {
-          "type": "header",
-          "content": "Dimensiuni text si iconita"
         },
         {
           "type": "range",
@@ -2184,16 +2134,6 @@
         },
         {
           "type": "range",
-          "id": "delivery_label_size",
-          "min": 10,
-          "max": 40,
-          "step": 1,
-          "default": 12,
-          "unit": "px",
-          "label": "Dimensiune eticheta"
-        },
-        {
-          "type": "range",
           "id": "delivery_range_size",
           "min": 12,
           "max": 48,
@@ -2201,16 +2141,6 @@
           "default": 16,
           "unit": "px",
           "label": "Dimensiune interval livrare"
-        },
-        {
-          "type": "range",
-          "id": "delivery_note_size",
-          "min": 10,
-          "max": 36,
-          "step": 1,
-          "default": 12,
-          "unit": "px",
-          "label": "Dimensiune text secundar"
         },
         {
           "type": "range",
@@ -2231,10 +2161,6 @@
           "default": 40,
           "unit": "px",
           "label": "Dimensiune emoji iconita"
-        },
-        {
-          "type": "header",
-          "content": "Pozitionare bloc (X/Y)"
         },
         {
           "type": "range",
@@ -2259,96 +2185,38 @@
         {
           "type": "color",
           "id": "delivery_title_color",
-          "default": "#0F2D4E",
+          "default": "#000000",
           "label": "Culoare titlu"
         },
         {
           "type": "color",
           "id": "delivery_text_color",
-          "default": "#1A2430",
+          "default": "#000000",
           "label": "Culoare text"
         },
         {
           "type": "color",
-          "id": "delivery_note_color",
-          "default": "#4A5A6A",
-          "label": "Culoare text secundar"
-        },
-        {
-          "type": "color",
           "id": "delivery_date_color",
-          "default": "#0F6A60",
+          "default": "#C93131",
           "label": "Culoare zi si data"
         },
         {
           "type": "color",
-          "id": "delivery_icon_color",
-          "default": "#1E5BD8",
-          "label": "Culoare iconita"
-        },
-        {
-          "type": "color",
-          "id": "delivery_icon_bg_color",
-          "default": "#EDF3FF",
-          "label": "Fundal iconita"
-        },
-        {
-          "type": "color",
-          "id": "delivery_bg_color",
-          "default": "#F7FAFC",
-          "label": "Fundal bloc"
-        },
-        {
-          "type": "color",
           "id": "delivery_border_color",
-          "default": "#CED8E0",
+          "default": "#337239",
           "label": "Culoare border"
-        },
-        {
-          "type": "header",
-          "content": "Zile nelucratoare (fara livrare)"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_monday",
-          "default": false,
-          "label": "Luni"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_tuesday",
-          "default": false,
-          "label": "Marti"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_wednesday",
-          "default": false,
-          "label": "Miercuri"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_thursday",
-          "default": false,
-          "label": "Joi"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_friday",
-          "default": false,
-          "label": "Vineri"
         },
         {
           "type": "checkbox",
           "id": "non_delivery_saturday",
           "default": true,
-          "label": "Sambata"
+          "label": "Sambata fara livrare"
         },
         {
           "type": "checkbox",
           "id": "non_delivery_sunday",
           "default": true,
-          "label": "Duminica"
+          "label": "Duminica fara livrare"
         }
       ]
     },

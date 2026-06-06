@@ -254,8 +254,15 @@
   endif
 
   assign delivery_label = block.settings.delivery_label | default: 'Livrare estimata'
-  assign delivery_interval_prefix = block.settings.delivery_interval_prefix | default: 'Ajunge la tine intre'
+  assign delivery_interval_prefix = block.settings.delivery_interval_prefix | default: 'Ajunge'
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
+  assign title_color = block.settings.delivery_title_color | default: '#000000'
+  assign text_color = block.settings.delivery_text_color | default: '#1A2430'
+  assign date_color = block.settings.delivery_date_color | default: '#C93131'
+  assign note_color = block.settings.delivery_note_color | default: '#4A5A6A'
+  assign icon_bg_color = block.settings.delivery_icon_bg_color | default: '#FFFFFF'
+  assign block_bg_color = block.settings.delivery_bg_color | default: '#F3F3F3'
+  assign border_color = block.settings.delivery_border_color | default: '#337239'
 
   assign delivery_emoji = '🚚'
   case block.settings.delivery_icon
@@ -273,20 +280,20 @@
 <style>
   .product-delivery-estimate {
     --delivery-title-size: {{ block.settings.delivery_title_size }}px;
-    --delivery-label-size: {{ block.settings.delivery_label_size }}px;
+    --delivery-label-size: 12px;
     --delivery-range-size: {{ block.settings.delivery_range_size }}px;
-    --delivery-note-size: {{ block.settings.delivery_note_size }}px;
+    --delivery-note-size: {{ block.settings.delivery_note_size | default: 12 }}px;
     --delivery-icon-size: {{ block.settings.delivery_icon_size }}px;
     --delivery-emoji-size: {{ block.settings.delivery_emoji_size }}px;
 
     margin-top: 1.6rem;
     margin-left: {{ offset_x }}px;
     padding: 1.6rem;
-    border: 1px solid {{ block.settings.delivery_border_color }};
+    border: 1px solid {{ border_color }};
     border-radius: 0;
     background:
       radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 42%),
-      linear-gradient(145deg, {{ block.settings.delivery_bg_color }} 0%, #ffffff 100%);
+      linear-gradient(145deg, {{ block_bg_color }} 0%, #ffffff 100%);
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
@@ -308,7 +315,7 @@
     border-width: 2px;
     border-style: dashed;
     border-radius: 0;
-    background: linear-gradient(145deg, #ffffff 0%, {{ block.settings.delivery_bg_color }} 100%);
+    background: linear-gradient(145deg, #ffffff 0%, {{ block_bg_color }} 100%);
     box-shadow: none;
   }
 
@@ -316,7 +323,7 @@
     border-radius: 0;
     background:
       radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 38%),
-      linear-gradient(145deg, {{ block.settings.delivery_bg_color }} 0%, #e7f0ff 100%);
+      linear-gradient(145deg, {{ block_bg_color }} 0%, #e7f0ff 100%);
     box-shadow: none;
   }
 
@@ -330,7 +337,7 @@
     justify-content: center;
     background:
       radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.28) 34%, rgba(255, 255, 255, 0) 62%),
-      linear-gradient(155deg, rgba(255, 255, 255, 0.46) 0%, {{ block.settings.delivery_icon_bg_color }} 42%, rgba(0, 0, 0, 0.12) 140%);
+      linear-gradient(155deg, rgba(255, 255, 255, 0.46) 0%, {{ icon_bg_color }} 42%, rgba(0, 0, 0, 0.12) 140%);
     box-shadow: none;
   }
 
@@ -348,7 +355,7 @@
     font-weight: 800;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: {{ block.settings.delivery_title_color }};
+    color: {{ title_color }};
   }
 
   .product-delivery-estimate__label {
@@ -356,7 +363,7 @@
     font-size: var(--delivery-label-size);
     line-height: 1.35;
     font-weight: 700;
-    color: {{ block.settings.delivery_text_color }};
+    color: {{ text_color }};
   }
 
   .product-delivery-estimate__range {
@@ -364,7 +371,7 @@
     font-size: var(--delivery-range-size);
     line-height: 1.42;
     font-weight: 800;
-    color: {{ block.settings.delivery_date_color }};
+    color: {{ date_color }};
   }
 
   .product-delivery-estimate__note {
@@ -372,7 +379,7 @@
     font-size: var(--delivery-note-size);
     line-height: 1.4;
     font-weight: 600;
-    color: {{ block.settings.delivery_note_color }};
+    color: {{ note_color }};
   }
 
   @media screen and (max-width: 749px) {
@@ -398,7 +405,7 @@
   </span>
 
   <div class="product-delivery-estimate__content">
-    <p class="product-delivery-estimate__title">{{ block.settings.delivery_title }}</p>
+    <p class="product-delivery-estimate__title">{{ block.settings.delivery_title | default: 'Livrare rapida' }}</p>
     <p class="product-delivery-estimate__label">{{ delivery_label }}</p>
     <p class="product-delivery-estimate__range">
       {{ delivery_interval_prefix }}
