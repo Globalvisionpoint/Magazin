@@ -275,6 +275,13 @@
   assign delivery_title = block.settings.delivery_title | strip
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
   assign delivery_mode = block.settings.delivery_mode | default: 'delivery'
+  assign trust_icon_size = block.settings.delivery_trust_icon_size | default: 40
+  assign trust_logo_height = block.settings.delivery_trust_logo_height | default: 24
+  assign trust_icon_bg = block.settings.delivery_trust_icon_bg | default: '#f3f4f6'
+  assign has_trust_logos = false
+  if block.settings.delivery_trust_logo_1 != blank or block.settings.delivery_trust_logo_2 != blank or block.settings.delivery_trust_logo_3 != blank
+    assign has_trust_logos = true
+  endif
   assign title_color = block.settings.delivery_title_color | default: settings.delivery_global_title_color | default: '#000000'
   assign label_color = block.settings.delivery_label_color | default: settings.delivery_global_label_color | default: block.settings.delivery_text_color | default: '#166A31'
   assign prefix_color = block.settings.delivery_prefix_color | default: settings.delivery_global_prefix_color | default: block.settings.delivery_text_color | default: '#1A2430'
@@ -424,9 +431,19 @@
 </style>
 
 <div class="product-delivery-estimate product-delivery-estimate--{{ visual_preset }}" aria-label="Interval estimat de livrare">
-  <span class="product-delivery-estimate__icon" aria-hidden="true">
-    <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
-  </span>
+  {% if delivery_mode == 'trust' %}
+    <span class="product-delivery-estimate__icon" aria-hidden="true" style="background: {{ trust_icon_bg }};">
+      {% if block.settings.delivery_trust_icon != blank %}
+        {{ block.settings.delivery_trust_icon | image_url: width: 128 | image_tag: loading: 'lazy', widths: '64,96,128', style: 'width: ' | append: trust_icon_size | append: 'px; height: ' | append: trust_icon_size | append: 'px; object-fit: contain;' }}
+      {% else %}
+        <span class="product-delivery-estimate__emoji">🔒</span>
+      {% endif %}
+    </span>
+  {% else %}
+    <span class="product-delivery-estimate__icon" aria-hidden="true">
+      <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
+    </span>
+  {% endif %}
 
   <div class="product-delivery-estimate__content">
     {%- if delivery_title != blank -%}
@@ -439,6 +456,19 @@
       {%- if block.settings.delivery_note != blank -%}
         <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
       {%- endif -%}
+      {% if has_trust_logos %}
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.65rem; flex-wrap: wrap; align-items: center;">
+          {% if block.settings.delivery_trust_logo_1 != blank %}
+            {{ block.settings.delivery_trust_logo_1 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+          {% endif %}
+          {% if block.settings.delivery_trust_logo_2 != blank %}
+            {{ block.settings.delivery_trust_logo_2 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+          {% endif %}
+          {% if block.settings.delivery_trust_logo_3 != blank %}
+            {{ block.settings.delivery_trust_logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+          {% endif %}
+        </div>
+      {% endif %}
     {% else %}
       <p class="product-delivery-estimate__range">
         {%- if delivery_interval_prefix != blank -%}

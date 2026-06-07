@@ -101,6 +101,7 @@
         "delivery_estimate_9wzxiE": {
           "type": "delivery_estimate",
           "settings": {
+            "delivery_mode": "trust",
             "delivery_title": "Livrare estimată",
             "delivery_label": "Livrare în 1-2 zile lucrătoare",
             "delivery_interval_prefix": "",
