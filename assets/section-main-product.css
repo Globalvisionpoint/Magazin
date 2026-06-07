@@ -558,12 +558,12 @@ variant-selects {
   justify-content: center;
   width: 100%;
   margin-top: 0.1rem;
-  font-size: 1.28rem;
+  font-size: 1.22rem;
   font-weight: 700;
   line-height: 1;
   text-transform: lowercase;
   color: #ffd84d;
-  transform: translateX(-0.12rem);
+  transform: translateX(-0.12rem) rotate(1deg);
 }
 .price__box_wrapper {
   --price-to-badge-gap: 0.65rem;
@@ -733,9 +733,9 @@ variant-selects {
   }
 
   .discount__sale__off {
-    font-size: 1.28rem;
+    font-size: 1.22rem;
     color: #ffd84d;
-    transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem) rotate(1deg);
   }
 
   .product .price__box_wrapper .price-item--sale {
