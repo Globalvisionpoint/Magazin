@@ -198,6 +198,71 @@
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
   <link
+        {
+          "type": "header",
+          "content": "Trust badges sub livrare"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_trust_badges",
+          "default": true,
+          "label": "Arata bloc plati securizate"
+        },
+        {
+          "type": "text",
+          "id": "trust_badges_title",
+          "default": "Plata securizata",
+          "label": "Titlu trust"
+        },
+        {
+          "type": "text",
+          "id": "trust_badges_subtitle",
+          "default": "Carduri acceptate",
+          "label": "Subtitlu trust"
+        },
+        {
+          "type": "text",
+          "id": "trust_badges_note",
+          "default": "Plata ramburs disponibila",
+          "label": "Text extra trust"
+        },
+        {
+          "type": "text",
+          "id": "trust_badges_payment_types",
+          "default": "visa,master,maestro,apple_pay,google_pay",
+          "label": "Tipuri plata (separate prin virgula)",
+          "info": "Ex: visa,master,maestro,apple_pay,google_pay"
+        },
+        {
+          "type": "color",
+          "id": "trust_badges_title_color",
+          "default": "#111111",
+          "label": "Culoare titlu trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_badges_subtitle_color",
+          "default": "#166A31",
+          "label": "Culoare subtitlu trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_badges_note_color",
+          "default": "#4b5563",
+          "label": "Culoare text trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_badges_bg_color",
+          "default": "#ffffff",
+          "label": "Fundal trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_badges_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar trust"
+        },
     id="ModelViewerStyle"
     rel="stylesheet"
     href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
