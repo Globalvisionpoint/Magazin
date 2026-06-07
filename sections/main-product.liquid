@@ -240,47 +240,35 @@
             {%- when '@app' -%}
               {% render block %}
             {%- when 'additinal_field' -%}
-              {%- liquid
-                assign trust_title = block.settings.trust_title | default: block.settings.text_field_label | default: 'Plata securizata'
-                assign trust_subtitle = block.settings.trust_subtitle | default: block.settings.file_field_label | default: 'Carduri acceptate'
-                assign trust_text = block.settings.trust_text | default: '100% securizat si verificat'
-                assign trust_title_color = block.settings.trust_title_color | default: '#111111'
-                assign trust_subtitle_color = block.settings.trust_subtitle_color | default: '#166A31'
-                assign trust_text_color = block.settings.trust_text_color | default: '#4b5563'
-                assign trust_bg_color = block.settings.trust_bg_color | default: '#ffffff'
-                assign trust_border_color = block.settings.trust_border_color | default: '#d6d9df'
-                assign trust_icon_bg_color = block.settings.trust_icon_bg_color | default: '#f3f4f6'
-                assign trust_icon_size = block.settings.trust_icon_size | default: 42
-                assign trust_logo_height = block.settings.trust_logo_height | default: 26
-              -%}
               <div class="cart__additional--field" {{ block.shopify_attributes }}>
-                <div style="padding: 1rem 1.2rem; border: 1px solid {{ trust_border_color }}; border-radius: 8px; background: {{ trust_bg_color }}; display: flex; gap: 0.95rem; align-items: flex-start;">
-                  <div style="width: {{ trust_icon_size }}px; height: {{ trust_icon_size }}px; min-width: {{ trust_icon_size }}px; border-radius: 10px; background: {{ trust_icon_bg_color }}; display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
-                    {% if block.settings.trust_custom_icon != blank %}
-                      {{ block.settings.trust_custom_icon | image_url: width: 128 | image_tag: loading: 'lazy', widths: '64,96,128', style: 'width: 100%; height: 100%; object-fit: contain;' }}
-                    {% else %}
-                      <span style="font-size: 1.2rem; font-weight: 700; color: {{ trust_subtitle_color }};">S</span>
-                    {% endif %}
+                {%- if block.settings.text_field -%}
+                  <div class="input__field_form">
+                    <label>
+                      <span class="input__field--label"><b>{{ block.settings.text_field_label }}</b></span>
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="engraving"
+                        name="properties[Name]"
+                        form="{{ product_form_id }}"
+                      >
+                    </label>
                   </div>
-                  <div style="min-width: 0; width: 100%;">
-                    <p style="margin: 0 0 0.4rem 0; font-size: 1.3rem; font-weight: 700; color: {{ trust_title_color }};">{{ trust_title }}</p>
-                    <p style="margin: 0 0 0.35rem 0; font-size: 1.25rem; font-weight: 700; color: {{ trust_subtitle_color }};">{{ trust_subtitle }}</p>
-                    <p style="margin: 0; font-size: 1.2rem; color: {{ trust_text_color }};">{{ trust_text }}</p>
-                    {% if block.settings.trust_logo_1 != blank or block.settings.trust_logo_2 != blank or block.settings.trust_logo_3 != blank %}
-                      <div style="display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; align-items: center;">
-                        {% if block.settings.trust_logo_1 != blank %}
-                          {{ block.settings.trust_logo_1 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
-                        {% endif %}
-                        {% if block.settings.trust_logo_2 != blank %}
-                          {{ block.settings.trust_logo_2 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
-                        {% endif %}
-                        {% if block.settings.trust_logo_3 != blank %}
-                          {{ block.settings.trust_logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
-                        {% endif %}
-                      </div>
-                    {% endif %}
+                {%- endif -%}
+                {%- if block.settings.file_field -%}
+                  <div class="input__field_form">
+                    <label>
+                      <span class="input__field--label"><b>{{ block.settings.file_field_label }}</b></span>
+                      <input
+                        class="field__input"
+                        type="file"
+                        id="upload"
+                        name="properties[Image]"
+                        form="{{ product_form_id }}"
+                      >
+                    </label>
                   </div>
-                </div>
+                {%- endif -%}
               </div>
             {%- when 'price' -%}
               <div class="price__box_wrapper d-flex" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
@@ -739,6 +727,10 @@
             {%- when 'delivery_estimate', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
+              </div>
+            {%- when 'trust_badges' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'delivery-trust-block', block: block %}
               </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -1707,102 +1699,32 @@
     },
   	{
       "type": "additinal_field",
-      "name": "Additional field (Trust badges)",
+      "name": "Additional field",
       "limit": 1,
   	  "settings": [
         {
-          "type": "text",
-          "id": "trust_title",
-          "default": "Plata securizata",
-          "label": "Titlu"
+          "type": "checkbox",
+          "id": "text_field",
+          "default": true,
+          "label": "Show text field"
         },
   		{
           "type": "text",
-          "id": "trust_subtitle",
-          "default": "Carduri acceptate",
-          "label": "Subtitlu"
+          "id": "text_field_label",
+          "default": "Enter your name",
+          "label": "Text label"
         },
   		{
+          "type": "checkbox",
+          "id": "file_field",
+          "default": true,
+          "label": "Show file field"
+        },
+        {
           "type": "text",
-          "id": "trust_text",
-          "default": "100% securizat si verificat",
-          "label": "Text"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_custom_icon",
-          "label": "Iconita"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_1",
-          "label": "Logo 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_2",
-          "label": "Logo 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_3",
-          "label": "Logo 3"
-        },
-        {
-          "type": "range",
-          "id": "trust_icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 42,
-          "label": "Marime iconita"
-        },
-        {
-          "type": "range",
-          "id": "trust_logo_height",
-          "min": 16,
-          "max": 40,
-          "step": 1,
-          "unit": "px",
-          "default": 26,
-          "label": "Inaltime logo"
-        },
-        {
-          "type": "color",
-          "id": "trust_title_color",
-          "default": "#111111",
-          "label": "Culoare titlu"
-        },
-        {
-          "type": "color",
-          "id": "trust_subtitle_color",
-          "default": "#166A31",
-          "label": "Culoare subtitlu"
-        },
-        {
-          "type": "color",
-          "id": "trust_text_color",
-          "default": "#4b5563",
-          "label": "Culoare text"
-        },
-        {
-          "type": "color",
-          "id": "trust_bg_color",
-          "default": "#ffffff",
-          "label": "Fundal"
-        },
-        {
-          "type": "color",
-          "id": "trust_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_bg_color",
-          "default": "#f3f4f6",
-          "label": "Fundal iconita"
+          "id": "file_field_label",
+          "default": "Add your image",
+          "label": "File label"
         }
   	  ]
     },
@@ -2098,24 +2020,8 @@
     },
     {
       "type": "delivery_estimate",
-      "name": "Livrare / Trust badges",
+      "name": "Livrare estimata",
       "settings": [
-        {
-          "type": "select",
-          "id": "delivery_mode",
-          "label": "Mod afisare",
-          "default": "delivery",
-          "options": [
-            {
-              "value": "delivery",
-              "label": "Livrare estimata"
-            },
-            {
-              "value": "trust",
-              "label": "Trust badges"
-            }
-          ]
-        },
         {
           "type": "text",
           "id": "delivery_title",
@@ -2139,52 +2045,6 @@
           "id": "delivery_note",
           "default": "Comenzile plasate azi sunt procesate rapid.",
           "label": "Text secundar"
-        },
-        {
-          "type": "image_picker",
-          "id": "delivery_trust_icon",
-          "label": "Trust icon"
-        },
-        {
-          "type": "image_picker",
-          "id": "delivery_trust_logo_1",
-          "label": "Trust logo 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "delivery_trust_logo_2",
-          "label": "Trust logo 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "delivery_trust_logo_3",
-          "label": "Trust logo 3"
-        },
-        {
-          "type": "range",
-          "id": "delivery_trust_icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 40,
-          "label": "Trust icon size"
-        },
-        {
-          "type": "range",
-          "id": "delivery_trust_logo_height",
-          "min": 16,
-          "max": 40,
-          "step": 1,
-          "unit": "px",
-          "default": 24,
-          "label": "Trust logo height"
-        },
-        {
-          "type": "color",
-          "id": "delivery_trust_icon_bg",
-          "default": "#f3f4f6",
-          "label": "Trust icon background"
         },
         {
           "type": "range",
@@ -2295,11 +2155,171 @@
           "id": "non_delivery_sunday",
           "default": true,
           "label": "Duminica nelucratoare"
+        }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust badges",
+      "settings": [
+        {
+          "type": "text",
+          "id": "delivery_title",
+          "default": "Plata securizata",
+          "label": "Titlu"
+        },
+        {
+          "type": "text",
+          "id": "delivery_label",
+          "default": "Carduri acceptate",
+          "label": "Subtitlu"
+        },
+        {
+          "type": "text",
+          "id": "delivery_note",
+          "default": "100% securizat si verificat",
+          "label": "Text principal"
+        },
+        {
+          "type": "text",
+          "id": "trust_note_secondary",
+          "default": "Plata ramburs disponibila",
+          "label": "Text secundar"
         },
         {
           "type": "image_picker",
           "id": "trust_custom_icon",
-          "label": "Iconita trust (imagine)"
+          "label": "Iconita"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_1",
+          "label": "Logo card 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_2",
+          "label": "Logo card 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_3",
+          "label": "Logo card 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_4",
+          "label": "Logo card 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_5",
+          "label": "Logo card 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_6",
+          "label": "Logo card 6"
+        },
+        {
+          "type": "range",
+          "id": "trust_icon_size",
+          "min": 28,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 40,
+          "label": "Marime iconita"
+        },
+        {
+          "type": "range",
+          "id": "trust_logo_height",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 24,
+          "label": "Inaltime logo"
+        },
+        {
+          "type": "range",
+          "id": "trust_padding_y",
+          "min": 8,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 14,
+          "label": "Padding vertical"
+        },
+        {
+          "type": "range",
+          "id": "trust_corner_radius",
+          "min": 0,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 12,
+          "label": "Colturi"
+        },
+        {
+          "type": "color",
+          "id": "delivery_title_color",
+          "default": "#111111",
+          "label": "Culoare titlu"
+        },
+        {
+          "type": "color",
+          "id": "delivery_label_color",
+          "default": "#166A31",
+          "label": "Culoare subtitlu"
+        },
+        {
+          "type": "color",
+          "id": "delivery_note_color",
+          "default": "#4b5563",
+          "label": "Culoare text principal"
+        },
+        {
+          "type": "color",
+          "id": "trust_note_secondary_color",
+          "default": "#6b7280",
+          "label": "Culoare text secundar"
+        },
+        {
+          "type": "color",
+          "id": "delivery_bg_color",
+          "default": "#ffffff",
+          "label": "Fundal"
+        },
+        {
+          "type": "color",
+          "id": "delivery_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_background",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_color",
+          "default": "#111827",
+          "label": "Culoare iconita"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_background",
+          "default": "#ffffff",
+          "label": "Fundal logo"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar logo"
         }
       ]
     },

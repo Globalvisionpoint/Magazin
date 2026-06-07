@@ -101,7 +101,6 @@
         "delivery_estimate_9wzxiE": {
           "type": "delivery_estimate",
           "settings": {
-            "delivery_mode": "trust",
             "delivery_title": "Livrare estimată",
             "delivery_label": "Livrare în 1-2 zile lucrătoare",
             "delivery_interval_prefix": "",
@@ -125,37 +124,20 @@
           }
         },
         "delivery_trust_badges_block": {
-          "type": "delivery_estimate",
+          "type": "trust_badges",
           "settings": {
-            "delivery_mode": "trust",
             "delivery_title": "Plata securizata",
             "delivery_label": "Carduri acceptate",
-            "delivery_interval_prefix": "",
             "delivery_note": "100% securizat si verificat",
-            "delivery_days_min": 0,
-            "delivery_days_max": 0,
-            "delivery_cutoff_enabled": false,
-            "delivery_cutoff_hour": 15,
-            "delivery_cutoff_minute": 0,
-            "delivery_padding_top": 12,
-            "delivery_padding_bottom": 12,
-            "delivery_icon": "truck",
-            "delivery_visual_preset": "outline",
-            "delivery_trust_icon_size": 40,
-            "delivery_trust_logo_height": 24,
-            "delivery_trust_icon_bg": "#f3f4f6",
+            "trust_note_secondary": "Plata ramburs disponibila",
+            "trust_icon_size": 40,
+            "trust_logo_height": 24,
+            "trust_icon_background": "#f3f4f6",
             "delivery_title_color": "#111111",
             "delivery_label_color": "#166A31",
             "delivery_note_color": "#4b5563",
             "delivery_border_color": "#d6d9df",
-            "delivery_bg_color": "#ffffff",
-            "non_delivery_monday": false,
-            "non_delivery_tuesday": false,
-            "non_delivery_wednesday": false,
-            "non_delivery_thursday": false,
-            "non_delivery_friday": false,
-            "non_delivery_saturday": true,
-            "non_delivery_sunday": true
+            "delivery_bg_color": "#ffffff"
           }
         },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
