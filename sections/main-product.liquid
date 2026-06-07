@@ -752,11 +752,7 @@
               </div>
             {%- when 'trust_row' -%}
               <div {{ block.shopify_attributes }}>
-                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9;">
-                  <h3 style="color: {{ block.settings.delivery_title_color }}; margin: 0 0 0.5rem 0;">{{ block.settings.delivery_title }}</h3>
-                  <p style="color: {{ block.settings.delivery_label_color }}; margin: 0 0 0.5rem 0; font-weight: 600;">{{ block.settings.delivery_label }}</p>
-                  <p style="color: {{ block.settings.delivery_note_color }}; margin: 0; font-size: 0.9rem;">{{ block.settings.delivery_note }}</p>
-                </div>
+                {% render 'trust-badges-simple', block: block %}
               </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2195,37 +2191,37 @@
       "settings": [
         {
           "type": "text",
-          "id": "delivery_title",
+          "id": "trust_title",
           "default": "Plata securizata",
           "label": "Titlu"
         },
         {
           "type": "text",
-          "id": "delivery_label",
+          "id": "trust_subtitle",
           "default": "Carduri acceptate",
           "label": "Subtitlu"
         },
         {
           "type": "text",
-          "id": "delivery_note",
+          "id": "trust_text",
           "default": "Text detaliat",
           "label": "Text"
         },
         {
           "type": "color",
-          "id": "delivery_title_color",
+          "id": "trust_title_color",
           "default": "#000000",
           "label": "Culoare titlu"
         },
         {
           "type": "color",
-          "id": "delivery_label_color",
+          "id": "trust_subtitle_color",
           "default": "#1A2430",
           "label": "Culoare subtitlu"
         },
         {
           "type": "color",
-          "id": "delivery_note_color",
+          "id": "trust_text_color",
           "default": "#666666",
           "label": "Culoare text"
         }

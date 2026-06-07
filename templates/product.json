@@ -126,9 +126,9 @@
         "trust_row_test_1": {
           "type": "trust_row",
           "settings": {
-            "delivery_title": "Plata securizata",
-            "delivery_label": "Carduri acceptate",
-            "delivery_note": "Poti personaliza din editor"
+            "trust_title": "Plata securizata",
+            "trust_subtitle": "Carduri acceptate",
+            "trust_text": "Poti personaliza din editor"
           }
         },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
