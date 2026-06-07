@@ -750,7 +750,7 @@
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
-            {%- when 'delivery_estimate_pro' -%}
+            {%- when 'trust_row' -%}
               {% render 'delivery-trust-block', block: block %}
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2184,7 +2184,7 @@
       ]
     },
     {
-      "type": "delivery_estimate_pro",
+      "type": "trust_row",
       "name": "Trust row",
       "settings": [
         {
@@ -2202,90 +2202,18 @@
         {
           "type": "text",
           "id": "delivery_note",
-          "default": "Configureaza iconita, logo-urile si culorile direct din editor.",
+          "default": "Text detaliat",
           "label": "Text"
         },
         {
           "type": "image_picker",
           "id": "trust_custom_icon",
-          "label": "Iconita custom"
+          "label": "Iconita"
         },
         {
           "type": "image_picker",
           "id": "trust_logo_1",
           "label": "Logo 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_2",
-          "label": "Logo 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_3",
-          "label": "Logo 3"
-        },
-        {
-          "type": "color",
-          "id": "delivery_bg_color",
-          "default": "#ffffff",
-          "label": "Fundal"
-        },
-        {
-          "type": "color",
-          "id": "delivery_border_color",
-          "default": "#d6d9df",
-          "label": "Culoare chenar"
-        },
-        {
-          "type": "color",
-          "id": "delivery_title_color",
-          "default": "#121212",
-          "label": "Culoare titlu"
-        },
-        {
-          "type": "color",
-          "id": "delivery_label_color",
-          "default": "#166A31",
-          "label": "Culoare subtitlu"
-        },
-        {
-          "type": "color",
-          "id": "delivery_note_color",
-          "default": "#4b5563",
-          "label": "Culoare text"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_background",
-          "default": "#f3f4f6",
-          "label": "Fundal iconita"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_color",
-          "default": "#121212",
-          "label": "Culoare iconita"
-        },
-        {
-          "type": "range",
-          "id": "trust_icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 42,
-          "label": "Dimensiune iconita"
-        },
-        {
-          "type": "range",
-          "id": "trust_logo_height",
-          "min": 18,
-          "max": 42,
-          "step": 2,
-          "unit": "px",
-          "default": 28,
-          "label": "Inaltime logo"
         }
       ]
     },
