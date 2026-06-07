@@ -10,6 +10,9 @@
       if language == request.locale.iso_code
         assign theme_rtl = true
       endif
+    endfor
+  endif
+%}
 <noscript>{{ 'dynamic-checkout.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'gift-card-recipient-form.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}</noscript>
@@ -2177,12 +2180,8 @@
     },
     {
       "type": "trust_row",
-      "name": "Trust row",
+      "name": "Trust badges row",
       "settings": [
-        {
-          "type": "paragraph",
-          "content": "Fiecare block adaugat reprezinta un rand nou. Poti adauga mai multe randuri unul sub altul."
-        },
         {
           "type": "text",
           "id": "heading",
@@ -2216,30 +2215,6 @@
           "label": "Iconita custom"
         },
         {
-          "type": "range",
-          "id": "icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 42,
-          "label": "Dimensiune iconita"
-        },
-        {
-          "type": "select",
-          "id": "text_alignment",
-          "label": "Aliniere continut",
-          "default": "left",
-          "options": [
-            { "value": "left", "label": "Stanga" },
-            { "value": "center", "label": "Centru" }
-          ]
-        },
-        {
-          "type": "header",
-          "content": "Logo-uri optionale"
-        },
-        {
           "type": "image_picker",
           "id": "logo_1",
           "label": "Logo 1"
@@ -2253,30 +2228,6 @@
           "type": "image_picker",
           "id": "logo_3",
           "label": "Logo 3"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo_4",
-          "label": "Logo 4"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo_5",
-          "label": "Logo 5"
-        },
-        {
-          "type": "range",
-          "id": "logo_height",
-          "min": 18,
-          "max": 42,
-          "step": 2,
-          "unit": "px",
-          "default": 28,
-          "label": "Inaltime logo"
-        },
-        {
-          "type": "header",
-          "content": "Culori"
         },
         {
           "type": "color",
@@ -2327,8 +2278,24 @@
           "label": "Chenar logo"
         },
         {
-          "type": "header",
-          "content": "Dimensiuni"
+          "type": "range",
+          "id": "icon_size",
+          "min": 28,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 42,
+          "label": "Dimensiune iconita"
+        },
+        {
+          "type": "range",
+          "id": "logo_height",
+          "min": 18,
+          "max": 42,
+          "step": 2,
+          "unit": "px",
+          "default": 28,
+          "label": "Inaltime logo"
         },
         {
           "type": "range",
