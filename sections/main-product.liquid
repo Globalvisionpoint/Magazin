@@ -748,14 +748,10 @@
               %}
             {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
-                {%- if block.settings.delivery_block_mode == 'trust' -%}
-                  {% render 'delivery-trust-block', block: block %}
-                {%- else -%}
-                  {% render 'delivery-estimate-block', block: block %}
-                {%- endif -%}
+                {% render 'delivery-estimate-block', block: block %}
               </div>
             {%- when 'trust_row' -%}
-              {% render 'product-trust-row', block: block %}
+              {% render 'delivery-trust-block', block: block %}
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="product__variant_barcode {% if current_variant.barcode == blank %} no-js-inline {% endif %}">
@@ -2053,22 +2049,6 @@
           "label": "Titlu bloc"
         },
         {
-          "type": "select",
-          "id": "delivery_block_mode",
-          "default": "estimate",
-          "label": "Mod afisare bloc",
-          "options": [
-            {
-              "value": "estimate",
-              "label": "Livrare estimata"
-            },
-            {
-              "value": "trust",
-              "label": "Trust badges"
-            }
-          ]
-        },
-        {
           "type": "text",
           "id": "delivery_label",
           "default": "Livrare estimata",
@@ -2197,28 +2177,108 @@
           "label": "Duminica nelucratoare"
         },
         {
-          "type": "header",
-          "content": "Setari mod Trust badges"
+          "type": "image_picker",
+          "id": "trust_custom_icon",
+          "label": "Iconita trust (imagine)"
+        }
+      ]
+    },
+    {
+      "type": "trust_row",
+      "name": "Trust row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "delivery_title",
+          "default": "Plata securizata",
+          "label": "Titlu"
+        },
+        {
+          "type": "text",
+          "id": "delivery_label",
+          "default": "Carduri acceptate",
+          "label": "Subtitlu"
+        },
+        {
+          "type": "text",
+          "id": "delivery_note",
+          "default": "Configureaza iconita, logo-urile si culorile direct din editor.",
+          "label": "Text",
+          "info": "Acest bloc este separat de Livrare estimata si poate fi adaugat de mai multe ori."
         },
         {
           "type": "image_picker",
           "id": "trust_custom_icon",
-          "label": "Iconita trust (imagine)"
+          "label": "Iconita custom"
         },
         {
           "type": "image_picker",
           "id": "trust_logo_1",
-          "label": "Logo card 1"
+          "label": "Logo 1"
         },
         {
           "type": "image_picker",
           "id": "trust_logo_2",
-          "label": "Logo card 2"
+          "label": "Logo 2"
         },
         {
           "type": "image_picker",
           "id": "trust_logo_3",
-          "label": "Logo card 3"
+          "label": "Logo 3"
+        },
+        {
+          "type": "color",
+          "id": "delivery_bg_color",
+          "default": "#ffffff",
+          "label": "Fundal"
+        },
+        {
+          "type": "color",
+          "id": "delivery_border_color",
+          "default": "#d6d9df",
+          "label": "Culoare chenar"
+        },
+        {
+          "type": "color",
+          "id": "delivery_title_color",
+          "default": "#121212",
+          "label": "Culoare titlu"
+        },
+        {
+          "type": "color",
+          "id": "delivery_label_color",
+          "default": "#166A31",
+          "label": "Culoare subtitlu"
+        },
+        {
+          "type": "color",
+          "id": "delivery_note_color",
+          "default": "#4b5563",
+          "label": "Culoare text"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_background",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_color",
+          "default": "#121212",
+          "label": "Culoare iconita"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_background",
+          "default": "#ffffff",
+          "label": "Fundal logo"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar logo"
         },
         {
           "type": "range",
@@ -2227,8 +2287,8 @@
           "max": 72,
           "step": 2,
           "unit": "px",
-          "default": 40,
-          "label": "Dimensiune iconita trust"
+          "default": 42,
+          "label": "Dimensiune iconita"
         },
         {
           "type": "range",
@@ -2237,8 +2297,8 @@
           "max": 42,
           "step": 2,
           "unit": "px",
-          "default": 26,
-          "label": "Inaltime logo card"
+          "default": 28,
+          "label": "Inaltime logo"
         },
         {
           "type": "range",
@@ -2253,149 +2313,6 @@
         {
           "type": "range",
           "id": "trust_corner_radius",
-          "min": 0,
-          "max": 24,
-          "step": 1,
-          "unit": "px",
-          "default": 16,
-          "label": "Rotunjire colturi"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_background",
-          "default": "#f3f4f6",
-          "label": "Fundal iconita trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_color",
-          "default": "#111827",
-          "label": "Culoare iconita trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_logo_background",
-          "default": "#ffffff",
-          "label": "Fundal logo card"
-        },
-        {
-          "type": "color",
-          "id": "trust_logo_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar logo card"
-        }
-      ]
-    },
-    {
-      "type": "trust_row",
-      "name": "Trust badges row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Plata securizata",
-          "label": "Titlu"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>Editeaza textul, iconita si logo-urile direct din Shopify Editor.</p>"
-        },
-        {
-          "type": "select",
-          "id": "icon_choice",
-          "label": "Iconita",
-          "default": "check_mark",
-          "options": [
-            { "value": "none", "label": "Fara iconita" },
-            { "value": "check_mark", "label": "Bifa" },
-            { "value": "padlock", "label": "Lacat" },
-            { "value": "success", "label": "Scut / validat" },
-            { "value": "truck", "label": "Livrare" },
-            { "value": "stopwatch", "label": "Rapid" },
-            { "value": "question", "label": "Intrebare / suport" }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "custom_icon",
-          "label": "Iconita custom"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo_1",
-          "label": "Logo 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo_2",
-          "label": "Logo 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo_3",
-          "label": "Logo 3"
-        },
-        {
-          "type": "color",
-          "id": "background_color",
-          "default": "#ffffff",
-          "label": "Fundal"
-        },
-        {
-          "type": "color",
-          "id": "border_color",
-          "default": "#d6d9df",
-          "label": "Culoare chenar"
-        },
-        {
-          "type": "color",
-          "id": "title_color",
-          "default": "#121212",
-          "label": "Culoare titlu"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "default": "#4b5563",
-          "label": "Culoare text"
-        },
-        {
-          "type": "color",
-          "id": "icon_background",
-          "default": "#f3f4f6",
-          "label": "Fundal iconita"
-        },
-        {
-          "type": "color",
-          "id": "icon_color",
-          "default": "#121212",
-          "label": "Culoare iconita"
-        },
-        {
-          "type": "range",
-          "id": "icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 42,
-          "label": "Dimensiune iconita"
-        },
-        {
-          "type": "range",
-          "id": "logo_height",
-          "min": 18,
-          "max": 42,
-          "step": 2,
-          "unit": "px",
-          "default": 28,
-          "label": "Inaltime logo"
-        },
-        {
-          "type": "range",
-          "id": "corner_radius",
           "min": 0,
           "max": 24,
           "step": 1,
