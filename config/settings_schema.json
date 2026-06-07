@@ -233,6 +233,60 @@
         "content": "t:settings_schema.typography.settings.header__2.content"
       },
       {
+        "type": "checkbox",
+        "id": "typography_local_only",
+        "label": "Use local theme fonts only (no external font loading)",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "local_body_font_family",
+        "label": "Local body font",
+        "default": "magazin_sans",
+        "options": [
+          {
+            "value": "magazin_sans",
+            "label": "Magazin Sans"
+          },
+          {
+            "value": "magazin_display",
+            "label": "Magazin Display"
+          },
+          {
+            "value": "system_sans",
+            "label": "System Sans"
+          },
+          {
+            "value": "system_serif",
+            "label": "System Serif"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "local_heading_font_family",
+        "label": "Local heading font",
+        "default": "magazin_display",
+        "options": [
+          {
+            "value": "magazin_display",
+            "label": "Magazin Display"
+          },
+          {
+            "value": "magazin_sans",
+            "label": "Magazin Sans"
+          },
+          {
+            "value": "system_sans",
+            "label": "System Sans"
+          },
+          {
+            "value": "system_serif",
+            "label": "System Serif"
+          }
+        ]
+      },
+      {
         "type": "font_picker",
         "id": "type_body_font",
         "default": "assistant_n4",

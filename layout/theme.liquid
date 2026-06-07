@@ -162,6 +162,30 @@
       {%- endfor -%}
     {%- endcapture -%}
 
+    {%- liquid
+      assign typography_local_only = settings.typography_local_only
+
+      assign local_body_font_stack = "'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+      case settings.local_body_font_family
+        when 'magazin_display'
+          assign local_body_font_stack = "'Magazin Display', 'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'system_sans'
+          assign local_body_font_stack = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        when 'system_serif'
+          assign local_body_font_stack = "Georgia, 'Times New Roman', Times, serif"
+      endcase
+
+      assign local_heading_font_stack = "'Magazin Display', 'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+      case settings.local_heading_font_family
+        when 'magazin_sans'
+          assign local_heading_font_stack = "'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'system_sans'
+          assign local_heading_font_stack = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        when 'system_serif'
+          assign local_heading_font_stack = "Georgia, 'Times New Roman', Times, serif"
+      endcase
+    -%}
+
     {% style %}
         @font-face {
           font-family: 'Magazin Sans';
@@ -196,16 +220,18 @@
           font-display: swap;
           unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
         }
-         {%- if settings.use_custom_body_font and settings.custom_body_font != blank -%}
+         {%- if settings.use_custom_body_font and settings.custom_body_font != blank and typography_local_only != true -%}
         {{ body_font_face }}
         {%- endif -%}
 
-        {%- if settings.use_custom_heading_font and settings.custom_heading_font != blank -%}
+        {%- if settings.use_custom_heading_font and settings.custom_heading_font != blank and typography_local_only != true -%}
          {{ heading_font_face }}
         {%- endif -%}
 
-        {{ settings.type_body_font | font_face: font_display: 'swap' }}
-        {{ settings.type_header_font | font_face: font_display: 'swap' }}
+        {%- unless typography_local_only == true -%}
+          {{ settings.type_body_font | font_face: font_display: 'swap' }}
+          {{ settings.type_header_font | font_face: font_display: 'swap' }}
+        {%- endunless -%}
 
         {% assign scheme_classes = '' %}
 
@@ -248,7 +274,11 @@
           }
 
         :root {
-          {%- if settings.use_custom_body_font and settings.custom_body_font != blank -%}
+          {%- if typography_local_only == true -%}
+           --font-body-family: {{ local_body_font_stack }};
+           --font-body-style: normal;
+           --font-body-weight: {{ settings.body_font_weight | default: 400 }};
+          {%- elsif settings.use_custom_body_font and settings.custom_body_font != blank -%}
            --font-body-family: Body-Font;
            --font-body-style: normal;
            --font-body-weight: {{ settings.body_font_weight | default: 400 }};
@@ -258,7 +288,11 @@
           --font-body-weight: {{ settings.type_body_font.weight }};
          {%- endif -%}
 
-         {%- if settings.use_custom_heading_font and settings.custom_heading_font != blank -%}
+         {%- if typography_local_only == true -%}
+          --font-heading-family: {{ local_heading_font_stack }};
+          --font-heading-style: normal;
+          --font-heading-weight: {{ settings.heading_font_weight | default: 600 }};
+         {%- elsif settings.use_custom_heading_font and settings.custom_heading_font != blank -%}
           --font-heading-family: Heading-Font;
           --font-heading-style: normal;
           --font-heading-weight: {{ settings.heading_font_weight | default: 600 }};
