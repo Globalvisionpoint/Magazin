@@ -2153,6 +2153,11 @@
           ]
         },
         {
+          "type": "image_picker",
+          "id": "delivery_custom_icon",
+          "label": "Imagine iconita"
+        },
+        {
           "type": "select",
           "id": "delivery_visual_preset",
           "label": "Varianta vizuala",
@@ -2272,6 +2277,16 @@
         },
         {
           "type": "range",
+          "id": "delivery_custom_icon_size",
+          "min": 20,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "default": 34,
+          "label": "Marime imagine iconita"
+        },
+        {
+          "type": "range",
           "id": "delivery_offset_x",
           "min": 0,
           "max": 240,
@@ -2289,46 +2304,16 @@
           "label": "Pozitie verticala"
         },
         {
-          "type": "checkbox",
-          "id": "non_delivery_monday",
-          "default": false,
-          "label": "Luni nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_tuesday",
-          "default": false,
-          "label": "Marti nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_wednesday",
-          "default": false,
-          "label": "Miercuri nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_thursday",
-          "default": false,
-          "label": "Joi nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_friday",
-          "default": false,
-          "label": "Vineri nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_saturday",
-          "default": true,
-          "label": "Sambata nelucratoare"
-        },
-        {
-          "type": "checkbox",
-          "id": "non_delivery_sunday",
-          "default": true,
-          "label": "Duminica nelucratoare"
+          "type": "select",
+          "id": "delivery_non_working_days",
+          "label": "Zile nelucratoare",
+          "default": "weekend",
+          "options": [
+            { "value": "none", "label": "Niciuna" },
+            { "value": "saturday", "label": "Doar sambata" },
+            { "value": "sunday", "label": "Doar duminica" },
+            { "value": "weekend", "label": "Sambata si duminica" }
+          ]
         }
       ]
     },

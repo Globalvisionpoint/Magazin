@@ -10,20 +10,11 @@
   assign cutoff_minute = block.settings.delivery_cutoff_minute | default: 30 | plus: 0
   assign cutoff_minutes = cutoff_hour | times: 60 | plus: cutoff_minute
   assign cutoff_enabled = block.settings.delivery_cutoff_enabled
+  assign non_working_days = block.settings.delivery_non_working_days | default: 'weekend'
   assign offset_x = block.settings.delivery_offset_x | default: 120 | plus: 0 | minus: 120
   assign offset_y = block.settings.delivery_offset_y | default: 120 | plus: 0 | minus: 120
   assign padding_top = block.settings.delivery_padding_top | default: 16 | plus: 0
   assign padding_bottom = block.settings.delivery_padding_bottom | default: 16 | plus: 0
-  assign non_delivery_saturday = block.settings.non_delivery_saturday
-  assign non_delivery_sunday = block.settings.non_delivery_sunday
-
-  if non_delivery_saturday == blank
-    assign non_delivery_saturday = true
-  endif
-
-  if non_delivery_sunday == blank
-    assign non_delivery_sunday = true
-  endif
 
   if cutoff_enabled == blank
     assign cutoff_enabled = true
@@ -54,32 +45,12 @@
       assign is_non_delivery_day = false
 
       case candidate_weekday
-        when '1'
-          if block.settings.non_delivery_monday
-            assign is_non_delivery_day = true
-          endif
-        when '2'
-          if block.settings.non_delivery_tuesday
-            assign is_non_delivery_day = true
-          endif
-        when '3'
-          if block.settings.non_delivery_wednesday
-            assign is_non_delivery_day = true
-          endif
-        when '4'
-          if block.settings.non_delivery_thursday
-            assign is_non_delivery_day = true
-          endif
-        when '5'
-          if block.settings.non_delivery_friday
-            assign is_non_delivery_day = true
-          endif
         when '6'
-          if non_delivery_saturday
+          if non_working_days == 'saturday' or non_working_days == 'weekend'
             assign is_non_delivery_day = true
           endif
         when '7'
-          if non_delivery_sunday
+          if non_working_days == 'sunday' or non_working_days == 'weekend'
             assign is_non_delivery_day = true
           endif
       endcase
@@ -114,32 +85,12 @@
       assign is_non_delivery_day = false
 
       case candidate_weekday
-        when '1'
-          if block.settings.non_delivery_monday
-            assign is_non_delivery_day = true
-          endif
-        when '2'
-          if block.settings.non_delivery_tuesday
-            assign is_non_delivery_day = true
-          endif
-        when '3'
-          if block.settings.non_delivery_wednesday
-            assign is_non_delivery_day = true
-          endif
-        when '4'
-          if block.settings.non_delivery_thursday
-            assign is_non_delivery_day = true
-          endif
-        when '5'
-          if block.settings.non_delivery_friday
-            assign is_non_delivery_day = true
-          endif
         when '6'
-          if non_delivery_saturday
+          if non_working_days == 'saturday' or non_working_days == 'weekend'
             assign is_non_delivery_day = true
           endif
         when '7'
-          if non_delivery_sunday
+          if non_working_days == 'sunday' or non_working_days == 'weekend'
             assign is_non_delivery_day = true
           endif
       endcase
@@ -360,6 +311,12 @@
     box-shadow: none;
   }
 
+  .product-delivery-estimate__icon img {
+    width: {{ block.settings.delivery_custom_icon_size | default: 34 }}px;
+    height: {{ block.settings.delivery_custom_icon_size | default: 34 }}px;
+    object-fit: contain;
+  }
+
   .product-delivery-estimate__emoji {
     font-size: var(--delivery-emoji-size);
     line-height: 1;
@@ -424,7 +381,11 @@
 
 <div class="product-delivery-estimate product-delivery-estimate--{{ visual_preset }}" aria-label="Interval estimat de livrare">
   <span class="product-delivery-estimate__icon" aria-hidden="true">
-    <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
+    {%- if block.settings.delivery_custom_icon != blank -%}
+      {{ block.settings.delivery_custom_icon | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', alt: delivery_title }}
+    {%- else -%}
+      <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
+    {%- endif -%}
   </span>
 
   <div class="product-delivery-estimate__content">
