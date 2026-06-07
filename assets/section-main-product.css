@@ -666,14 +666,14 @@ variant-selects {
 
 .product .price__box_wrapper .price-item--sale {
   color: #e21c23;
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .product .price__box_wrapper .price-item--regular {
   color: #e21c23;
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
@@ -739,11 +739,11 @@ variant-selects {
   }
 
   .product .price__box_wrapper .price-item--sale {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
 
   .product .price__box_wrapper .price-item--regular {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 700;
     color: #e21c23;
   }
