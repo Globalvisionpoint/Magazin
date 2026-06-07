@@ -2740,3 +2740,22 @@ button.load-more-btn:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   background-color: #f0f0f0;
 }
+
+/* Global unified typography: force all text to follow Theme settings Typography font */
+:root {
+  --theme-unified-font-family: var(--font-body-family);
+}
+
+body,
+body *:not(svg):not(path):not(use):not(.icon):not([class^="icon-"]):not([class*=" icon-"]):not([class*="icon "]):not([class*=" icon"]),
+button,
+input,
+select,
+textarea {
+  font-family: var(--theme-unified-font-family) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: var(--theme-unified-font-family) !important;
+}
