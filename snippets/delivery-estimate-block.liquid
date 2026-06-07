@@ -224,6 +224,7 @@
   assign delivery_label = block.settings.delivery_label | strip
   assign delivery_interval_prefix = block.settings.delivery_interval_prefix | strip
   assign delivery_title = block.settings.delivery_title | strip
+  assign delivery_custom_icon = block.settings.delivery_custom_icon
   assign use_global_styles = settings.delivery_use_global_styles
   if use_global_styles == blank
     assign use_global_styles = true
@@ -259,6 +260,9 @@
     assign icon_size = settings.delivery_global_icon_size | default: icon_size
     assign emoji_size = settings.delivery_global_emoji_size | default: emoji_size
     assign custom_icon_size = settings.delivery_global_custom_icon_size | default: custom_icon_size
+    if settings.delivery_global_custom_icon != blank
+      assign delivery_custom_icon = settings.delivery_global_custom_icon
+    endif
   endif
 
   assign delivery_emoji = '🚚'
@@ -408,8 +412,8 @@
 
 <div class="product-delivery-estimate product-delivery-estimate--{{ visual_preset }}" aria-label="Interval estimat de livrare">
   <span class="product-delivery-estimate__icon" aria-hidden="true">
-    {%- if block.settings.delivery_custom_icon != blank -%}
-      {{ block.settings.delivery_custom_icon | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', alt: delivery_title }}
+    {%- if delivery_custom_icon != blank -%}
+      {{ delivery_custom_icon | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', alt: delivery_title }}
     {%- else -%}
       <span class="product-delivery-estimate__emoji">{{ delivery_emoji }}</span>
     {%- endif -%}

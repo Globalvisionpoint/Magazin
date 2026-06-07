@@ -1463,6 +1463,11 @@
         "label": "Fundal iconita"
       },
       {
+        "type": "image_picker",
+        "id": "delivery_global_custom_icon",
+        "label": "Imagine iconita (globala)"
+      },
+      {
         "type": "header",
         "content": "Marimi"
       },
