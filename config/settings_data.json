@@ -76,6 +76,8 @@
     "popular_search_queries": "",
     "account_page_breadcrumb": true,
     "customer_color_scheme": "background-2",
+    "delivery_global_title_size": 14,
+    "delivery_global_range_size": 18,
     "colors_accent_1": "#ee2761",
     "gradient_accent_1": "",
     "colors_solid_button_labels": "#ffffff",
