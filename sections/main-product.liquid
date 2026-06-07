@@ -750,7 +750,7 @@
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
-            {%- when 'trust_row' -%}
+            {%- when 'trust_row', 'delivery_estimate_trust' -%}
               {% render 'delivery-trust-block', block: block %}
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2184,7 +2184,7 @@
       ]
     },
     {
-      "type": "trust_row",
+      "type": "delivery_estimate_trust",
       "name": "Trust row",
       "settings": [
         {
@@ -2203,8 +2203,7 @@
           "type": "text",
           "id": "delivery_note",
           "default": "Configureaza iconita, logo-urile si culorile direct din editor.",
-          "label": "Text",
-          "info": "Acest bloc este separat de Livrare estimata si poate fi adaugat de mai multe ori."
+          "label": "Text"
         },
         {
           "type": "image_picker",
@@ -2269,18 +2268,6 @@
           "label": "Culoare iconita"
         },
         {
-          "type": "color",
-          "id": "trust_logo_background",
-          "default": "#ffffff",
-          "label": "Fundal logo"
-        },
-        {
-          "type": "color",
-          "id": "trust_logo_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar logo"
-        },
-        {
           "type": "range",
           "id": "trust_icon_size",
           "min": 28,
@@ -2299,26 +2286,6 @@
           "unit": "px",
           "default": 28,
           "label": "Inaltime logo"
-        },
-        {
-          "type": "range",
-          "id": "trust_padding_y",
-          "min": 8,
-          "max": 28,
-          "step": 1,
-          "unit": "px",
-          "default": 14,
-          "label": "Padding vertical"
-        },
-        {
-          "type": "range",
-          "id": "trust_corner_radius",
-          "min": 0,
-          "max": 24,
-          "step": 1,
-          "unit": "px",
-          "default": 16,
-          "label": "Rotunjire colturi"
         }
       ]
     },
