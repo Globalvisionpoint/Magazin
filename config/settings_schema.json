@@ -269,6 +269,50 @@
             "label": "Nunito Sans"
           },
           {
+            "value": "poppins",
+            "label": "Poppins"
+          },
+          {
+            "value": "open_sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "roboto",
+            "label": "Roboto"
+          },
+          {
+            "value": "dm_sans",
+            "label": "DM Sans"
+          },
+          {
+            "value": "work_sans",
+            "label": "Work Sans"
+          },
+          {
+            "value": "rubik",
+            "label": "Rubik"
+          },
+          {
+            "value": "raleway",
+            "label": "Raleway"
+          },
+          {
+            "value": "mulish",
+            "label": "Mulish"
+          },
+          {
+            "value": "ubuntu",
+            "label": "Ubuntu"
+          },
+          {
+            "value": "source_sans_3",
+            "label": "Source Sans 3"
+          },
+          {
+            "value": "manrope",
+            "label": "Manrope"
+          },
+          {
             "value": "system_sans",
             "label": "System Sans"
           },
@@ -307,6 +351,50 @@
           {
             "value": "nunito_sans",
             "label": "Nunito Sans"
+          },
+          {
+            "value": "poppins",
+            "label": "Poppins"
+          },
+          {
+            "value": "open_sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "roboto",
+            "label": "Roboto"
+          },
+          {
+            "value": "dm_sans",
+            "label": "DM Sans"
+          },
+          {
+            "value": "work_sans",
+            "label": "Work Sans"
+          },
+          {
+            "value": "rubik",
+            "label": "Rubik"
+          },
+          {
+            "value": "raleway",
+            "label": "Raleway"
+          },
+          {
+            "value": "mulish",
+            "label": "Mulish"
+          },
+          {
+            "value": "ubuntu",
+            "label": "Ubuntu"
+          },
+          {
+            "value": "source_sans_3",
+            "label": "Source Sans 3"
+          },
+          {
+            "value": "manrope",
+            "label": "Manrope"
           },
           {
             "value": "system_sans",
