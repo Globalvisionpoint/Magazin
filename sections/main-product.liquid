@@ -746,11 +746,11 @@
                 show_pickup_availability: block.settings.pickup_availability,
                 current_variant: current_variant
               %}
-            {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
+            {%- when 'delivery_estimate', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
-            {%- when 'trust_row', 'delivery_estimate_trust' -%}
+            {%- when 'delivery_estimate_pro' -%}
               {% render 'delivery-trust-block', block: block %}
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2184,7 +2184,7 @@
       ]
     },
     {
-      "type": "delivery_estimate_trust",
+      "type": "delivery_estimate_pro",
       "name": "Trust row",
       "settings": [
         {
