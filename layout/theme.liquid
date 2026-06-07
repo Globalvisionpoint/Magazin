@@ -169,6 +169,14 @@
       case settings.local_body_font_family
         when 'magazin_display'
           assign local_body_font_stack = "'Magazin Display', 'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'inter'
+          assign local_body_font_stack = "'Inter Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'montserrat'
+          assign local_body_font_stack = "'Montserrat Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'lato'
+          assign local_body_font_stack = "'Lato Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'nunito_sans'
+          assign local_body_font_stack = "'Nunito Sans Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
         when 'system_sans'
           assign local_body_font_stack = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
         when 'system_serif'
@@ -179,6 +187,14 @@
       case settings.local_heading_font_family
         when 'magazin_sans'
           assign local_heading_font_stack = "'Magazin Sans', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'inter'
+          assign local_heading_font_stack = "'Inter Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'montserrat'
+          assign local_heading_font_stack = "'Montserrat Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'lato'
+          assign local_heading_font_stack = "'Lato Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
+        when 'nunito_sans'
+          assign local_heading_font_stack = "'Nunito Sans Local', 'Noto Sans', 'Segoe UI', Roboto, Arial, sans-serif"
         when 'system_sans'
           assign local_heading_font_stack = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
         when 'system_serif'
@@ -217,6 +233,150 @@
           src: url('{{ 'magazin-outfit-latin-ext.woff2' | asset_url }}') format('woff2');
           font-weight: 700;
           font-style: normal;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Inter Local';
+          src: url('{{ 'inter-latin-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Inter Local';
+          src: url('{{ 'inter-latin-ext-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Inter Local';
+          src: url('{{ 'inter-latin-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Inter Local';
+          src: url('{{ 'inter-latin-ext-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Montserrat Local';
+          src: url('{{ 'montserrat-latin-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Montserrat Local';
+          src: url('{{ 'montserrat-latin-ext-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Montserrat Local';
+          src: url('{{ 'montserrat-latin-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Montserrat Local';
+          src: url('{{ 'montserrat-latin-ext-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Lato Local';
+          src: url('{{ 'lato-latin-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Lato Local';
+          src: url('{{ 'lato-latin-ext-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Lato Local';
+          src: url('{{ 'lato-latin-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Lato Local';
+          src: url('{{ 'lato-latin-ext-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Nunito Sans Local';
+          src: url('{{ 'nunito-sans-latin-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Nunito Sans Local';
+          src: url('{{ 'nunito-sans-latin-ext-400-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
+        }
+
+        @font-face {
+          font-family: 'Nunito Sans Local';
+          src: url('{{ 'nunito-sans-latin-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+          font-family: 'Nunito Sans Local';
+          src: url('{{ 'nunito-sans-latin-ext-700-normal.woff2' | asset_url }}') format('woff2');
+          font-style: normal;
+          font-weight: 700;
           font-display: swap;
           unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+20A0-20AB, U+20AD-20C0;
         }

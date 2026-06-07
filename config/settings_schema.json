@@ -253,6 +253,22 @@
             "label": "Magazin Display"
           },
           {
+            "value": "inter",
+            "label": "Inter"
+          },
+          {
+            "value": "montserrat",
+            "label": "Montserrat"
+          },
+          {
+            "value": "lato",
+            "label": "Lato"
+          },
+          {
+            "value": "nunito_sans",
+            "label": "Nunito Sans"
+          },
+          {
             "value": "system_sans",
             "label": "System Sans"
           },
@@ -275,6 +291,22 @@
           {
             "value": "magazin_sans",
             "label": "Magazin Sans"
+          },
+          {
+            "value": "inter",
+            "label": "Inter"
+          },
+          {
+            "value": "montserrat",
+            "label": "Montserrat"
+          },
+          {
+            "value": "lato",
+            "label": "Lato"
+          },
+          {
+            "value": "nunito_sans",
+            "label": "Nunito Sans"
           },
           {
             "value": "system_sans",
