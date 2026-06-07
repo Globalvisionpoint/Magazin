@@ -1,0 +1,94 @@
+{%- liquid
+  assign has_logos = false
+  if block.settings.logo_1 != blank or block.settings.logo_2 != blank or block.settings.logo_3 != blank or block.settings.logo_4 != blank or block.settings.logo_5 != blank
+    assign has_logos = true
+  endif
+
+  assign icon_choice = block.settings.icon_choice | default: 'check_mark'
+  assign text_alignment = block.settings.text_alignment | default: 'left'
+-%}
+
+<div
+  class="product-trust-row-block"
+  {{ block.shopify_attributes }}
+>
+  <div
+    class="product-trust-row product-trust-row--align-{{ text_alignment }}{% if has_logos %} product-trust-row--has-logos{% endif %}"
+    style="
+      --trust-row-bg: {{ block.settings.background_color | default: '#ffffff' }};
+      --trust-row-border: {{ block.settings.border_color | default: '#d6d9df' }};
+      --trust-row-title: {{ block.settings.title_color | default: '#121212' }};
+      --trust-row-text: {{ block.settings.text_color | default: '#4b5563' }};
+      --trust-row-icon-bg: {{ block.settings.icon_background | default: '#f3f4f6' }};
+      --trust-row-icon-color: {{ block.settings.icon_color | default: '#121212' }};
+      --trust-row-logo-bg: {{ block.settings.logo_background | default: '#ffffff' }};
+      --trust-row-logo-border: {{ block.settings.logo_border_color | default: '#d6d9df' }};
+      --trust-row-icon-size: {{ block.settings.icon_size | default: 42 }}px;
+      --trust-row-logo-height: {{ block.settings.logo_height | default: 28 }}px;
+      --trust-row-radius: {{ block.settings.corner_radius | default: 16 }}px;
+      --trust-row-padding-y: {{ block.settings.padding_y | default: 16 }}px;
+      --trust-row-padding-x: {{ block.settings.padding_x | default: 18 }}px;
+    "
+  >
+    {%- if icon_choice != 'none' or block.settings.custom_icon != blank -%}
+      <div class="product-trust-row__icon{% if block.settings.custom_icon != blank %} product-trust-row__icon--image{% endif %}">
+        {%- if block.settings.custom_icon != blank -%}
+          {{
+            block.settings.custom_icon
+            | image_url: width: 160
+            | image_tag:
+              loading: 'lazy',
+              widths: '80,120,160',
+              class: 'product-trust-row__icon-image',
+              alt: block.settings.heading
+          }}
+        {%- else -%}
+          {%- case icon_choice -%}
+            {%- when 'padlock' -%}
+              {% render 'icon-padlock' %}
+            {%- when 'success' -%}
+              {% render 'icon-success' %}
+            {%- when 'question' -%}
+              {% render 'icon-question' %}
+            {%- when 'truck' -%}
+              {% render 'icon-accordion', icon: 'truck' %}
+            {%- when 'stopwatch' -%}
+              {% render 'icon-accordion', icon: 'stopwatch' %}
+            {%- else -%}
+              {% render 'icon-accordion', icon: 'check_mark' %}
+          {%- endcase -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="product-trust-row__content">
+      {%- if block.settings.heading != blank -%}
+        <h3 class="product-trust-row__heading">{{ block.settings.heading }}</h3>
+      {%- endif -%}
+
+      {%- if block.settings.text != blank -%}
+        <div class="product-trust-row__text rte">{{ block.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if has_logos -%}
+        <div class="product-trust-row__logos" aria-label="Trust badges logos">
+          {%- if block.settings.logo_1 != blank -%}
+            <span class="product-trust-row__logo">{{ block.settings.logo_1 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.heading }}</span>
+          {%- endif -%}
+          {%- if block.settings.logo_2 != blank -%}
+            <span class="product-trust-row__logo">{{ block.settings.logo_2 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.heading }}</span>
+          {%- endif -%}
+          {%- if block.settings.logo_3 != blank -%}
+            <span class="product-trust-row__logo">{{ block.settings.logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.heading }}</span>
+          {%- endif -%}
+          {%- if block.settings.logo_4 != blank -%}
+            <span class="product-trust-row__logo">{{ block.settings.logo_4 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.heading }}</span>
+          {%- endif -%}
+          {%- if block.settings.logo_5 != blank -%}
+            <span class="product-trust-row__logo">{{ block.settings.logo_5 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.heading }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

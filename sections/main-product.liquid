@@ -747,6 +747,8 @@
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
+            {%- when 'trust_row' -%}
+              {% render 'product-trust-row', block: block %}
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="product__variant_barcode {% if current_variant.barcode == blank %} no-js-inline {% endif %}">
@@ -2170,6 +2172,193 @@
           "id": "non_delivery_sunday",
           "default": true,
           "label": "Duminica nelucratoare"
+        }
+      ]
+    },
+    {
+      "type": "trust_row",
+      "name": "Trust row",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Fiecare block adaugat reprezinta un rand nou. Poti adauga mai multe randuri unul sub altul."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Plata securizata",
+          "label": "Titlu"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Editeaza textul, iconita si logo-urile direct din Shopify Editor.</p>"
+        },
+        {
+          "type": "select",
+          "id": "icon_choice",
+          "label": "Iconita",
+          "default": "check_mark",
+          "options": [
+            { "value": "none", "label": "Fara iconita" },
+            { "value": "check_mark", "label": "Bifa" },
+            { "value": "padlock", "label": "Lacat" },
+            { "value": "success", "label": "Scut / validat" },
+            { "value": "truck", "label": "Livrare" },
+            { "value": "stopwatch", "label": "Rapid" },
+            { "value": "question", "label": "Intrebare / suport" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Iconita custom"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 28,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 42,
+          "label": "Dimensiune iconita"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Aliniere continut",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Stanga" },
+            { "value": "center", "label": "Centru" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Logo-uri optionale"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_1",
+          "label": "Logo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_2",
+          "label": "Logo 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_3",
+          "label": "Logo 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_4",
+          "label": "Logo 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_5",
+          "label": "Logo 5"
+        },
+        {
+          "type": "range",
+          "id": "logo_height",
+          "min": 18,
+          "max": 42,
+          "step": 2,
+          "unit": "px",
+          "default": 28,
+          "label": "Inaltime logo"
+        },
+        {
+          "type": "header",
+          "content": "Culori"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "default": "#ffffff",
+          "label": "Fundal"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "default": "#d6d9df",
+          "label": "Culoare chenar"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "default": "#121212",
+          "label": "Culoare titlu"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#4b5563",
+          "label": "Culoare text"
+        },
+        {
+          "type": "color",
+          "id": "icon_background",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "default": "#121212",
+          "label": "Culoare iconita"
+        },
+        {
+          "type": "color",
+          "id": "logo_background",
+          "default": "#ffffff",
+          "label": "Fundal logo"
+        },
+        {
+          "type": "color",
+          "id": "logo_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar logo"
+        },
+        {
+          "type": "header",
+          "content": "Dimensiuni"
+        },
+        {
+          "type": "range",
+          "id": "padding_y",
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "default": 16,
+          "label": "Padding vertical"
+        },
+        {
+          "type": "range",
+          "id": "padding_x",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "default": 18,
+          "label": "Padding orizontal"
+        },
+        {
+          "type": "range",
+          "id": "corner_radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 16,
+          "label": "Rotunjire colturi"
         }
       ]
     },
