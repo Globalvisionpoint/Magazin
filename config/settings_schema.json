@@ -1396,5 +1396,136 @@
         "default": 30
       }
     ]
+  },
+  {
+    "name": "Livrare estimata (global)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Aceste setari controleaza culorile si marimile pentru blocul Livrare estimata din pagina de produs."
+      },
+      {
+        "type": "checkbox",
+        "id": "delivery_use_global_styles",
+        "label": "Foloseste stilurile globale pentru Livrare estimata",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Culori"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_title_color",
+        "default": "#000000",
+        "label": "Culoare titlu"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_label_color",
+        "default": "#166A31",
+        "label": "Culoare eticheta"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_prefix_color",
+        "default": "#1A2430",
+        "label": "Culoare prefix interval"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_date_color",
+        "default": "#C93131",
+        "label": "Culoare data estimata"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_note_color",
+        "default": "#166A31",
+        "label": "Culoare text secundar"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_bg_color",
+        "default": "#F3F3F3",
+        "label": "Fundal bloc"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_border_color",
+        "default": "#337239",
+        "label": "Culoare border"
+      },
+      {
+        "type": "color",
+        "id": "delivery_global_icon_bg_color",
+        "default": "#FFFFFF",
+        "label": "Fundal iconita"
+      },
+      {
+        "type": "header",
+        "content": "Marimi"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_title_size",
+        "min": 10,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 13,
+        "label": "Marime titlu"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_range_size",
+        "min": 10,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 16,
+        "label": "Marime interval"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_note_size",
+        "min": 10,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 12,
+        "label": "Marime text secundar"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_icon_size",
+        "min": 28,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "default": 50,
+        "label": "Marime iconita container"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_emoji_size",
+        "min": 16,
+        "max": 56,
+        "step": 1,
+        "unit": "px",
+        "default": 40,
+        "label": "Marime emoji"
+      },
+      {
+        "type": "range",
+        "id": "delivery_global_custom_icon_size",
+        "min": 16,
+        "max": 64,
+        "step": 1,
+        "unit": "px",
+        "default": 34,
+        "label": "Marime imagine iconita"
+      }
+    ]
   }
 ]

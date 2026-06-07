@@ -224,15 +224,42 @@
   assign delivery_label = block.settings.delivery_label | strip
   assign delivery_interval_prefix = block.settings.delivery_interval_prefix | strip
   assign delivery_title = block.settings.delivery_title | strip
+  assign use_global_styles = settings.delivery_use_global_styles
+  if use_global_styles == blank
+    assign use_global_styles = true
+  endif
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
-  assign title_color = block.settings.delivery_title_color | default: settings.delivery_global_title_color | default: '#000000'
-  assign label_color = block.settings.delivery_label_color | default: settings.delivery_global_label_color | default: block.settings.delivery_text_color | default: '#166A31'
-  assign prefix_color = block.settings.delivery_prefix_color | default: settings.delivery_global_prefix_color | default: block.settings.delivery_text_color | default: '#1A2430'
-  assign date_color = block.settings.delivery_date_color | default: settings.delivery_global_date_color | default: '#C93131'
-  assign note_color = block.settings.delivery_note_color | default: settings.delivery_global_note_color | default: '#166A31'
+  assign title_color = block.settings.delivery_title_color | default: '#000000'
+  assign label_color = block.settings.delivery_label_color | default: block.settings.delivery_text_color | default: '#166A31'
+  assign prefix_color = block.settings.delivery_prefix_color | default: block.settings.delivery_text_color | default: '#1A2430'
+  assign date_color = block.settings.delivery_date_color | default: '#C93131'
+  assign note_color = block.settings.delivery_note_color | default: '#166A31'
   assign icon_bg_color = block.settings.delivery_icon_bg_color | default: '#FFFFFF'
-  assign block_bg_color = block.settings.delivery_bg_color | default: settings.delivery_global_bg_color | default: '#F3F3F3'
-  assign border_color = block.settings.delivery_border_color | default: settings.delivery_global_border_color | default: '#337239'
+  assign block_bg_color = block.settings.delivery_bg_color | default: '#F3F3F3'
+  assign border_color = block.settings.delivery_border_color | default: '#337239'
+  assign title_size = block.settings.delivery_title_size | default: 13
+  assign range_size = block.settings.delivery_range_size | default: 16
+  assign note_size = block.settings.delivery_note_size | default: 12
+  assign icon_size = block.settings.delivery_icon_size | default: 50
+  assign emoji_size = block.settings.delivery_emoji_size | default: 40
+  assign custom_icon_size = block.settings.delivery_custom_icon_size | default: 34
+
+  if use_global_styles
+    assign title_color = settings.delivery_global_title_color | default: title_color
+    assign label_color = settings.delivery_global_label_color | default: label_color
+    assign prefix_color = settings.delivery_global_prefix_color | default: prefix_color
+    assign date_color = settings.delivery_global_date_color | default: date_color
+    assign note_color = settings.delivery_global_note_color | default: note_color
+    assign block_bg_color = settings.delivery_global_bg_color | default: block_bg_color
+    assign border_color = settings.delivery_global_border_color | default: border_color
+    assign icon_bg_color = settings.delivery_global_icon_bg_color | default: icon_bg_color
+    assign title_size = settings.delivery_global_title_size | default: title_size
+    assign range_size = settings.delivery_global_range_size | default: range_size
+    assign note_size = settings.delivery_global_note_size | default: note_size
+    assign icon_size = settings.delivery_global_icon_size | default: icon_size
+    assign emoji_size = settings.delivery_global_emoji_size | default: emoji_size
+    assign custom_icon_size = settings.delivery_global_custom_icon_size | default: custom_icon_size
+  endif
 
   assign delivery_emoji = '🚚'
   case block.settings.delivery_icon
@@ -249,12 +276,12 @@
 
 <style>
   .product-delivery-estimate {
-    --delivery-title-size: {{ block.settings.delivery_title_size | default: 13 }}px;
+    --delivery-title-size: {{ title_size }}px;
     --delivery-label-size: 12px;
-    --delivery-range-size: {{ block.settings.delivery_range_size | default: 16 }}px;
-    --delivery-note-size: {{ block.settings.delivery_note_size | default: 12 }}px;
-    --delivery-icon-size: {{ block.settings.delivery_icon_size | default: 50 }}px;
-    --delivery-emoji-size: {{ block.settings.delivery_emoji_size | default: 40 }}px;
+    --delivery-range-size: {{ range_size }}px;
+    --delivery-note-size: {{ note_size }}px;
+    --delivery-icon-size: {{ icon_size }}px;
+    --delivery-emoji-size: {{ emoji_size }}px;
 
     margin-top: 0;
     margin-left: {{ offset_x }}px;
@@ -312,8 +339,8 @@
   }
 
   .product-delivery-estimate__icon img {
-    width: {{ block.settings.delivery_custom_icon_size | default: 34 }}px;
-    height: {{ block.settings.delivery_custom_icon_size | default: 34 }}px;
+    width: {{ custom_icon_size }}px;
+    height: {{ custom_icon_size }}px;
     object-fit: contain;
   }
 
