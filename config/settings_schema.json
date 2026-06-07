@@ -1532,5 +1532,64 @@
         "label": "Marime imagine iconita"
       }
     ]
+  },
+  {
+    "name": "Buton sticky adauga in cos (global)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Aceste setari controleaza culorile butonului Adauga in cos din bara sticky de jos."
+      },
+      {
+        "type": "checkbox",
+        "id": "sticky_cart_use_global_styles",
+        "label": "Foloseste stilurile globale pentru butonul sticky",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Culori buton"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_button_bg_color",
+        "default": "#F3DA63",
+        "label": "Fundal buton"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_button_text_color",
+        "default": "#1F1F1F",
+        "label": "Text buton"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_icon_bg_color",
+        "default": "#BF1835",
+        "label": "Fundal zona iconita"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_icon_color",
+        "default": "#FFD84D",
+        "label": "Culoare iconita"
+      },
+      {
+        "type": "header",
+        "content": "Culori indisponibil"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_disabled_bg_color",
+        "default": "#000000",
+        "label": "Fundal buton indisponibil"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_disabled_text_color",
+        "default": "#FFFFFF",
+        "label": "Text buton indisponibil"
+      }
+    ]
   }
 ]

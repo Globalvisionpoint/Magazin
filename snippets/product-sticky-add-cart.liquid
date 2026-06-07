@@ -12,6 +12,27 @@
       endif
     endfor
   endif
+
+  assign sticky_use_global_styles = settings.sticky_cart_use_global_styles
+  if sticky_use_global_styles == blank
+    assign sticky_use_global_styles = true
+  endif
+
+  assign sticky_button_bg_color = '#f3da63'
+  assign sticky_button_text_color = '#1f1f1f'
+  assign sticky_icon_bg_color = '#bf1835'
+  assign sticky_icon_color = '#ffd84d'
+  assign sticky_disabled_bg_color = '#000000'
+  assign sticky_disabled_text_color = '#ffffff'
+
+  if sticky_use_global_styles
+    assign sticky_button_bg_color = settings.sticky_cart_button_bg_color | default: sticky_button_bg_color
+    assign sticky_button_text_color = settings.sticky_cart_button_text_color | default: sticky_button_text_color
+    assign sticky_icon_bg_color = settings.sticky_cart_icon_bg_color | default: sticky_icon_bg_color
+    assign sticky_icon_color = settings.sticky_cart_icon_color | default: sticky_icon_color
+    assign sticky_disabled_bg_color = settings.sticky_cart_disabled_bg_color | default: sticky_disabled_bg_color
+    assign sticky_disabled_text_color = settings.sticky_cart_disabled_text_color | default: sticky_disabled_text_color
+  endif
 %}
 
 <style>
@@ -146,8 +167,8 @@
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0.35rem;
-    background: #f3da63 !important;
-    color: #202020 !important;
+    background: {{ sticky_button_bg_color }} !important;
+    color: {{ sticky_button_text_color }} !important;
     display: inline-flex;
     align-items: stretch;
     justify-content: flex-start;
@@ -162,8 +183,8 @@
     justify-content: center;
     flex: 0 0 5.6rem;
     align-self: stretch;
-    background: #bf1835;
-    color: #ffd84d;
+    background: {{ sticky_icon_bg_color }};
+    color: {{ sticky_icon_color }};
   }
 
   .product__sticky_add__form .product__add__cart__button .action__btn--svg svg {
@@ -187,15 +208,15 @@
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap !important;
-    color: #1f1f1f;
-    background: #f3da63;
+    color: {{ sticky_button_text_color }};
+    background: {{ sticky_button_bg_color }};
     transform: none;
   }
 
   .product__sticky_add__form .product__add__cart__button .button[disabled] {
     justify-content: center;
-    background: #000000 !important;
-    color: #ffffff !important;
+    background: {{ sticky_disabled_bg_color }} !important;
+    color: {{ sticky_disabled_text_color }} !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
   }
 
@@ -206,8 +227,8 @@
     text-align: center;
     padding: 0 1rem;
     margin: 0;
-    background: #000000;
-    color: #ffffff;
+    background: {{ sticky_disabled_bg_color }};
+    color: {{ sticky_disabled_text_color }};
   }
 
   .product__sticky_add__form .shopify-payment-button {
