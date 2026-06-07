@@ -13,6 +13,21 @@
     endfor
   endif
 %}
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'product-form-input.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rating.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'dynamic-checkout.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'gift-card-recipient-form.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-accordion.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rating.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'dynamic-checkout.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'gift-card-recipient-form.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}</noscript>
@@ -122,19 +137,17 @@
     }
   }
 
-  .price__box_wrapper,
-  #price-{{ section.id }} {
+  .price__box_wrapper {
     background: #f5f0eb;
     border-radius: 10px;
-    padding: 0.62rem 1.4rem;
+    padding: 1.2rem 1.6rem;
     display: inline-flex !important;
     align-items: center;
-    gap: 0.55rem;
+    gap: 1rem;
     border: 1px solid rgba(200, 16, 46, 0.45);
     box-shadow: 0 4px 16px rgba(200, 16, 46, 0.15);
     box-sizing: border-box;
-    height: 5.4rem !important;
-    min-height: 5.4rem !important;
+    height: 6.9rem;
   }
 </style>
 
@@ -179,6 +192,15 @@
   else
     assign container = 'container-fluid px-0'
   endif
+-%}
+
+{%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+{%- if first_3d_model -%}
+  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+  <link
+    id="ModelViewerStyle"
+    rel="stylesheet"
+    href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
     media="print"
     onload="this.media='all'"
   >
@@ -244,7 +266,9 @@
                 {%- if block.settings.text_field -%}
                   <div class="input__field_form">
                     <label>
-                      <span class="input__field--label"><b>{{ block.settings.text_field_label }}</b></span>
+                      <span class="input__field--label"
+                        ><b>{{ block.settings.text_field_label }}</b></span
+                      >
                       <input
                         class="field__input"
                         type="text"
@@ -255,21 +279,29 @@
                     </label>
                   </div>
                 {%- endif -%}
+
                 {%- if block.settings.file_field -%}
                   <div class="input__field_form">
                     <label>
-                      <span class="input__field--label"><b>{{ block.settings.file_field_label }}</b></span>
-                      <input
-                        class="field__input"
-                        type="file"
-                        id="upload"
-                        name="properties[Image]"
-                        form="{{ product_form_id }}"
+                      <span class="input__field--label"
+                        ><b>{{ block.settings.file_field_label }}</b></span
                       >
+                      <input type="file" id="file" name="properties[File]" form="{{ product_form_id }}">
                     </label>
                   </div>
                 {%- endif -%}
               </div>
+            {%- when 'text' -%}
+              <p
+                class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{- block.settings.text -}}
+              </p>
+            {%- when 'title' -%}
+              <h1 class="product__title" {{ block.shopify_attributes }}>
+                {{ product.title | escape }}
+              </h1>
             {%- when 'price' -%}
               <div class="price__box_wrapper d-flex" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="no-js-hidden">
@@ -724,13 +756,9 @@
                 show_pickup_availability: block.settings.pickup_availability,
                 current_variant: current_variant
               %}
-            {%- when 'delivery_estimate', 'delivery_cutoff' -%}
+            {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
-              </div>
-            {%- when 'trust_badges' -%}
-              <div {{ block.shopify_attributes }}>
-                {% render 'delivery-trust-block', block: block %}
               </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -1703,10 +1731,10 @@
       "limit": 1,
   	  "settings": [
         {
-          "type": "checkbox",
-          "id": "text_field",
-          "default": true,
-          "label": "Show text field"
+        "type": "checkbox",
+        "id": "text_field",
+        "default": true,
+        "label": "Show text field"
         },
   		{
           "type": "text",
@@ -1715,10 +1743,10 @@
           "label": "Text label"
         },
   		{
-          "type": "checkbox",
-          "id": "file_field",
-          "default": true,
-          "label": "Show file field"
+        "type": "checkbox",
+        "id": "file_field",
+        "default": true,
+        "label": "Show file field"
         },
         {
           "type": "text",
@@ -2109,40 +2137,58 @@
           "label": "Padding jos"
         },
         {
-          "type": "color",
-          "id": "delivery_title_color",
-          "default": "#000000",
-          "label": "Culoare titlu"
+          "type": "select",
+          "id": "delivery_icon",
+          "label": "Iconita",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Camion" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "package", "label": "Colet" },
+            { "value": "clock", "label": "Ceas" }
+          ]
         },
         {
-          "type": "color",
-          "id": "delivery_label_color",
-          "default": "#1A2430",
-          "label": "Culoare eticheta"
+          "type": "select",
+          "id": "delivery_visual_preset",
+          "label": "Varianta vizuala",
+          "default": "outline",
+          "options": [
+            { "value": "premium", "label": "Premium" },
+            { "value": "clean", "label": "Clean" },
+            { "value": "outline", "label": "Outline" },
+            { "value": "strong", "label": "Strong" }
+          ]
         },
         {
-          "type": "color",
-          "id": "delivery_prefix_color",
-          "default": "#1A2430",
-          "label": "Culoare prefix interval"
+          "type": "checkbox",
+          "id": "non_delivery_monday",
+          "default": false,
+          "label": "Luni nelucratoare"
         },
         {
-          "type": "color",
-          "id": "delivery_date_color",
-          "default": "#C93131",
-          "label": "Culoare data"
+          "type": "checkbox",
+          "id": "non_delivery_tuesday",
+          "default": false,
+          "label": "Marti nelucratoare"
         },
         {
-          "type": "color",
-          "id": "delivery_border_color",
-          "default": "#337239",
-          "label": "Culoare chenar"
+          "type": "checkbox",
+          "id": "non_delivery_wednesday",
+          "default": false,
+          "label": "Miercuri nelucratoare"
         },
         {
-          "type": "color",
-          "id": "delivery_bg_color",
-          "default": "#F3F3F3",
-          "label": "Culoare interior"
+          "type": "checkbox",
+          "id": "non_delivery_thursday",
+          "default": false,
+          "label": "Joi nelucratoare"
+        },
+        {
+          "type": "checkbox",
+          "id": "non_delivery_friday",
+          "default": false,
+          "label": "Vineri nelucratoare"
         },
         {
           "type": "checkbox",
@@ -2155,171 +2201,6 @@
           "id": "non_delivery_sunday",
           "default": true,
           "label": "Duminica nelucratoare"
-        }
-      ]
-    },
-    {
-      "type": "trust_badges",
-      "name": "Trust badges",
-      "settings": [
-        {
-          "type": "text",
-          "id": "delivery_title",
-          "default": "Plata securizata",
-          "label": "Titlu"
-        },
-        {
-          "type": "text",
-          "id": "delivery_label",
-          "default": "Carduri acceptate",
-          "label": "Subtitlu"
-        },
-        {
-          "type": "text",
-          "id": "delivery_note",
-          "default": "100% securizat si verificat",
-          "label": "Text principal"
-        },
-        {
-          "type": "text",
-          "id": "trust_note_secondary",
-          "default": "Plata ramburs disponibila",
-          "label": "Text secundar"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_custom_icon",
-          "label": "Iconita"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_1",
-          "label": "Logo card 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_2",
-          "label": "Logo card 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_3",
-          "label": "Logo card 3"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_4",
-          "label": "Logo card 4"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_5",
-          "label": "Logo card 5"
-        },
-        {
-          "type": "image_picker",
-          "id": "trust_logo_6",
-          "label": "Logo card 6"
-        },
-        {
-          "type": "range",
-          "id": "trust_icon_size",
-          "min": 28,
-          "max": 72,
-          "step": 2,
-          "unit": "px",
-          "default": 40,
-          "label": "Marime iconita"
-        },
-        {
-          "type": "range",
-          "id": "trust_logo_height",
-          "min": 16,
-          "max": 40,
-          "step": 1,
-          "unit": "px",
-          "default": 24,
-          "label": "Inaltime logo"
-        },
-        {
-          "type": "range",
-          "id": "trust_padding_y",
-          "min": 8,
-          "max": 28,
-          "step": 1,
-          "unit": "px",
-          "default": 14,
-          "label": "Padding vertical"
-        },
-        {
-          "type": "range",
-          "id": "trust_corner_radius",
-          "min": 0,
-          "max": 28,
-          "step": 1,
-          "unit": "px",
-          "default": 12,
-          "label": "Colturi"
-        },
-        {
-          "type": "color",
-          "id": "delivery_title_color",
-          "default": "#111111",
-          "label": "Culoare titlu"
-        },
-        {
-          "type": "color",
-          "id": "delivery_label_color",
-          "default": "#166A31",
-          "label": "Culoare subtitlu"
-        },
-        {
-          "type": "color",
-          "id": "delivery_note_color",
-          "default": "#4b5563",
-          "label": "Culoare text principal"
-        },
-        {
-          "type": "color",
-          "id": "trust_note_secondary_color",
-          "default": "#6b7280",
-          "label": "Culoare text secundar"
-        },
-        {
-          "type": "color",
-          "id": "delivery_bg_color",
-          "default": "#ffffff",
-          "label": "Fundal"
-        },
-        {
-          "type": "color",
-          "id": "delivery_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_background",
-          "default": "#f3f4f6",
-          "label": "Fundal iconita"
-        },
-        {
-          "type": "color",
-          "id": "trust_icon_color",
-          "default": "#111827",
-          "label": "Culoare iconita"
-        },
-        {
-          "type": "color",
-          "id": "trust_logo_background",
-          "default": "#ffffff",
-          "label": "Fundal logo"
-        },
-        {
-          "type": "color",
-          "id": "trust_logo_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar logo"
         }
       ]
     },

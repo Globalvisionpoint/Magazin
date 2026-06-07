@@ -1,6 +1,6 @@
+[
   {
-    "name": "Customer pages",
-    "settings": [
+    "name": "theme_info",
     "theme_name": "Smart Universal",
     "theme_version": "2.0.0",
     "theme_author": "ThemiHub",
@@ -222,56 +222,6 @@
         "id": "placeholder_foreground",
         "default": "#121212",
         "label": "Foreground color"
-      },
-      {
-        "type": "header",
-        "content": "Livrare estimata"
-      },
-      {
-        "type": "paragraph",
-        "content": "Culori globale pentru blocul Livrare estimata."
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_title_color",
-        "label": "Titlu",
-        "default": "#0F2D4E"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_label_color",
-        "label": "Eticheta",
-        "default": "#166A31"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_prefix_color",
-        "label": "Prefix interval",
-        "default": "#1A2430"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_date_color",
-        "default": "#166A31"
-        "default": "#0F6A60"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_note_color",
-        "label": "Text secundar",
-        "default": "#27AE60"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_border_color",
-        "label": "Chenar",
-        "default": "#337239"
-      },
-      {
-        "type": "color",
-        "id": "delivery_global_bg_color",
-        "label": "Interior chenar",
-        "default": "#F3F3F3"
       }
     ]
   },
@@ -1446,6 +1396,5 @@
         "default": 30
       }
     ]
-  },
   }
 ]
