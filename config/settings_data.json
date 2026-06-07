@@ -80,6 +80,7 @@
     "delivery_global_icon_bg_color": "#fbfbfb",
     "delivery_global_title_size": 14,
     "delivery_global_range_size": 18,
+    "sticky_cart_button_text_color": "#C93131",
     "colors_accent_1": "#ee2761",
     "gradient_accent_1": "",
     "colors_solid_button_labels": "#ffffff",
