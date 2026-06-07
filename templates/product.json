@@ -112,7 +112,7 @@
             "delivery_cutoff_minute": 0,
             "delivery_padding_top": 8,
             "delivery_padding_bottom": 8,
-            "delivery_icon": "truck",
+            "delivery_icon": "package",
             "delivery_visual_preset": "outline",
             "non_delivery_monday": false,
             "non_delivery_tuesday": false,
