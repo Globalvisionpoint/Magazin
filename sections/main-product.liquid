@@ -241,10 +241,32 @@
               {% render block %}
             {%- when 'additinal_field' -%}
               <div class="cart__additional--field" {{ block.shopify_attributes }}>
-                <div style="padding: 1rem 1.2rem; border: 1px solid {{ block.settings.trust_border_color }}; border-radius: 8px; background: {{ block.settings.trust_bg_color }};">
-                  <p style="margin: 0 0 0.4rem 0; font-size: 1.3rem; font-weight: 700; color: {{ block.settings.trust_title_color }};">{{ block.settings.trust_title }}</p>
-                  <p style="margin: 0 0 0.35rem 0; font-size: 1.25rem; font-weight: 700; color: {{ block.settings.trust_subtitle_color }};">{{ block.settings.trust_subtitle }}</p>
-                  <p style="margin: 0; font-size: 1.2rem; color: {{ block.settings.trust_text_color }};">{{ block.settings.trust_text }}</p>
+                <div style="padding: 1rem 1.2rem; border: 1px solid {{ block.settings.trust_border_color }}; border-radius: 8px; background: {{ block.settings.trust_bg_color }}; display: flex; gap: 0.95rem; align-items: flex-start;">
+                  <div style="width: {{ block.settings.trust_icon_size }}px; height: {{ block.settings.trust_icon_size }}px; min-width: {{ block.settings.trust_icon_size }}px; border-radius: 10px; background: {{ block.settings.trust_icon_bg_color }}; display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
+                    {% if block.settings.trust_custom_icon != blank %}
+                      {{ block.settings.trust_custom_icon | image_url: width: 128 | image_tag: loading: 'lazy', widths: '64,96,128', style: 'width: 100%; height: 100%; object-fit: contain;' }}
+                    {% else %}
+                      <span style="font-size: 1.2rem; font-weight: 700; color: {{ block.settings.trust_subtitle_color }};">S</span>
+                    {% endif %}
+                  </div>
+                  <div style="min-width: 0; width: 100%;">
+                    <p style="margin: 0 0 0.4rem 0; font-size: 1.3rem; font-weight: 700; color: {{ block.settings.trust_title_color }};">{{ block.settings.trust_title }}</p>
+                    <p style="margin: 0 0 0.35rem 0; font-size: 1.25rem; font-weight: 700; color: {{ block.settings.trust_subtitle_color }};">{{ block.settings.trust_subtitle }}</p>
+                    <p style="margin: 0; font-size: 1.2rem; color: {{ block.settings.trust_text_color }};">{{ block.settings.trust_text }}</p>
+                    {% if block.settings.trust_logo_1 != blank or block.settings.trust_logo_2 != blank or block.settings.trust_logo_3 != blank %}
+                      <div style="display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; align-items: center;">
+                        {% if block.settings.trust_logo_1 != blank %}
+                          {{ block.settings.trust_logo_1 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: block.settings.trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+                        {% endif %}
+                        {% if block.settings.trust_logo_2 != blank %}
+                          {{ block.settings.trust_logo_2 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: block.settings.trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+                        {% endif %}
+                        {% if block.settings.trust_logo_3 != blank %}
+                          {{ block.settings.trust_logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: block.settings.trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             {%- when 'price' -%}
@@ -1691,6 +1713,46 @@
           "label": "Text"
         },
         {
+          "type": "image_picker",
+          "id": "trust_custom_icon",
+          "label": "Iconita"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_1",
+          "label": "Logo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_2",
+          "label": "Logo 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_3",
+          "label": "Logo 3"
+        },
+        {
+          "type": "range",
+          "id": "trust_icon_size",
+          "min": 28,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 42,
+          "label": "Marime iconita"
+        },
+        {
+          "type": "range",
+          "id": "trust_logo_height",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 26,
+          "label": "Inaltime logo"
+        },
+        {
           "type": "color",
           "id": "trust_title_color",
           "default": "#111111",
@@ -1719,6 +1781,12 @@
           "id": "trust_border_color",
           "default": "#d6d9df",
           "label": "Chenar"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_bg_color",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita"
         }
   	  ]
     },
