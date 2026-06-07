@@ -110,43 +110,43 @@
     endif
   endfor
 
-  assign start_weekday = 'luni'
-  assign end_weekday = 'luni'
+  assign start_weekday = 'Luni'
+  assign end_weekday = 'Luni'
   assign start_weekday_number = min_timestamp | date: '%u'
   assign end_weekday_number = max_timestamp | date: '%u'
 
   case start_weekday_number
     when '1'
-      assign start_weekday = 'luni'
+      assign start_weekday = 'Luni'
     when '2'
-      assign start_weekday = 'marti'
+      assign start_weekday = 'Marți'
     when '3'
-      assign start_weekday = 'miercuri'
+      assign start_weekday = 'Miercuri'
     when '4'
-      assign start_weekday = 'joi'
+      assign start_weekday = 'Joi'
     when '5'
-      assign start_weekday = 'vineri'
+      assign start_weekday = 'Vineri'
     when '6'
-      assign start_weekday = 'sambata'
+      assign start_weekday = 'Sâmbătă'
     when '7'
-      assign start_weekday = 'duminica'
+      assign start_weekday = 'Duminică'
   endcase
 
   case end_weekday_number
     when '1'
-      assign end_weekday = 'luni'
+      assign end_weekday = 'Luni'
     when '2'
-      assign end_weekday = 'marti'
+      assign end_weekday = 'Marți'
     when '3'
-      assign end_weekday = 'miercuri'
+      assign end_weekday = 'Miercuri'
     when '4'
-      assign end_weekday = 'joi'
+      assign end_weekday = 'Joi'
     when '5'
-      assign end_weekday = 'vineri'
+      assign end_weekday = 'Vineri'
     when '6'
-      assign end_weekday = 'sambata'
+      assign end_weekday = 'Sâmbătă'
     when '7'
-      assign end_weekday = 'duminica'
+      assign end_weekday = 'Duminică'
   endcase
 
   assign start_day_number = min_timestamp | date: '%d' | plus: 0
