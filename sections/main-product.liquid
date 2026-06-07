@@ -583,11 +583,38 @@
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
             {%- when 'collapsible_tab' -%}
-                <div style="padding: 1rem 1.2rem; border: 1px solid {{ block.settings.trust_border_color }}; border-radius: 8px; background: {{ block.settings.trust_bg_color }};">
-                  <p style="margin: 0 0 0.4rem 0; font-size: 1.3rem; font-weight: 700; color: {{ block.settings.trust_title_color }};">{{ block.settings.trust_title }}</p>
-                  <p style="margin: 0 0 0.35rem 0; font-size: 1.25rem; font-weight: 700; color: {{ block.settings.trust_subtitle_color }};">{{ block.settings.trust_subtitle }}</p>
-                  <p style="margin: 0; font-size: 1.2rem; color: {{ block.settings.trust_text_color }};">{{ block.settings.trust_text }}</p>
-                </div>
+              <div class="product__accordion accordion" {{ block.shopify_attributes }}>
+                <details>
+                  <summary>
+                    <div class="summary__title">
+                      {% render 'icon-accordion', icon: block.settings.icon %}
+                      <h2 class="h4 accordion__title">
+                        {{ block.settings.heading | default: block.settings.page.title }}
+                      </h2>
+                    </div>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte">
+                    {{ block.settings.content }}
+                    {{ block.settings.page.content }}
+                  </div>
+                </details>
+              </div>
+            {%- when 'share' -%}
+              <div class="social__share_box d-flex align-items-center" {{ block.shopify_attributes }}>
+                {%- render 'social-share', block: block -%}
+
+                {%- if block.settings.share_link -%}
+                  <share-button class="share-button">
+                    <button class="share-button__button hidden">
+                      {% render 'icon-share' %}
+                      {{ block.settings.share_label | escape }}
+                    </button>
+                    <details>
+                      <summary class="share-button__button">
+                        {% render 'icon-share' %}
+                        {{ block.settings.share_label | escape }}
+                      </summary>
                       <div id="Product-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                         <div class="field">
                           <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
@@ -615,56 +642,32 @@
                     </details>
                   </share-button>
                 {%- endif -%}
-                      "name": "Trust badges",
+              </div>
               <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
             {%- when 'variant_picker' -%}
               {%- unless product.has_only_default_variant -%}
-                          "type": "text",
-                          "id": "trust_title",
-                          "default": "Plata securizata",
-                          "label": "Titlu"
+                {%- if block.settings.picker_type == 'button' -%}
+                  {%- if block.settings.show_color_swatch -%}
+                    {%- render 'variant-color-swatch', block: block, product: product -%}
+                  {%- else -%}
                     {%- render 'variant-radios', block: block, product: product -%}
                   {%- endif -%}
                 {%- else -%}
-                          "id": "trust_subtitle",
-                          "default": "Carduri acceptate",
-                          "label": "Subtitlu"
+                  <variant-selects
+                    class="no-js-hidden"
+                    data-section="{{ section.id }}"
                     data-url="{{ product.url }}"
                     data-origin="{{ request.origin }}"
-                          "type": "text",
-                          "id": "trust_text",
-                          "default": "100% securizat si verificat",
-                          "label": "Text"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- for option in product.options_with_values -%}
+                      <div class="product-form__input product-form__input--dropdown">
                         <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
                           <strong>{{ option.name }}:</strong> <span>{{ option.selected_value }}</span>
-                          "type": "color",
-                          "id": "trust_title_color",
-                          "default": "#111111",
-                          "label": "Culoare titlu"
-                        },
-                        {
-                          "type": "color",
-                          "id": "trust_subtitle_color",
-                          "default": "#166A31",
-                          "label": "Culoare subtitlu"
-                        },
-                        {
-                          "type": "color",
-                          "id": "trust_text_color",
-                          "default": "#4b5563",
-                          "label": "Culoare text"
-                        },
-                        {
-                          "type": "color",
-                          "id": "trust_bg_color",
-                          "default": "#ffffff",
-                          "label": "Fundal"
-                        },
-                        {
-                          "type": "color",
-                          "id": "trust_border_color",
-                          "default": "#d6d9df",
-                          "label": "Chenar"
+                        </label>
+                        <div class="select">
+                          <select
+                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
                             class="select__select"
                             name="options[{{ option.name | escape }}]"
                             form="product-form-{{ section.id }}"
@@ -1704,7 +1707,7 @@
     },
   	{
       "type": "additinal_field",
-      "name": "ZZZ Trust Badges (Nou)",
+      "name": "Additional field (Trust badges)",
       "limit": 1,
   	  "settings": [
         {
