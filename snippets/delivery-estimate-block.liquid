@@ -275,6 +275,9 @@
   assign delivery_title = block.settings.delivery_title | strip
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
   assign delivery_mode = block.settings.delivery_mode | default: 'delivery'
+  if block.id == 'delivery_trust_badges_block'
+    assign delivery_mode = 'trust'
+  endif
   assign trust_icon_size = block.settings.delivery_trust_icon_size | default: 40
   assign trust_logo_height = block.settings.delivery_trust_logo_height | default: 24
   assign trust_icon_bg = block.settings.delivery_trust_icon_bg | default: '#f3f4f6'
@@ -467,6 +470,12 @@
           {% if block.settings.delivery_trust_logo_3 != blank %}
             {{ block.settings.delivery_trust_logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '120,180', style: 'height: ' | append: trust_logo_height | append: 'px; width: auto; object-fit: contain;' }}
           {% endif %}
+        </div>
+      {% else %}
+        <div style="display: flex; gap: 0.45rem; margin-top: 0.65rem; flex-wrap: wrap; align-items: center;">
+          <span style="display: inline-block; padding: 0.22rem 0.55rem; border: 1px solid {{ border_color }}; border-radius: 999px; font-size: 1.05rem; font-weight: 700; color: {{ label_color }}; background: #fff;">VISA</span>
+          <span style="display: inline-block; padding: 0.22rem 0.55rem; border: 1px solid {{ border_color }}; border-radius: 999px; font-size: 1.05rem; font-weight: 700; color: {{ label_color }}; background: #fff;">Mastercard</span>
+          <span style="display: inline-block; padding: 0.22rem 0.55rem; border: 1px solid {{ border_color }}; border-radius: 999px; font-size: 1.05rem; font-weight: 700; color: {{ label_color }}; background: #fff;">Apple Pay</span>
         </div>
       {% endif %}
     {% else %}
