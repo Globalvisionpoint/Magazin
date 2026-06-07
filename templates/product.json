@@ -123,6 +123,26 @@
             "non_delivery_sunday": true
           }
         },
+        "trust_badges_default": {
+          "type": "additinal_field",
+          "settings": {
+            "trust_title": "Plata securizata",
+            "trust_subtitle": "Carduri acceptate",
+            "trust_text": "100% securizat si verificat",
+            "trust_title_color": "#111111",
+            "trust_subtitle_color": "#166A31",
+            "trust_text_color": "#4b5563",
+            "trust_bg_color": "#ffffff",
+            "trust_border_color": "#d6d9df",
+            "trust_icon_bg_color": "#f3f4f6",
+            "trust_icon_size": 42,
+            "trust_logo_height": 26,
+            "text_field": true,
+            "text_field_label": "Plata securizata",
+            "file_field": true,
+            "file_field_label": "Carduri acceptate"
+          }
+        },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
           "type": "share",
           "settings": {
@@ -167,6 +187,7 @@
         "variant_picker_gYNLwq",
         "buy_buttons",
         "delivery_estimate_9wzxiE",
+        "trust_badges_default",
         "0a478e9c-d23b-4b8b-b309-62919d0eb667",
         "d0e5cb3f-bc16-499b-bb44-24e33b8e8d49",
         "4da3a3dc-a122-42f1-ac3a-ff8d5edd3467"
