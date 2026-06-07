@@ -1589,6 +1589,124 @@
         "id": "sticky_cart_disabled_text_color",
         "default": "#FFFFFF",
         "label": "Text buton indisponibil"
+      },
+      {
+        "type": "header",
+        "content": "Bara sticky"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_bar_bg_color",
+        "default": "#FFFFFF",
+        "label": "Fundal bara sticky"
+      },
+      {
+        "type": "range",
+        "id": "sticky_cart_bar_bg_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 98,
+        "label": "Transparenta fundal bara"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_bar_border_color",
+        "default": "#121212",
+        "label": "Culoare border sus bara"
+      },
+      {
+        "type": "range",
+        "id": "sticky_cart_bar_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 8,
+        "label": "Transparenta border bara"
+      },
+      {
+        "type": "header",
+        "content": "Cantitate"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_bg_color",
+        "default": "#FFFFFF",
+        "label": "Fundal cantitate"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_border_color",
+        "default": "#D9D9D9",
+        "label": "Border cantitate"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_button_color",
+        "default": "#222222",
+        "label": "Culoare + si -"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_button_hover_bg_color",
+        "default": "#F7E5EA",
+        "label": "Fundal hover + si -"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_button_hover_color",
+        "default": "#C91F39",
+        "label": "Culoare hover + si -"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_qty_input_color",
+        "default": "#222222",
+        "label": "Culoare numar cantitate"
+      },
+      {
+        "type": "header",
+        "content": "Pret"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_price_text_color",
+        "default": "#C91F39",
+        "label": "Culoare text pret"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_price_bg_color",
+        "default": "#FFFFFF",
+        "label": "Fundal chenar pret"
+      },
+      {
+        "type": "range",
+        "id": "sticky_cart_price_bg_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 0,
+        "label": "Transparenta fundal pret"
+      },
+      {
+        "type": "color",
+        "id": "sticky_cart_price_border_color",
+        "default": "#C91F39",
+        "label": "Culoare border pret"
+      },
+      {
+        "type": "range",
+        "id": "sticky_cart_price_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "default": 0,
+        "label": "Transparenta border pret"
       }
     ]
   }
