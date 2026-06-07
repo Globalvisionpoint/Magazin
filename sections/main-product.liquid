@@ -754,6 +754,12 @@
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-trust-block', block: block %}
               </div>
+            {%- when 'test_block' -%}
+              <div {{ block.shopify_attributes }}>
+                <p style="padding: 1rem; background: #ffffcc; color: #000; text-align: center;">
+                  🧪 TEST BLOCK - Daca vezi asta, blocurile custom merg!
+                </p>
+              </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="product__variant_barcode {% if current_variant.barcode == blank %} no-js-inline {% endif %}">
@@ -2218,6 +2224,10 @@
           "label": "Logo 1"
         }
       ]
+    },
+    {
+      "type": "test_block",
+      "name": "TEST - Verifica-ma"
     },
      {
       "type": "description",
