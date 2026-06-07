@@ -109,16 +109,11 @@
   }
 
   .product__sticky_add__form {
-    display: grid;
-    grid-template-columns: minmax(6.6rem, 7.8rem) max-content minmax(0, 1fr);
-    align-items: stretch;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
     width: 100%;
     gap: 0.5rem;
-  }
-
-  .product__sticky_add__form .mr-20 {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
   }
 
   .product__sticky_add__form .product-form,
@@ -128,8 +123,9 @@
 
   .product__sticky_price {
     flex: 0 0 auto;
-    min-width: 0;
-    margin: 0;
+    min-width: max-content;
+    margin-left: clamp(0.35rem, 1.6vw, 0.7rem);
+    margin-right: clamp(0.35rem, 1.6vw, 0.7rem);
     font-size: clamp(1.45rem, 4.1vw, 1.7rem);
     font-weight: 900;
     line-height: 1;
@@ -162,10 +158,11 @@
   }
 
   .product__sticky_add__form quantity-input.quantity {
-    width: 100%;
-    min-width: 0;
+    flex: 0 0 clamp(6.6rem, 22vw, 7.8rem);
+    min-width: clamp(6.6rem, 22vw, 7.8rem);
     height: 4.8rem;
-    margin: 0;
+    margin-left: 0.8rem;
+    margin-right: 0;
     border: 1px solid {{ sticky_quantity_border_color }};
     border-radius: 1.3rem;
     background: {{ sticky_quantity_bg_color }};
@@ -192,15 +189,15 @@
   }
 
   .product__sticky_add__form .product-form {
-    width: 100%;
+    flex: 1 1 auto;
     min-width: 0;
   }
 
   .product__sticky_add__form .product__add__cart__button,
   .product__sticky_add__form .product__add__cart__button.mr-20 {
-    flex: none;
+    flex: 1 1 0;
     max-width: none;
-    width: 100%;
+    width: auto;
     margin-right: 0;
     margin-left: 0;
     min-width: 0;
@@ -302,7 +299,6 @@
     }
 
     .product__sticky_add__form {
-      grid-template-columns: minmax(6.1rem, 7.1rem) max-content minmax(0, 1fr);
       gap: 0.5rem;
     }
 
