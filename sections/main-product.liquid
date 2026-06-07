@@ -748,7 +748,11 @@
               %}
             {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
-                {% render 'delivery-estimate-block', block: block %}
+                {%- if block.settings.delivery_block_mode == 'trust' -%}
+                  {% render 'delivery-trust-block', block: block %}
+                {%- else -%}
+                  {% render 'delivery-estimate-block', block: block %}
+                {%- endif -%}
               </div>
             {%- when 'trust_row' -%}
               {% render 'product-trust-row', block: block %}
@@ -2049,6 +2053,22 @@
           "label": "Titlu bloc"
         },
         {
+          "type": "select",
+          "id": "delivery_block_mode",
+          "default": "estimate",
+          "label": "Mod afisare bloc",
+          "options": [
+            {
+              "value": "estimate",
+              "label": "Livrare estimata"
+            },
+            {
+              "value": "trust",
+              "label": "Trust badges"
+            }
+          ]
+        },
+        {
           "type": "text",
           "id": "delivery_label",
           "default": "Livrare estimata",
@@ -2175,6 +2195,94 @@
           "id": "non_delivery_sunday",
           "default": true,
           "label": "Duminica nelucratoare"
+        },
+        {
+          "type": "header",
+          "content": "Setari mod Trust badges"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_custom_icon",
+          "label": "Iconita trust (imagine)"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_1",
+          "label": "Logo card 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_2",
+          "label": "Logo card 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_3",
+          "label": "Logo card 3"
+        },
+        {
+          "type": "range",
+          "id": "trust_icon_size",
+          "min": 28,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 40,
+          "label": "Dimensiune iconita trust"
+        },
+        {
+          "type": "range",
+          "id": "trust_logo_height",
+          "min": 18,
+          "max": 42,
+          "step": 2,
+          "unit": "px",
+          "default": 26,
+          "label": "Inaltime logo card"
+        },
+        {
+          "type": "range",
+          "id": "trust_padding_y",
+          "min": 8,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 14,
+          "label": "Padding vertical"
+        },
+        {
+          "type": "range",
+          "id": "trust_corner_radius",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 16,
+          "label": "Rotunjire colturi"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_background",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_color",
+          "default": "#111827",
+          "label": "Culoare iconita trust"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_background",
+          "default": "#ffffff",
+          "label": "Fundal logo card"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar logo card"
         }
       ]
     },
