@@ -132,7 +132,7 @@
             "trust_note_secondary": "Plata online 100% securizata",
             "trust_payment_types": "visa,master,maestro,apple_pay,google_pay,",
             "trust_extra_badges": "NUMERAR LA LIVRARE, TRANSFER BANCAR",
-            "trust_icon_size": 30,
+            "trust_icon_size": 58,
             "trust_logo_height": 20,
             "trust_padding_y": 8,
             "trust_corner_radius": 8,
