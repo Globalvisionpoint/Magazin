@@ -750,10 +750,6 @@
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
               </div>
-            {%- when 'trust_row' -%}
-              <div {{ block.shopify_attributes }}>
-                {% render 'trust-badges-simple', block: block %}
-              </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
                 <div class="product__variant_barcode {% if current_variant.barcode == blank %} no-js-inline {% endif %}">
@@ -2042,8 +2038,24 @@
     },
     {
       "type": "delivery_estimate",
-      "name": "Livrare estimata",
+      "name": "Livrare / Trust badges",
       "settings": [
+        {
+          "type": "select",
+          "id": "delivery_mode",
+          "label": "Mod afisare",
+          "default": "delivery",
+          "options": [
+            {
+              "value": "delivery",
+              "label": "Livrare estimata"
+            },
+            {
+              "value": "trust",
+              "label": "Trust badges"
+            }
+          ]
+        },
         {
           "type": "text",
           "id": "delivery_title",
@@ -2182,48 +2194,6 @@
           "type": "image_picker",
           "id": "trust_custom_icon",
           "label": "Iconita trust (imagine)"
-        }
-      ]
-    },
-    {
-      "type": "trust_row",
-      "name": "Trust Badges",
-      "settings": [
-        {
-          "type": "text",
-          "id": "trust_title",
-          "default": "Plata securizata",
-          "label": "Titlu"
-        },
-        {
-          "type": "text",
-          "id": "trust_subtitle",
-          "default": "Carduri acceptate",
-          "label": "Subtitlu"
-        },
-        {
-          "type": "text",
-          "id": "trust_text",
-          "default": "Text detaliat",
-          "label": "Text"
-        },
-        {
-          "type": "color",
-          "id": "trust_title_color",
-          "default": "#000000",
-          "label": "Culoare titlu"
-        },
-        {
-          "type": "color",
-          "id": "trust_subtitle_color",
-          "default": "#1A2430",
-          "label": "Culoare subtitlu"
-        },
-        {
-          "type": "color",
-          "id": "trust_text_color",
-          "default": "#666666",
-          "label": "Culoare text"
         }
       ]
     },

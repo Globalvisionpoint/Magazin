@@ -274,6 +274,7 @@
   assign delivery_interval_prefix = block.settings.delivery_interval_prefix | strip
   assign delivery_title = block.settings.delivery_title | strip
   assign visual_preset = block.settings.delivery_visual_preset | default: 'premium'
+  assign delivery_mode = block.settings.delivery_mode | default: 'delivery'
   assign title_color = block.settings.delivery_title_color | default: settings.delivery_global_title_color | default: '#000000'
   assign label_color = block.settings.delivery_label_color | default: settings.delivery_global_label_color | default: block.settings.delivery_text_color | default: '#166A31'
   assign prefix_color = block.settings.delivery_prefix_color | default: settings.delivery_global_prefix_color | default: block.settings.delivery_text_color | default: '#1A2430'
@@ -434,20 +435,26 @@
     {%- if delivery_label != blank -%}
       <p class="product-delivery-estimate__label">{{ delivery_label }}</p>
     {%- endif -%}
-    <p class="product-delivery-estimate__range">
-      {%- if delivery_interval_prefix != blank -%}
-        {{ delivery_interval_prefix }}
+    {% if delivery_mode == 'trust' %}
+      {%- if block.settings.delivery_note != blank -%}
+        <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
       {%- endif -%}
-      <span class="product-delivery-estimate__range-date">
-        {% if min_timestamp == max_timestamp %}
-          {{ delivery_start_full }}
-        {% else %}
-          {{ delivery_start_full }} - {{ delivery_end_full }}
-        {% endif %}
-      </span>
-    </p>
-    {%- if block.settings.delivery_note != blank -%}
-      <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
-    {%- endif -%}
+    {% else %}
+      <p class="product-delivery-estimate__range">
+        {%- if delivery_interval_prefix != blank -%}
+          {{ delivery_interval_prefix }}
+        {%- endif -%}
+        <span class="product-delivery-estimate__range-date">
+          {% if min_timestamp == max_timestamp %}
+            {{ delivery_start_full }}
+          {% else %}
+            {{ delivery_start_full }} - {{ delivery_end_full }}
+          {% endif %}
+        </span>
+      </p>
+      {%- if block.settings.delivery_note != blank -%}
+        <p class="product-delivery-estimate__note">{{ block.settings.delivery_note }}</p>
+      {%- endif -%}
+    {% endif %}
   </div>
 </div>
