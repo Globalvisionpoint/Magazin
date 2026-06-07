@@ -123,6 +123,23 @@
             "non_delivery_sunday": true
           }
         },
+        "trust_row_test_1": {
+          "type": "delivery_estimate_pro",
+          "settings": {
+            "delivery_title": "Plata securizata",
+            "delivery_label": "Carduri acceptate",
+            "delivery_note": "Poti personaliza din editor",
+            "delivery_bg_color": "#ffffff",
+            "delivery_border_color": "#d6d9df",
+            "delivery_title_color": "#121212",
+            "delivery_label_color": "#166A31",
+            "delivery_note_color": "#4b5563",
+            "trust_icon_background": "#f3f4f6",
+            "trust_icon_color": "#121212",
+            "trust_icon_size": 42,
+            "trust_logo_height": 28
+          }
+        },
         "0a478e9c-d23b-4b8b-b309-62919d0eb667": {
           "type": "share",
           "settings": {
@@ -167,6 +184,7 @@
         "variant_picker_gYNLwq",
         "buy_buttons",
         "delivery_estimate_9wzxiE",
+        "trust_row_test_1",
         "0a478e9c-d23b-4b8b-b309-62919d0eb667",
         "d0e5cb3f-bc16-499b-bb44-24e33b8e8d49",
         "4da3a3dc-a122-42f1-ac3a-ff8d5edd3467"
