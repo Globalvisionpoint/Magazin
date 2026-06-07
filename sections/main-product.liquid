@@ -752,13 +752,11 @@
               </div>
             {%- when 'trust_row' -%}
               <div {{ block.shopify_attributes }}>
-                {% render 'delivery-trust-block', block: block %}
-              </div>
-            {%- when 'test_block' -%}
-              <div {{ block.shopify_attributes }}>
-                <p style="padding: 1rem; background: #ffffcc; color: #000; text-align: center;">
-                  🧪 TEST BLOCK - Daca vezi asta, blocurile custom merg!
-                </p>
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9;">
+                  <h3 style="color: {{ block.settings.delivery_title_color }}; margin: 0 0 0.5rem 0;">{{ block.settings.delivery_title }}</h3>
+                  <p style="color: {{ block.settings.delivery_label_color }}; margin: 0 0 0.5rem 0; font-weight: 600;">{{ block.settings.delivery_label }}</p>
+                  <p style="color: {{ block.settings.delivery_note_color }}; margin: 0; font-size: 0.9rem;">{{ block.settings.delivery_note }}</p>
+                </div>
               </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2193,8 +2191,7 @@
     },
     {
       "type": "trust_row",
-      "name": "Trust row",
-      "limit": 10,
+      "name": "Trust Badges",
       "settings": [
         {
           "type": "text",
@@ -2215,21 +2212,24 @@
           "label": "Text"
         },
         {
-          "type": "image_picker",
-          "id": "trust_custom_icon",
-          "label": "Iconita"
+          "type": "color",
+          "id": "delivery_title_color",
+          "default": "#000000",
+          "label": "Culoare titlu"
         },
         {
-          "type": "image_picker",
-          "id": "trust_logo_1",
-          "label": "Logo 1"
+          "type": "color",
+          "id": "delivery_label_color",
+          "default": "#1A2430",
+          "label": "Culoare subtitlu"
+        },
+        {
+          "type": "color",
+          "id": "delivery_note_color",
+          "default": "#666666",
+          "label": "Culoare text"
         }
       ]
-    },
-    {
-      "type": "test_block",
-      "name": "TEST - Verifica-ma",
-      "limit": 1
     },
      {
       "type": "description",
