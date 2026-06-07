@@ -313,6 +313,46 @@
             "label": "Manrope"
           },
           {
+            "value": "karla",
+            "label": "Karla"
+          },
+          {
+            "value": "cabin",
+            "label": "Cabin"
+          },
+          {
+            "value": "pt_sans",
+            "label": "PT Sans"
+          },
+          {
+            "value": "libre_franklin",
+            "label": "Libre Franklin"
+          },
+          {
+            "value": "heebo",
+            "label": "Heebo"
+          },
+          {
+            "value": "hind",
+            "label": "Hind"
+          },
+          {
+            "value": "quicksand",
+            "label": "Quicksand"
+          },
+          {
+            "value": "josefin_sans",
+            "label": "Josefin Sans"
+          },
+          {
+            "value": "merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "value": "barlow",
+            "label": "Barlow"
+          },
+          {
             "value": "system_sans",
             "label": "System Sans"
           },
@@ -395,6 +435,46 @@
           {
             "value": "manrope",
             "label": "Manrope"
+          },
+          {
+            "value": "karla",
+            "label": "Karla"
+          },
+          {
+            "value": "cabin",
+            "label": "Cabin"
+          },
+          {
+            "value": "pt_sans",
+            "label": "PT Sans"
+          },
+          {
+            "value": "libre_franklin",
+            "label": "Libre Franklin"
+          },
+          {
+            "value": "heebo",
+            "label": "Heebo"
+          },
+          {
+            "value": "hind",
+            "label": "Hind"
+          },
+          {
+            "value": "quicksand",
+            "label": "Quicksand"
+          },
+          {
+            "value": "josefin_sans",
+            "label": "Josefin Sans"
+          },
+          {
+            "value": "merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "value": "barlow",
+            "label": "Barlow"
           },
           {
             "value": "system_sans",
