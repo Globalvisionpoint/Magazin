@@ -1,0 +1,219 @@
+{%- liquid
+  assign has_custom_logos = false
+  if block.settings.trust_logo_1 != blank or block.settings.trust_logo_2 != blank or block.settings.trust_logo_3 != blank or block.settings.trust_logo_4 != blank or block.settings.trust_logo_5 != blank or block.settings.trust_logo_6 != blank
+    assign has_custom_logos = true
+  endif
+
+  assign payment_types_csv = block.settings.trust_payment_types | strip
+  assign has_payment_types = false
+  if payment_types_csv != blank
+    assign has_payment_types = true
+  endif
+
+  assign extra_badges_csv = block.settings.trust_extra_badges | strip
+  assign has_extra_badges = false
+  if extra_badges_csv != blank
+    assign has_extra_badges = true
+  endif
+-%}
+
+<style>
+  .product-trust-badges {
+    border: 1px solid {{ block.settings.trust_border_color | default: '#d6d9df' }};
+    border-radius: {{ block.settings.trust_corner_radius | default: 8 }}px;
+    background: {{ block.settings.trust_bg_color | default: '#ffffff' }};
+    padding: {{ block.settings.trust_padding_y | default: 14 }}px 1.2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+    align-items: start;
+  }
+
+  .product-trust-badges__icon {
+    width: {{ block.settings.trust_icon_size | default: 40 }}px;
+    height: {{ block.settings.trust_icon_size | default: 40 }}px;
+    min-width: {{ block.settings.trust_icon_size | default: 40 }}px;
+    border-radius: 10px;
+    background: {{ block.settings.trust_icon_bg_color | default: '#f3f4f6' }};
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-trust-badges__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .product-trust-badges__icon-fallback {
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .product-trust-badges__title {
+    margin: 0;
+    color: {{ block.settings.trust_title_color | default: '#111111' }};
+    font-size: 1.9rem;
+    line-height: 1.15;
+    font-weight: 800;
+  }
+
+  .product-trust-badges__subtitle {
+    margin: 0.2rem 0 0;
+    color: {{ block.settings.trust_subtitle_color | default: '#166A31' }};
+    font-size: 1.4rem;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  .product-trust-badges__note {
+    margin: 0.5rem 0 0;
+    color: {{ block.settings.trust_note_color | default: '#166A31' }};
+    font-size: 1.2rem;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  .product-trust-badges__note-secondary {
+    margin: 0.2rem 0 0;
+    color: {{ block.settings.trust_note_secondary_color | default: '#4b5563' }};
+    font-size: 1.12rem;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .product-trust-badges__payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product-trust-badges__payments li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid {{ block.settings.trust_logo_border_color | default: '#d6d9df' }};
+    border-radius: 4px;
+    min-width: 44px;
+    min-height: 28px;
+    padding: 2px 6px;
+    background: {{ block.settings.trust_logo_bg_color | default: '#ffffff' }};
+  }
+
+  .product-trust-badges__payments .icon {
+    width: auto;
+    height: {{ block.settings.trust_logo_height | default: 24 }}px;
+  }
+
+  .product-trust-badges__payments img {
+    width: auto;
+    height: {{ block.settings.trust_logo_height | default: 24 }}px;
+    object-fit: contain;
+  }
+
+  .product-trust-badges__extras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+  }
+
+  .product-trust-badges__extras span {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid {{ block.settings.trust_logo_border_color | default: '#d6d9df' }};
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: {{ block.settings.trust_note_secondary_color | default: '#4b5563' }};
+    background: #fff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-trust-badges {
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<div class="product-trust-badges" aria-label="Plati securizate">
+  <span class="product-trust-badges__icon" aria-hidden="true">
+    {%- if block.settings.trust_custom_icon != blank -%}
+      {{ block.settings.trust_custom_icon | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80,120,160', alt: block.settings.trust_title }}
+    {%- else -%}
+      <span class="product-trust-badges__icon-fallback">🔒</span>
+    {%- endif -%}
+  </span>
+
+  <div class="product-trust-badges__content">
+    {%- if block.settings.trust_title != blank -%}
+      <p class="product-trust-badges__title">{{ block.settings.trust_title }}</p>
+    {%- endif -%}
+
+    {%- if block.settings.trust_subtitle != blank -%}
+      <p class="product-trust-badges__subtitle">{{ block.settings.trust_subtitle }}</p>
+    {%- endif -%}
+
+    {%- if block.settings.trust_note != blank -%}
+      <p class="product-trust-badges__note">{{ block.settings.trust_note }}</p>
+    {%- endif -%}
+
+    {%- if block.settings.trust_note_secondary != blank -%}
+      <p class="product-trust-badges__note-secondary">{{ block.settings.trust_note_secondary }}</p>
+    {%- endif -%}
+
+    <ul class="product-trust-badges__payments" role="list">
+      {%- if has_custom_logos -%}
+        {%- if block.settings.trust_logo_1 != blank -%}
+          <li>{{ block.settings.trust_logo_1 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+        {%- if block.settings.trust_logo_2 != blank -%}
+          <li>{{ block.settings.trust_logo_2 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+        {%- if block.settings.trust_logo_3 != blank -%}
+          <li>{{ block.settings.trust_logo_3 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+        {%- if block.settings.trust_logo_4 != blank -%}
+          <li>{{ block.settings.trust_logo_4 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+        {%- if block.settings.trust_logo_5 != blank -%}
+          <li>{{ block.settings.trust_logo_5 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+        {%- if block.settings.trust_logo_6 != blank -%}
+          <li>{{ block.settings.trust_logo_6 | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90,120,180', alt: block.settings.trust_title }}</li>
+        {%- endif -%}
+      {%- elsif has_payment_types -%}
+        {%- assign payment_types = payment_types_csv | split: ',' -%}
+        {%- for type in payment_types -%}
+          {%- assign payment_type = type | strip -%}
+          {% if payment_type != blank %}
+            <li>{{ payment_type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+          {% endif %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for type in shop.enabled_payment_types -%}
+          <li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+
+    {%- if has_extra_badges -%}
+      <div class="product-trust-badges__extras">
+        {%- assign extra_badges = extra_badges_csv | split: ',' -%}
+        {%- for badge in extra_badges -%}
+          {%- assign badge_text = badge | strip -%}
+          {% if badge_text != blank %}
+            <span>{{ badge_text }}</span>
+          {% endif %}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

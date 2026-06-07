@@ -282,23 +282,6 @@
   assign icon_bg_color = block.settings.delivery_icon_bg_color | default: '#FFFFFF'
   assign block_bg_color = block.settings.delivery_bg_color | default: settings.delivery_global_bg_color | default: '#F3F3F3'
   assign border_color = block.settings.delivery_border_color | default: settings.delivery_global_border_color | default: '#337239'
-  assign show_trust_badges = block.settings.show_trust_badges
-  if show_trust_badges == blank
-    assign show_trust_badges = true
-  endif
-  assign trust_badges_title = block.settings.trust_badges_title | default: 'Plata securizata'
-  assign trust_badges_subtitle = block.settings.trust_badges_subtitle | default: 'Carduri acceptate'
-  assign trust_badges_note = block.settings.trust_badges_note | default: 'Plata ramburs disponibila'
-  assign trust_badges_title_color = block.settings.trust_badges_title_color | default: '#111111'
-  assign trust_badges_subtitle_color = block.settings.trust_badges_subtitle_color | default: '#166A31'
-  assign trust_badges_note_color = block.settings.trust_badges_note_color | default: '#4b5563'
-  assign trust_badges_bg_color = block.settings.trust_badges_bg_color | default: '#ffffff'
-  assign trust_badges_border_color = block.settings.trust_badges_border_color | default: '#d6d9df'
-  assign trust_payment_types_csv = block.settings.trust_badges_payment_types | strip
-  assign trust_has_custom_types = false
-  if trust_payment_types_csv != blank
-    assign trust_has_custom_types = true
-  endif
 
   assign delivery_emoji = '🚚'
   case block.settings.delivery_icon
@@ -437,64 +420,6 @@
       flex-basis: var(--delivery-icon-size);
     }
   }
-
-  .product-trust-badges {
-    margin-top: 0.85rem;
-    padding: 0.95rem 1.15rem;
-    border: 1px solid {{ trust_badges_border_color }};
-    border-radius: 0;
-    background: {{ trust_badges_bg_color }};
-  }
-
-  .product-trust-badges__title {
-    margin: 0;
-    color: {{ trust_badges_title_color }};
-    font-size: 1.95rem;
-    line-height: 1.15;
-    font-weight: 800;
-  }
-
-  .product-trust-badges__subtitle {
-    margin: 0.2rem 0 0;
-    color: {{ trust_badges_subtitle_color }};
-    font-size: 1.45rem;
-    line-height: 1.25;
-    font-weight: 700;
-  }
-
-  .product-trust-badges__payments {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.65rem;
-    align-items: center;
-  }
-
-  .product-trust-badges__payments li {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid {{ trust_badges_border_color }};
-    border-radius: 4px;
-    min-width: 44px;
-    min-height: 28px;
-    background: #fff;
-    padding: 2px 6px;
-    list-style: none;
-  }
-
-  .product-trust-badges__payments .icon {
-    width: auto;
-    height: 18px;
-  }
-
-  .product-trust-badges__note {
-    margin: 0.65rem 0 0;
-    color: {{ trust_badges_note_color }};
-    font-size: 1.2rem;
-    line-height: 1.35;
-    font-weight: 600;
-  }
 </style>
 
 <div class="product-delivery-estimate product-delivery-estimate--{{ visual_preset }}" aria-label="Interval estimat de livrare">
@@ -526,30 +451,3 @@
     {%- endif -%}
   </div>
 </div>
-
-{% if show_trust_badges %}
-  <div class="product-trust-badges" aria-label="Plati securizate">
-    <p class="product-trust-badges__title">{{ trust_badges_title }}</p>
-    <p class="product-trust-badges__subtitle">{{ trust_badges_subtitle }}</p>
-
-    <ul class="product-trust-badges__payments" role="list">
-      {% if trust_has_custom_types %}
-        {%- assign trust_payment_types = trust_payment_types_csv | split: ',' -%}
-        {%- for type in trust_payment_types -%}
-          {%- assign payment_type = type | strip -%}
-          {% if payment_type != blank %}
-            <li>{{ payment_type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
-          {% endif %}
-        {%- endfor -%}
-      {% else %}
-        {%- for type in shop.enabled_payment_types -%}
-          <li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
-        {%- endfor -%}
-      {% endif %}
-    </ul>
-
-    {% if trust_badges_note != blank %}
-      <p class="product-trust-badges__note">{{ trust_badges_note }}</p>
-    {% endif %}
-  </div>
-{% endif %}

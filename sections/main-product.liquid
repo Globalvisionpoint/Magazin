@@ -198,71 +198,6 @@
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
   <link
-        {
-          "type": "header",
-          "content": "Trust badges sub livrare"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_trust_badges",
-          "default": true,
-          "label": "Arata bloc plati securizate"
-        },
-        {
-          "type": "text",
-          "id": "trust_badges_title",
-          "default": "Plata securizata",
-          "label": "Titlu trust"
-        },
-        {
-          "type": "text",
-          "id": "trust_badges_subtitle",
-          "default": "Carduri acceptate",
-          "label": "Subtitlu trust"
-        },
-        {
-          "type": "text",
-          "id": "trust_badges_note",
-          "default": "Plata ramburs disponibila",
-          "label": "Text extra trust"
-        },
-        {
-          "type": "text",
-          "id": "trust_badges_payment_types",
-          "default": "visa,master,maestro,apple_pay,google_pay",
-          "label": "Tipuri plata (separate prin virgula)",
-          "info": "Ex: visa,master,maestro,apple_pay,google_pay"
-        },
-        {
-          "type": "color",
-          "id": "trust_badges_title_color",
-          "default": "#111111",
-          "label": "Culoare titlu trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_badges_subtitle_color",
-          "default": "#166A31",
-          "label": "Culoare subtitlu trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_badges_note_color",
-          "default": "#4b5563",
-          "label": "Culoare text trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_badges_bg_color",
-          "default": "#ffffff",
-          "label": "Fundal trust"
-        },
-        {
-          "type": "color",
-          "id": "trust_badges_border_color",
-          "default": "#d6d9df",
-          "label": "Chenar trust"
-        },
     id="ModelViewerStyle"
     rel="stylesheet"
     href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
@@ -824,6 +759,10 @@
             {%- when 'delivery_estimate', 'delivery_estimate_pro', 'delivery_cutoff' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'delivery-estimate-block', block: block %}
+              </div>
+            {%- when 'trust_badges' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'trust-badges-block', block: block %}
               </div>
             {%- when 'barcode' -%}
               <div id="barcode__{{ section.id }}" {{ block.shopify_attributes }}>
@@ -2266,6 +2205,179 @@
           "id": "non_delivery_sunday",
           "default": true,
           "label": "Duminica nelucratoare"
+        }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust badges",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trust_title",
+          "default": "Plata securizata",
+          "label": "Titlu"
+        },
+        {
+          "type": "text",
+          "id": "trust_subtitle",
+          "default": "Carduri acceptate",
+          "label": "Subtitlu"
+        },
+        {
+          "type": "text",
+          "id": "trust_note",
+          "default": "Plata ramburs disponibila",
+          "label": "Text principal"
+        },
+        {
+          "type": "text",
+          "id": "trust_note_secondary",
+          "default": "Plata online 100% securizata",
+          "label": "Text secundar"
+        },
+        {
+          "type": "text",
+          "id": "trust_payment_types",
+          "default": "visa,master,maestro,apple_pay,google_pay",
+          "label": "Carduri afisate (CSV)",
+          "info": "Ex: visa,master,maestro,apple_pay,google_pay"
+        },
+        {
+          "type": "text",
+          "id": "trust_extra_badges",
+          "default": "Ramburs",
+          "label": "Badge-uri extra (CSV)",
+          "info": "Ex: Ramburs,Transfer bancar"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_custom_icon",
+          "label": "Iconita"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_1",
+          "label": "Logo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_2",
+          "label": "Logo 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_3",
+          "label": "Logo 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_4",
+          "label": "Logo 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_5",
+          "label": "Logo 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "trust_logo_6",
+          "label": "Logo 6"
+        },
+        {
+          "type": "range",
+          "id": "trust_icon_size",
+          "min": 30,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 40,
+          "label": "Marime iconita"
+        },
+        {
+          "type": "range",
+          "id": "trust_logo_height",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 24,
+          "label": "Inaltime logo"
+        },
+        {
+          "type": "range",
+          "id": "trust_padding_y",
+          "min": 8,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 14,
+          "label": "Padding vertical"
+        },
+        {
+          "type": "range",
+          "id": "trust_corner_radius",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 8,
+          "label": "Rotunjire colturi"
+        },
+        {
+          "type": "color",
+          "id": "trust_title_color",
+          "default": "#111111",
+          "label": "Culoare titlu"
+        },
+        {
+          "type": "color",
+          "id": "trust_subtitle_color",
+          "default": "#166A31",
+          "label": "Culoare subtitlu"
+        },
+        {
+          "type": "color",
+          "id": "trust_note_color",
+          "default": "#166A31",
+          "label": "Culoare text principal"
+        },
+        {
+          "type": "color",
+          "id": "trust_note_secondary_color",
+          "default": "#4b5563",
+          "label": "Culoare text secundar"
+        },
+        {
+          "type": "color",
+          "id": "trust_bg_color",
+          "default": "#ffffff",
+          "label": "Fundal bloc"
+        },
+        {
+          "type": "color",
+          "id": "trust_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar bloc"
+        },
+        {
+          "type": "color",
+          "id": "trust_icon_bg_color",
+          "default": "#f3f4f6",
+          "label": "Fundal iconita"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_bg_color",
+          "default": "#ffffff",
+          "label": "Fundal logo"
+        },
+        {
+          "type": "color",
+          "id": "trust_logo_border_color",
+          "default": "#d6d9df",
+          "label": "Chenar logo"
         }
       ]
     },
